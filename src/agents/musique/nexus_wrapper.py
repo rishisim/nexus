@@ -10,18 +10,9 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 from musique_utils import get_musique_env, llm
+from experiment_utils import EnvWrapper
+from wrappers import f1_score
 from src.agents.nexus.nexus_agent import NexusAgent
-
-class EnvWrapper:
-    """Wraps MusiqueEnv to match expectation of NexusAgent (which calls .step directly)."""
-    def __init__(self, env):
-        self.env = env
-        
-    def step(self, action):
-        return self.env.step(action)
-    
-    def reset(self, idx=None):
-        return self.env.reset(idx=idx)
 
 def run_nexus(idx, prompt_template=None, to_print=True):
     """
@@ -53,12 +44,21 @@ def run_nexus(idx, prompt_template=None, to_print=True):
     final_action = f"finish[{answer}]"
     obs, reward, done, info = wrapped_env.step(final_action)
     
+    # Compute F1
+    gt_str = info.get('gt_answer', '') or ''
+    answer_str = answer or ''
+    f1_val = f1_score(answer_str, gt_str)[0] if answer_str and gt_str else 0.0
+
     info_dict = {
         'question_idx': idx,
-        'question': info.get('question'),
+        'question_text': info.get('question'),
         'answer': answer,
         'gt_answer': info.get('gt_answer'),
         'em': reward,
+        'f1': f1_val,
+        'reward': reward,
+        'n_calls': agent.n_calls,
+        'n_badcalls': 0,
         'steps': info.get('steps'),
         'decomposition': info.get('decomposition'),
         'traj': debug_info.get('traj', ''),

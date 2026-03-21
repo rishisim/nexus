@@ -1,0 +1,12 @@
+{
+  "seed": 500,
+  "model": "gemini-2.5-flash",
+  "tasks_per_type": 50,
+  "task_types": [
+    "bridge_comparison",
+    "comparison",
+    "compositional",
+    "inference"
+  ],
+  "created": "2026-03-20 17:14:20"
+}

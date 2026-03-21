@@ -1,0 +1,72 @@
+{
+  "react": {
+    "total_examples": 298,
+    "valid_examples": 298,
+    "error_count": 0,
+    "accuracy_em": 0.8792,
+    "accuracy_f1": 0.907,
+    "accuracy_llm_judge": 0.943,
+    "em_success_count": 262,
+    "llm_success_count": 281,
+    "total_llm_calls": 1093,
+    "total_bad_calls": 43,
+    "avg_calls_per_example": 3.67,
+    "by_task_type": {
+      "bridge_comparison": {
+        "count": 100,
+        "accuracy_em": 0.98,
+        "accuracy_llm_judge": 0.98
+      },
+      "comparison": {
+        "count": 98,
+        "accuracy_em": 0.9694,
+        "accuracy_llm_judge": 0.9796
+      },
+      "compositional": {
+        "count": 50,
+        "accuracy_em": 0.6,
+        "accuracy_llm_judge": 0.92
+      },
+      "inference": {
+        "count": 50,
+        "accuracy_em": 0.78,
+        "accuracy_llm_judge": 0.82
+      }
+    }
+  },
+  "nexus": {
+    "total_examples": 298,
+    "valid_examples": 298,
+    "error_count": 0,
+    "accuracy_em": 0.8389,
+    "accuracy_f1": 0.8677,
+    "accuracy_llm_judge": 0.896,
+    "em_success_count": 250,
+    "llm_success_count": 267,
+    "total_llm_calls": 894,
+    "total_bad_calls": 0,
+    "avg_calls_per_example": 3.0,
+    "by_task_type": {
+      "bridge_comparison": {
+        "count": 100,
+        "accuracy_em": 0.87,
+        "accuracy_llm_judge": 0.88
+      },
+      "comparison": {
+        "count": 98,
+        "accuracy_em": 0.9898,
+        "accuracy_llm_judge": 0.9898
+      },
+      "compositional": {
+        "count": 50,
+        "accuracy_em": 0.64,
+        "accuracy_llm_judge": 0.9
+      },
+      "inference": {
+        "count": 50,
+        "accuracy_em": 0.68,
+        "accuracy_llm_judge": 0.74
+      }
+    }
+  }
+}

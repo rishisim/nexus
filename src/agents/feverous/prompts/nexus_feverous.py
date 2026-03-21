@@ -38,6 +38,8 @@ Question: "{question}"
 [Passports]:
 {passports}
 
+Scout already searched: {scout_entities}
+
 AVAILABLE ACTIONS:
 - Search[entity]: Search for a Wikipedia page about the entity
 - Lookup[keyword]: Look up text containing keyword on the current page

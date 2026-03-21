@@ -1,0 +1,26 @@
+{
+  "react": {
+    "total_examples": 200,
+    "valid_examples": 200,
+    "error_count": 0,
+    "accuracy_em": 0.215,
+    "accuracy_f1": 0.2927,
+    "success_count": 43,
+    "total_llm_calls": 1196,
+    "total_bad_calls": 0,
+    "avg_calls_per_example": 5.98,
+    "decomposition_breakdown": "Performance by Hop Count:\n  2-hop: EM = 0.250 (108 examples)\n  3-hop: EM = 0.209 (67 examples)\n  4-hop: EM = 0.080 (25 examples)\n"
+  },
+  "nexus": {
+    "total_examples": 200,
+    "valid_examples": 200,
+    "error_count": 0,
+    "accuracy_em": 0.165,
+    "accuracy_f1": 0.2253,
+    "success_count": 33,
+    "total_llm_calls": 600,
+    "total_bad_calls": 0,
+    "avg_calls_per_example": 3.0,
+    "decomposition_breakdown": "Performance by Hop Count:\n  2-hop: EM = 0.204 (108 examples)\n  3-hop: EM = 0.104 (67 examples)\n  4-hop: EM = 0.160 (25 examples)\n"
+  }
+}

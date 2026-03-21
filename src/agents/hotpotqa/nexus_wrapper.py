@@ -4,23 +4,13 @@ import os
 
 # Add local directory to path for relative imports if needed
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add project root for nexus import
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
-from hotpotqa_utils import get_hotpotqa_env, llm, step, llm_judge_answer
+from hotpotqa_utils import get_hotpotqa_env, llm, llm_judge_answer
+from experiment_utils import EnvWrapper
 
-# Import Nexus Agent
-# Assuming running from root, so src.agents... works.
 from src.agents.nexus.nexus_agent import NexusAgent
-
-class EnvWrapper:
-    """Wraps the WikiEnv to use the robust step function from hotpotqa_utils."""
-    def __init__(self, env):
-        self.env = env
-        
-    def step(self, action):
-        return step(self.env, action)
-    
-    def reset(self, idx=None):
-        return self.env.reset(idx=idx)
 
 def run_nexus(idx, prompt_template=None, to_print=True):
     """

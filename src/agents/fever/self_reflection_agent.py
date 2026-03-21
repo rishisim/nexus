@@ -1,9 +1,10 @@
 """
-Self-Reflection Agent for FEVER
+Single-Pass Verification Agent for FEVER
 
 Runs a single ReAct trace, then uses LLM to verify the answer based on the trace.
-If the verification determines the answer is incorrect, outputs the corrected answer
-based solely on the evidence in the trace.
+If the verification determines the answer is incorrect, outputs a corrected answer
+based solely on the evidence in the trace. This is a single-pass correction, not
+iterative self-reflection.
 """
 
 import sys
@@ -16,6 +17,7 @@ from fever_utils import (
     llm,
     WEBTHINK_PROMPT_TEMPLATE
 )
+from wrappers import normalize_answer
 
 
 def load_self_reflection_prompt():
@@ -200,8 +202,8 @@ def run_self_reflection(idx, prompt_template=None, to_print=True):
         if to_print:
             print(f"[WARNING] Verification status {verification_result['verification_status']}, using original answer")
     
-    # Calculate metrics based on final answer
-    em_score = 1.0 if final_answer == gt_answer else 0.0
+    # Calculate metrics based on final answer (using normalized comparison)
+    em_score = 1.0 if normalize_answer(final_answer) == normalize_answer(gt_answer) else 0.0
     
     # Aggregate call counts (1 trace + 1 verification call)
     total_calls = trace_info.get('n_calls', 0) + 1  # +1 for verification

@@ -14,6 +14,7 @@ import re
 import json
 import sys
 import collections
+from collections import Counter
 from dotenv import load_dotenv
 
 # Load .env file
@@ -21,42 +22,13 @@ load_dotenv()
 
 # Add shared directory to path for wikienv and wrappers
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../shared')))
+from llm import llm
+from experiment_utils import append_to_json
+from wrappers import normalize_answer, f1_score
 
 # Import Musique Environment
 # Assumes this file is in src/agents/musique/
 from musique_env import MusiqueEnv
-
-# --- LLM Configuration and Interaction ---
-from google import genai
-from google.genai import types
-
-client = genai.Client()
-
-def llm(prompt, stop=["\n"], num_traces=1):
-    """
-    Call the language model with the given prompt.
-    """
-    time.sleep(1.0) # Rate limit protection
-
-    temperature_setting = 0.0 if num_traces == 1 else 0.7
-    model_name = os.environ.get("MODEL_NAME", "gemini-2.5-flash")
-    
-    try:
-        response = client.models.generate_content(
-            model=model_name,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                thinking_config=types.ThinkingConfig(thinking_budget=0),
-                stop_sequences=stop,
-                temperature=temperature_setting,
-                max_output_tokens=512,
-                top_p=1.0
-            )
-        )
-        return response.text
-    except Exception as e:
-        print(f"[LLM ERROR] {e}")
-        return ""
 
 # --- Environment Setup ---
 env = None
@@ -128,10 +100,17 @@ def run_single_trace(idx, initial_prompt_template, to_print=True, temperature=No
     # Trace info
     info = musique_env._get_info()
     trace_info = info.copy()
+    # Compute F1
+    answer_str = trace_info.get('answer', '') or ''
+    gt_str = trace_info.get('gt_answer', '') or ''
+    f1 = f1_score(answer_str, gt_str)[0] if answer_str and gt_str else 0.0
+
     trace_info.update({
         'n_calls': n_calls,
         'traj': initial_prompt_template + question_text + "\n" + "".join(current_trace_steps),
-        'em': r  # reward is EM
+        'em': r,  # reward is EM
+        'f1': f1,
+        'reward': r
     })
     
     if to_print:
@@ -167,23 +146,3 @@ def analyze_decomposition_performance(results):
         
     return summary
 
-def append_to_json(data, filename):
-    """Append data to a JSON file."""
-    if os.path.exists(filename):
-        with open(filename, 'r+') as f:
-            try:
-                file_data = json.load(f)
-            except json.JSONDecodeError:
-                file_data = []
-            
-            if isinstance(file_data, list):
-                file_data.append(data)
-            else:
-                file_data = [data]
-            
-            f.seek(0)
-            json.dump(file_data, f, indent=4)
-            f.truncate()
-    else:
-        with open(filename, 'w') as f:
-            json.dump([data], f, indent=4)

@@ -22,47 +22,11 @@ load_dotenv()
 # Add shared directory to path for wikienv and wrappers
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../shared')))
 import wrappers
+from llm import llm
+from experiment_utils import step, append_to_json, EnvWrapper
 
 # Import the FEVEROUS-specific environment
 from feverous_env import FeverousEnv
-
-# --- LLM Configuration and Interaction ---
-from google import genai
-from google.genai import types
-
-# The client gets the API key from the environment variable `GEMINI_API_KEY`.
-client = genai.Client()
-
-
-def llm(prompt, stop=["\n"], num_traces=1):
-    """
-    Call the language model with the given prompt.
-    
-    Args:
-        prompt: The input prompt string
-        stop: List of stop sequences
-        num_traces: Number of traces (affects temperature setting)
-        
-    Returns:
-        String response from the LLM
-    """
-    # This delay ensures we don't exceed API rate limits (3 seconds between calls).
-    time.sleep(1.0)
-
-    temperature_setting = 0.0 if num_traces == 1 else 0.7
-    model_name = os.environ.get("MODEL_NAME", "gemini-2.5-flash")
-    response = client.models.generate_content(
-        model=model_name,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            thinking_config=types.ThinkingConfig(thinking_budget=0),  # Disables thinking
-            stop_sequences=stop,
-            temperature=temperature_setting,
-            max_output_tokens=512,
-            top_p=1.0
-        )
-    )
-    return response.text
 
 
 # --- Environment Setup ---
@@ -77,30 +41,6 @@ def get_feverous_env():
         env = wrappers.FeverousWrapper(feverous_env, split="dev")
         env = wrappers.LoggingWrapper(env)
     return env
-
-
-def step(current_env, action):
-    """
-    Execute a step in the environment with retry logic for timeouts.
-    
-    Args:
-        current_env: The FEVEROUS environment
-        action: Action string to execute
-        
-    Returns:
-        Tuple of (observation, reward, done, info)
-    """
-    attempts = 0
-    while attempts < 10:
-        try:
-            return current_env.step(action)
-        except requests.exceptions.Timeout:
-            print(f"[WARNING] Timeout during env.step attempt {attempts+1} for action: {action}")
-            attempts += 1
-            time.sleep(2)  # Wait before retrying
-    
-    print(f"[ERROR] Failed to execute step after 10 attempts due to timeout for action: {action}")
-    return "Timeout after 10 attempts", 0, False, {"error": "API Timeout"}
 
 
 # --- Prompt Loading ---
@@ -141,10 +81,16 @@ def extract_final_answer_from_trace_string(trace_trajectory_string):
     Returns:
         Answer string (SUPPORTS/REFUTES/NOT ENOUGH INFO) or None
     """
-    pattern = re.compile(r"^Action \d+: Finish\[(SUPPORTS|REFUTES|NOT ENOUGH INFO)\]\s*$", re.MULTILINE)
-    matches = pattern.findall(trace_trajectory_string)
+    matches = re.findall(r'[Ff]inish\[([^\]]+)\]', trace_trajectory_string)
     if matches:
-        return matches[-1].strip()
+        answer = matches[-1].strip().upper()
+        if answer.startswith("SUPPORT"):
+            return "SUPPORTS"
+        elif answer.startswith("REFUTE"):
+            return "REFUTES"
+        elif "NOT ENOUGH" in answer:
+            return "NOT ENOUGH INFO"
+        return answer
     return None
 
 
@@ -171,8 +117,16 @@ def extract_answers_from_traces(all_traces_info):
             extracted_answers.append(answer_from_traj)
         else:
             env_answer = trace_info.get('answer')
-            if env_answer in ['SUPPORTS', 'REFUTES', 'NOT ENOUGH INFO']:
-                extracted_answers.append(env_answer)
+            if env_answer is not None:
+                normalized = env_answer.strip().upper()
+                if normalized.startswith("SUPPORT"):
+                    extracted_answers.append("SUPPORTS")
+                elif normalized.startswith("REFUTE"):
+                    extracted_answers.append("REFUTES")
+                elif "NOT ENOUGH" in normalized:
+                    extracted_answers.append("NOT ENOUGH INFO")
+                else:
+                    extracted_answers.append(None)
             else:
                 extracted_answers.append(None)
 
@@ -289,26 +243,3 @@ def run_single_trace(idx, initial_prompt_template, to_print=True, temperature=No
         print(f"[RESULT] Answer: {trace_info['answer']} | GT: {trace_info.get('gt_answer', 'UNKNOWN')} | EM: {trace_info.get('em', 0.0)}\n")
     
     return trace_info
-
-
-# --- Utility for JSON appending ---
-def append_to_json(data, filename):
-    """Append data to a JSON file that stores a list of JSON objects."""
-    if os.path.exists(filename):
-        with open(filename, 'r+') as f:
-            try:
-                file_data = json.load(f)
-            except json.JSONDecodeError:
-                file_data = []
-            
-            if isinstance(file_data, list):
-                file_data.append(data)
-            else:
-                file_data = [data]
-            
-            f.seek(0)
-            json.dump(file_data, f, indent=4)
-            f.truncate()
-    else:
-        with open(filename, 'w') as f:
-            json.dump([data], f, indent=4)

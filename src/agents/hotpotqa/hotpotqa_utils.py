@@ -24,61 +24,8 @@ load_dotenv()
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../shared')))
 import wikienv
 import wrappers
-
-# --- LLM Configuration and Interaction ---
-from google import genai
-from google.genai import types
-
-# The client gets the API key from the environment variable `GEMINI_API_KEY`.
-client = genai.Client()
-
-
-def llm(prompt, stop=["\n"], temperature=None, num_traces=1):
-    """
-    Call the language model with the given prompt.
-    
-    Args:
-        prompt: The input prompt string
-        stop: List of stop sequences
-        temperature: Override temperature (if None, uses default based on num_traces)
-        num_traces: Number of traces (affects default temperature setting)
-        
-    Returns:
-        String response from the LLM
-    """
-    # 0.5 second delay (reduced for Flash tier)
-    time.sleep(0.5)
-
-    if temperature is None:
-        temperature_setting = 0.0 if num_traces == 1 else 0.7
-    else:
-        temperature_setting = temperature
-        
-    max_retries = 3
-    for attempt in range(max_retries):
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    thinking_config=types.ThinkingConfig(thinking_budget=0),  # Disables thinking
-                    stop_sequences=stop,
-                    temperature=temperature_setting,
-                    max_output_tokens=512,
-                    top_p=1.0
-                )
-            )
-            if response and response.text:
-                return response.text
-            time.sleep(2)  # Wait before retry if we got an empty response
-        except Exception as e:
-            print(f"LLM call failed (attempt {attempt + 1}/{max_retries}): {str(e)}")
-            if attempt < max_retries - 1:
-                time.sleep(2)
-            else:
-                raise
-    
-    return "I need to finish now.\nFinish[Unable to proceed due to API error]"
+from llm import llm
+from experiment_utils import step, append_to_json, EnvWrapper
 
 
 # --- Environment Setup ---
@@ -95,28 +42,6 @@ def get_hotpotqa_env():
     return env
 
 
-def step(current_env, action):
-    """
-    Execute a step in the environment with retry logic for timeouts.
-    
-    Args:
-        current_env: The HotPotQA environment
-        action: Action string to execute
-        
-    Returns:
-        Tuple of (observation, reward, done, info)
-    """
-    attempts = 0
-    while attempts < 10:
-        try:
-            return current_env.step(action)
-        except requests.exceptions.Timeout:
-            print(f"[WARNING] Timeout during env.step attempt {attempts+1} for action: {action}")
-            attempts += 1
-            time.sleep(2)
-    
-    print(f"[ERROR] Failed to execute step after 10 attempts due to timeout for action: {action}")
-    return "Timeout after 10 attempts", 0, False, {"error": "API Timeout"}
 
 
 # --- Prompt Loading ---
@@ -462,26 +387,3 @@ def run_single_trace(idx, initial_prompt_template, to_print=True, temperature=No
         print(f"[RESULT] Answer: {trace_info['answer']} | GT: {trace_info.get('gt_answer', 'UNKNOWN')} | EM: {trace_info.get('em', 0.0)} | LLM: {llm_eval['llm_correct']}\n")
     
     return trace_info
-
-
-# --- Utility for JSON appending ---
-def append_to_json(data, filename):
-    """Append data to a JSON file that stores a list of JSON objects."""
-    if os.path.exists(filename):
-        with open(filename, 'r+') as f:
-            try:
-                file_data = json.load(f)
-            except json.JSONDecodeError:
-                file_data = []
-            
-            if isinstance(file_data, list):
-                file_data.append(data)
-            else:
-                file_data = [data]
-            
-            f.seek(0)
-            json.dump(file_data, f, indent=4)
-            f.truncate()
-    else:
-        with open(filename, 'w') as f:
-            json.dump([data], f, indent=4)

@@ -1,9 +1,11 @@
 """
-Reflexion ReAct Agent for FEVER
+Verification-Guided ReAct Agent for FEVER (inspired by Reflexion)
 
 Runs a ReAct trace, then verifies the answer using LLM. If the verification
-determines the answer is incorrect, runs a second trace with verification 
-feedback to guide the reasoning.
+determines the answer is incorrect, runs a second trace with verification
+feedback to guide the reasoning. Note: this is a simplified single-retry
+approach, not the full Reflexion algorithm from Shinn et al. 2023 (which
+maintains a persistent reflection memory across multiple trials).
 """
 
 import sys
@@ -16,6 +18,7 @@ from fever_utils import (
     llm,
     WEBTHINK_PROMPT_TEMPLATE
 )
+from wrappers import normalize_answer
 
 
 def load_verification_prompt():
@@ -203,8 +206,8 @@ Use this feedback to guide your search and reasoning in this attempt.
         if to_print:
             print(f"[VERIFICATION] Answer is correct, no second trace needed.")
     
-    # Calculate metrics based on final answer
-    em_score = 1.0 if final_answer == gt_answer else 0.0
+    # Calculate metrics based on final answer (using normalized comparison)
+    em_score = 1.0 if normalize_answer(final_answer) == normalize_answer(gt_answer) else 0.0
     
     # Aggregate call counts
     total_calls = trace_1.get('n_calls', 0) + 1  # +1 for verification

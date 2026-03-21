@@ -1,0 +1,338 @@
+/Users/rishisim/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+======================================================================
+2WikiMultiHop - Nexus Agent Test
+Running 5 tasks per type, 4 types total
+Start time: 2026-01-19T15:20:41.795357
+======================================================================
+Loading 2WikiMultiHop dataset (train split)...
+
+######################################################################
+# TASK TYPE: BRIDGE_COMPARISON
+######################################################################
+
+--- Task 1/5 (Index: 0) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 0
+[TYPE] bridge_comparison
+[Q] Are director of film Move (1970 Film) and director of film Méditerranée (1963 Film) from the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 2/5 (Index: 1) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 1
+[TYPE] bridge_comparison
+[Q] Do both films The Falcon (Film) and Valentin The Good have the directors from the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 3/5 (Index: 2) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 2
+[TYPE] bridge_comparison
+[Q] Which film whose director is younger, Charge It To Me or Danger: Diabolik?
+
+[FINAL ACTION] finish[NOT ENOUGH INFO]
+
+[RESULT] Answer: NOT ENOUGH INFO
+[GT] Danger: Diabolik
+[EM] 0.0 | [F1] 0.000 | [LLM] False
+============================================================
+
+--- Task 4/5 (Index: 7) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 7
+[TYPE] bridge_comparison
+[Q] Do both films: The Ex-Mrs. Bradford and The Star Of Santa Clara have the directors from the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 5/5 (Index: 20) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 20
+[TYPE] bridge_comparison
+[Q] Do director of film Chandirani and director of film Not Without Gisela have the same nationality?
+
+[FINAL ACTION] finish[NOT ENOUGH INFO]
+
+[RESULT] Answer: NOT ENOUGH INFO
+[GT] no
+[EM] 0.0 | [F1] 0.000 | [LLM] False
+============================================================
+
+######################################################################
+# TASK TYPE: COMPARISON
+######################################################################
+
+--- Task 1/5 (Index: 8) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 8
+[TYPE] comparison
+[Q] Which film came out first, The Love Route or Engal Aasan?
+
+[FINAL ACTION] finish[The Love Route]
+
+[RESULT] Answer: The Love Route
+[GT] The Love Route
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 2/5 (Index: 10) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 10
+[TYPE] comparison
+[Q] Are Matraville Sports High School and Wabash High School both located in the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 3/5 (Index: 11) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 11
+[TYPE] comparison
+[Q] Are Alison Skipper and Diane Gilliam Fisher from the same country?
+
+[FINAL ACTION] finish[Yes]
+
+[RESULT] Answer: Yes
+[GT] yes
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 4/5 (Index: 12) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 12
+[TYPE] comparison
+[Q] Do the movies Bloody Birthday and The Beckoning Silence, originate from the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 5/5 (Index: 19) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 19
+[TYPE] comparison
+[Q] Are both businesses, Vakıfbank and Infopro Sdn Bhd, located in the same country?
+
+[FINAL ACTION] finish[No]
+
+[RESULT] Answer: No
+[GT] no
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+######################################################################
+# TASK TYPE: COMPOSITIONAL
+######################################################################
+
+--- Task 1/5 (Index: 3) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 3
+[TYPE] compositional
+[Q] What is the date of birth of Mina Gerhardsen's father?
+
+[FINAL ACTION] finish[13 June 1946]
+
+[RESULT] Answer: 13 June 1946
+[GT] 13 June 1946
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 2/5 (Index: 4) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 4
+[TYPE] compositional
+[Q] What nationality is the director of film Wedding Night In Paradise (1950 Film)?
+
+[FINAL ACTION] finish[Hungarian]
+
+[RESULT] Answer: Hungarian
+[GT] Hungarian
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 3/5 (Index: 5) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 5
+[TYPE] compositional
+[Q] When is the composer of film Sruthilayalu 's birthday?
+
+[FINAL ACTION] finish[14 March 1918]
+
+[RESULT] Answer: 14 March 1918
+[GT] 14 March 1918
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 4/5 (Index: 9) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 9
+[TYPE] compositional
+[Q] Where was the director of film The Fascist born?
+
+[FINAL ACTION] finish[Rome]
+
+[RESULT] Answer: Rome
+[GT] Rome
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 5/5 (Index: 13) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 13
+[TYPE] compositional
+[Q] Which country the performer of song Soldier (Neil Young Song) is from?
+
+[FINAL ACTION] finish[Canada]
+
+[RESULT] Answer: Canada
+[GT] Canadian
+[EM] 0.0 | [F1] 0.000 | [LLM] True
+============================================================
+
+######################################################################
+# TASK TYPE: INFERENCE
+######################################################################
+
+--- Task 1/5 (Index: 6) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 6
+[TYPE] inference
+[Q] Who is Rhescuporis I (Odrysian)'s paternal grandfather?
+
+[FINAL ACTION] finish[Not enough info]
+
+[RESULT] Answer: Not enough info
+[GT] Raizdos
+[EM] 0.0 | [F1] 0.000 | [LLM] False
+============================================================
+
+--- Task 2/5 (Index: 36) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 36
+[TYPE] inference
+[Q] Who is the mother-in-law of Andrew Murray (Scottish Soldier)?
+
+[FINAL ACTION] finish[Marjorie, Countess of Carrick]
+
+[RESULT] Answer: Marjorie, Countess of Carrick
+[GT] Marjorie, Countess of Carrick
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 3/5 (Index: 165) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 165
+[TYPE] inference
+[Q] Who is Hormizd I's paternal grandfather?
+
+[FINAL ACTION] finish[Ardashir I]
+
+[RESULT] Answer: Ardashir I
+[GT] Ardashir I
+[EM] 1.0 | [F1] 1.000 | [LLM] True
+============================================================
+
+--- Task 4/5 (Index: 171) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 171
+[TYPE] inference
+[Q] Who is the uncle of Manuel Komnenos (Kouropalates)?
+
+[FINAL ACTION] finish[Not enough information.]
+
+[RESULT] Answer: Not enough information.
+[GT] Isaac I Komnenos
+[EM] 0.0 | [F1] 0.000 | [LLM] False
+============================================================
+
+--- Task 5/5 (Index: 244) ---
+============================================================
+[FRAMEWORK] Nexus (Scout -> Architect -> Adjudicator)
+============================================================
+[IDX] 244
+[TYPE] inference
+[Q] Who is the maternal grandfather of Countess Johanna Magdalene Of Hanau-Lichtenberg?
+
+[FINAL ACTION] finish[Christian I, Count Palatine of Birkenfeld-Bischweiler]
+
+[RESULT] Answer: Christian I, Count Palatine of Birkenfeld-Bischweiler
+[GT] Christian I
+[EM] 0.0 | [F1] 0.250 | [LLM] True
+============================================================
+
+======================================================================
+FINAL SUMMARY
+======================================================================
+  bridge_comparison   : 3/5 (60.0%)
+  comparison          : 5/5 (100.0%)
+  compositional       : 5/5 (100.0%)
+  inference           : 3/5 (60.0%)
+----------------------------------------
+  OVERALL             : 16/20 (80.0%)
+======================================================================
+
+[SAVED] Results saved to: /Users/rishisim/Documents/research/nexus/results/wikimultihop/nexus_test_20260119_152221.json
+End time: 2026-01-19T15:22:21.527105

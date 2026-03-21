@@ -20,6 +20,8 @@ from pathlib import Path
 
 # Add parent directories to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Add project root for src.agents.nexus imports
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 from feverous_utils import WEBTHINK_PROMPT_TEMPLATE
 from react_agent import run_react

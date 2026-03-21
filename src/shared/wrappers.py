@@ -58,7 +58,10 @@ def normalize_answer(s):
   def lower(text):
       return text.lower()
 
-  return white_space_fix(remove_articles(remove_punc(lower(s))))
+  result = white_space_fix(remove_articles(remove_punc(lower(s))))
+  # Normalize known equivalent labels
+  LABEL_EQUIVALENCES = {"not enough information": "not enough info"}
+  return LABEL_EQUIVALENCES.get(result, result)
 
 def f1_score(prediction, ground_truth):
   normalized_prediction = normalize_answer(prediction)
@@ -133,7 +136,6 @@ class HotPotQAWrapper(gym.Wrapper):
     return {'reward': 0, 'em': 0, 'f1': 0}
 
   def step(self, action):
-    # TODO: first step obs does not have question. 
     obs, _, done, info = self.env.step(action)
     reward = self.get_reward(info)
     if done:
@@ -198,7 +200,6 @@ class FeverWrapper(gym.Wrapper):
     return 0
 
   def step(self, action):
-    # TODO: first step obs does not have question. 
     obs, _, done, info = self.env.step(action)
     reward = self.get_reward(info)
     if done:

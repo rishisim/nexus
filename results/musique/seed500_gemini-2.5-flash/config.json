@@ -1,0 +1,6 @@
+{
+  "seed": 500,
+  "model": "gemini-2.5-flash",
+  "max_dev_examples": 2417,
+  "created": "2026-03-20 19:22:43"
+}

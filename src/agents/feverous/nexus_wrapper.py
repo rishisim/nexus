@@ -11,21 +11,11 @@ import os
 # Add local directory to path for relative imports if needed
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from feverous_utils import get_feverous_env, llm, step
+from feverous_utils import get_feverous_env, llm
+from experiment_utils import EnvWrapper
 
 # Import FEVEROUS-specific Nexus Agent with TableLookup support
 from feverous_nexus_agent import FeverousNexusAgent
-
-class EnvWrapper:
-    """Wraps the FeverousEnv to use the robust step function from feverous_utils."""
-    def __init__(self, env):
-        self.env = env
-        
-    def step(self, action):
-        return step(self.env, action)
-    
-    def reset(self, idx=None):
-        return self.env.reset(idx=idx)
 
 def run_nexus(idx, prompt_template=None, to_print=True):
     """

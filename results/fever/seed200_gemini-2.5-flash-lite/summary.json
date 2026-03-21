@@ -1,0 +1,24 @@
+{
+  "react": {
+    "total_examples": 100,
+    "valid_examples": 100,
+    "error_count": 0,
+    "accuracy_em": 0.51,
+    "accuracy_f1": 0.51,
+    "success_count": 51,
+    "total_llm_calls": 334,
+    "total_bad_calls": 0,
+    "avg_calls_per_example": 3.34
+  },
+  "nexus": {
+    "total_examples": 100,
+    "valid_examples": 100,
+    "error_count": 0,
+    "accuracy_em": 0.67,
+    "accuracy_f1": 0.67,
+    "success_count": 67,
+    "total_llm_calls": 300,
+    "total_bad_calls": 0,
+    "avg_calls_per_example": 3.0
+  }
+}

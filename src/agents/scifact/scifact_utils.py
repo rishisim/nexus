@@ -9,6 +9,7 @@ This module contains common functions used by all SciFACT agent frameworks:
 """
 
 import os
+import sys
 import time
 import re
 import json
@@ -20,50 +21,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # --- LLM Configuration and Interaction ---
-from google import genai
-from google.genai import types
-
-# The client gets the API key from the environment variable `GEMINI_API_KEY`.
-client = genai.Client()
-
-# Model configuration
-LLM_MODEL = "gemini-2.5-flash"
-LLM_DELAY_SECONDS = 0.5  # Rate limiting delay
-
-
-def llm(prompt: str, stop: List[str] = ["\n"], temperature: float = None, num_traces: int = 1) -> str:
-    """
-    Call the language model with the given prompt.
-    
-    Args:
-        prompt: The input prompt string
-        stop: List of stop sequences
-        temperature: Override temperature (if None, uses default based on num_traces)
-        num_traces: Number of traces (affects default temperature setting)
-        
-    Returns:
-        String response from the LLM
-    """
-    # Set temperature: 0.0 for single trace (deterministic), 0.7 for multi-trace
-    if temperature is None:
-        temperature = 0.0 if num_traces == 1 else 0.7
-    
-    time.sleep(LLM_DELAY_SECONDS)
-    
-    try:
-        response = client.models.generate_content(
-            model=LLM_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=temperature,
-                stop_sequences=stop,
-                max_output_tokens=256
-            )
-        )
-        return response.text.strip()
-    except Exception as e:
-        print(f"[LLM ERROR] {e}")
-        return ""
+# Uses shared LLM module (supports OpenRouter + Gemini backends)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../shared')))
+from llm import llm
+from experiment_utils import append_to_json, EnvWrapper
 
 
 # --- Environment Setup ---
@@ -372,21 +333,3 @@ def run_single_trace(
     }
     
     return result
-
-
-# --- Utility for JSON appending ---
-
-def append_to_json(data: Dict, filename: str):
-    """Append data to a JSON file that stores a list of JSON objects."""
-    filepath = Path(filename)
-    
-    if filepath.exists():
-        with open(filepath, 'r', encoding='utf-8') as f:
-            existing = json.load(f)
-    else:
-        existing = []
-    
-    existing.append(data)
-    
-    with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(existing, f, indent=2, ensure_ascii=False)

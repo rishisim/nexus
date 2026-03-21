@@ -1,13 +1,22 @@
 """
-Musique Experiment Runner
+Musique Experiment Runner with Continuation System
+
+Features:
+- Seed-based directory naming for easy result accumulation
+- Question continuation system (resume from previous runs)
+- Flexible framework selection
+- Error handling with retry capability
+- Decomposition performance analysis
 """
 
-import sys
 import os
-import argparse
-import time
+import sys
 import json
-from tqdm import tqdm
+import random
+import argparse
+from datetime import datetime
+from typing import List, Dict, Any, Set
+from pathlib import Path
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -15,81 +24,334 @@ from react_agent import run_react
 from nexus_wrapper import run_nexus
 from musique_utils import analyze_decomposition_performance
 
-FRAMEWORK_MAP = {
-    'react': run_react,
-    'nexus': run_nexus
-}
 
-def run_experiments(num_examples, frameworks, start_idx=0, indices=None):
-    results_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../../results/musique")
-    os.makedirs(results_dir, exist_ok=True)
-    
-    summary_stats = {}
-    
-    # Determine indices to run
-    if indices:
-        target_indices = indices
-    else:
-        target_indices = list(range(start_idx, start_idx + num_examples))
-    
-    print(f"Target Indices: {target_indices}")
-    
-    for fram in frameworks:
-        runner = FRAMEWORK_MAP[fram]
-        framework_results = []
-        
-        print(f"\nRunning {fram} on {len(target_indices)} examples...")
-        
-        correct = 0
-        
-        for i in target_indices:
-            try:
-                reward, info = runner(i, to_print=True)
-                framework_results.append(info)
-                if reward == 1.0:
-                    correct += 1
-            except Exception as e:
-                print(f"[ERROR] Failed on index {i}: {e}")
-                import traceback
-                traceback.print_exc()
-        
-        # Save results
-        if indices:
-            suffix = "targeted"
+class MusiqueExperimentRunner:
+
+    FRAMEWORK_MAP = {
+        'react': run_react,
+        'nexus': run_nexus
+    }
+
+    def __init__(
+        self,
+        model: str = "gemini-2.5-flash",
+        num_examples: int = 5,
+        frameworks: List[str] = None,
+        results_base_dir: str = "../../../results/musique",
+        seed: int = 42,
+        retry_failed: bool = False,
+        specific_indices: List[int] = None
+    ):
+        self.model = model
+        self.num_examples = num_examples
+        self.frameworks = frameworks or ['react']
+        self.seed = seed
+        self.retry_failed = retry_failed
+        self.specific_indices = specific_indices
+        self.max_dev_examples = 2417  # Musique dev set size
+
+        run_name = f"seed{seed}_{model.replace('/', '-')}"
+
+        script_dir = Path(__file__).parent
+        self.results_dir = (script_dir / results_base_dir / run_name).resolve()
+        self.results_dir.mkdir(parents=True, exist_ok=True)
+
+        print("="*70, flush=True)
+        print(f"[EXPERIMENT] Musique Agent Evaluation", flush=True)
+        print("="*70, flush=True)
+        print(f"Results directory: {self.results_dir}", flush=True)
+        print(f"Seed: {seed}", flush=True)
+        print(f"Model: {model}", flush=True)
+        print(f"Frameworks: {', '.join(self.frameworks)}", flush=True)
+        print(f"Examples to run: {num_examples}", flush=True)
+        print(f"Retry failed: {retry_failed}", flush=True)
+        if specific_indices:
+            print(f"Specific Indices: {specific_indices}", flush=True)
+        print("="*70, flush=True)
+
+        self.config_path = self.results_dir / "config.json"
+        self.processed_indices_path = self.results_dir / "processed_indices.json"
+        self.failed_indices_path = self.results_dir / "failed_indices.json"
+        self.run_history_path = self.results_dir / "run_history.json"
+
+        self.config = self._load_or_create_config()
+
+        self.results = {fw: [] for fw in self.frameworks}
+        self._load_existing_results()
+
+    def _load_or_create_config(self) -> Dict:
+        if self.config_path.exists():
+            with open(self.config_path, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            print(f"[CONFIG] Loaded existing config from previous runs")
+            return config
         else:
-            suffix = f"{start_idx}_{start_idx+num_examples}"
-            
-        filename = f"{results_dir}/{fram}_{suffix}.json"
-        
-        # If targeted, maybe append timestamp or unique name to avoid overwrite? 
-        # For now, just overwrite 'targeted.json' or user can manage files.
-        if indices:
-             # simple filename for now
-             pass
-             
-        with open(filename, 'w') as f:
-            json.dump(framework_results, f, indent=4)
-            
-        print(f"Saved results to {filename}")
-        
-        # Analysis
-        Accuracy = correct / len(target_indices) if target_indices else 0
-        print(f"Overall Accuracy: {Accuracy:.2f}")
-        
-        decomp_summary = analyze_decomposition_performance(framework_results)
-        print(decomp_summary)
-        
-        summary_stats[fram] = {
-            'accuracy': Accuracy,
-            'breakdown': decomp_summary
+            config = {
+                "seed": self.seed,
+                "model": self.model,
+                "max_dev_examples": self.max_dev_examples,
+                "created": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            print(f"[CONFIG] Created new config")
+            return config
+
+    def _load_existing_results(self):
+        for framework in self.frameworks:
+            result_path = self.results_dir / f"{framework}.json"
+            if result_path.exists():
+                with open(result_path, 'r', encoding='utf-8') as f:
+                    self.results[framework] = json.load(f)
+                print(f"[LOAD] Found {len(self.results[framework])} existing results for {framework}")
+
+    def load_processed_indices(self) -> Set[int]:
+        if not self.processed_indices_path.exists():
+            return set()
+        with open(self.processed_indices_path, 'r', encoding='utf-8') as f:
+            indices = json.load(f)
+        return set(indices)
+
+    def load_failed_indices(self) -> Set[int]:
+        if not self.failed_indices_path.exists():
+            return set()
+        with open(self.failed_indices_path, 'r', encoding='utf-8') as f:
+            indices = json.load(f)
+        return set(indices)
+
+    def save_processed_index(self, idx: int):
+        processed = self.load_processed_indices()
+        processed.add(idx)
+        with open(self.processed_indices_path, 'w', encoding='utf-8') as f:
+            json.dump(sorted(list(processed)), f, indent=2)
+
+    def save_failed_index(self, idx: int):
+        failed = self.load_failed_indices()
+        failed.add(idx)
+        with open(self.failed_indices_path, 'w', encoding='utf-8') as f:
+            json.dump(sorted(list(failed)), f, indent=2)
+
+    def select_indices(self) -> List[int]:
+        if self.specific_indices:
+            print(f"\n[INDICES] Forcing run on specific indices: {self.specific_indices}")
+            return self.specific_indices
+
+        all_indices = list(range(self.max_dev_examples))
+        random.Random(self.seed).shuffle(all_indices)
+
+        processed = self.load_processed_indices()
+        failed = self.load_failed_indices()
+
+        if self.retry_failed:
+            skip_indices = processed
+        else:
+            skip_indices = processed | failed
+
+        unprocessed = [idx for idx in all_indices if idx not in skip_indices]
+        selected = unprocessed[:self.num_examples]
+
+        print(f"\n[INDICES] Total available: {self.max_dev_examples}")
+        print(f"[INDICES] Already processed: {len(processed)}")
+        print(f"[INDICES] Previously failed: {len(failed)}")
+        print(f"[INDICES] Selected for this run: {len(selected)}")
+
+        return selected
+
+    def run_framework(self, framework: str, idx: int) -> Dict[str, Any]:
+        print(f"  Running {framework}...", flush=True)
+
+        try:
+            agent_func = self.FRAMEWORK_MAP[framework]
+            _, result = agent_func(idx=idx, to_print=False)
+
+            result['status'] = 'success'
+
+            answer = result.get('answer') or 'UNKNOWN'
+            gt = result.get('gt_answer') or 'UNKNOWN'
+            em = result.get('em', 0.0)
+
+            print(f"  > {framework}: Answer={str(answer)[:50]}... | GT={str(gt)[:50]}... | EM={em}", flush=True)
+
+            return result
+
+        except Exception as e:
+            print(f"  > {framework}: ERROR - {str(e)}")
+            return {
+                'question_idx': idx,
+                'error': str(e),
+                'status': 'failed',
+                'framework': framework
+            }
+
+    def run_all(self):
+        indices = self.select_indices()
+
+        if not indices:
+            print("\n[COMPLETE] No new indices to process!")
+            return
+
+        run_start_time = datetime.now()
+
+        print(f"\n{'='*70}", flush=True)
+        print(f"[START] Processing {len(indices)} examples", flush=True)
+        print(f"{'='*70}\n", flush=True)
+
+        successful_count = 0
+        failed_count = 0
+
+        for i, idx in enumerate(indices, 1):
+            print(f"\n{'-'*70}", flush=True)
+            print(f"[EXAMPLE {i}/{len(indices)}] Index: {idx}", flush=True)
+            print(f"{'-'*70}", flush=True)
+
+            framework_results = {}
+            example_success = True
+
+            for framework in self.frameworks:
+                result = self.run_framework(framework, idx)
+                framework_results[framework] = result
+
+                if result.get('status') == 'failed':
+                    example_success = False
+
+            for framework, result in framework_results.items():
+                self.results[framework].append(result)
+                self._save_framework_results(framework)
+
+            if example_success:
+                self.save_processed_index(idx)
+                successful_count += 1
+                print(f"  [STATUS] Successfully processed")
+            else:
+                self.save_failed_index(idx)
+                failed_count += 1
+                print(f"  [STATUS] Failed (saved for potential retry)")
+
+            self._save_config()
+
+        run_end_time = datetime.now()
+        self._save_run_history(run_start_time, run_end_time, len(indices), successful_count, failed_count)
+
+        self.generate_summary()
+
+        print(f"\n{'='*70}")
+        print(f"[COMPLETE] Experiment finished")
+        print(f"  Successful: {successful_count}/{len(indices)}")
+        print(f"  Failed: {failed_count}/{len(indices)}")
+        print(f"  Results saved to: {self.results_dir}")
+        print(f"{'='*70}\n")
+
+    def _save_framework_results(self, framework: str):
+        result_path = self.results_dir / f"{framework}.json"
+        with open(result_path, 'w', encoding='utf-8') as f:
+            json.dump(self.results[framework], f, indent=2, ensure_ascii=False)
+
+    def _save_config(self):
+        with open(self.config_path, 'w', encoding='utf-8') as f:
+            json.dump(self.config, f, indent=2, ensure_ascii=False)
+
+    def _save_run_history(self, start_time, end_time, attempted, successful, failed):
+        history = []
+        if self.run_history_path.exists():
+            with open(self.run_history_path, 'r', encoding='utf-8') as f:
+                history = json.load(f)
+
+        run_entry = {
+            "run_id": len(history) + 1,
+            "start_time": start_time.strftime("%Y-%m-%d %H:%M:%S"),
+            "end_time": end_time.strftime("%Y-%m-%d %H:%M:%S"),
+            "duration_minutes": (end_time - start_time).total_seconds() / 60,
+            "num_attempted": attempted,
+            "num_successful": successful,
+            "num_failed": failed,
+            "frameworks": self.frameworks
         }
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--num', type=int, default=5)
-    parser.add_argument('--start', type=int, default=0)
-    parser.add_argument('--frameworks', nargs='+', default=['react', 'nexus'])
-    parser.add_argument('--indices', nargs='+', type=int, help='Specific indices to run')
+        history.append(run_entry)
+
+        with open(self.run_history_path, 'w', encoding='utf-8') as f:
+            json.dump(history, f, indent=2, ensure_ascii=False)
+
+    def generate_summary(self):
+        summary = {}
+
+        for framework, results in self.results.items():
+            if not results:
+                continue
+
+            valid_results = [r for r in results if r.get('status') == 'success']
+            total = len(results)
+            valid = len(valid_results)
+
+            if valid > 0:
+                avg_em = sum(r.get('em', 0) for r in valid_results) / valid
+                avg_f1 = sum(r.get('f1', 0) for r in valid_results) / valid
+                total_calls = sum(r.get('n_calls', 0) for r in valid_results)
+                total_badcalls = sum(r.get('n_badcalls', 0) for r in valid_results)
+                success_count = sum(1 for r in valid_results if r.get('em', 0) == 1.0)
+
+                # Decomposition analysis
+                decomp_summary = analyze_decomposition_performance(valid_results)
+
+                summary[framework] = {
+                    'total_examples': total,
+                    'valid_examples': valid,
+                    'error_count': total - valid,
+                    'accuracy_em': round(avg_em, 4),
+                    'accuracy_f1': round(avg_f1, 4),
+                    'success_count': success_count,
+                    'total_llm_calls': total_calls,
+                    'total_bad_calls': total_badcalls,
+                    'avg_calls_per_example': round(total_calls / valid, 2) if valid > 0 else 0,
+                    'decomposition_breakdown': decomp_summary
+                }
+
+        summary_path = self.results_dir / "summary.json"
+        with open(summary_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+
+        print(f"\n{'='*70}")
+        print(f"[SUMMARY] Experiment Statistics")
+        print(f"{'='*70}")
+        for framework, stats in summary.items():
+            print(f"\n{framework.upper().replace('_', ' ')}:")
+            print(f"  Valid Examples: {stats['valid_examples']}/{stats['total_examples']}")
+            print(f"  Accuracy (EM): {stats['accuracy_em']:.2%}")
+            print(f"  Success Count: {stats['success_count']}")
+            print(f"  Total LLM Calls: {stats['total_llm_calls']}")
+            print(f"  Avg Calls/Example: {stats['avg_calls_per_example']}")
+            if stats.get('decomposition_breakdown'):
+                print(f"  Decomposition Breakdown:\n{stats['decomposition_breakdown']}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Run Musique experiments with continuation support")
+    parser.add_argument('--model', type=str, default='gemini-2.5-flash',
+                       help='Model to use')
+    parser.add_argument('--num-examples', type=int, default=5,
+                       help='Number of examples to run')
+    parser.add_argument('--frameworks', type=str, nargs='+',
+                       default=['react'],
+                       choices=['react', 'nexus'],
+                       help='Frameworks to run')
+    parser.add_argument('--seed', type=int, default=42,
+                       help='Random seed for reproducibility')
+    parser.add_argument('--retry-failed', action='store_true',
+                       help='Retry previously failed questions')
+    parser.add_argument('--specific-indices', type=int, nargs='+',
+                       help='Run specific indices (space separated)')
+
     args = parser.parse_args()
-    
-    run_experiments(args.num, args.frameworks, args.start, args.indices)
+
+    runner = MusiqueExperimentRunner(
+        model=args.model,
+        num_examples=args.num_examples,
+        frameworks=args.frameworks,
+        seed=args.seed,
+        retry_failed=args.retry_failed,
+        specific_indices=args.specific_indices
+    )
+
+    runner.run_all()
+
+
+if __name__ == '__main__':
+    main()
