@@ -1,0 +1,19 @@
+{
+  "_experiment": {
+    "dataset": "tatqa",
+    "manifest_fingerprint": "sha256:c5bd4b83f90f230a55b560f02f876bc2897832df0b3b0c2a467fb6b79d02e65b",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 50
+  },
+  "selective": {
+    "accuracy_em": 0.32,
+    "estimated_cost_usd": 0.0454664,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 50,
+    "total_llm_calls": 114,
+    "valid_examples": 50
+  }
+}

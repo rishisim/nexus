@@ -1,0 +1,7 @@
+{
+  "seed": 42,
+  "model": "gemini-2.5-flash",
+  "dataset": "bamboogle",
+  "max_dev_examples": 125,
+  "created": "2026-03-21 09:33:51"
+}

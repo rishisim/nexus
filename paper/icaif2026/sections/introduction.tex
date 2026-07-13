@@ -1,0 +1,16 @@
+\section{Introduction}
+
+Financial QA combines requirements that are individually difficult and jointly unforgiving: locating the relevant period and entity, interpreting tables and prose, executing arithmetic, preserving units and signs, and grounding narrative conclusions in filings. Iterative language-model agents are a natural response. A ReAct-style system can search, inspect evidence, revise a hypothesis, and stop when it has an answer. That flexibility, however, has a direct operational cost. Every additional step consumes tokens and latency, and additional reasoning can also introduce a new arithmetic, scale, or evidence-selection error into an otherwise straightforward question.
+
+This paper asks a narrower question than whether agents can answer financial questions: \emph{when is iterative agency worth its cost?} We study this question under controlled evidence access. Each system receives the same benchmark-provided, leakage-audited evidence corpus and the same permitted tools. This design does not measure end-to-end retrieval. Instead, it makes the orchestration decision identifiable: differences arise from how a system selects, organizes, and reasons over available evidence rather than from access to different documents.
+
+Our method, \emph{Selective Finance Nexus}, begins with deterministic query analysis and evidence selection. A frozen gate then routes each example, before any answer generation, to either a one-call structured adjudicator or a bounded iterative ReAct process. The gate uses only observable, target-independent features of the question and evidence, such as length, numerical and temporal cues, lexical coverage, retrieval-score margin, and evidence dispersion. It is trained only on a development partition to predict the asymmetric event that ReAct succeeds while the static workflow fails. This formulation targets incremental value rather than generic difficulty.
+
+We organize the study around four research questions:
+
+\paragraph{RQ1.} Does deterministic-first orchestration improve the quality--cost frontier over direct prompting, structured one-call reasoning, and uniformly applied ReAct?
+\paragraph{RQ2.} Which observable financial-question characteristics distinguish cases helped by iterative agency from cases solved more efficiently by a static workflow?
+\paragraph{RQ3.} Can a development-frozen gate preserve the stronger system's accuracy while avoiding unnecessary iterative calls?
+\paragraph{RQ4.} Are the conclusions stable across datasets, model families, and dataset-native evaluation protocols?
+
+This development study presents a selective orchestration design, a leakage-audited paired protocol, and a measured negative gate outcome. The gate is scientifically consequential: the static and selective workflows did not satisfy the locked accuracy--cost criterion, so the disjoint 900-example final manifest was left unopened. We therefore preserve the confirmatory protocol as a later-study scaffold but make no held-out, cross-model, or end-to-end RAG claim here. The current artifact is suitable only for a workshop or protocol-focused negative-results report unless a redesigned method passes a new, independent development gate.

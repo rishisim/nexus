@@ -1,0 +1,35 @@
+{
+  "react": {
+    "total_examples": 0,
+    "valid_examples": 0,
+    "error_count": 0,
+    "accuracy_em": null,
+    "accuracy_f1": null,
+    "total_llm_calls": 0,
+    "avg_calls_per_example": null,
+    "correct_per_llm_call": null
+  },
+  "nexus": {
+    "total_examples": 0,
+    "valid_examples": 0,
+    "error_count": 0,
+    "accuracy_em": null,
+    "accuracy_f1": null,
+    "total_llm_calls": 0,
+    "avg_calls_per_example": null,
+    "correct_per_llm_call": null
+  },
+  "_experiment": {
+    "dataset": "finder",
+    "dataset_name": "FinDER",
+    "model": "gemini-2.5-flash",
+    "seed": 42,
+    "num_examples_requested": 2,
+    "planned_indices": [
+      5694,
+      5623
+    ],
+    "claim_status": "not_run",
+    "claim_rule": "supported only when paired Nexus accuracy is greater than ReAct and Nexus mean LLM calls are lower on the same valid example count"
+  }
+}

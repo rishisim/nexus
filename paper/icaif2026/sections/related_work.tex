@@ -1,0 +1,21 @@
+\section{Related Work}
+\label{sec:related-work}
+
+\textbf{Financial QA.}
+FinQA introduced expert-authored financial-report questions with executable programs; TAT-QA broadened the evidence to hybrid tables and text, and ConvFinQA added conversational dependencies~\cite{chen2021finqa,zhu2021tatqa,chen2022convfinqa}.
+FinanceBench instead evaluates open-book questions over filings, and FinDER emphasizes terse professional queries paired with expert evidence for retrieval-augmented generation~\cite{islam2023financebench,choi2025finder}.
+FinQAPT joins report identification, context extraction, and answering in an end-to-end pipeline~\cite{singh2024finqapt}.
+Our controlled-evidence setting holds retrieval fixed to isolate reasoning orchestration.
+Accordingly, FinDER and FinanceBench serve only as secondary semantic stress tests rather than being pooled with execution-scored numerical tasks.
+
+\textbf{Agentic financial reasoning and evaluation.}
+ReAct interleaves language-model reasoning with external actions~\cite{yao2023react}.
+In finance, multi-agent reflection improves answers through one or more critic roles~\cite{fatemi2024reflection}, whereas FinAgentBench evaluates two-stage agentic retrieval and FinResearchBench evaluates long-form research agents with logic-tree judgments~\cite{choi2025finagentbench,sun2025finresearchbench}.
+These works motivate iterative computation, but do not establish that every question benefits from it.
+Indeed, both general reasoning and financial sentiment studies document overthinking or diminishing returns from extra reasoning~\cite{chen2024donotthink,vamvourellis2025overthinking}.
+
+\textbf{Selective and cost-aware inference.}
+Selective prediction formalizes risk--coverage trade-offs by declining or escalating uncertain cases~\cite{geifman2019selectivenet}.
+FrugalGPT and RouteLLM learn cost-sensitive cascades or routers across models~\cite{chen2024frugalgpt,ong2025routellm}; recent agent-efficiency work likewise argues for joint effectiveness and operational-cost measurement~\cite{wang2025efficientagents,erol2025costofpass}.
+We apply this principle within a fixed model and evidence budget: a pre-generation router chooses between deterministic-first, one-call adjudication and iterative ReAct.
+We therefore compare quality jointly with calls, tokens, dollar cost, and latency. The unopened confirmatory protocol reserves RAGAS-style semantic judgments for a secondary, judge-sensitive analysis; the failed development gate stopped that analysis before execution~\cite{es2024ragas}.

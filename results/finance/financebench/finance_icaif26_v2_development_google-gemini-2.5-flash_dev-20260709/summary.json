@@ -1,0 +1,19 @@
+{
+  "_experiment": {
+    "dataset": "financebench",
+    "manifest_fingerprint": "sha256:5f66df37a09b359429cffc6b70f3dab4a3405923a611d71cc08e4074a5c67534",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 50
+  },
+  "selective": {
+    "accuracy_em": 0.24,
+    "estimated_cost_usd": 0.08870389999999999,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 50,
+    "total_llm_calls": 155,
+    "valid_examples": 50
+  }
+}

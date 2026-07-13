@@ -282,6 +282,267 @@ class FeverousWrapper(gym.Wrapper):
     return len(self.data)
 
 
+CREAK_SPLIT_FILE = {
+  "dev": "creak_dev.json",
+}
+
+BAMBOOGLE_SPLIT_FILE = {
+  "test": "bamboogle.json",
+}
+
+POPQA_SPLIT_FILE = {
+  "test": "popqa.json",
+}
+
+HOVER_SPLIT_FILE = {
+  "dev": "hover_dev.json",
+}
+
+
+class CREAKWrapper(gym.Wrapper):
+  """Wrapper for CREAK dataset - commonsense claim verification (TRUE/FALSE)."""
+  def __init__(self, env, split="dev"):
+    super().__init__(env)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    data_path = os.path.join(project_root, DATA_DIR, CREAK_SPLIT_FILE[split])
+
+    with open(data_path, "r", encoding="utf-8") as f:
+      raw_data = json.load(f)
+
+    self.data = [(d["sentence"], d["label"].upper()) for d in raw_data]
+    self.data_idx = 0
+    self.split = split
+
+  def reset(self, seed=None, return_info=False, options=None, idx=None):
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    try:
+      self.env.step('')
+    except:
+      pass
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
+    observation = f"Claim: {self.data[self.data_idx][0]}"
+    info = self._get_info()
+    return (observation, info) if return_info else observation
+
+  def _get_info(self):
+    return {
+      "steps": self.steps,
+      "answer": self.answer,
+      "question": self.data[self.data_idx][0],
+      "creak_split": self.split
+    }
+
+  def get_reward(self, info):
+    if info['answer'] is not None:
+      label = normalize_answer(self.data[self.data_idx][1])
+      pred = normalize_answer(info['answer'])
+      if label == pred:
+        return 1
+    return 0
+
+  def step(self, action):
+    obs, _, done, info = self.env.step(action)
+    reward = self.get_reward(info)
+    if done:
+      obs = f"Episode finished, reward = {reward}\n"
+      info.update({"gt_answer": self.data[self.data_idx][1], "question_idx": self.data_idx})
+      info.update({'em': reward, 'reward': reward, 'f1': reward})
+    return obs, reward, done, info
+
+  def __len__(self):
+    return len(self.data)
+
+
+class BamboogleWrapper(gym.Wrapper):
+  """Wrapper for Bamboogle dataset - multi-hop QA with multiple valid answers."""
+  def __init__(self, env, split="test"):
+    super().__init__(env)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    data_path = os.path.join(project_root, DATA_DIR, BAMBOOGLE_SPLIT_FILE[split])
+
+    with open(data_path, "r", encoding="utf-8") as f:
+      raw_data = json.load(f)
+
+    self.data = [(d["question"], d["golden_answers"]) for d in raw_data]
+    self.data_idx = 0
+    self.split = split
+
+  def reset(self, seed=None, return_info=False, options=None, idx=None):
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    try:
+      self.env.step('')
+    except:
+      pass
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
+    observation = f"Question: {self.data[self.data_idx][0]}"
+    info = self._get_info()
+    return (observation, info) if return_info else observation
+
+  def _get_info(self):
+    return {
+      "steps": self.steps,
+      "answer": self.answer,
+      "question": self.data[self.data_idx][0],
+      "bamboogle_split": self.split
+    }
+
+  def get_reward(self, info):
+    if info['answer'] is not None:
+      pred = normalize_answer(info['answer'])
+      for gold in self.data[self.data_idx][1]:
+        if normalize_answer(gold) == pred:
+          return 1
+    return 0
+
+  def get_metrics(self, info):
+    if info['answer'] is not None:
+      pred = normalize_answer(info['answer'])
+      gold_answers = self.data[self.data_idx][1]
+      # Check EM against any valid answer
+      em = any(normalize_answer(g) == pred for g in gold_answers)
+      # F1 against best-matching answer
+      best_f1 = max(f1_score(pred, normalize_answer(g))[0] for g in gold_answers)
+      return {'reward': int(em), 'em': int(em), 'f1': best_f1}
+    return {'reward': 0, 'em': 0, 'f1': 0}
+
+  def step(self, action):
+    obs, _, done, info = self.env.step(action)
+    reward = self.get_reward(info)
+    if done:
+      obs = f"Episode finished, reward = {reward}\n"
+      info.update({"gt_answer": self.data[self.data_idx][1][0], "question_idx": self.data_idx})
+      info.update(self.get_metrics(info))
+    return obs, reward, done, info
+
+  def __len__(self):
+    return len(self.data)
+
+
+class PopQAWrapper(gym.Wrapper):
+  """Wrapper for PopQA dataset - entity-centric QA with multiple valid answers."""
+  def __init__(self, env, split="test"):
+    super().__init__(env)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    data_path = os.path.join(project_root, DATA_DIR, POPQA_SPLIT_FILE[split])
+
+    with open(data_path, "r", encoding="utf-8") as f:
+      raw_data = json.load(f)
+
+    self.data = [(d["question"], d["possible_answers"]) for d in raw_data]
+    self.data_idx = 0
+    self.split = split
+
+  def reset(self, seed=None, return_info=False, options=None, idx=None):
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    try:
+      self.env.step('')
+    except:
+      pass
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
+    observation = f"Question: {self.data[self.data_idx][0]}"
+    info = self._get_info()
+    return (observation, info) if return_info else observation
+
+  def _get_info(self):
+    return {
+      "steps": self.steps,
+      "answer": self.answer,
+      "question": self.data[self.data_idx][0],
+      "popqa_split": self.split
+    }
+
+  def get_reward(self, info):
+    if info['answer'] is not None:
+      pred = normalize_answer(info['answer'])
+      for gold in self.data[self.data_idx][1]:
+        if normalize_answer(gold) == pred:
+          return 1
+    return 0
+
+  def get_metrics(self, info):
+    if info['answer'] is not None:
+      pred = normalize_answer(info['answer'])
+      gold_answers = self.data[self.data_idx][1]
+      em = any(normalize_answer(g) == pred for g in gold_answers)
+      best_f1 = max(f1_score(pred, normalize_answer(g))[0] for g in gold_answers)
+      return {'reward': int(em), 'em': int(em), 'f1': best_f1}
+    return {'reward': 0, 'em': 0, 'f1': 0}
+
+  def step(self, action):
+    obs, _, done, info = self.env.step(action)
+    reward = self.get_reward(info)
+    if done:
+      obs = f"Episode finished, reward = {reward}\n"
+      info.update({"gt_answer": self.data[self.data_idx][1][0], "question_idx": self.data_idx})
+      info.update(self.get_metrics(info))
+    return obs, reward, done, info
+
+  def __len__(self):
+    return len(self.data)
+
+
+class HoVerWrapper(gym.Wrapper):
+  """Wrapper for HoVer dataset - multi-hop claim verification (SUPPORTED/NOT_SUPPORTED)."""
+  def __init__(self, env, split="dev"):
+    super().__init__(env)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    data_path = os.path.join(project_root, DATA_DIR, HOVER_SPLIT_FILE[split])
+
+    with open(data_path, "r", encoding="utf-8") as f:
+      raw_data = json.load(f)
+
+    self.data = [(d["claim"], d["label"]) for d in raw_data]
+    self.data_idx = 0
+    self.split = split
+
+  def reset(self, seed=None, return_info=False, options=None, idx=None):
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    try:
+      self.env.step('')
+    except:
+      pass
+    self.env.reset(seed=seed, return_info=return_info, options=options)
+    self.data_idx = int(np.random.randint(len(self.data))) if idx is None else idx
+    observation = f"Claim: {self.data[self.data_idx][0]}"
+    info = self._get_info()
+    return (observation, info) if return_info else observation
+
+  def _get_info(self):
+    return {
+      "steps": self.steps,
+      "answer": self.answer,
+      "question": self.data[self.data_idx][0],
+      "hover_split": self.split
+    }
+
+  def get_reward(self, info):
+    if info['answer'] is not None:
+      label = normalize_answer(self.data[self.data_idx][1])
+      pred = normalize_answer(info['answer'])
+      if label == pred:
+        return 1
+    return 0
+
+  def step(self, action):
+    obs, _, done, info = self.env.step(action)
+    reward = self.get_reward(info)
+    if done:
+      obs = f"Episode finished, reward = {reward}\n"
+      info.update({"gt_answer": self.data[self.data_idx][1], "question_idx": self.data_idx})
+      info.update({'em': reward, 'reward': reward, 'f1': reward})
+    return obs, reward, done, info
+
+  def __len__(self):
+    return len(self.data)
+
+
 class LoggingWrapper(gym.Wrapper):
   def __init__(self, env, folder="trajs", file_id=None):
     super().__init__(env)

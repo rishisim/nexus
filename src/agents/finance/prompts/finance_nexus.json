@@ -1,0 +1,25 @@
+{
+  "task_type": "finance_qa",
+  "notes": "Draft finance-specific prompt slots for future Nexus adapters. Keep default core prompts until a dataset adapter proves a concrete prompt gap.",
+  "scout_focus": [
+    "company names and tickers",
+    "filing types and years",
+    "financial metrics",
+    "reporting periods",
+    "business segments",
+    "accounting concepts"
+  ],
+  "architect_bridge_examples": [
+    "Lookup[revenue]",
+    "Lookup[net income]",
+    "Lookup[year ended]",
+    "Search[company 10-K segment revenue]",
+    "TableLookup[operating income]"
+  ],
+  "adjudicator_requirements": [
+    "Answer only from the dossier.",
+    "Keep units, scale, period, and sign explicit.",
+    "If calculation is required, show the formula in reasoning and put the final value in Answer.",
+    "If the dossier lacks a required value, answer NOT ENOUGH INFO for verification tasks or UNKNOWN for QA tasks."
+  ]
+}

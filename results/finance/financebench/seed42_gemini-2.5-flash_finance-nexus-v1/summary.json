@@ -1,0 +1,35 @@
+{
+  "react": {
+    "total_examples": 25,
+    "valid_examples": 25,
+    "error_count": 0,
+    "accuracy_em": 0.84,
+    "accuracy_f1": 0.4903,
+    "em_success_count": 21.0,
+    "total_llm_calls": 61,
+    "avg_calls_per_example": 2.44,
+    "correct_per_llm_call": 0.344262
+  },
+  "nexus": {
+    "total_examples": 25,
+    "valid_examples": 25,
+    "error_count": 0,
+    "accuracy_em": 0.92,
+    "accuracy_f1": 0.499,
+    "em_success_count": 23.0,
+    "total_llm_calls": 25,
+    "avg_calls_per_example": 1.0,
+    "correct_per_llm_call": 0.92
+  },
+  "_experiment": {
+    "dataset": "financebench",
+    "dataset_name": "FinanceBench",
+    "model": "gemini-2.5-flash",
+    "seed": 42,
+    "results_tag": "finance-nexus-v1",
+    "num_examples_requested": 25,
+    "planned_indices": [],
+    "claim_status": "supported_better_and_cheaper",
+    "claim_rule": "supported only when paired Nexus accuracy is greater than ReAct and Nexus mean LLM calls are lower on the same valid example count"
+  }
+}

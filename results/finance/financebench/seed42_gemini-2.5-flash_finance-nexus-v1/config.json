@@ -1,0 +1,33 @@
+{
+  "dataset": "financebench",
+  "dataset_name": "FinanceBench",
+  "task_type": "open_book_financial_qa",
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "frameworks": [
+    "react",
+    "nexus"
+  ],
+  "results_tag": "finance-nexus-v1",
+  "num_examples": 25,
+  "max_examples": 150,
+  "created_or_updated": "2026-06-15 18:31:54",
+  "dataset_metadata": {
+    "id": "financebench",
+    "name": "FinanceBench",
+    "task_type": "open_book_financial_qa",
+    "source_url": "https://github.com/patronus-ai/financebench",
+    "data_url": "https://huggingface.co/datasets/PatronusAI/financebench",
+    "public_examples": 150,
+    "size_note": "Paper benchmark has 10,231 questions; public repository/sample exposes 150 annotated examples.",
+    "evidence_type": "public company filings with answer evidence strings",
+    "answer_style": "short answer with supporting evidence",
+    "nexus_fit": "High: tests retrieval, evidence selection, and grounded financial QA.",
+    "first_pass_priority": 1,
+    "implementation_notes": [
+      "Use the public 150-example sample for initial runs unless full benchmark access is available.",
+      "Preserve provided evidence strings for adjudication and evaluation.",
+      "Good first dataset for the headline better-and-cheaper claim."
+    ]
+  }
+}

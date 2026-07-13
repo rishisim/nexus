@@ -1,0 +1,23 @@
+{
+  "created_or_updated": "2026-07-09T20:28:38+00:00",
+  "dataset": "finder",
+  "dataset_fingerprint": "sha256:e4f2dff887af822bea7077b3764c537576bd977764731cc596b6857321e2de81",
+  "frameworks": [
+    "direct",
+    "cot",
+    "react",
+    "nexus",
+    "selective"
+  ],
+  "manifest_fingerprint": "sha256:b98ec80928a6c050a9daa95a3636a4fd2d25c89dc9887f1682f164427b11f093",
+  "model_id": "google/gemini-2.5-flash",
+  "num_examples": 2,
+  "partition": "development",
+  "protocol_fingerprint": "sha256:cdac99b44caa3dc958982ef929dc65c79602627a5639b9b1ea6160a880cbca7a",
+  "protocol_id": "finance_icaif26_v2",
+  "result_schema_version": "finance-result-v2",
+  "results_tag": "wave2-smoke-20260709",
+  "retry_infrastructure_failures": false,
+  "run_id": "finance_icaif26_v2_development_google-gemini-2.5-flash_wave2-smoke-20260709",
+  "seed": 20260709
+}

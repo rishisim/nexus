@@ -27,6 +27,7 @@ react-research/
 │   │   ├── hotpotqa/     # Multi-hop QA (4 frameworks)
 │   │   ├── musique/      # Multi-hop reasoning
 │   │   ├── nexus/        # Nexus agent core
+│   │   ├── finance/      # Finance-focused Nexus experiment planning
 │   │   └── scifact/      # Scientific fact verification
 │   └── shared/           # Shared utilities (wikienv, wrappers)
 ├── scripts/              # Utility scripts (analysis, downloads, debug)
@@ -86,6 +87,23 @@ See [`AGENTS.md`](AGENTS.md) and [`progress_notes/frameworks.md`](progress_notes
 ---
 
 ## Recent Changes
+
+### 2026-06-16
+- Created a finance-dedicated Nexus planning lane under `src/agents/finance/`
+- Added a five-dataset finance shortlist and gated evaluation protocol for testing better-and-cheaper Nexus claims
+- Added `progress_notes/finance_nexus_plan.md` with the experiment framing and source list
+- Added the first runnable finance adapter for FinanceBench plus paired ReAct/Nexus runner and claim-status summary logic
+- Added a finance-specialized Nexus mode with deterministic Scout/Architect phases; the 25-example FinanceBench pilot under `results/finance/financebench/seed42_gemini-2.5-flash_finance-nexus-v1/` supports the better-and-cheaper claim for that scoped pilot
+- Added preliminary adapters/runs for all five finance datasets; see `progress_notes/finance_all5_preliminary_results.md` and `results/finance/preliminary_all5_summary.json`
+- Added a FinDER narrative adjudicator iteration; `results/finance/preliminary_all5_summary_v2.json` shows the updated all-five pilot at 31/50 Nexus vs 28/50 ReAct with 50 vs 152 answer calls
+- Added chunked long-evidence retrieval for ConvFinQA-style filing contexts; `results/finance/preliminary_all5_summary_v3.json` improves the all-five pilot to 37/50 Nexus vs 32/50 ReAct with 50 vs 137 answer calls
+
+### 2026-06-21
+- Froze the larger finance protocol in `src/agents/finance/protocols/all5_50_v1.json`
+- Added `src/agents/finance/audit_finance_results.py` for paired aggregation and disagreement auditing
+- Ran the frozen 50-example all-five finance sweep under `results/finance/*/seed42_gemini-2.5-flash_all5-50-v1/`
+- Tightened the finance numeric scorer for near-zero ratios after the audit found an overly permissive tolerance
+- Wrote corrected aggregate results to `results/finance/preliminary_all5_summary_50_v1.json`: Nexus 182/250 EM 0.728 with 250 calls vs ReAct 165/250 EM 0.660 with 609 calls; FinDER remains a weak spot where ReAct beats Nexus accuracy under the heuristic
 
 ### 2025-12-29
 - Migrated project from Windows to macOS

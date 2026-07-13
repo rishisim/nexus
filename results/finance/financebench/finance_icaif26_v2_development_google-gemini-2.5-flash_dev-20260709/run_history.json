@@ -1,0 +1,33 @@
+[
+  {
+    "attempted_pairs": 200,
+    "counts": {
+      "infrastructure_failure": 0,
+      "model_failure": 0,
+      "success": 200
+    },
+    "end_time": "2026-07-09T20:39:20+00:00",
+    "frameworks": [
+      "direct",
+      "cot",
+      "react",
+      "nexus"
+    ],
+    "run_id": 1,
+    "start_time": "2026-07-09T20:30:50+00:00"
+  },
+  {
+    "attempted_pairs": 50,
+    "counts": {
+      "infrastructure_failure": 0,
+      "model_failure": 0,
+      "success": 50
+    },
+    "end_time": "2026-07-09T20:48:29+00:00",
+    "frameworks": [
+      "selective"
+    ],
+    "run_id": 2,
+    "start_time": "2026-07-09T20:44:23+00:00"
+  }
+]

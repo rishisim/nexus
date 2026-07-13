@@ -1,0 +1,1524 @@
+{
+  "dataset": "finder",
+  "dataset_fingerprint": "sha256:e4f2dff887af822bea7077b3764c537576bd977764731cc596b6857321e2de81",
+  "dataset_size": 5703,
+  "development": {
+    "count": 50,
+    "examples": [
+      {
+        "example_id": "09e02aa0",
+        "index": 224,
+        "stratum": "Financials | Multiplication"
+      },
+      {
+        "example_id": "40b0c7db",
+        "index": 239,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "4a66fa95",
+        "index": 490,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "3825bca9",
+        "index": 676,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "5fd56f83",
+        "index": 741,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "ae2b775f",
+        "index": 1090,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "a97d9785",
+        "index": 1116,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "2ef8185f",
+        "index": 1187,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "1c19438e",
+        "index": 1293,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "9f8e8f35",
+        "index": 1455,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "53fba9a5",
+        "index": 1520,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "aa8844f2",
+        "index": 1603,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "ba7e2a27",
+        "index": 1639,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "82ae9bdc",
+        "index": 1739,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "efbe6f3a",
+        "index": 1946,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "9399e967",
+        "index": 1974,
+        "stratum": "Financials | Subtract"
+      },
+      {
+        "example_id": "c1e077c7",
+        "index": 2074,
+        "stratum": "Company overview | Subtract"
+      },
+      {
+        "example_id": "5dbeb964",
+        "index": 2330,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "7e98a504",
+        "index": 2409,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "0b9c744b",
+        "index": 2471,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "0995362d",
+        "index": 2479,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "9683b326",
+        "index": 3065,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "04db4dff",
+        "index": 3164,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "b3eaf0ec",
+        "index": 3169,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "63305b88",
+        "index": 3189,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "f88a041e",
+        "index": 3258,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "c9a47a1b",
+        "index": 3259,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "46bdfe8a",
+        "index": 3387,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "5f175c2d",
+        "index": 3595,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "59704abd",
+        "index": 4145,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "91bd7804",
+        "index": 4166,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "a5dc1f70",
+        "index": 4224,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "79f79739",
+        "index": 4238,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "2268924e",
+        "index": 4279,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "7b6ba41a",
+        "index": 4301,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "37233551",
+        "index": 4327,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "919f9bb9",
+        "index": 4592,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "454c4943",
+        "index": 4654,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "5d6d992b",
+        "index": 4657,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "7bd7681d",
+        "index": 5014,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "1d22646f",
+        "index": 5041,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "0fc7a24d",
+        "index": 5101,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "f6724406",
+        "index": 5211,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "ac818c3a",
+        "index": 5258,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "9feb175e",
+        "index": 5292,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "d6e2192d",
+        "index": 5373,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "82c792dc",
+        "index": 5542,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "6588abe8",
+        "index": 5565,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "4694f306",
+        "index": 5623,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "560de7f5",
+        "index": 5694,
+        "stratum": "Shareholder return | None"
+      }
+    ],
+    "indices": [
+      224,
+      239,
+      490,
+      676,
+      741,
+      1090,
+      1116,
+      1187,
+      1293,
+      1455,
+      1520,
+      1603,
+      1639,
+      1739,
+      1946,
+      1974,
+      2074,
+      2330,
+      2409,
+      2471,
+      2479,
+      3065,
+      3164,
+      3169,
+      3189,
+      3258,
+      3259,
+      3387,
+      3595,
+      4145,
+      4166,
+      4224,
+      4238,
+      4279,
+      4301,
+      4327,
+      4592,
+      4654,
+      4657,
+      5014,
+      5041,
+      5101,
+      5211,
+      5258,
+      5292,
+      5373,
+      5542,
+      5565,
+      5623,
+      5694
+    ]
+  },
+  "final": {
+    "count": 200,
+    "examples": [
+      {
+        "example_id": "f514dd06",
+        "index": 17,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "93a521e8",
+        "index": 37,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "e18e0320",
+        "index": 154,
+        "stratum": "Financials | Multiplication"
+      },
+      {
+        "example_id": "68ea2cce",
+        "index": 157,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "54130319",
+        "index": 160,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "e55b23c3",
+        "index": 240,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "4c027d8d",
+        "index": 243,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "2373efc3",
+        "index": 245,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "e6590295",
+        "index": 250,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "66b28f37",
+        "index": 256,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "273d3a81",
+        "index": 273,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "f3cec3e0",
+        "index": 312,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "54cf6ae3",
+        "index": 463,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "ee72659a",
+        "index": 635,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "2afcec04",
+        "index": 639,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "7188513d",
+        "index": 696,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "2ce3365c",
+        "index": 701,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "684b270f",
+        "index": 708,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "3e0f8f20",
+        "index": 814,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "54c6f08b",
+        "index": 836,
+        "stratum": "Financials | Addition"
+      },
+      {
+        "example_id": "6ae93077",
+        "index": 837,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "2201788b",
+        "index": 842,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "f3545941",
+        "index": 858,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "b29d99c7",
+        "index": 904,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "9135324a",
+        "index": 905,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "62016b73",
+        "index": 984,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "51e07f0f",
+        "index": 1022,
+        "stratum": "Financials | Subtract"
+      },
+      {
+        "example_id": "99699818",
+        "index": 1054,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "da59eac2",
+        "index": 1064,
+        "stratum": "Financials | Division"
+      },
+      {
+        "example_id": "2d017427",
+        "index": 1087,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "c4987e2a",
+        "index": 1117,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "b0e27f61",
+        "index": 1122,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "a3312e5b",
+        "index": 1155,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "0496b898",
+        "index": 1157,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "eb73c7f4",
+        "index": 1200,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "4fff72dc",
+        "index": 1206,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "9d1c0c42",
+        "index": 1220,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "cb564bd0",
+        "index": 1232,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "56ead4af",
+        "index": 1243,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "ed3108b3",
+        "index": 1283,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "1d190416",
+        "index": 1296,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "78eec5b1",
+        "index": 1314,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "cb79a5d0",
+        "index": 1428,
+        "stratum": "Financials | Multiplication"
+      },
+      {
+        "example_id": "8493de92",
+        "index": 1430,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "b035aeed",
+        "index": 1443,
+        "stratum": "Company overview | Division"
+      },
+      {
+        "example_id": "6f2e146d",
+        "index": 1498,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "329c18e6",
+        "index": 1538,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "dc4dc72e",
+        "index": 1563,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "961eab03",
+        "index": 1590,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "1eafed65",
+        "index": 1612,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "3d622173",
+        "index": 1632,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "961e0bdc",
+        "index": 1637,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "883e2cda",
+        "index": 1647,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "1ed728b3",
+        "index": 1684,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "408e3f77",
+        "index": 1714,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "20b31550",
+        "index": 1748,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "58296b5c",
+        "index": 1776,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "d858aeec",
+        "index": 1783,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "c094f362",
+        "index": 1809,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "15c87bfd",
+        "index": 1842,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "5cb096e1",
+        "index": 1851,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "2e0b2686",
+        "index": 1914,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "aca2f2ae",
+        "index": 1953,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "eb0501b5",
+        "index": 1998,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "8be5e254",
+        "index": 2024,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "99ad24b4",
+        "index": 2033,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "de2a65da",
+        "index": 2077,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "7bc5a9bc",
+        "index": 2083,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "1daf63a4",
+        "index": 2091,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "30387a6c",
+        "index": 2121,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "531d5c83",
+        "index": 2156,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "d7cb4ad9",
+        "index": 2221,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "a2b7ffcd",
+        "index": 2240,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "6e5aff44",
+        "index": 2267,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "f488430a",
+        "index": 2282,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "e9fdeba1",
+        "index": 2286,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "343b0c8a",
+        "index": 2335,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "4ceb7765",
+        "index": 2363,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "2980ece7",
+        "index": 2379,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "e7129c27",
+        "index": 2404,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "e69149b0",
+        "index": 2413,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "af7fd8bd",
+        "index": 2481,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "82579e7b",
+        "index": 2484,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "5a76da58",
+        "index": 2498,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "62818ccf",
+        "index": 2528,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "ec654929",
+        "index": 2529,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "c1a63784",
+        "index": 2530,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "7d72ed97",
+        "index": 2546,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "5c8c2bc6",
+        "index": 2570,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "07cc004d",
+        "index": 2626,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "dd409603",
+        "index": 2639,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "ca6d43b7",
+        "index": 2663,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "7b67097d",
+        "index": 2716,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "6f34abeb",
+        "index": 2770,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "08f24d41",
+        "index": 2810,
+        "stratum": "Financials | Subtract"
+      },
+      {
+        "example_id": "b7d92d69",
+        "index": 2824,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "a3867f97",
+        "index": 2825,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "ba1fffd2",
+        "index": 2826,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "5171593a",
+        "index": 2890,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "0a89f264",
+        "index": 2906,
+        "stratum": "Financials | Addition"
+      },
+      {
+        "example_id": "aba93fa2",
+        "index": 2994,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "10fcf637",
+        "index": 2997,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "8673bd8d",
+        "index": 3001,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "a9abec61",
+        "index": 3012,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "37e3858a",
+        "index": 3069,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "9663f486",
+        "index": 3083,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "753c9178",
+        "index": 3106,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "c66b68fb",
+        "index": 3108,
+        "stratum": "Company overview | Addition"
+      },
+      {
+        "example_id": "5c593e8f",
+        "index": 3139,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "a93d4d89",
+        "index": 3162,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "f648047d",
+        "index": 3301,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "d1b4992f",
+        "index": 3314,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "f4b922a7",
+        "index": 3334,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "f62b9607",
+        "index": 3366,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "2240dfc4",
+        "index": 3380,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "2094bdc3",
+        "index": 3388,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "ffd4dc24",
+        "index": 3392,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "605dbb1a",
+        "index": 3417,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "36c9046a",
+        "index": 3428,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "366d49d1",
+        "index": 3438,
+        "stratum": "Company overview | Division"
+      },
+      {
+        "example_id": "2f2f8644",
+        "index": 3471,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "7f47263b",
+        "index": 3489,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "8a3ff4c7",
+        "index": 3551,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "e48c2d8d",
+        "index": 3554,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "ac857a7e",
+        "index": 3606,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "b7bcc30c",
+        "index": 3637,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "35c29956",
+        "index": 3671,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "5102022a",
+        "index": 3691,
+        "stratum": "Company overview | Compositional"
+      },
+      {
+        "example_id": "77270f50",
+        "index": 3713,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "9962810b",
+        "index": 3760,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "03ae4ea2",
+        "index": 3830,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "a868f9cd",
+        "index": 3831,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "623ef61c",
+        "index": 3836,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "e74ca3e7",
+        "index": 3846,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "5c385790",
+        "index": 3869,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "ea919e7d",
+        "index": 3910,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "f92d377d",
+        "index": 3927,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "232e9758",
+        "index": 3965,
+        "stratum": "Financials | Subtract"
+      },
+      {
+        "example_id": "a5bb38f8",
+        "index": 3973,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "3d3540a1",
+        "index": 3986,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "28b470fe",
+        "index": 4039,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "9c052a04",
+        "index": 4046,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "1b3c8958",
+        "index": 4049,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "95a8281e",
+        "index": 4081,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "6cc8d3fe",
+        "index": 4091,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "9297ce2b",
+        "index": 4146,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "7fdfcc10",
+        "index": 4164,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "8eecb5e9",
+        "index": 4168,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "a13b68ad",
+        "index": 4188,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "8b9cc824",
+        "index": 4232,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "311df871",
+        "index": 4283,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "886ac30b",
+        "index": 4361,
+        "stratum": "Financials | Multiplication"
+      },
+      {
+        "example_id": "282899e9",
+        "index": 4380,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "668ba8e4",
+        "index": 4436,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "59343b78",
+        "index": 4449,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "d5088ef8",
+        "index": 4516,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "9bd9e38b",
+        "index": 4580,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "e479900d",
+        "index": 4594,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "87787a41",
+        "index": 4597,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "c55b5a4d",
+        "index": 4614,
+        "stratum": "Financials | Division"
+      },
+      {
+        "example_id": "d1a85aab",
+        "index": 4621,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "7dcc57f6",
+        "index": 4646,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "46f93d4f",
+        "index": 4678,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "916b2fff",
+        "index": 4684,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "7077afee",
+        "index": 4718,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "53bf07ff",
+        "index": 4760,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "71cc2613",
+        "index": 4768,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "0a6d7405",
+        "index": 4784,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "bdaebbc2",
+        "index": 4804,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "76ae790b",
+        "index": 4806,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "f3d1ea7d",
+        "index": 4811,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "0e8bab59",
+        "index": 4909,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "0ff54d8c",
+        "index": 4979,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "e9b27e0a",
+        "index": 5001,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "e6d310ef",
+        "index": 5016,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "fe5021b9",
+        "index": 5050,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "a37308c4",
+        "index": 5161,
+        "stratum": "Financials | Division"
+      },
+      {
+        "example_id": "7d0da7d3",
+        "index": 5165,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "faf3f30e",
+        "index": 5286,
+        "stratum": "Company overview | Subtract"
+      },
+      {
+        "example_id": "57130ec1",
+        "index": 5297,
+        "stratum": "Company overview | None"
+      },
+      {
+        "example_id": "39c3d7fa",
+        "index": 5335,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "d7053b5d",
+        "index": 5365,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "2861ca65",
+        "index": 5383,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "2b5b984e",
+        "index": 5428,
+        "stratum": "Financials | Compositional"
+      },
+      {
+        "example_id": "2b8cb791",
+        "index": 5448,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "4680eb49",
+        "index": 5474,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "b03f109b",
+        "index": 5475,
+        "stratum": "Risk | None"
+      },
+      {
+        "example_id": "8bb857e8",
+        "index": 5477,
+        "stratum": "Legal | None"
+      },
+      {
+        "example_id": "e54226dd",
+        "index": 5500,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "cb2c3d34",
+        "index": 5534,
+        "stratum": "Accounting | None"
+      },
+      {
+        "example_id": "33dfb7a3",
+        "index": 5535,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "e1ecd128",
+        "index": 5536,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "a1340975",
+        "index": 5551,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "63865e89",
+        "index": 5572,
+        "stratum": "Company overview | Multiplication"
+      },
+      {
+        "example_id": "5e48e67b",
+        "index": 5581,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "c99076a3",
+        "index": 5634,
+        "stratum": "Financials | None"
+      },
+      {
+        "example_id": "c399ba47",
+        "index": 5639,
+        "stratum": "Shareholder return | None"
+      },
+      {
+        "example_id": "615de760",
+        "index": 5654,
+        "stratum": "Governance | None"
+      },
+      {
+        "example_id": "ac474862",
+        "index": 5658,
+        "stratum": "Footnotes | None"
+      },
+      {
+        "example_id": "d354b53a",
+        "index": 5665,
+        "stratum": "Governance | None"
+      }
+    ],
+    "indices": [
+      17,
+      37,
+      154,
+      157,
+      160,
+      240,
+      243,
+      245,
+      250,
+      256,
+      273,
+      312,
+      463,
+      635,
+      639,
+      696,
+      701,
+      708,
+      814,
+      836,
+      837,
+      842,
+      858,
+      904,
+      905,
+      984,
+      1022,
+      1054,
+      1064,
+      1087,
+      1117,
+      1122,
+      1155,
+      1157,
+      1200,
+      1206,
+      1220,
+      1232,
+      1243,
+      1283,
+      1296,
+      1314,
+      1428,
+      1430,
+      1443,
+      1498,
+      1538,
+      1563,
+      1590,
+      1612,
+      1632,
+      1637,
+      1647,
+      1684,
+      1714,
+      1748,
+      1776,
+      1783,
+      1809,
+      1842,
+      1851,
+      1914,
+      1953,
+      1998,
+      2024,
+      2033,
+      2077,
+      2083,
+      2091,
+      2121,
+      2156,
+      2221,
+      2240,
+      2267,
+      2282,
+      2286,
+      2335,
+      2363,
+      2379,
+      2404,
+      2413,
+      2481,
+      2484,
+      2498,
+      2528,
+      2529,
+      2530,
+      2546,
+      2570,
+      2626,
+      2639,
+      2663,
+      2716,
+      2770,
+      2810,
+      2824,
+      2825,
+      2826,
+      2890,
+      2906,
+      2994,
+      2997,
+      3001,
+      3012,
+      3069,
+      3083,
+      3106,
+      3108,
+      3139,
+      3162,
+      3301,
+      3314,
+      3334,
+      3366,
+      3380,
+      3388,
+      3392,
+      3417,
+      3428,
+      3438,
+      3471,
+      3489,
+      3551,
+      3554,
+      3606,
+      3637,
+      3671,
+      3691,
+      3713,
+      3760,
+      3830,
+      3831,
+      3836,
+      3846,
+      3869,
+      3910,
+      3927,
+      3965,
+      3973,
+      3986,
+      4039,
+      4046,
+      4049,
+      4081,
+      4091,
+      4146,
+      4164,
+      4168,
+      4188,
+      4232,
+      4283,
+      4361,
+      4380,
+      4436,
+      4449,
+      4516,
+      4580,
+      4594,
+      4597,
+      4614,
+      4621,
+      4646,
+      4678,
+      4684,
+      4718,
+      4760,
+      4768,
+      4784,
+      4804,
+      4806,
+      4811,
+      4909,
+      4979,
+      5001,
+      5016,
+      5050,
+      5161,
+      5165,
+      5286,
+      5297,
+      5335,
+      5365,
+      5383,
+      5428,
+      5448,
+      5474,
+      5475,
+      5477,
+      5500,
+      5534,
+      5535,
+      5536,
+      5551,
+      5572,
+      5581,
+      5634,
+      5639,
+      5654,
+      5658,
+      5665
+    ]
+  },
+  "manifest_fingerprint": "sha256:b98ec80928a6c050a9daa95a3636a4fd2d25c89dc9887f1682f164427b11f093",
+  "manifest_schema_version": "finance-manifest-v2",
+  "protocol_id": "finance_icaif26_v2",
+  "seed": 20260709,
+  "selection_policy": "proportional strata: category x question_type"
+}

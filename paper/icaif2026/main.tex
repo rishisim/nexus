@@ -1,0 +1,45 @@
+\documentclass[sigconf,anonymous,review]{acmart}
+
+\AtBeginDocument{%
+  \providecommand\BibTeX{{Bib\TeX}}}
+
+\setcopyright{none}
+\settopmatter{printacmref=true,printccs=true,printfolios=true}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\acmConference[ICAIF '26]{The 7th ACM International Conference on AI in Finance}{November 14--17, 2026}{Milan, Italy}
+\acmYear{2026}
+\copyrightyear{2026}
+\acmDOI{}
+\acmISBN{}
+
+\ccsdesc[500]{Computing methodologies~Natural language processing}
+\ccsdesc[300]{Applied computing~Economics}
+
+\title[When Should Financial QA Be Agentic?]{When Should Financial QA Be Agentic?\texorpdfstring{\\}{: }
+Selective Orchestration for Accuracy--Cost-Efficient Financial Reasoning}
+
+% No author or affiliation metadata is included in the review manuscript.
+
+\begin{document}
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\keywords{financial question answering, language-model agents, selective computation, cost-aware reasoning, ReAct}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experimental_protocol}
+\input{sections/results}
+\input{sections/analysis}
+\input{sections/limitations}
+\input{sections/conclusion}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

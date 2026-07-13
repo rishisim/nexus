@@ -1,0 +1,317 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{18}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Chen et~al\mbox{.}(2024b)]%
+        {chen2024frugalgpt}
+\bibfield{author}{\bibinfo{person}{Lingjiao Chen}, \bibinfo{person}{Matei
+  Zaharia}, {and} \bibinfo{person}{James Zou}.}
+  \bibinfo{year}{2024}\natexlab{b}.
+\newblock \showarticletitle{{FrugalGPT}: How to Use Large Language Models While
+  Reducing Cost and Improving Performance}.
+\newblock \bibinfo{journal}{\emph{Transactions on Machine Learning Research}}
+  (\bibinfo{year}{2024}).
+\newblock
+\urldef\tempurl%
+\url{https://openreview.net/forum?id=cSimKw5p6R}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Chen et~al\mbox{.}(2024a)]%
+        {chen2024donotthink}
+\bibfield{author}{\bibinfo{person}{Xingyu Chen}, \bibinfo{person}{Jiahao Xu},
+  \bibinfo{person}{Tian Liang}, \bibinfo{person}{Zhiwei He},
+  \bibinfo{person}{Jianhui Pang}, \bibinfo{person}{Dian Yu},
+  \bibinfo{person}{Linfeng Song}, \bibinfo{person}{Qiuzhi Liu},
+  \bibinfo{person}{Mengfei Zhou}, \bibinfo{person}{Zhuosheng Zhang},
+  \bibinfo{person}{Rui Wang}, \bibinfo{person}{Zhaopeng Tu},
+  \bibinfo{person}{Haitao Mi}, {and} \bibinfo{person}{Dong Yu}.}
+  \bibinfo{year}{2024}\natexlab{a}.
+\newblock \bibinfo{title}{Do {NOT} Think That Much for $2+3=?$ On the
+  Overthinking of o1-Like {LLM}s}.
+\newblock
+\showeprint[arxiv]{2412.21187}~[cs.CL]
+\href{https://doi.org/10.48550/arXiv.2412.21187}{doi:\nolinkurl{10.48550/arXiv.2412.21187}}
+
+
+\bibitem[Chen et~al\mbox{.}(2021)]%
+        {chen2021finqa}
+\bibfield{author}{\bibinfo{person}{Zhiyu Chen}, \bibinfo{person}{Wenhu Chen},
+  \bibinfo{person}{Charese Smiley}, \bibinfo{person}{Sameena Shah},
+  \bibinfo{person}{Iana Borova}, \bibinfo{person}{Dylan Langdon},
+  \bibinfo{person}{Reema Moussa}, \bibinfo{person}{Matt Beane},
+  \bibinfo{person}{Ting-Hao Huang}, \bibinfo{person}{Bryan Routledge}, {and}
+  \bibinfo{person}{William~Yang Wang}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{{FinQA}: A Dataset of Numerical Reasoning over
+  Financial Data}. In \bibinfo{booktitle}{\emph{Proceedings of the 2021
+  Conference on Empirical Methods in Natural Language Processing}}.
+  \bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{pages}{3697--3711}.
+\newblock
+\href{https://doi.org/10.18653/v1/2021.emnlp-main.300}{doi:\nolinkurl{10.18653/v1/2021.emnlp-main.300}}
+
+
+\bibitem[Chen et~al\mbox{.}(2022)]%
+        {chen2022convfinqa}
+\bibfield{author}{\bibinfo{person}{Zhiyu Chen}, \bibinfo{person}{Shiyang Li},
+  \bibinfo{person}{Charese Smiley}, \bibinfo{person}{Zhiqiang Ma},
+  \bibinfo{person}{Sameena Shah}, {and} \bibinfo{person}{William~Yang Wang}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{ConvFinQA}: Exploring the Chain of Numerical
+  Reasoning in Conversational Finance Question Answering}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 2022 Conference on Empirical
+  Methods in Natural Language Processing}}. \bibinfo{publisher}{Association for
+  Computational Linguistics}, \bibinfo{pages}{6279--6292}.
+\newblock
+\href{https://doi.org/10.18653/v1/2022.emnlp-main.421}{doi:\nolinkurl{10.18653/v1/2022.emnlp-main.421}}
+
+
+\bibitem[Choi et~al\mbox{.}(2025a)]%
+        {choi2025finder}
+\bibfield{author}{\bibinfo{person}{Chanyeol Choi}, \bibinfo{person}{Jihoon
+  Kwon}, \bibinfo{person}{Jaeseon Ha}, \bibinfo{person}{Hojun Choi},
+  \bibinfo{person}{Chaewoon Kim}, \bibinfo{person}{Yongjae Lee},
+  \bibinfo{person}{Jy yong Sohn}, {and} \bibinfo{person}{Alejandro
+  Lopez-Lira}.} \bibinfo{year}{2025}\natexlab{a}.
+\newblock \showarticletitle{{FinDER}: Financial Dataset for Question Answering
+  and Evaluating Retrieval-Augmented Generation}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 6th ACM International Conference
+  on AI in Finance}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{638--646}.
+\newblock
+\href{https://doi.org/10.1145/3768292.3770361}{doi:\nolinkurl{10.1145/3768292.3770361}}
+
+
+\bibitem[Choi et~al\mbox{.}(2025b)]%
+        {choi2025finagentbench}
+\bibfield{author}{\bibinfo{person}{Chanyeol Choi}, \bibinfo{person}{Jihoon
+  Kwon}, \bibinfo{person}{Alejandro Lopez-Lira}, \bibinfo{person}{Chaewoon
+  Kim}, \bibinfo{person}{Minjae Kim}, \bibinfo{person}{Juneha Hwang},
+  \bibinfo{person}{Jaeseon Ha}, \bibinfo{person}{Hojun Choi},
+  \bibinfo{person}{Suyeol Yun}, \bibinfo{person}{Yongjin Kim}, {and}
+  \bibinfo{person}{Yongjae Lee}.} \bibinfo{year}{2025}\natexlab{b}.
+\newblock \showarticletitle{{FinAgentBench}: A Benchmark Dataset for Agentic
+  Retrieval in Financial Question Answering}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 6th ACM International Conference
+  on AI in Finance}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{632--637}.
+\newblock
+\href{https://doi.org/10.1145/3768292.3770362}{doi:\nolinkurl{10.1145/3768292.3770362}}
+
+
+\bibitem[Erol et~al\mbox{.}(2025)]%
+        {erol2025costofpass}
+\bibfield{author}{\bibinfo{person}{Mehmet~Hamza Erol}, \bibinfo{person}{Batu
+  El}, \bibinfo{person}{Mirac Suzgun}, \bibinfo{person}{Mert Yuksekgonul},
+  {and} \bibinfo{person}{James Zou}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{Cost-of-Pass: An Economic Framework for Evaluating
+  Language Models}.
+\newblock
+\showeprint[arxiv]{2504.13359}~[cs.AI]
+\href{https://doi.org/10.48550/arXiv.2504.13359}{doi:\nolinkurl{10.48550/arXiv.2504.13359}}
+
+
+\bibitem[Es et~al\mbox{.}(2024)]%
+        {es2024ragas}
+\bibfield{author}{\bibinfo{person}{Shahul Es}, \bibinfo{person}{Jithin James},
+  \bibinfo{person}{Luis~Espinosa Anke}, {and} \bibinfo{person}{Steven
+  Schockaert}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{{RAGAs}: Automated Evaluation of Retrieval
+  Augmented Generation}. In \bibinfo{booktitle}{\emph{Proceedings of the 18th
+  Conference of the European Chapter of the Association for Computational
+  Linguistics: System Demonstrations}}. \bibinfo{publisher}{Association for
+  Computational Linguistics}, \bibinfo{pages}{150--158}.
+\newblock
+\href{https://doi.org/10.18653/v1/2024.eacl-demo.16}{doi:\nolinkurl{10.18653/v1/2024.eacl-demo.16}}
+
+
+\bibitem[Fatemi and Hu(2024)]%
+        {fatemi2024reflection}
+\bibfield{author}{\bibinfo{person}{Sorouralsadat Fatemi} {and}
+  \bibinfo{person}{Yuheng Hu}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Enhancing Financial Question Answering with a
+  Multi-Agent Reflection Framework}. In \bibinfo{booktitle}{\emph{Proceedings
+  of the 5th ACM International Conference on AI in Finance}}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{530--537}.
+\newblock
+\href{https://doi.org/10.1145/3677052.3698686}{doi:\nolinkurl{10.1145/3677052.3698686}}
+
+
+\bibitem[Geifman and El-Yaniv(2019)]%
+        {geifman2019selectivenet}
+\bibfield{author}{\bibinfo{person}{Yonatan Geifman} {and} \bibinfo{person}{Ran
+  El-Yaniv}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{{SelectiveNet}: A Deep Neural Network with an
+  Integrated Reject Option}. In \bibinfo{booktitle}{\emph{Proceedings of the
+  36th International Conference on Machine Learning}}
+  \emph{(\bibinfo{series}{Proceedings of Machine Learning Research},
+  Vol.~\bibinfo{volume}{97})}. \bibinfo{publisher}{PMLR},
+  \bibinfo{pages}{2151--2159}.
+\newblock
+\urldef\tempurl%
+\url{https://proceedings.mlr.press/v97/geifman19a.html}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Islam et~al\mbox{.}(2023)]%
+        {islam2023financebench}
+\bibfield{author}{\bibinfo{person}{Pranab Islam}, \bibinfo{person}{Anand
+  Kannappan}, \bibinfo{person}{Douwe Kiela}, \bibinfo{person}{Rebecca Qian},
+  \bibinfo{person}{Nino Scherrer}, {and} \bibinfo{person}{Bertie Vidgen}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{{FinanceBench}: A New Benchmark for Financial
+  Question Answering}.
+\newblock
+\showeprint[arxiv]{2311.11944}~[cs.CL]
+\href{https://doi.org/10.48550/arXiv.2311.11944}{doi:\nolinkurl{10.48550/arXiv.2311.11944}}
+
+
+\bibitem[Ong et~al\mbox{.}(2025)]%
+        {ong2025routellm}
+\bibfield{author}{\bibinfo{person}{Isaac Ong}, \bibinfo{person}{Amjad
+  Almahairi}, \bibinfo{person}{Vincent Wu}, \bibinfo{person}{Wei-Lin Chiang},
+  \bibinfo{person}{Tianhao Wu}, \bibinfo{person}{Joseph~E. Gonzalez},
+  \bibinfo{person}{M.~Waleed Kadous}, {and} \bibinfo{person}{Ion Stoica}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{{RouteLLM}: Learning to Route {LLM}s with
+  Preference Data}. In \bibinfo{booktitle}{\emph{International Conference on
+  Learning Representations}}.
+\newblock
+\urldef\tempurl%
+\url{https://openreview.net/forum?id=8sSqNntaMr}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Singh et~al\mbox{.}(2024)]%
+        {singh2024finqapt}
+\bibfield{author}{\bibinfo{person}{Kuldeep Singh}, \bibinfo{person}{Simerjot
+  Kaur}, {and} \bibinfo{person}{Charese Smiley}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{{FinQAPT}: Empowering Financial Decisions with
+  End-to-End {LLM}-driven Question Answering Pipeline}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 5th ACM International Conference
+  on AI in Finance}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{266--273}.
+\newblock
+\href{https://doi.org/10.1145/3677052.3698682}{doi:\nolinkurl{10.1145/3677052.3698682}}
+
+
+\bibitem[Sun et~al\mbox{.}(2025)]%
+        {sun2025finresearchbench}
+\bibfield{author}{\bibinfo{person}{Rui Sun}, \bibinfo{person}{Zuo Bai},
+  \bibinfo{person}{Wentao Zhang}, \bibinfo{person}{Yuxiang Zhang},
+  \bibinfo{person}{Li Zhao}, \bibinfo{person}{Shan Sun}, {and}
+  \bibinfo{person}{Zhengwen Qiu}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{{FinResearchBench}: A Logic Tree based
+  Agent-as-a-Judge Evaluation Framework for Financial Research Agents}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 6th ACM International Conference
+  on AI in Finance}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{656--664}.
+\newblock
+\href{https://doi.org/10.1145/3768292.3770364}{doi:\nolinkurl{10.1145/3768292.3770364}}
+
+
+\bibitem[Vamvourellis and Mehta(2025)]%
+        {vamvourellis2025overthinking}
+\bibfield{author}{\bibinfo{person}{Dimitris Vamvourellis} {and}
+  \bibinfo{person}{Dhagash Mehta}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Reasoning or Overthinking: Evaluating Large
+  Language Models on Financial Sentiment Analysis}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 6th ACM International Conference
+  on AI in Finance}}. \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{pages}{299--307}.
+\newblock
+\href{https://doi.org/10.1145/3768292.3770341}{doi:\nolinkurl{10.1145/3768292.3770341}}
+
+
+\bibitem[Wang et~al\mbox{.}(2025)]%
+        {wang2025efficientagents}
+\bibfield{author}{\bibinfo{person}{Ningning Wang}, \bibinfo{person}{Xavier Hu},
+  \bibinfo{person}{Pai Liu}, \bibinfo{person}{He Zhu}, \bibinfo{person}{Yue
+  Hou}, \bibinfo{person}{Heyuan Huang}, \bibinfo{person}{Shengyu Zhang},
+  \bibinfo{person}{Jian Yang}, \bibinfo{person}{Jiaheng Liu},
+  \bibinfo{person}{Ge Zhang}, \bibinfo{person}{Changwang Zhang},
+  \bibinfo{person}{Jun Wang}, \bibinfo{person}{Yuchen~Eleanor Jiang}, {and}
+  \bibinfo{person}{Wangchunshu Zhou}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{Efficient Agents: Building Effective Agents While
+  Reducing Cost}.
+\newblock
+\showeprint[arxiv]{2508.02694}~[cs.AI]
+\href{https://doi.org/10.48550/arXiv.2508.02694}{doi:\nolinkurl{10.48550/arXiv.2508.02694}}
+\newblock
+\shownote{Work in progress}.
+
+
+\bibitem[Yao et~al\mbox{.}(2023)]%
+        {yao2023react}
+\bibfield{author}{\bibinfo{person}{Shunyu Yao}, \bibinfo{person}{Jeffrey Zhao},
+  \bibinfo{person}{Dian Yu}, \bibinfo{person}{Nan Du}, \bibinfo{person}{Izhak
+  Shafran}, \bibinfo{person}{Karthik Narasimhan}, {and} \bibinfo{person}{Yuan
+  Cao}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{{ReAct}: Synergizing Reasoning and Acting in
+  Language Models}. In \bibinfo{booktitle}{\emph{International Conference on
+  Learning Representations}}.
+\newblock
+\urldef\tempurl%
+\url{https://openreview.net/forum?id=WE_vluYUL-X}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Zhu et~al\mbox{.}(2021)]%
+        {zhu2021tatqa}
+\bibfield{author}{\bibinfo{person}{Fengbin Zhu}, \bibinfo{person}{Wenqiang
+  Lei}, \bibinfo{person}{Youcheng Huang}, \bibinfo{person}{Chao Wang},
+  \bibinfo{person}{Shuo Zhang}, \bibinfo{person}{Jiancheng Lv},
+  \bibinfo{person}{Fuli Feng}, {and} \bibinfo{person}{Tat-Seng Chua}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{{TAT-QA}: A Question Answering Benchmark on a
+  Hybrid of Tabular and Textual Content in Finance}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 59th Annual Meeting of the
+  Association for Computational Linguistics and the 11th International Joint
+  Conference on Natural Language Processing (Volume 1: Long Papers)}}.
+  \bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{pages}{3277--3287}.
+\newblock
+\href{https://doi.org/10.18653/v1/2021.acl-long.254}{doi:\nolinkurl{10.18653/v1/2021.acl-long.254}}
+
+
+\end{thebibliography}

@@ -1,0 +1,19 @@
+{
+  "_experiment": {
+    "dataset": "finqa",
+    "manifest_fingerprint": "sha256:1a8da627bba037a47fafb2957b9de9fe9fd1895ab43dfb44f4cd7a258ba49acc",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 50
+  },
+  "selective": {
+    "accuracy_em": 0.28,
+    "estimated_cost_usd": 0.06959786999999998,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 50,
+    "total_llm_calls": 93,
+    "valid_examples": 50
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "react": {
+    "total_examples": 10,
+    "valid_examples": 10,
+    "error_count": 0,
+    "accuracy_em": 0.9,
+    "accuracy_f1": 0.7332,
+    "em_success_count": 9.0,
+    "total_llm_calls": 21,
+    "avg_calls_per_example": 2.1,
+    "correct_per_llm_call": 0.428571
+  },
+  "nexus": {
+    "total_examples": 10,
+    "valid_examples": 10,
+    "error_count": 0,
+    "accuracy_em": 0.9,
+    "accuracy_f1": 0.8071,
+    "em_success_count": 9.0,
+    "total_llm_calls": 10,
+    "avg_calls_per_example": 1.0,
+    "correct_per_llm_call": 0.9
+  },
+  "_experiment": {
+    "dataset": "tatqa",
+    "dataset_name": "TAT-QA",
+    "model": "gemini-2.5-flash",
+    "seed": 42,
+    "results_tag": "all5-prelim",
+    "num_examples_requested": 10,
+    "planned_indices": [],
+    "claim_status": "not_supported_yet",
+    "claim_rule": "supported only when paired Nexus accuracy is greater than ReAct and Nexus mean LLM calls are lower on the same valid example count"
+  }
+}

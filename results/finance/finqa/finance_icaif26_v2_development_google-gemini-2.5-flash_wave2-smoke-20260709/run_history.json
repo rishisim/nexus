@@ -1,0 +1,20 @@
+[
+  {
+    "attempted_pairs": 10,
+    "counts": {
+      "infrastructure_failure": 0,
+      "model_failure": 0,
+      "success": 10
+    },
+    "end_time": "2026-07-09T20:28:57+00:00",
+    "frameworks": [
+      "direct",
+      "cot",
+      "react",
+      "nexus",
+      "selective"
+    ],
+    "run_id": 1,
+    "start_time": "2026-07-09T20:28:39+00:00"
+  }
+]

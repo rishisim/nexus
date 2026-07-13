@@ -1,0 +1,133 @@
+{
+  "missing_model_ids": [],
+  "models": {
+    "google/gemini-2.5-flash": {
+      "architecture": {
+        "input_modalities": [
+          "file",
+          "image",
+          "text",
+          "audio",
+          "video"
+        ],
+        "instruct_type": null,
+        "modality": "text+image+file+audio+video->text",
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Gemini"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1147,
+            "rank": 66,
+            "win_rate": 47.4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1149,
+            "rank": 72,
+            "win_rate": 46.9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1168,
+            "rank": 61,
+            "win_rate": 48.4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1131,
+            "rank": 73,
+            "win_rate": 44.3
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1146,
+            "rank": 64,
+            "win_rate": 48.9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1154,
+            "rank": 71,
+            "win_rate": 47.1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1077,
+            "rank": 60,
+            "win_rate": 43.1
+          }
+        ]
+      },
+      "canonical_slug": "google/gemini-2.5-flash",
+      "context_length": 1048576,
+      "created": 1750172488,
+      "default_parameters": {
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null,
+        "temperature": null,
+        "top_k": null,
+        "top_p": null
+      },
+      "description": "Gemini 2.5 Flash is Google's state-of-the-art workhorse model, specifically designed for advanced reasoning, coding, mathematics, and scientific tasks. It includes built-in \"thinking\" capabilities, enabling it to provide responses with greater...",
+      "expiration_date": null,
+      "hugging_face_id": "",
+      "id": "google/gemini-2.5-flash",
+      "knowledge_cutoff": "2025-01-31",
+      "links": {
+        "details": "/api/v1/models/google/gemini-2.5-flash/endpoints"
+      },
+      "name": "Google: Gemini 2.5 Flash",
+      "per_request_limits": null,
+      "pricing": {
+        "audio": "0.000001",
+        "completion": "0.0000025",
+        "image": "0.0000003",
+        "input_cache_read": "0.00000003",
+        "input_cache_write": "0.00000008333333333333334",
+        "internal_reasoning": "0.0000025",
+        "prompt": "0.0000003",
+        "web_search": "0.014"
+      },
+      "reasoning": {
+        "mandatory": false
+      },
+      "supported_parameters": [
+        "include_reasoning",
+        "max_tokens",
+        "reasoning",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "supported_voices": null,
+      "top_provider": {
+        "context_length": 1048576,
+        "is_moderated": false,
+        "max_completion_tokens": 65535
+      }
+    }
+  },
+  "queried_at_utc": "2026-07-09T20:30:51.164310+00:00",
+  "requested_model_ids": [
+    "google/gemini-2.5-flash"
+  ],
+  "source": "https://openrouter.ai/api/v1/models"
+}

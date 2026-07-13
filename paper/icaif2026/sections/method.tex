@@ -1,0 +1,56 @@
+\section{Selective Financial QA}
+\label{sec:method}
+
+Let $q$ be a question and $\mathcal{E}$ the controlled evidence corpus supplied for that example. All compared systems operate on the same $(q,\mathcal{E})$ and share the same evidence and answer budgets described in Section~\ref{sec:protocol}. We compare two complementary policies: a static deterministic-first workflow $S$ and an iterative workflow $R$. A selector $g_\tau$ chooses one policy before either generates an answer:
+\begin{equation}
+  A(q,\mathcal{E}) =
+  \begin{cases}
+    R(q,\mathcal{E}) & \text{if } g(z(q,\mathcal{E})) \geq \tau,\\
+    S(q,\mathcal{E}) & \text{otherwise,}
+  \end{cases}
+\end{equation}
+where $z$ contains no answer, gold program, answer type, scale, derivation, or other target-derived field.
+
+\subsection{Static deterministic-first workflow}
+
+The static path has four stages. First, a deterministic parser extracts entity-, period-, and finance-metric cues from $q$. Second, it constructs up to three fixed query views: the original question, an entity/period/metric view, and a content-word view with interrogative scaffolding removed. Third, the shared environment ranks controlled-evidence chunks by lexical overlap for each query; the returned views are concatenated and truncated to the dossier budget. Fourth, a single language-model call produces a concise answer with an evidence-grounded calculation or rationale. A deterministic output parser extracts the explicitly marked final answer and records malformed or nonterminating outputs; it never consults the reference answer.
+
+\subsection{Iterative workflow}
+
+The iterative path follows a bounded ReAct interface over the same corpus. At each step the model may search the controlled evidence, inspect a matched passage, or finish with an answer. The run terminates after at most seven model steps. Search and lookup operations, evidence returned, truncation, and all model usage are recorded. ReAct therefore has flexibility to reformulate queries or repair intermediate reasoning, but it cannot access evidence or tools unavailable to the static path.
+
+\subsection{Pre-generation selector}
+
+The selector uses deterministic features available before generation: question and evidence lengths; counts of numbers, operators, periods, and entities; table and conversational indicators; narrative and implication cues; lexical evidence coverage; the top retrieval score and top-one/top-two margin; chunk count; and evidence-score dispersion. We standardize numeric features and fit an L2-regularized logistic regression with balanced class weights and random seed 20260709. The development target is one exactly when $R$ is correct and $S$ is incorrect. Dataset identity is excluded so the selector cannot memorize dataset-level policy.
+
+Five-fold stratified cross-validation chooses the least expensive threshold whose accuracy is within one absolute percentage point of the better development accuracy of $S$ and $R$. If a fold contains fewer than five positive routing examples or cross-validated AUROC is below 0.60, the preregistered fallback gate escalates questions with narrative/implication cues, lexical coverage below the development median, or retrieval margin in the lowest development quartile. The selected feature transform, model coefficients or fallback thresholds, and operating threshold are hashed and frozen before evaluation.
+
+In the realized development gate, only 10 of 200 objectively labeled examples were positive, and at least one validation fold contained fewer than five usable positives. The protocol therefore selected the fallback rule rather than fitting or reporting logistic-regression coefficients. FinDER was excluded from router labels because no objective or human-validated correctness labels were available.
+
+\subsection{Comparators and oracle headroom}
+
+Direct prompting performs one question search and one answer call. The structured one-call baseline uses the same single-search dossier as Direct but prompts explicitly for a calculation or short reasoning trace. Static Finance Nexus uses deterministic multi-query evidence assembly under the same maximum dossier budget; it is $S$ without routing. ReAct is $R$ on every example; Selective Finance Nexus applies $g_\tau$; and an offline oracle chooses the correct outcome whenever either $S$ or $R$ succeeds. The oracle is an analysis upper bound, not a deployable system.
+
+\begin{figure}[t]
+  \centering
+  \begingroup
+  \scriptsize
+  \renewcommand{\arraystretch}{0.78}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{c}
+    \fbox{\shortstack{Controlled evidence $(q,\mathcal{E})$\\shared corpus and tools}} \\
+    $\downarrow$ \\
+    \fbox{\shortstack{Deterministic pre-answer stage\\feature extraction + evidence selection}} \\
+    $\downarrow$ \\
+    \fbox{\shortstack{Frozen gate $g_\tau(z)$\\no generated-answer features}} \\
+    \begin{tabular}{cc}
+      $\swarrow$ & $\searrow$ \\[-2pt]
+      \fbox{\shortstack{Static path $S$\\one-call adjudication}} &
+      \fbox{\shortstack{Iterative path $R$\\bounded ReAct}}
+    \end{tabular}
+  \end{tabular}
+  \endgroup
+  \Description{A flow diagram. Controlled financial evidence enters deterministic pre-answer feature extraction and evidence selection. A frozen pre-generation gate then chooses either a static one-call adjudication path or bounded iterative ReAct.}
+  \caption{Selective Finance Nexus. Deterministic components are workflow stages rather than autonomous agents. Both paths receive the same controlled evidence and tools.}
+  \label{fig:method}
+\end{figure}
