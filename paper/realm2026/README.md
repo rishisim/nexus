@@ -71,9 +71,10 @@ rule must be fixed before any calls are made.
 
 ## Build
 
-The vendored `acl.sty` and `acl_natbib.bst` are copied unchanged from the
-official `acl-org/acl-style-files` repository at commit
-`d5adc823ff0f80f98c80405ca0ab66c68e684409`.
+The vendored `acl.sty` and `acl_natbib.bst` come from the official
+`acl-org/acl-style-files` repository at commit
+`d5adc823ff0f80f98c80405ca0ab66c68e684409`; only trailing whitespace in the
+bibliography style was normalized.
 
 From this directory:
 
