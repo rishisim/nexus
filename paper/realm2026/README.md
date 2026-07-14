@@ -15,14 +15,14 @@ Reasoning, not REALM.
 
 ## Working title and thesis
 
-**When Agentic Reasoning Fails to Pay Off: A Preregistered Negative Result in
-Financial Question Answering**
+**When Agentic Reasoning Fails to Pay Off: A Negative Result on Selective
+Routing in Financial Question Answering**
 
 The paper should argue one precise point: a router cannot recover useful
 accuracy-cost trade-offs when its expensive expert has little complementary
 accuracy. Under controlled evidence, bounded ReAct produced only 10 unique
 successes among 200 objective routing examples, while Static Nexus produced 42;
-the preregistered fallback therefore escalated too broadly and hurt both quality
+the prespecified fallback therefore escalated too broadly and hurt both quality
 and cost.
 
 ## Current evidence boundary
@@ -33,6 +33,9 @@ and cost.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
   end-to-end retrieval claim.
+- Use `prespecified` or `protocol-locked`, not `preregistered`. The first
+  public Git commit contains both the protocol and results, so it does not
+  establish an external pre-result registration.
 
 ## Acceptance-focused work plan
 

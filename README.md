@@ -14,7 +14,7 @@ FinanceBench, FinDER, FinQA, TAT-QA, and ConvFinQA.
 
 The repaired 250-example development gate produced a negative result: CoT/PoT
 formed the strongest observed quality-cost point, while ReAct and Selective
-Nexus were dominated. The preregistered gate therefore stopped the study before
+Nexus were dominated. The prespecified gate therefore stopped the study before
 the disjoint 900-example final manifest was opened. These are development-only
 findings, not confirmatory benchmark claims.
 

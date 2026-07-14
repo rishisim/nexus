@@ -1,7 +1,7 @@
 \section{Development Gate Outcome}
 \label{sec:results}
 
-Table~\ref{tab:development-gate} reports the preregistered development comparison. These are method-selection observations from the existing 50 examples per dataset, not held-out estimates. The primary macro averages FinQA execution accuracy, TAT-QA official F1, and ConvFinQA execution accuracy; costs are measured provider cost per example on those same three tasks.
+Table~\ref{tab:development-gate} reports the prespecified development comparison. These are method-selection observations from the existing 50 examples per dataset, not held-out estimates. The primary macro averages FinQA execution accuracy, TAT-QA official F1, and ConvFinQA execution accuracy; costs are measured provider cost per example on those same three tasks.
 
 \begin{table}[t]
   \caption{Development-only quality and cost used for the go/no-go decision. No final-manifest result is included.}
@@ -26,7 +26,7 @@ Table~\ref{tab:development-gate} reports the preregistered development compariso
 CoT/PoT has the highest development macro and costs less than Static Nexus, ReAct, and Selective Nexus. Selective Nexus is 0.0648 below CoT/PoT while also costing more. ReAct has both the lowest primary macro and highest cost. Thus neither the selective policy nor the static-only pivot satisfies the locked go/no-go criterion.
 
 \paragraph{Go/no-go decision.}
-The preregistered conditional required Selective Nexus either to improve quality while reducing cost or to stay within one absolute point of the best primary macro with at least 30\% lower dollar cost. It does neither. We therefore stopped before opening the 900-example final manifest. There is no confirmatory result, cross-family replication, or semantic FinDER claim to report.
+The prespecified conditional required Selective Nexus either to improve quality while reducing cost or to stay within one absolute point of the best primary macro with at least 30\% lower dollar cost. It does neither. We therefore stopped before opening the 900-example final manifest. There is no confirmatory result, cross-family replication, or semantic FinDER claim to report.
 
 \paragraph{Interpretation.}
 This is evidence against the current routing formulation, not evidence that selective computation is impossible. It motivates a workshop-scale negative/protocol report and a later redesign using new development evidence while preserving the untouched final manifest.

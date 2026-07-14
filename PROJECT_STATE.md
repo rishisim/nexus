@@ -35,7 +35,7 @@ failures. On the three objective primary datasets:
 | ReAct | 0.2993 | 0.001479 |
 
 Only 10 of 200 objective routing examples were ReAct-only successes, versus 42
-Static-only successes. The preregistered fallback escalated 70% of cases and
+Static-only successes. The prespecified fallback escalated 70% of cases and
 reduced exact accuracy from 0.395 (always static) to 0.295. The locked go/no-go
 criterion failed.
 
@@ -56,7 +56,7 @@ criterion failed.
 The defensible short-paper claim is a focused negative result:
 
 > Under controlled evidence, a bounded ReAct expert was rarely complementary
-> to a structured one-call workflow; a preregistered selector therefore routed
+> to a structured one-call workflow; a prespecified selector therefore routed
 > too broadly, increasing cost and reducing accuracy. Agent routers should
 > establish expert complementarity before learning when to escalate.
 

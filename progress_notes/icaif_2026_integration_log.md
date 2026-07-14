@@ -89,7 +89,7 @@ the frozen protocol hashes are recorded below.
   ReAct 0.2993 / USD 0.001479; Selective 0.3675 / USD 0.001322.
 - Router fit used 200 objective-labeled examples; FinDER was excluded because
   semantic judgments are secondary and not human-validated. Only 10 examples
-  were ReAct-only correct, triggering the preregistered rule fallback. The rule
+  were ReAct-only correct, triggering the prespecified rule fallback. The rule
   escalated 70%; the fresh selective rerun achieved 0.295 exact accuracy versus
   0.395 always-static (the offline saved-branch estimate was 0.280).
 - **Conditional stop fired:** Selective is dominated and Static Nexus is also
