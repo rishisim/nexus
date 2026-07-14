@@ -1,0 +1,42 @@
+\section{Selective Financial QA}
+\label{sec:method}
+
+Let $q$ be a question and $\mathcal{E}$ its controlled evidence. We compare a
+static workflow $S$ with an iterative workflow $R$. Before either produces an
+answer, a gate $g_\tau$ chooses
+\begin{equation}
+  A(q,\mathcal{E}) =
+  \begin{cases}
+    R(q,\mathcal{E}) & g(z(q,\mathcal{E})) \geq \tau,\\
+    S(q,\mathcal{E}) & \text{otherwise.}
+  \end{cases}
+\end{equation}
+The features $z$ contain no answer, program, scale, derivation, or other
+target-derived field.
+
+\paragraph{Static and iterative branches.}
+$S$ deterministically extracts entity, period, metric, and content-word query
+views; ranks evidence chunks by lexical overlap; truncates their union to a
+fixed dossier budget; and makes one evidence-grounded answer call. $R$ uses a
+bounded ReAct search/lookup/finish interface over the same corpus, with at most
+seven model steps. Both paths record returned evidence, truncation, model usage,
+and malformed or nonterminating outputs. Deterministic parsing and ranking are
+workflow components, not autonomous agents.
+
+\paragraph{Gate.}
+The prespecified features include question/evidence length, numeric and temporal
+cues, table/conversation/narrative indicators, lexical coverage, retrieval score
+and margin, and chunk dispersion. An L2 logistic model with balanced weights and
+five-fold stratified cross-validation targets the asymmetric event
+$R$-correct/$S$-incorrect. The chosen threshold must be the cheapest whose
+development accuracy is within one point of the better branch. If any fold has
+fewer than five benefit cases or AUROC is below 0.60, a registered rule escalates
+narrative/implication questions or cases below development thresholds for
+coverage or retrieval margin. The realized data triggered this fallback; FinDER
+was excluded because it lacks an objective or human-validated correctness label.
+
+\paragraph{Comparators.}
+Direct uses one search and one answer call; CoT/PoT uses the same dossier with an
+explicit calculation prompt; Static Nexus always invokes $S$; ReAct always
+invokes $R$; and Selective Nexus applies the gate. An offline oracle measures
+branch headroom but is not a deployable system.
