@@ -7,6 +7,7 @@ from src.agents.finance.finance_statistics import (
     holm_correction,
     macro_summary,
     paired_bootstrap_ci,
+    stratified_paired_bootstrap_ci,
 )
 
 
@@ -33,6 +34,33 @@ class PairedInferenceTests(unittest.TestCase):
             paired_bootstrap_ci([1], [1, 0])
         with self.assertRaises(ValueError):
             paired_bootstrap_ci([float("nan")], [1])
+
+    def test_stratified_bootstrap_uses_unweighted_stratum_means(self):
+        result = stratified_paired_bootstrap_ci(
+            {"small": [0, 1], "large": [0, 0, 0, 0]},
+            {"small": [1, 1], "large": [0, 0, 1, 1]},
+            n_resamples=500,
+            seed=11,
+        )
+        self.assertEqual(result.estimate, 0.5)
+        self.assertEqual(result.n_pairs, 6)
+        self.assertGreaterEqual(result.lower, 0.0)
+        self.assertLessEqual(result.upper, 1.0)
+        self.assertEqual(
+            result,
+            stratified_paired_bootstrap_ci(
+                {"small": [0, 1], "large": [0, 0, 0, 0]},
+                {"small": [1, 1], "large": [0, 0, 1, 1]},
+                n_resamples=500,
+                seed=11,
+            ),
+        )
+
+    def test_stratified_bootstrap_rejects_missing_or_misaligned_strata(self):
+        with self.assertRaises(ValueError):
+            stratified_paired_bootstrap_ci({"a": [0]}, {"b": [1]})
+        with self.assertRaises(ValueError):
+            stratified_paired_bootstrap_ci({"a": [0, 1]}, {"a": [1]})
 
     def test_exact_mcnemar_counts_and_p_value(self):
         # one left-only and four right-only outcomes -> exact p = 0.375
