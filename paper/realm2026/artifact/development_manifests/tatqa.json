@@ -1,0 +1,319 @@
+{
+  "artifact_partition": "development_only",
+  "dataset": "tatqa",
+  "dataset_fingerprint": "sha256:4c78336e9598e2722664741da04ba50a144a67a57008e72ca6e75de262ad8aeb",
+  "dataset_size": 1644,
+  "development": {
+    "count": 50,
+    "examples": [
+      {
+        "example_id": "935015b20dd8cfd9a24826afbcfbf42b",
+        "index": 5,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c7b467c65583b466039f2a7942cf6078",
+        "index": 9,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "db3301d09c419606702f36f44f7652d4",
+        "index": 36,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "ff307954f10744c45fefacf07bb122d4",
+        "index": 45,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "9b7135060c4cbf2d522a9ec7c5f80198",
+        "index": 57,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "861d03f423b84d91bc37f58d774ec183",
+        "index": 68,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "b42eb76932f8c9fb874f7ce384a3c2de",
+        "index": 100,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "cb727530c971930f152cc10c012fa79b",
+        "index": 132,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "eaefe9fcf68f6d1d30638b45076cf27e",
+        "index": 172,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "8375d5669c02a9c64e08a0467ad372db",
+        "index": 174,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "6e1d1948dfce647d26e335cfc5d102fa",
+        "index": 181,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "7f9b93c21edc3ebd07094bddc89b8ba6",
+        "index": 211,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "e26cd3d746da1785bbc08023485f83f2",
+        "index": 259,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "652ea108c2238699482566c47f99b79f",
+        "index": 288,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "95e8a0028dbced02c7f28c79c62bb281",
+        "index": 290,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "5758dc5a51092827539edd7fc2a3a3e9",
+        "index": 315,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "1eb127e42e0d7aa90d3aea0eb58fc69a",
+        "index": 364,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "6641672618ae883621f03d16a16c4593",
+        "index": 444,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "87cd81975e990674df554047afc7205a",
+        "index": 474,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "7c27ebc8ac884cda4febb9f399d296e0",
+        "index": 486,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c888300a8c8cca2c3e0f08ffa3c6b5f7",
+        "index": 492,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "64eb28ae3c08547e6d2200bd3589ee37",
+        "index": 670,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "25978230d70cd8e677358c8cc4d69f5c",
+        "index": 690,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c6237a933b22f32faa6652d8bd24777e",
+        "index": 691,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "fc35a740556eccd5414635d0a75ebb2c",
+        "index": 697,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "475eae0efee24cef567f489b0f06e592",
+        "index": 711,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "668fc940f449fc9b697d9bc0c65e0472",
+        "index": 730,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "0f22f818c77f19cb865216c3ea2d2fc9",
+        "index": 752,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "c418d4ec256c02dcc14d4e495d77778f",
+        "index": 757,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "e7ee9654a4faf700a3839ef377a1381d",
+        "index": 759,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "4318ce64a1732c2c634ee721dd0d3d80",
+        "index": 766,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "a3dad02030951c7b10b80c5f80312341",
+        "index": 806,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c990e1683837855961a7a19dd2bb4efe",
+        "index": 874,
+        "stratum": "count | table-text"
+      },
+      {
+        "example_id": "368a3ea86c6cce6be5197600a8e492e6",
+        "index": 879,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "80ee44506feaf4d057b346de032f68e7",
+        "index": 898,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "0c738ca101b8437189cc9138fe3ee100",
+        "index": 935,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "50a876f58ad3d5f4f8c8479c958f4a53",
+        "index": 964,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "49f3abfde08f9511cd8169491e3ae9da",
+        "index": 965,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "51be1fc1f554ad6c15e8d0d043a0f738",
+        "index": 989,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "f3d53198e708710851e470ad44eda6fe",
+        "index": 1006,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c9097e88dc56de3a0553c170693491cd",
+        "index": 1299,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "b2dd14e2d0520555a1143e82c835dd94",
+        "index": 1346,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "92ad3771f159af69c3d2ac75287b553e",
+        "index": 1364,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "b2ee7c120ea225650b9c9093e5a43d5c",
+        "index": 1416,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "110352945ede4cddcc7a3e6070f469fd",
+        "index": 1423,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "69d6708c007f52be21714b4411a6b38c",
+        "index": 1455,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "efccdf1a2d22ea55fae61dffcc35dfda",
+        "index": 1519,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "d12b3e3a3a22bfa7f2eb61ba48da8f0b",
+        "index": 1534,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "9f003bb46e6c6004493b7616fc64e535",
+        "index": 1567,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "40aeff619040683219ce6ab23ee9e55f",
+        "index": 1575,
+        "stratum": "arithmetic | table-text"
+      }
+    ],
+    "indices": [
+      5,
+      9,
+      36,
+      45,
+      57,
+      68,
+      100,
+      132,
+      172,
+      174,
+      181,
+      211,
+      259,
+      288,
+      290,
+      315,
+      364,
+      444,
+      474,
+      486,
+      492,
+      670,
+      690,
+      691,
+      697,
+      711,
+      730,
+      752,
+      757,
+      759,
+      766,
+      806,
+      874,
+      879,
+      898,
+      935,
+      964,
+      965,
+      989,
+      1006,
+      1299,
+      1346,
+      1364,
+      1416,
+      1423,
+      1455,
+      1519,
+      1534,
+      1567,
+      1575
+    ]
+  },
+  "final_partition": "excluded",
+  "manifest_fingerprint": "sha256:c5bd4b83f90f230a55b560f02f876bc2897832df0b3b0c2a467fb6b79d02e65b",
+  "manifest_schema_version": "finance-manifest-v2",
+  "protocol_id": "finance_icaif26_v2",
+  "seed": 20260709,
+  "selection_policy": "proportional strata: answer_type x answer_source"
+}
