@@ -13,6 +13,7 @@ from src.agents.finance.realm26_replication_protocol import (
     resolve_path,
     validate_frozen_artifacts,
 )
+from src.agents.finance.analyze_realm26_replication_v1_1 import corrected_metric
 from src.agents.finance.run_realm26_replication import (
     BudgetedModel,
     ReplicationRunner,
@@ -222,3 +223,9 @@ def test_full_phase_requires_validated_smoke(tmp_path):
     runner = _bare_runner(tmp_path)
     with pytest.raises(StopExperiment, match="requires"):
         runner.run("full")
+
+
+def test_analysis_correction_is_only_a_metric_key_alias():
+    row = {"native_scores": {"exact_match": 1.0, "f1": 0.5}}
+    assert corrected_metric(row, "execution_accuracy") == 1.0
+    assert corrected_metric(row, "f1") == 0.5
