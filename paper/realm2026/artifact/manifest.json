@@ -1,0 +1,82 @@
+{
+  "entries": [
+    {
+      "path": "LICENSES.md",
+      "sha256": "96450c08577ff969c0151b4997051a2a9428c3a259634937bd059952e0a389fc"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f35e02c56407b53a1eeef134d5a52730e4fde203163c45139f4b88a7e7d3305f"
+    },
+    {
+      "path": "__pycache__/validate_artifact.cpython-314.pyc",
+      "sha256": "3ff71ccbbc2c3548dfcd138a5c5e2ca9677ffedec4275a913436c3ba8b031bfc"
+    },
+    {
+      "path": "assemble_artifact.py",
+      "sha256": "3f66456ded0673c734d67e2da0c91e482159c790a91c4684e637fb91a40ec8a1"
+    },
+    {
+      "path": "development_manifests/convfinqa.json",
+      "sha256": "a2220d6b2399ad2d8b2e32b956c79852f6108de79ca0594733746c7fef67c18b"
+    },
+    {
+      "path": "development_manifests/financebench.json",
+      "sha256": "cd4b20845ed0e721f88571e082edc391bfb02cd90b7ba5b8e4cfb67c326fa05c"
+    },
+    {
+      "path": "development_manifests/finder.json",
+      "sha256": "6576054c0aeb5d3d76cad642ce99e38736d083a5612358589cc4f4295c29247b"
+    },
+    {
+      "path": "development_manifests/finqa.json",
+      "sha256": "391f39ed50c629f7d651d47cde38a2a6febbff67dd6d3ce27dba2b48424e9229"
+    },
+    {
+      "path": "development_manifests/tatqa.json",
+      "sha256": "53c5f46a7dc7c38557d8a20c46b7ece17b6c53710bbaae0c02239b01fc67cee6"
+    },
+    {
+      "path": "snapshots/development_summary.json",
+      "sha256": "9abd1a45a3004d83b9dd3f3dc63cf72b3503b4e0cd9e1f1f0ec6ff2aec6afb1f"
+    },
+    {
+      "path": "snapshots/finance_icaif26_v2.json",
+      "sha256": "a0194cb8593136bd8b26590e5e4d67304131a4721a3ede15dfa9e439f017c11f"
+    },
+    {
+      "path": "snapshots/finance_prompts.py",
+      "sha256": "72f844be76b861586019418104ea8e4119330d1aaf3790f44e8e9a62c1f064a7"
+    },
+    {
+      "path": "snapshots/finance_scoring.py",
+      "sha256": "c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e"
+    },
+    {
+      "path": "snapshots/llm_telemetry.py",
+      "sha256": "be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469"
+    },
+    {
+      "path": "snapshots/method_prompts.py",
+      "sha256": "57e61a94c933ed172de57999e40b112234aa6f056a720ccb78386ed1e7036c30"
+    },
+    {
+      "path": "snapshots/model_snapshot.json",
+      "sha256": "24c69a9fbb17a618f18d286ddbbe50f4b675053c79423605da47ac15677c960a"
+    },
+    {
+      "path": "snapshots/selective_router.json",
+      "sha256": "6d3eb8c45db852853e3b6354304e1ad69c6776a0ac4831263f2accc6ae3234b6"
+    },
+    {
+      "path": "validate_artifact.py",
+      "sha256": "45de514eccf84a1ca80fe03e7bfe1a7f9c1c84020e01d4f976a2d4d620e9446a"
+    }
+  ],
+  "partition": "development_only",
+  "provider_calls": false,
+  "purpose": "provider-free reproduction of development aggregation and protocol inspection",
+  "schema": "realm-anonymous-artifact-v1",
+  "sealed_final_partition": "excluded",
+  "source_commit": "c08d0ae"
+}

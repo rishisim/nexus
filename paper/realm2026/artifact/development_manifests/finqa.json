@@ -1,0 +1,269 @@
+{
+  "artifact_partition": "development_only",
+  "dataset": "finqa",
+  "dataset_fingerprint": "sha256:d9229f654125c0c3a05be37eb54defba7956327232ed8f4b024843b30eaa0682",
+  "dataset_size": 883,
+  "development": {
+    "count": 50,
+    "examples": [
+      {
+        "example_id": "finqa36",
+        "index": 36
+      },
+      {
+        "example_id": "finqa49",
+        "index": 49
+      },
+      {
+        "example_id": "finqa88",
+        "index": 88
+      },
+      {
+        "example_id": "finqa110",
+        "index": 110
+      },
+      {
+        "example_id": "finqa150",
+        "index": 150
+      },
+      {
+        "example_id": "finqa152",
+        "index": 152
+      },
+      {
+        "example_id": "finqa202",
+        "index": 202
+      },
+      {
+        "example_id": "finqa221",
+        "index": 221
+      },
+      {
+        "example_id": "finqa229",
+        "index": 229
+      },
+      {
+        "example_id": "finqa247",
+        "index": 247
+      },
+      {
+        "example_id": "finqa272",
+        "index": 272
+      },
+      {
+        "example_id": "finqa289",
+        "index": 289
+      },
+      {
+        "example_id": "finqa299",
+        "index": 299
+      },
+      {
+        "example_id": "finqa312",
+        "index": 312
+      },
+      {
+        "example_id": "finqa336",
+        "index": 336
+      },
+      {
+        "example_id": "finqa366",
+        "index": 366
+      },
+      {
+        "example_id": "finqa381",
+        "index": 381
+      },
+      {
+        "example_id": "finqa386",
+        "index": 386
+      },
+      {
+        "example_id": "finqa392",
+        "index": 392
+      },
+      {
+        "example_id": "finqa397",
+        "index": 397
+      },
+      {
+        "example_id": "finqa402",
+        "index": 402
+      },
+      {
+        "example_id": "finqa404",
+        "index": 404
+      },
+      {
+        "example_id": "finqa428",
+        "index": 428
+      },
+      {
+        "example_id": "finqa435",
+        "index": 435
+      },
+      {
+        "example_id": "finqa437",
+        "index": 437
+      },
+      {
+        "example_id": "finqa446",
+        "index": 446
+      },
+      {
+        "example_id": "finqa456",
+        "index": 456
+      },
+      {
+        "example_id": "finqa460",
+        "index": 460
+      },
+      {
+        "example_id": "finqa493",
+        "index": 493
+      },
+      {
+        "example_id": "finqa515",
+        "index": 515
+      },
+      {
+        "example_id": "finqa532",
+        "index": 532
+      },
+      {
+        "example_id": "finqa533",
+        "index": 533
+      },
+      {
+        "example_id": "finqa534",
+        "index": 534
+      },
+      {
+        "example_id": "finqa536",
+        "index": 536
+      },
+      {
+        "example_id": "finqa548",
+        "index": 548
+      },
+      {
+        "example_id": "finqa583",
+        "index": 583
+      },
+      {
+        "example_id": "finqa599",
+        "index": 599
+      },
+      {
+        "example_id": "finqa617",
+        "index": 617
+      },
+      {
+        "example_id": "finqa625",
+        "index": 625
+      },
+      {
+        "example_id": "finqa648",
+        "index": 648
+      },
+      {
+        "example_id": "finqa662",
+        "index": 662
+      },
+      {
+        "example_id": "finqa693",
+        "index": 693
+      },
+      {
+        "example_id": "finqa706",
+        "index": 706
+      },
+      {
+        "example_id": "finqa724",
+        "index": 724
+      },
+      {
+        "example_id": "finqa745",
+        "index": 745
+      },
+      {
+        "example_id": "finqa764",
+        "index": 764
+      },
+      {
+        "example_id": "finqa776",
+        "index": 776
+      },
+      {
+        "example_id": "finqa794",
+        "index": 794
+      },
+      {
+        "example_id": "finqa800",
+        "index": 800
+      },
+      {
+        "example_id": "finqa868",
+        "index": 868
+      }
+    ],
+    "indices": [
+      36,
+      49,
+      88,
+      110,
+      150,
+      152,
+      202,
+      221,
+      229,
+      247,
+      272,
+      289,
+      299,
+      312,
+      336,
+      366,
+      381,
+      386,
+      392,
+      397,
+      402,
+      404,
+      428,
+      435,
+      437,
+      446,
+      456,
+      460,
+      493,
+      515,
+      532,
+      533,
+      534,
+      536,
+      548,
+      583,
+      599,
+      617,
+      625,
+      648,
+      662,
+      693,
+      706,
+      724,
+      745,
+      764,
+      776,
+      794,
+      800,
+      868
+    ]
+  },
+  "final_partition": "excluded",
+  "manifest_fingerprint": "sha256:1a8da627bba037a47fafb2957b9de9fe9fd1895ab43dfb44f4cd7a258ba49acc",
+  "manifest_schema_version": "finance-manifest-v2",
+  "protocol_id": "finance_icaif26_v2",
+  "seed": 20260709,
+  "selection_policy": "seeded sample excluding development indices"
+}
