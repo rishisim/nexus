@@ -24,13 +24,13 @@ and malformed or nonterminating outputs. Deterministic parsing and ranking are
 workflow components, not autonomous agents.
 
 \paragraph{Gate.}
-The prespecified features include question/evidence length, numeric and temporal
+The gate uses question/evidence length, numeric and temporal
 cues, table/conversation/narrative indicators, lexical coverage, retrieval score
 and margin, and chunk dispersion. An L2 logistic model with balanced weights and
 five-fold stratified cross-validation targets the asymmetric event
 $R$-correct/$S$-incorrect. The chosen threshold must be the cheapest whose
 development accuracy is within one point of the better branch. If any fold has
-fewer than five benefit cases or AUROC is below 0.60, a prespecified rule escalates
+fewer than five benefit cases or AUROC is below 0.60, the fallback rule escalates
 narrative/implication questions or cases below development thresholds for
 coverage or retrieval margin. The realized data triggered this fallback; FinDER
 was excluded because it lacks an objective or human-validated correctness label.

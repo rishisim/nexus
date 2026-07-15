@@ -13,7 +13,8 @@ prespecified/protocol-locked.
   ConvFinQA), disjoint from both the older 250-item development sample and the
   sealed 900-item final partition.
 - Systems: Static Nexus and seven-step bounded ReAct only.
-- Public pre-result commit: `f5baf1e11ed7b9d77ab6dc8d8a86e83488d0767e`.
+- Public pre-result freeze: verified; the identity-bearing commit identifier is
+  omitted from double-blind review materials.
 - Total provider spend: USD 0.124660 under the USD
   15 hard cap.
 

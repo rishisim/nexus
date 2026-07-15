@@ -17,11 +17,11 @@ access to different documents. A pre-generation gate chooses between a static,
 one-call workflow and bounded ReAct using only target-independent question and
 evidence features.
 
-Our prespecified development study spans five financial-QA datasets, five
+Our development study spans five financial-QA datasets, five
 systems, and provider-level telemetry. On the official evaluation, ReAct was
 the least accurate and most expensive primary system; the fallback gate routed
-too broadly and failed its locked quality--cost criterion. We honored the stop,
-then ran a separately frozen second-family replication on new development
+too broadly and failed its recorded quality--cost criterion. Following the gate,
+we ran a separately frozen second-family replication on new development
 evidence without executing the final partition. It repeated the configured
 Static-over-ReAct ordering. A trace audit also exposed an important qualification:
 method-specific answer contracts interact with the conservative scorer, so the

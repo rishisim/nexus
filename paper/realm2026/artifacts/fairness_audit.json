@@ -517,7 +517,7 @@
       "src/agents/finance/finance_methods.py": "sha256:a3027259a30332d2a23bdc366e85830b240a187723cb2028b6d469231de61fb3",
       "src/agents/finance/finance_scoring.py": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e",
       "src/agents/finance/method_prompts.py": "sha256:57e61a94c933ed172de57999e40b112234aa6f056a720ccb78386ed1e7036c30",
-      "src/agents/finance/protocols/finance_icaif26_v2.json": "sha256:a0194cb8593136bd8b26590e5e4d67304131a4721a3ede15dfa9e439f017c11f",
+      "src/agents/finance/protocols/finance_icaif26_v2.json": "sha256:d2ba9b42294db2dd912a9bbccca2034507202d1c417dc8bc9588595a4346cd16",
       "src/agents/finance/run_finance_experiments.py": "sha256:476c78e26b88eeb7b9808dd560f2f39e1485c1707f47decd1f64cc476486a03e"
     },
     "labels": "deterministic trace rules; not human validation"

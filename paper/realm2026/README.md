@@ -22,7 +22,7 @@ The paper should argue one precise point: a router cannot recover useful
 accuracy-cost trade-offs when its expensive expert has little measured
 complementary accuracy. Under controlled evidence, bounded ReAct produced only
 10 unique official successes among 200 objective routing examples, while Static
-Nexus produced 42; the prespecified fallback therefore escalated too broadly and
+Nexus produced 42; the documented fallback therefore escalated too broadly and
 hurt both quality and cost. A frozen second-family replication repeated the
 configured ordering, while a trace audit exposed answer-contract and scorer
 sensitivity that qualifies the official complementarity counts.
@@ -37,9 +37,11 @@ sensitivity that qualifies the official complementarity counts.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
   end-to-end retrieval claim.
-- Use `prespecified` or `protocol-locked`, not `preregistered`. The first
-  public Git commit contains both the protocol and results, so it does not
-  establish an external pre-result registration.
+- Use `documented`, `recorded`, or `protocol-defined` for the original study,
+  not `prespecified`, `locked`, or `preregistered`. Its first public Git commit
+  contains both protocol and results, so it does not establish a verifiable
+  pre-result freeze. The second-family replication may be called
+  `prospectively frozen` because its protocol commit predates provider calls.
 
 ## Acceptance-focused work plan
 

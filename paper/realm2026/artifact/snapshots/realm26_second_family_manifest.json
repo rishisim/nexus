@@ -456,7 +456,6 @@
       "selection_policy": "proportional question_type x answer_from strata excluding both prior partitions"
     }
   },
-  "manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
   "manifest_schema_version": "realm26-finance-replication-manifest-v1",
   "protocol_id": "realm26_second_family_v1",
   "seed": 42

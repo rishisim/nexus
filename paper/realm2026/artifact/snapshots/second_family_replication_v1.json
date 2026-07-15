@@ -1,5 +1,4 @@
 {
-  "analysis_fingerprint": "sha256:88970113f1fa3eafddc11a5032a48eec22d77490e58c95bddd7999fe4ec9cded",
   "analysis_implementation_correction": {
     "changed_computation": false,
     "corrected_executable": "analyze_realm26_replication_v1_1.py",
@@ -367,7 +366,7 @@
       "total_retrieval_calls": 376.0
     }
   },
-  "manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+  "freeze_provenance": "prospective public timestamp verified; identity-bearing reference omitted from double-blind review artifact",
   "model_id": "openai/gpt-4o-mini-2024-07-18",
   "overall": {
     "bootstrap_react_minus_nexus": {
@@ -400,7 +399,6 @@
     },
     "transfer_criterion_met": true
   },
-  "pre_result_commit": "f5baf1e11ed7b9d77ab6dc8d8a86e83488d0767e",
   "protocol_id": "realm26_second_family_v1",
   "provider_spend_usd": 0.12466010699999998,
   "resolved_model_ids": [

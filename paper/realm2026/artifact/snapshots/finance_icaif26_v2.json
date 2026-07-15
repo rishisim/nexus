@@ -365,7 +365,7 @@
       "reason": "no objective human-validated correctness label"
     },
     "fallback_reason": "fewer than five ReAct-only benefit cases in at least one validation fold",
-    "mode": "preregistered_rule_fallback",
+    "mode": "documented_rule_fallback",
     "path": "artifacts/selective_router.json",
     "sha256": "sha256:6d3eb8c45db852853e3b6354304e1ad69c6776a0ac4831263f2accc6ae3234b6"
   },

@@ -25,22 +25,25 @@
     }
   },
   "artifact_hashes": {
-    "analysis": "sha256:26f5a77ce6744799f03136ebdc15cc2fbdfa05c2476f349d28194d4f79c533ce",
-    "executor": "sha256:2081a7dac56682db70ffdfccefad1530683970355ba47dea8e7286b3669a9b4c",
-    "llm_wrapper": "sha256:831705c7061c8fe63f36ec7f068112cd662144c558b0894ec6e507067d772f6e",
-    "manifest": "sha256:25e83fa214e36fb7c431c8164b4b3e49b39a7636c0a20352094b17d0c00146e9",
-    "methods": "sha256:a3027259a30332d2a23bdc366e85830b240a187723cb2028b6d469231de61fb3",
-    "model_snapshot": "sha256:657ed1a449083de198b1817771a359ec2b5a0aa9082377fc55da3ab4ef9ed18b",
-    "prompts": "sha256:3764b8078f9ea3663c8c199dee9aafc8a24d5e32c2d1a8c765b66bfc10f1af32",
-    "protocol_guard": "sha256:38981d55b24beed84b840d1b360ec7acdfcf2171f3c33ae9b4e856e041363310",
-    "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e"
+    "components": [
+      "analysis",
+      "executor",
+      "llm_wrapper",
+      "manifest",
+      "methods",
+      "model_snapshot",
+      "prompts",
+      "protocol_guard",
+      "scorers"
+    ],
+    "status": "verified before calls; values omitted for double-blind review"
   },
   "budget": {
     "empirical_basis": "Existing 150 primary-development rows used only for aggregate token/call cost planning; no outcomes used for item selection or tuning.",
     "hard_cap_usd": 15.0,
     "planning_estimate_usd": 0.18,
-    "planning_maximum_usd": 2.0,
     "planning_maximum_method": "More than ten times the prior-development token-profile estimate at the frozen endpoint prices; every logical call is also pre-reserved from the USD 15 ledger.",
+    "planning_maximum_usd": 2.0,
     "reservation_multiplier": 1.25,
     "smoke_counts_toward_cap": true
   },
