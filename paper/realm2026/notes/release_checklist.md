@@ -4,12 +4,11 @@
 
 - [ ] `python3 paper/realm2026/artifact/validate_artifact.py` passes from a
   clean checkout.
-- [ ] Only `paper/realm2026/artifact/`, `paper/realm2026/notes/`, and the
-  focused validation source are staged; archives and build outputs remain
-  ignored.
-- [ ] The bundle contains development aggregation inputs only. The sealed
-  final partition, final outcomes, final examples, raw traces, credentials,
-  and datasets are absent.
+- [ ] Only intended manuscript, analysis, protocol, test, and artifact files
+  are staged; archives, raw result rows, and build outputs remain ignored.
+- [ ] The bundle contains development-only aggregate evidence and public
+  protocol inputs. The sealed final partition, final outcomes, final examples,
+  raw traces, credentials, and datasets are absent.
 - [ ] `manifest.json` and `checksums.sha256` match after the final source
   freeze.
 

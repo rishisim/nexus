@@ -21,7 +21,7 @@ for `google/gemini-2.5-flash` and tag `dev-20260709`. The sealed final partition
 | ReAct | 0.2993 | $0.001479 |
 | Selective Nexus | 0.3675 | $0.001322 |
 
-Static-only successes: 79/200 (0.395); ReAct-only successes: 10/200 (0.050); oracle union: 0.445; oracle headroom over static: 0.050.
+Static exact accuracy: 79/200 (0.395); one-sided successes: 42 Static-only versus 10 ReAct-only; oracle union: 0.445; oracle headroom over static: 0.050.
 The observed selective rerun escalated 0.700 of cases and reached 0.295 exact accuracy at $0.001431/example.
 
 ## Interpretation boundary

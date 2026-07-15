@@ -1,16 +1,17 @@
 # Anonymous REALM 2026 review artifact
 
-This is the smallest provider-free bundle for reproducing the paper's
-development aggregation and inspecting the exact protocol inputs. It contains
-development-only aggregate statistics, development manifest rows, prompt and
-scorer source snapshots, the router snapshot, the dated price table, and the
-resolved model catalog snapshot used by the run.
+This is a provider-free bundle for auditing the paper's recorded development
+statistics and inspecting the exact protocol inputs. It contains the original
+development aggregates, paired-statistics output, a trace-audit summary with
+raw answers removed, second-family replication aggregates and frozen protocol,
+development manifest rows, prompt/scorer snapshots, the router snapshot, dated
+prices, and resolved model snapshots.
 
 The sealed final partition is excluded. No final outcomes, final examples,
 provider responses, raw traces, credentials, datasets, archives, or build
-products are included. The package therefore reproduces aggregation from the
-committed aggregate statistics and verifies all source and manifest hashes; it
-does not rerun a model.
+products are included. The package verifies committed aggregate artifacts plus
+source and manifest hashes. It does not independently recompute metrics from
+per-example model outputs and does not rerun a model.
 
 ## One-command validation
 
@@ -37,9 +38,11 @@ Regeneration is a maintainer action, not a review-time provider call.
 ## Layout and provenance
 
 * `snapshots/` contains exact byte copies of the protocol, prompt templates,
-  scorer, price-table source, router, development aggregate, and model catalog
-  snapshot. Their provenance is recorded in `manifest.json` and
-  `checksums.sha256`.
+  scorer, price-table source, router, development aggregates, paired analysis,
+  sanitized fairness summary, replication protocol/analysis, and model catalog
+  snapshots. Their provenance is recorded in `manifest.json` and
+  `checksums.sha256`. The fairness summary excludes trace items, answers, and
+  ground truth.
 * `development_manifests/` contains only the 50 development records per
   dataset. The `final` field is removed and an explicit exclusion marker is
   added.
@@ -55,7 +58,7 @@ snapshot.
 
 ## Environment and licensing
 
-The development aggregation is JSON-only and needs no datasets or network.
+Artifact validation is JSON-only and needs no datasets or network.
 For code inspection, use Python 3.10+; the project finance tests additionally
 use the dependencies documented by the repository's normal environment. The
 artifact is released under the repository license in `LICENSE`. Dataset and

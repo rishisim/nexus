@@ -47,6 +47,43 @@ def main() -> None:
         target = snapshots / source.name
         shutil.copyfile(source, target)
 
+    additional_snapshots = {
+        "paired_statistics.json": ROOT / "paper/realm2026/artifacts/paired_statistics.json",
+        "second_family_replication_v1.json": ROOT
+        / "paper/realm2026/artifacts/second_family_replication_v1.json",
+        "realm26_second_family_v1.json": ROOT
+        / "src/agents/finance/protocols/realm26_second_family_v1.json",
+        "realm26_second_family_manifest.json": ROOT
+        / "src/agents/finance/protocols/manifests/realm26_second_family_v1/manifest.json",
+        "realm26_second_family_model_snapshot.json": ROOT
+        / "src/agents/finance/protocols/snapshots/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18.json",
+    }
+    for target_name, source in additional_snapshots.items():
+        if not source.is_file():
+            raise SystemExit(f"missing source: {source}")
+        shutil.copyfile(source, snapshots / target_name)
+
+    fairness = json.loads(
+        (ROOT / "paper/realm2026/artifacts/fairness_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    fairness_summary = {
+        key: fairness[key]
+        for key in (
+            "schema_version",
+            "scope",
+            "provenance",
+            "fairness_matrix",
+            "sampling",
+            "summary",
+            "limitations",
+        )
+    }
+    (snapshots / "fairness_audit_summary.json").write_text(
+        stable(fairness_summary), encoding="utf-8"
+    )
+
     for source in sorted((ROOT / "src/agents/finance/protocols/manifests").glob("*.json")):
         payload = json.loads(source.read_text(encoding="utf-8"))
         dev_only = dict(payload)
@@ -62,7 +99,7 @@ def main() -> None:
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
         "schema": "realm-anonymous-artifact-v1",
-        "purpose": "provider-free reproduction of development aggregation and protocol inspection",
+        "purpose": "provider-free audit of recorded development statistics and protocol inputs",
         "partition": "development_only",
         "sealed_final_partition": "excluded",
         "provider_calls": False,

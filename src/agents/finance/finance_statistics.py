@@ -420,7 +420,12 @@ def cost_latency_summary(
         latency = _first_numeric(row, "latency_ms", "telemetry.latency_ms")
         call_count = _first_numeric(row, "llm_call_count", "n_calls", "telemetry.llm_call_count")
         retrieval_count = _first_numeric(
-            row, "retrieval_call_count", "retrieval_calls", "telemetry.retrieval_call_count"
+            row,
+            "retrieval_operation_count",
+            "retrieval_call_count",
+            "retrieval_calls",
+            "telemetry.retrieval_operation_count",
+            "telemetry.retrieval_call_count",
         )
         if cost is not None:
             costs.append(cost)

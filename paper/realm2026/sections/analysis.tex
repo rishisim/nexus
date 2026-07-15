@@ -2,25 +2,30 @@
 \label{sec:analysis}
 
 Router labels were available for 200 examples across FinanceBench, FinQA,
-TAT-QA, and ConvFinQA; FinDER lacked a human-validated objective label. Only 10
-examples were ReAct-correct and Static-Nexus-incorrect, while 42 showed the
-opposite asymmetry. At least one validation fold therefore had fewer than five
-benefit examples, activating the prespecified rule fallback rather than the
-logistic model. The rule escalated 70\% of cases. Its fresh selective run reached
-0.295 exact accuracy at US\$0.001431 per example, compared with 0.395 for always
-static; the offline saved-branch estimate was 0.280.
+TAT-QA, and ConvFinQA. Official exact scores gave 42 Static-only successes, 10
+ReAct-only successes, 37 both-correct, and 111 both-wrong. The attainable oracle
+was therefore only 0.050 above always-static accuracy. Sparse benefit folds
+activated the prespecified rule fallback, which escalated 70\% of cases and
+reached 0.295 exact accuracy at US\$0.001431 per example, versus 0.395 for
+always static.
 
-The direction follows from complementarity, not simply classifier quality. A
-broad rule cannot recover 10 rare benefits without sending many cases to the
-weaker expert. This does not show that selective computation is impossible or
-that ReAct always hurts. It shows that routing should begin with an expert-value
-audit: estimate unique successes and the attainable oracle headroom before
-training a difficulty model.
+\paragraph{Evaluation-contract audit.}
+The comparison shares evidence, retrieval semantics, model binding, retries,
+and a framework-blind scorer, but it is not equal-prompt or equal-context.
+One-call prompts require a short final answer; ReAct only requires
+\texttt{Finish[answer]}, and its growing transcript has no common dossier cap.
+A deterministic post hoc audit flagged 28/52 one-sided scored-wrong outputs as
+scorer-sensitive candidates because they visibly contained the reference value
+or a close form, including all 10 ReAct-only and 18 Static-only cases. We do not
+change official scores: presence can reflect an operand, wrong unit, ambiguity,
+or extra claims, and 51 frozen cases still require author review. Among the
+remaining Static-only cases, ReAct explicitly abstained after retrieval 18
+times. The result therefore characterizes these configured workflows and
+evaluation contracts, not pure reasoning ability.
 
-A credible redesign needs new development evidence and an iterative expert that
-first demonstrates complementary accuracy---for example, via better uncertainty
-signals, post-static validation whose full cost is counted, or an end-to-end
-retrieval setting where reformulation can access genuinely new evidence. Any
-redesign must pass a newly frozen gate before the existing 900-example manifest
-is opened. Retuning on the present outcomes and then treating them as evaluation
-would invalidate that protocol.
+The routing failure still follows mechanically from measured complementarity:
+a broad rule cannot recover rare official benefits without sending many cases
+to the weaker measured branch. A credible redesign needs a harmonized answer
+contract and context budget, new development evidence, and an iterative expert
+that first demonstrates unique value. Retuning on present outcomes and then
+treating them as evaluation would invalidate the protocol.

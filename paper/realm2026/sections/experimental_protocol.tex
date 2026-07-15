@@ -9,8 +9,10 @@ answers and target-derived fields are removed, including FinanceBench
 justifications and TAT-QA derivations/scales. This is evidence-conditioned
 reasoning, not end-to-end RAG. The complete development partition contains 50
 examples per dataset. A deterministic 900-example manifest is disjoint at the
-row level and, for ConvFinQA, the dialogue level. The runner refuses final
-execution because the required post-gate freeze fields remain unset.
+row level and, for ConvFinQA, the dialogue level. It remains unexecuted; only
+identifier metadata was used programmatically to prevent overlap with the
+replication sample. The runner refuses final execution because the required
+post-gate freeze fields remain unset.
 
 \paragraph{Execution.}
 All five systems are paired by example and share the same evidence and retrieval
@@ -20,6 +22,14 @@ disabled model thinking. A valid output is never rerun because it scores poorly;
 only typed infrastructure failures are resumable. Each response records the
 resolved model, token categories, calls, retries, provider or manifest-estimated
 cost, and end-to-end latency.
+
+After the original gate, we prospectively froze a second-family replication:
+25 new items from each primary dataset, disjoint from both existing partitions,
+with Static Nexus and ReAct only. It used
+\nolinkurl{openai/gpt-4o-mini-2024-07-18} through OpenRouter with OpenAI-only
+routing, no fallback, temperature zero, exact model-binding checks, and a
+US\$15 hard cap. The protocol and manifest were publicly timestamped before the
+first call; all 150 system-item rows completed for US\$0.125.
 
 \paragraph{Endpoints and gate.}
 The primary quality measure is the unweighted macro-average of FinQA execution

@@ -18,12 +18,15 @@ one-call workflow and bounded ReAct using only target-independent question and
 evidence features.
 
 Our prespecified development study spans five financial-QA datasets, five
-systems, and provider-level usage telemetry. It yields a negative result: ReAct
-was the least accurate and most expensive primary system; only 10 of 200
-objectively scored routing cases favored ReAct over Static Nexus, versus 42 in
-the opposite direction. The prespecified fallback consequently escalated 70\%
-of examples and reduced accuracy while increasing cost. We honored the locked
-stop and left a disjoint 900-example final manifest unopened. The contribution
-is thus not a successful router or a universal claim against agents. It is an
-auditable warning for agent evaluation: establish expert complementarity before
-modeling difficulty, tuning thresholds, or spending a confirmatory test set.
+systems, and provider-level telemetry. On the official evaluation, ReAct was
+the least accurate and most expensive primary system; the fallback gate routed
+too broadly and failed its locked quality--cost criterion. We honored the stop,
+then ran a separately frozen second-family replication on new development
+evidence without executing the final partition. It repeated the configured
+Static-over-ReAct ordering. A trace audit also exposed an important qualification:
+method-specific answer contracts interact with the conservative scorer, so the
+official unique-success counts are not a semantic error adjudication. The
+contribution is an auditable warning rather than a successful router or a
+universal claim against agents: establish both measured complementarity and
+evaluation-contract fairness before training a difficulty router or spending a
+confirmatory test set.

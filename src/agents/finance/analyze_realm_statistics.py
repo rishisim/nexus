@@ -928,7 +928,7 @@ def _write_memo(path: Path, payload: Mapping[str, Any]) -> None:
     lines.extend(
         [
             "",
-            f"Static-only successes: {c['both_correct'] + c['static_only_correct']}/{c['n_pairs']} ({c['static_accuracy']:.3f}); ReAct-only successes: {c['react_only_correct']}/{c['n_pairs']} ({c['react_only_correct'] / c['n_pairs']:.3f}); oracle union: {c['oracle_accuracy']:.3f}; oracle headroom over static: {c['oracle_headroom_over_static']:.3f}.",
+            f"Static exact accuracy: {c['both_correct'] + c['static_only_correct']}/{c['n_pairs']} ({c['static_accuracy']:.3f}); one-sided successes: {c['static_only_correct']} Static-only versus {c['react_only_correct']} ReAct-only; oracle union: {c['oracle_accuracy']:.3f}; oracle headroom over static: {c['oracle_headroom_over_static']:.3f}.",
             f"The observed selective rerun escalated {c['selective_observed_escalation_rate']:.3f} of cases and reached {c['selective_observed_accuracy']:.3f} exact accuracy at ${c['selective_observed_cost_per_example_usd']:.6f}/example.",
             "",
             "## Interpretation boundary",

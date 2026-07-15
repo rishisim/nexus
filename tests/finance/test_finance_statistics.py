@@ -126,7 +126,7 @@ class AggregationTests(unittest.TestCase):
                     "provider_cost_usd": 0.01,
                     "latency_ms": 100,
                     "n_calls": 1,
-                    "retrieval_calls": 2,
+                    "retrieval_operation_count": 2,
                 },
                 {
                     "status": "success",

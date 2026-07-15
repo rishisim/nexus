@@ -1,8 +1,8 @@
 # REALM 2026 fairness and failure-taxonomy audit
 
 Status: **development-only, deterministic Codex audit; not human validation**.
-This memo does not change official scores, the router, the protocol, saved
-results, or the active manuscript. It uses no provider calls and does not load
+This audit does not change official scores, the router, the protocol, or saved
+results. It uses no provider calls and does not load
 the sealed final partition or any final-manifest examples.
 
 ## Executive finding

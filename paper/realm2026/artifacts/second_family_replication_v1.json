@@ -1,5 +1,5 @@
 {
-  "analysis_fingerprint": "sha256:357a3125b12db4c9c6ac5601a6c91348bc83019fd62bc0f7d6eb48da14614879",
+  "analysis_fingerprint": "sha256:88970113f1fa3eafddc11a5032a48eec22d77490e58c95bddd7999fe4ec9cded",
   "analysis_implementation_correction": {
     "changed_computation": false,
     "corrected_executable": "analyze_realm26_replication_v1_1.py",
@@ -65,7 +65,7 @@
           "latency_p95_ms": 4247.306424594715,
           "mean_cost_usd": 0.00061028154,
           "mean_llm_calls": 1.0,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 2.84,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -84,7 +84,7 @@
           },
           "total_cost_usd": 0.015257038499999997,
           "total_llm_calls": 25.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 71.0
         },
         "react": {
           "cost_coverage": 1.0,
@@ -96,7 +96,7 @@
           "latency_p95_ms": 10229.568684357218,
           "mean_cost_usd": 0.0013179672,
           "mean_llm_calls": 6.04,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 5.24,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -115,7 +115,7 @@
           },
           "total_cost_usd": 0.03294918,
           "total_llm_calls": 151.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 131.0
         }
       },
       "metric": "execution_accuracy",
@@ -154,7 +154,7 @@
           "latency_p95_ms": 5140.20250000176,
           "mean_cost_usd": 0.00060083694,
           "mean_llm_calls": 1.0,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 2.84,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -173,7 +173,7 @@
           },
           "total_cost_usd": 0.0150209235,
           "total_llm_calls": 25.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 71.0
         },
         "react": {
           "cost_coverage": 1.0,
@@ -185,7 +185,7 @@
           "latency_p95_ms": 10756.557482993227,
           "mean_cost_usd": 0.0014318667,
           "mean_llm_calls": 5.88,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 5.16,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -204,7 +204,7 @@
           },
           "total_cost_usd": 0.03579666749999999,
           "total_llm_calls": 147.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 129.0
         }
       },
       "metric": "execution_accuracy",
@@ -243,7 +243,7 @@
           "latency_p95_ms": 3455.630316399038,
           "mean_cost_usd": 0.00032097978,
           "mean_llm_calls": 1.0,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 2.84,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -262,7 +262,7 @@
           },
           "total_cost_usd": 0.008024494500000002,
           "total_llm_calls": 25.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 71.0
         },
         "react": {
           "cost_coverage": 1.0,
@@ -274,7 +274,7 @@
           "latency_p95_ms": 9840.615000209073,
           "mean_cost_usd": 0.00070447212,
           "mean_llm_calls": 5.56,
-          "mean_retrieval_calls": null,
+          "mean_retrieval_calls": 4.64,
           "telemetry_complete_examples": 25,
           "telemetry_completeness": 1.0,
           "token_coverage": {
@@ -293,7 +293,7 @@
           },
           "total_cost_usd": 0.017611803,
           "total_llm_calls": 139.0,
-          "total_retrieval_calls": 0
+          "total_retrieval_calls": 116.0
         }
       },
       "metric": "f1",
@@ -314,7 +314,7 @@
       "latency_p95_ms": 4584.26237060048,
       "mean_cost_usd": 0.00051069942,
       "mean_llm_calls": 1.0,
-      "mean_retrieval_calls": null,
+      "mean_retrieval_calls": 2.84,
       "telemetry_complete_examples": 75,
       "telemetry_completeness": 1.0,
       "token_coverage": {
@@ -333,7 +333,7 @@
       },
       "total_cost_usd": 0.0383024565,
       "total_llm_calls": 75.0,
-      "total_retrieval_calls": 0
+      "total_retrieval_calls": 213.0
     },
     "react": {
       "cost_coverage": 1.0,
@@ -345,7 +345,7 @@
       "latency_p95_ms": 10473.647738056023,
       "mean_cost_usd": 0.00115143534,
       "mean_llm_calls": 5.826666666666667,
-      "mean_retrieval_calls": null,
+      "mean_retrieval_calls": 5.013333333333334,
       "telemetry_complete_examples": 75,
       "telemetry_completeness": 1.0,
       "token_coverage": {
@@ -364,7 +364,7 @@
       },
       "total_cost_usd": 0.0863576505,
       "total_llm_calls": 437.0,
-      "total_retrieval_calls": 0
+      "total_retrieval_calls": 376.0
     }
   },
   "manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",

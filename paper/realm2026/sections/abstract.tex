@@ -2,14 +2,17 @@ Iterative language-model agents spend additional inference in the hope of
 recovering errors made by simpler readers. We test a necessary precondition for
 that trade-off: whether the expensive expert is actually complementary. In a
 prespecified, controlled-evidence development study spanning five financial-QA
-datasets, bounded ReAct was both less accurate and more costly than structured
-one-call reasoning. Only 10 of 200 objectively scored routing examples were
-ReAct-only successes, versus 42 Static-only successes. This sparse benefit class
-triggered our prespecified rule fallback instead of a learned selector. The
-resulting policy escalated 70\% of cases, increasing mean cost while reducing
-exact accuracy from 0.395 for the static path to 0.295. We therefore honored the
-registered stop and left a disjoint 900-example final manifest unopened. The
-result is deliberately development-only, but it exposes a methodological trap:
-difficulty routing cannot create value when the proposed expert rarely supplies
-unique correct answers. Agent-routing studies should establish expert
-complementarity before optimizing when to escalate.
+datasets, bounded ReAct was less accurate and more costly than structured
+one-call reasoning. On the official scores, only 10 of 200 routing examples
+were ReAct-only successes, versus 42 Static-only successes; the fallback gate
+then escalated 70\% of cases and reduced exact accuracy from 0.395 to 0.295. A
+prospectively frozen 75-item replication with a second model family repeated the
+configured-system ordering: Static scored 0.309 versus ReAct's 0.068, with 19
+versus one unique exact success. A deterministic trace audit nevertheless
+flagged 28/52 original one-sided cases as scorer-sensitive candidates because a
+rejected output visibly contained the reference value or a close form; the
+methods also used different answer contracts. We retain the official scores and
+do not treat these flags as human adjudication. We honored the locked stop and
+did not execute the 900-example final partition. Agent-routing studies should
+audit expert complementarity together with prompt and scoring contracts before
+optimizing when to escalate.

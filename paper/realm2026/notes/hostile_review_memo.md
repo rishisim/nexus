@@ -2,17 +2,17 @@
 
 The artifact is intentionally narrower than a full rerunnable experiment.
 That is a feature for this submission: a reviewer can verify the exact
-development aggregation, protocol, prompts, scorers, router, model catalog,
+recorded development statistics, protocol, prompts, scorers, router, model catalog,
 price table, development manifests, and hashes without any provider call or
 access to the sealed partition.
 
 Likely objections and current answers:
 
-1. **“The result cannot be independently recomputed from raw rows.”** The
-   bundle exposes aggregate development statistics and the exact development
+1. **“The result cannot be independently recomputed from raw rows.”** Correct:
+   the bundle exposes aggregate development statistics and exact development
    manifest identifiers, but not benchmark contents or model responses. This
-   is an explicit privacy/licensing boundary, not a claim of end-to-end
-   rerunnability; the README says exactly what is and is not reproducible.
+   is an explicit privacy/licensing boundary. The README describes the bundle
+   as an integrity/provenance audit, not end-to-end reproducibility.
 2. **“The price claim is stale or provider-dependent.”** The dated fallback
    table and the resolved model catalog snapshot are both hashed. Raw token
    accounting remains the authoritative audit trail in the source protocol;

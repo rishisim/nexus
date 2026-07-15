@@ -96,7 +96,7 @@
         "answer_calls_per_input_example": 1.0,
         "answer_calls_total": 250,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.220781286,
+        "cost_total_usd": 0.22078128600000002,
         "failed_rows": 0,
         "input_rows": 250,
         "latency_available_successful_examples": 250,
@@ -141,7 +141,7 @@
             "missing_examples": 0
           }
         },
-        "observed_cost_per_input_example": 0.000883125144,
+        "observed_cost_per_input_example": 0.0008831251440000001,
         "price_source_counts": {
           "provider": 250
         },
@@ -173,7 +173,7 @@
         "answer_calls_per_input_example": 1.0,
         "answer_calls_total": 250,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.081911511,
+        "cost_total_usd": 0.08191151100000005,
         "failed_rows": 0,
         "input_rows": 250,
         "latency_available_successful_examples": 250,
@@ -218,7 +218,7 @@
             "missing_examples": 0
           }
         },
-        "observed_cost_per_input_example": 0.000327646044,
+        "observed_cost_per_input_example": 0.0003276460440000002,
         "price_source_counts": {
           "provider": 250
         },
@@ -250,7 +250,7 @@
         "answer_calls_per_input_example": 1.0,
         "answer_calls_total": 250,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.249286158,
+        "cost_total_usd": 0.24928615799999998,
         "failed_rows": 0,
         "input_rows": 250,
         "latency_available_successful_examples": 250,
@@ -404,7 +404,7 @@
         "answer_calls_per_input_example": 2.512,
         "answer_calls_total": 628,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.3781590813,
+        "cost_total_usd": 0.3781590813000001,
         "failed_rows": 0,
         "input_rows": 250,
         "latency_available_successful_examples": 250,
@@ -449,7 +449,7 @@
             "missing_examples": 0
           }
         },
-        "observed_cost_per_input_example": 0.0015126363251999999,
+        "observed_cost_per_input_example": 0.0015126363252000003,
         "price_source_counts": {
           "provider": 250
         },
@@ -484,7 +484,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.046209042,
+          "cost_total_usd": 0.046209042000000006,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -529,7 +529,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0009241808399999999,
+          "observed_cost_per_input_example": 0.0009241808400000001,
           "price_source_counts": {
             "provider": 50
           },
@@ -561,7 +561,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.021214016999999998,
+          "cost_total_usd": 0.02121401699999999,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -606,7 +606,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00042428033999999997,
+          "observed_cost_per_input_example": 0.0004242803399999998,
           "price_source_counts": {
             "provider": 50
           },
@@ -638,7 +638,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.058887279,
+          "cost_total_usd": 0.058887279000000015,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -683,7 +683,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00117774558,
+          "observed_cost_per_input_example": 0.0011777455800000003,
           "price_source_counts": {
             "provider": 50
           },
@@ -715,7 +715,7 @@
           "answer_calls_per_input_example": 3.24,
           "answer_calls_total": 162,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.093616875,
+          "cost_total_usd": 0.09361687499999999,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -760,7 +760,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0018723375000000001,
+          "observed_cost_per_input_example": 0.0018723374999999997,
           "price_source_counts": {
             "provider": 50
           },
@@ -792,7 +792,7 @@
           "answer_calls_per_input_example": 2.44,
           "answer_calls_total": 122,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.084375819,
+          "cost_total_usd": 0.08437581899999998,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -837,7 +837,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00168751638,
+          "observed_cost_per_input_example": 0.0016875163799999996,
           "price_source_counts": {
             "provider": 50
           },
@@ -948,7 +948,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.014051367,
+          "cost_total_usd": 0.014051367000000002,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -993,7 +993,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00028102734,
+          "observed_cost_per_input_example": 0.00028102734000000004,
           "price_source_counts": {
             "provider": 50
           },
@@ -1025,7 +1025,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.044655138000000004,
+          "cost_total_usd": 0.044655138,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1070,7 +1070,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0008931027600000001,
+          "observed_cost_per_input_example": 0.0008931027599999999,
           "price_source_counts": {
             "provider": 50
           },
@@ -1102,7 +1102,7 @@
           "answer_calls_per_input_example": 3.38,
           "answer_calls_total": 169,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.096635781,
+          "cost_total_usd": 0.09663578099999999,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1147,7 +1147,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0019327156200000001,
+          "observed_cost_per_input_example": 0.00193271562,
           "price_source_counts": {
             "provider": 50
           },
@@ -1335,7 +1335,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.016457859,
+          "cost_total_usd": 0.016457858999999995,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1380,7 +1380,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00032915718,
+          "observed_cost_per_input_example": 0.0003291571799999999,
           "price_source_counts": {
             "provider": 50
           },
@@ -1412,7 +1412,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.053154981,
+          "cost_total_usd": 0.053154981000000004,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1566,7 +1566,7 @@
           "answer_calls_per_input_example": 2.88,
           "answer_calls_total": 144,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.092052774,
+          "cost_total_usd": 0.09205277400000003,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1611,7 +1611,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0018410554800000001,
+          "observed_cost_per_input_example": 0.0018410554800000005,
           "price_source_counts": {
             "provider": 50
           },
@@ -1645,7 +1645,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.048253689,
+          "cost_total_usd": 0.048253689000000016,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1690,7 +1690,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00096507378,
+          "observed_cost_per_input_example": 0.0009650737800000003,
           "price_source_counts": {
             "provider": 50
           },
@@ -1799,7 +1799,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.058505337,
+          "cost_total_usd": 0.058505336999999984,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1844,7 +1844,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00117010674,
+          "observed_cost_per_input_example": 0.0011701067399999996,
           "price_source_counts": {
             "provider": 50
           },
@@ -1876,7 +1876,7 @@
           "answer_calls_per_input_example": 2.76,
           "answer_calls_total": 138,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.075297222,
+          "cost_total_usd": 0.07529722200000001,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -1921,7 +1921,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00150594444,
+          "observed_cost_per_input_example": 0.0015059444400000001,
           "price_source_counts": {
             "provider": 50
           },
@@ -2109,7 +2109,7 @@
           "answer_calls_per_input_example": 1.0,
           "answer_calls_total": 50,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.011790504,
+          "cost_total_usd": 0.011790503999999999,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -2154,7 +2154,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00023581008,
+          "observed_cost_per_input_example": 0.00023581007999999996,
           "price_source_counts": {
             "provider": 50
           },
@@ -2263,7 +2263,7 @@
           "answer_calls_per_input_example": 2.92,
           "answer_calls_total": 146,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.052969257,
+          "cost_total_usd": 0.05296925700000001,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -2308,7 +2308,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.00105938514,
+          "observed_cost_per_input_example": 0.0010593851400000002,
           "price_source_counts": {
             "provider": 50
           },
@@ -2340,7 +2340,7 @@
           "answer_calls_per_input_example": 2.28,
           "answer_calls_total": 114,
           "cost_coverage": 1.0,
-          "cost_total_usd": 0.045011736,
+          "cost_total_usd": 0.04501173599999999,
           "failed_rows": 0,
           "input_rows": 50,
           "latency_available_successful_examples": 50,
@@ -2385,7 +2385,7 @@
               "missing_examples": 0
             }
           },
-          "observed_cost_per_input_example": 0.0009002347199999999,
+          "observed_cost_per_input_example": 0.0009002347199999998,
           "price_source_counts": {
             "provider": 50
           },
@@ -2497,7 +2497,7 @@
         "answer_calls_per_input_example": 1.0,
         "answer_calls_total": 150,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.051402285,
+        "cost_total_usd": 0.05140228499999999,
         "failed_rows": 0,
         "input_rows": 150,
         "latency_available_successful_examples": 150,
@@ -2542,7 +2542,7 @@
             "missing_examples": 0
           }
         },
-        "observed_cost_per_input_example": 0.0003426819,
+        "observed_cost_per_input_example": 0.00034268189999999994,
         "price_source_counts": {
           "provider": 150
         },
@@ -2574,7 +2574,7 @@
         "answer_calls_per_input_example": 1.0,
         "answer_calls_total": 150,
         "cost_coverage": 1.0,
-        "cost_total_usd": 0.151476039,
+        "cost_total_usd": 0.15147603899999992,
         "failed_rows": 0,
         "input_rows": 150,
         "latency_available_successful_examples": 150,
@@ -2619,7 +2619,7 @@
             "missing_examples": 0
           }
         },
-        "observed_cost_per_input_example": 0.00100984026,
+        "observed_cost_per_input_example": 0.0010098402599999995,
         "price_source_counts": {
           "provider": 150
         },
@@ -2809,7 +2809,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00092418084,
-          "cost_total_usd": 0.046209042,
+          "cost_total_usd": 0.046209042000000006,
           "count": 50,
           "exact_match": 0.38,
           "f1": 0.38,
@@ -2822,7 +2822,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00042428034,
-          "cost_total_usd": 0.021214016999999998,
+          "cost_total_usd": 0.02121401699999999,
           "count": 50,
           "exact_match": 0.38,
           "f1": 0.38,
@@ -2835,7 +2835,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00117774558,
-          "cost_total_usd": 0.058887279,
+          "cost_total_usd": 0.058887279000000015,
           "count": 50,
           "exact_match": 0.36,
           "f1": 0.36,
@@ -2848,7 +2848,7 @@
           "calls_per_example": 3.24,
           "calls_total": 162,
           "cost_per_example_usd": 0.0018723375000000001,
-          "cost_total_usd": 0.093616875,
+          "cost_total_usd": 0.09361687499999999,
           "count": 50,
           "exact_match": 0.28,
           "f1": 0.28,
@@ -2861,7 +2861,7 @@
           "calls_per_example": 2.44,
           "calls_total": 122,
           "cost_per_example_usd": 0.00168751638,
-          "cost_total_usd": 0.084375819,
+          "cost_total_usd": 0.08437581899999998,
           "count": 50,
           "exact_match": 0.34,
           "f1": 0.34,
@@ -2889,7 +2889,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00028102734,
-          "cost_total_usd": 0.014051367,
+          "cost_total_usd": 0.014051367000000002,
           "count": 50,
           "exact_match": 0.26,
           "f1": 0.26,
@@ -2902,7 +2902,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00089310276,
-          "cost_total_usd": 0.044655138000000004,
+          "cost_total_usd": 0.044655138,
           "count": 50,
           "exact_match": 0.46,
           "f1": 0.46,
@@ -2915,7 +2915,7 @@
           "calls_per_example": 3.38,
           "calls_total": 169,
           "cost_per_example_usd": 0.00193271562,
-          "cost_total_usd": 0.096635781,
+          "cost_total_usd": 0.09663578099999999,
           "count": 50,
           "exact_match": 0.2,
           "f1": 0.2,
@@ -2956,7 +2956,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00032915718,
-          "cost_total_usd": 0.016457859,
+          "cost_total_usd": 0.016457858999999995,
           "count": 50,
           "exact_match": null,
           "f1": null,
@@ -2969,7 +2969,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00106309962,
-          "cost_total_usd": 0.053154981,
+          "cost_total_usd": 0.053154981000000004,
           "count": 50,
           "exact_match": null,
           "f1": null,
@@ -2995,7 +2995,7 @@
           "calls_per_example": 2.88,
           "calls_total": 144,
           "cost_per_example_usd": 0.0018410554800000001,
-          "cost_total_usd": 0.092052774,
+          "cost_total_usd": 0.09205277400000003,
           "count": 50,
           "exact_match": null,
           "f1": null,
@@ -3010,7 +3010,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00096507378,
-          "cost_total_usd": 0.048253689,
+          "cost_total_usd": 0.048253689000000016,
           "count": 50,
           "exact_match": 0.28,
           "f1": 0.28,
@@ -3036,7 +3036,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00117010674,
-          "cost_total_usd": 0.058505337,
+          "cost_total_usd": 0.058505336999999984,
           "count": 50,
           "exact_match": 0.32,
           "f1": 0.32,
@@ -3049,7 +3049,7 @@
           "calls_per_example": 2.76,
           "calls_total": 138,
           "cost_per_example_usd": 0.00150594444,
-          "cost_total_usd": 0.075297222,
+          "cost_total_usd": 0.07529722200000001,
           "count": 50,
           "exact_match": 0.14,
           "f1": 0.14,
@@ -3090,7 +3090,7 @@
           "calls_per_example": 1.0,
           "calls_total": 50,
           "cost_per_example_usd": 0.00023581008,
-          "cost_total_usd": 0.011790504,
+          "cost_total_usd": 0.011790503999999999,
           "count": 50,
           "exact_match": 0.44,
           "f1": 0.6414,
@@ -3116,7 +3116,7 @@
           "calls_per_example": 2.92,
           "calls_total": 146,
           "cost_per_example_usd": 0.00105938514,
-          "cost_total_usd": 0.052969257,
+          "cost_total_usd": 0.05296925700000001,
           "count": 50,
           "exact_match": 0.32,
           "f1": 0.4778,
@@ -3129,7 +3129,7 @@
           "calls_per_example": 2.28,
           "calls_total": 114,
           "cost_per_example_usd": 0.00090023472,
-          "cost_total_usd": 0.045011736,
+          "cost_total_usd": 0.04501173599999999,
           "count": 50,
           "exact_match": 0.32,
           "f1": 0.48260000000000003,
@@ -3460,7 +3460,7 @@
           "seed": 20260716,
           "upper": -0.01778500000000022
         },
-        "cohen_dz": -0.30534050809903146,
+        "cohen_dz": -0.3053405080990315,
         "dataset": "tatqa",
         "denominator": "50 paired development examples",
         "difference_right_minus_left": -0.1636,
@@ -3746,7 +3746,7 @@
           "seed": 20260726,
           "upper": 0.02
         },
-        "cohen_dz": -0.24009801919951237,
+        "cohen_dz": -0.2400980191995124,
         "dataset": "convfinqa",
         "denominator": "50 paired development examples",
         "difference_right_minus_left": -0.1,
@@ -4280,7 +4280,7 @@
         }
       },
       {
-        "cohen_dz_over_micro_pairs": -0.0929249304446486,
+        "cohen_dz_over_micro_pairs": -0.09292493044464861,
         "datasets": [
           "finqa",
           "tatqa",
@@ -4334,7 +4334,7 @@
         }
       },
       {
-        "cohen_dz_over_micro_pairs": -0.004933028269098111,
+        "cohen_dz_over_micro_pairs": -0.004933028269098112,
         "datasets": [
           "finqa",
           "tatqa",

@@ -1,32 +1,53 @@
 \section{Development Gate Outcome}
 \label{sec:results}
 
-Table~\ref{tab:development-gate} reports the prespecified development comparison. These are method-selection observations from the existing 50 examples per dataset, not held-out estimates. The primary macro averages FinQA execution accuracy, TAT-QA official F1, and ConvFinQA execution accuracy; costs are measured provider cost per example on those same three tasks.
+Table~\ref{tab:development-gate} reports two development comparisons. The
+original block drove the prespecified gate; the replication block is a separate
+sample and model and must not be compared across blocks as a benchmark ranking.
 
 \begin{table}[t]
-  \caption{Development-only quality and cost used for the go/no-go decision. No final-manifest result is included.}
+  \caption{Development-only quality and efficiency. ``Macro'' averages FinQA
+  execution accuracy, TAT-QA F1, and ConvFinQA execution accuracy.}
   \label{tab:development-gate}
   \centering
-  \small
-  \setlength{\tabcolsep}{3.5pt}
-  \begin{tabular}{@{}lrr@{}}
+  \scriptsize
+  \setlength{\tabcolsep}{3.1pt}
+  \begin{tabular}{@{}lrrr@{}}
     \toprule
-    System & Primary macro & US\$/example \\
+    System & Macro & Calls/ex. & US\$/ex. \\
     \midrule
-    Direct & 0.4138 & 0.000343 \\
-    CoT/PoT & \textbf{0.4323} & 0.000819 \\
-    Static Nexus & 0.4304 & 0.001010 \\
-    ReAct & 0.2993 & 0.001479 \\
-    Selective Nexus & 0.3675 & 0.001322 \\
+    \multicolumn{4}{@{}l}{\emph{Gemini development gate ($n=150$/system)}} \\
+    Direct & 0.4138 & 1.00 & 0.000343 \\
+    CoT/PoT & \textbf{0.4323} & 1.00 & 0.000819 \\
+    Static Nexus & 0.4304 & 1.00 & 0.001010 \\
+    ReAct & 0.2993 & 2.97 & 0.001479 \\
+    Selective Nexus & 0.3675 & 2.19 & 0.001322 \\
+    \midrule
+    \multicolumn{4}{@{}l}{\emph{GPT-4o-mini replication ($n=75$/system)}} \\
+    Static Nexus & 0.3093 & 1.00 & 0.000511 \\
+    ReAct & 0.0683 & 5.83 & 0.001151 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\paragraph{Quality--cost result.}
-CoT/PoT has the highest development macro and costs less than Static Nexus, ReAct, and Selective Nexus. Selective Nexus is 0.0648 below CoT/PoT while also costing more. ReAct has both the lowest primary macro and highest cost. Thus neither the selective policy nor the static-only pivot satisfies the locked go/no-go criterion.
+\paragraph{Original quality--cost result.}
+CoT/PoT has the highest observed macro and costs less than Static Nexus, ReAct,
+and Selective Nexus, although its paired difference from Direct is uncertain
+(95\% stratified bootstrap CI: $[-0.035,0.072]$). ReAct is 0.131 below Static
+Nexus (ReAct-minus-Static CI: $[-0.207,-0.056]$) and costs more. Selective Nexus
+is 0.0648 below CoT/PoT while also costing more, so it fails the locked gate
+regardless of whether that development difference is treated inferentially.
+
+\paragraph{Prospective replication.}
+On 75 newly sampled primary-dataset items, Static Nexus scored 0.3093 versus
+0.0683 for ReAct (paired CI for ReAct minus Static: $[-0.343,-0.142]$).
+Official exact scores yielded 19 Static-only versus one ReAct-only success.
+Static used one call and US\$0.000511 per item; ReAct used 5.83 calls and
+US\$0.001151. The frozen qualitative transfer criterion was met. These remain
+development observations, not a final-partition estimate.
 
 \paragraph{Go/no-go decision.}
-The prespecified conditional required Selective Nexus either to improve quality while reducing cost or to stay within one absolute point of the best primary macro with at least 30\% lower dollar cost. It does neither. We therefore stopped before opening the 900-example final manifest. There is no confirmatory result, cross-family replication, or semantic FinDER claim to report.
-
-\paragraph{Interpretation.}
-This is evidence against the current routing formulation, not evidence that selective computation is impossible. It motivates a workshop-scale negative/protocol report and a later redesign using new development evidence while preserving the untouched final manifest.
+The original conditional required Selective Nexus either to improve quality
+while reducing cost or to stay within one absolute point of the best macro with
+at least 30\% lower cost. It does neither. The 900-example final partition
+therefore remains unexecuted; there is no confirmatory or semantic FinDER result.

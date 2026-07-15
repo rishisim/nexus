@@ -10,8 +10,8 @@
 - Format: official ACL 2026 style, anonymous and double blind
 - Workshop: October 29, 2026, hybrid
 
-The July 19 deadline is for the separate non-archival COLM Workshop on Efficient
-Reasoning, not REALM.
+The July 19 date discussed earlier is not the REALM deadline. The official REALM
+site currently lists August 5 for direct submissions.
 
 ## Working title and thesis
 
@@ -19,16 +19,20 @@ Reasoning, not REALM.
 Routing in Financial Question Answering**
 
 The paper should argue one precise point: a router cannot recover useful
-accuracy-cost trade-offs when its expensive expert has little complementary
-accuracy. Under controlled evidence, bounded ReAct produced only 10 unique
-successes among 200 objective routing examples, while Static Nexus produced 42;
-the prespecified fallback therefore escalated too broadly and hurt both quality
-and cost.
+accuracy-cost trade-offs when its expensive expert has little measured
+complementary accuracy. Under controlled evidence, bounded ReAct produced only
+10 unique official successes among 200 objective routing examples, while Static
+Nexus produced 42; the prespecified fallback therefore escalated too broadly and
+hurt both quality and cost. A frozen second-family replication repeated the
+configured ordering, while a trace audit exposed answer-contract and scorer
+sensitivity that qualifies the official complementarity counts.
 
 ## Current evidence boundary
 
-- Reported results are development-only (250 examples; five systems).
-- The 900-example final manifest is unopened and remains sealed.
+- Reported results are development-only: the original 250-example, five-system
+  study and a separate 75-item, two-system replication.
+- The 900-example final manifest is unexecuted and unscored. Identifier metadata
+  was used only to enforce disjointness.
 - FinanceBench and FinDER do not enter the three-dataset primary macro.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
@@ -39,27 +43,21 @@ and cost.
 
 ## Acceptance-focused work plan
 
-### Must complete
+### Completed
 
-1. Reframe every section around the negative result and the complementarity
-   precondition; remove proposal-style language that implies the selector works.
-2. Audit baseline fairness and explain why bounded ReAct underperforms rather
-   than leaving reviewers to infer an implementation defect.
-3. Classify the 52 one-sided Static/ReAct disagreements and a frozen sample of
-   both-wrong cases using a reproducible failure taxonomy.
-4. Report paired effect sizes/uncertainty and full calls, tokens, cost, median
-   latency, and P95 latency.
-5. Fit all essential method, evidence, and analysis into four ACL content pages;
-   keep Limitations after the conclusion and before references.
-6. Provide an anonymous reproducibility bundle with exact prompts, manifests,
-   scorer versions, model snapshots, and trace hashes.
+1. Reframed the paper around the negative result and complementarity
+   precondition.
+2. Audited baseline fairness and created a reproducible, frozen review queue.
+3. Reported paired uncertainty, complementarity, and efficiency statistics.
+4. Prospectively froze and completed the second-family replication.
+5. Added the essential evidence to the four-page ACL manuscript.
+6. Built an anonymous, provider-free reproducibility and integrity bundle.
 
-### Highest-value addition
+### Highest-value remaining work
 
-Freeze a small cross-family replication outside the sealed 900-example manifest.
-The replication should test the qualitative ordering of one-call reasoning and
-bounded ReAct, not retune the failed selector. Its sample, metrics, and stopping
-rule must be fixed before any calls are made.
+Complete human author adjudication of the 51 frozen fairness cases. If time and
+budget permit, separately freeze a prompt-harmonized and context-matched rerun
+on fresh development evidence; do not retune on the current outcomes.
 
 ### Internal schedule
 
@@ -89,8 +87,7 @@ Before submission, verify four content pages, A4 paper size, embedded fonts,
 anonymity, readable grayscale figures, and absence of links to deanonymizing
 resources.
 
-Current scaffold status: the PDF compiles as five physical pages. The research
-content and conclusion end on page 3; Limitations and references occupy pages
-4-5 and do not count toward REALM's four-page content allowance. The unused
-fourth content page is reserved for the fairness audit, failure taxonomy, and
-cross-model evidence rather than additional method exposition.
+Integrated status: the PDF is five physical A4 pages, with the research content
+and conclusion ending on content page 4. Limitations begin on page 4 after the
+conclusion, and references continue through page 5. Recheck these boundaries
+after every substantive edit.
