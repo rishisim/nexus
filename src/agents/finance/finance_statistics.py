@@ -115,6 +115,78 @@ def paired_bootstrap_ci(
     )
 
 
+def stratified_paired_bootstrap_ci(
+    left_by_stratum: Mapping[str, Sequence[Number]],
+    right_by_stratum: Mapping[str, Sequence[Number]],
+    *,
+    confidence: float = 0.95,
+    n_resamples: int = 10_000,
+    seed: int = 20260709,
+) -> ConfidenceInterval:
+    """Percentile bootstrap CI for an unweighted stratified mean difference.
+
+    Each stratum is resampled independently, preserving its observed size. The
+    statistic for every resample is the unweighted mean of the stratum-level
+    paired differences. This matches a macro over datasets rather than a
+    micro-average over all examples.
+    """
+
+    left_keys = set(left_by_stratum)
+    right_keys = set(right_by_stratum)
+    if left_keys != right_keys:
+        missing_left = sorted(right_keys - left_keys)
+        missing_right = sorted(left_keys - right_keys)
+        raise ValueError(
+            "Stratified paired inputs have different strata: "
+            f"missing_left={missing_left}, missing_right={missing_right}"
+        )
+    if not left_keys:
+        raise ValueError("At least one stratum is required")
+    if not 0 < confidence < 1:
+        raise ValueError("confidence must be between 0 and 1")
+    if n_resamples < 1:
+        raise ValueError("n_resamples must be positive")
+
+    strata: List[Tuple[List[float], List[float]]] = []
+    for key in sorted(left_keys):
+        left_values = _finite_values(left_by_stratum[key], name=f"left[{key}]")
+        right_values = _finite_values(right_by_stratum[key], name=f"right[{key}]")
+        if len(left_values) != len(right_values):
+            raise ValueError(f"Stratum {key!r} is not paired")
+        if not left_values:
+            raise ValueError(f"Stratum {key!r} is empty")
+        strata.append((left_values, right_values))
+
+    stratum_differences = [
+        [right - left for left, right in zip(left_values, right_values)]
+        for left_values, right_values in strata
+    ]
+    estimate = mean(mean(differences) for differences in stratum_differences)
+    rng = random.Random(seed)
+    samples = []
+    for _ in range(n_resamples):
+        samples.append(
+            mean(
+                mean(
+                    differences[rng.randrange(len(differences))]
+                    for _ in differences
+                )
+                for differences in stratum_differences
+            )
+        )
+    samples.sort()
+    alpha = 1 - confidence
+    return ConfidenceInterval(
+        estimate=estimate,
+        lower=_percentile(samples, alpha / 2),
+        upper=_percentile(samples, 1 - alpha / 2),
+        confidence=confidence,
+        n_pairs=sum(len(differences) for differences in stratum_differences),
+        n_resamples=n_resamples,
+        seed=seed,
+    )
+
+
 def exact_mcnemar(left: Sequence[Number], right: Sequence[Number]) -> McNemarResult:
     """Run the exact two-sided McNemar/binomial test.
 
