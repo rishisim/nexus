@@ -104,7 +104,7 @@ def main() -> None:
         "sealed_final_partition": "excluded",
         "provider_calls": False,
         "entries": entries,
-        "source_commit": "c08d0ae",
+        "source_commit": "473fd0612f8b60bdca58d3cb4c46757910a84d6d",
     }
     (ARTIFACT / "manifest.json").write_text(stable(manifest), encoding="utf-8")
 

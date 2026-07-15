@@ -50,8 +50,9 @@ Regeneration is a maintainer action, not a review-time provider call.
   expected file hashes. `checksums.sha256` is the independently convenient
   hash list.
 
-The source commit is the archival branch tip `c08d0ae` before this artifact
-addition. Public benchmark/model names are provenance, not author identity.
+The source commit is archival integration point
+`473fd0612f8b60bdca58d3cb4c46757910a84d6d` before this artifact refresh.
+Public benchmark/model names are provenance, not author identity.
 The model snapshot records the catalog query timestamp and public model
 pricing; the separate dated fallback rates are in the telemetry source
 snapshot.

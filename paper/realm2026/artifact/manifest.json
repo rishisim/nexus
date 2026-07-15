@@ -6,15 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f35e02c56407b53a1eeef134d5a52730e4fde203163c45139f4b88a7e7d3305f"
-    },
-    {
-      "path": "__pycache__/validate_artifact.cpython-314.pyc",
-      "sha256": "3ff71ccbbc2c3548dfcd138a5c5e2ca9677ffedec4275a913436c3ba8b031bfc"
+      "sha256": "960daa9ebf66559b8dbcf36a6c1196bb94202803eba0f5896ed2d27c324a5418"
     },
     {
       "path": "assemble_artifact.py",
-      "sha256": "3f66456ded0673c734d67e2da0c91e482159c790a91c4684e637fb91a40ec8a1"
+      "sha256": "5d54f0e4b1144f73fd6d1bd4f89adb57b840fa773b8fef3eaa1557a2da5d3b80"
     },
     {
       "path": "development_manifests/convfinqa.json",
@@ -41,6 +37,10 @@
       "sha256": "9abd1a45a3004d83b9dd3f3dc63cf72b3503b4e0cd9e1f1f0ec6ff2aec6afb1f"
     },
     {
+      "path": "snapshots/fairness_audit_summary.json",
+      "sha256": "2efb42a4b137e8f86546af30063022c7d783895fb7040441c32629b83f3f5ee5"
+    },
+    {
       "path": "snapshots/finance_icaif26_v2.json",
       "sha256": "a0194cb8593136bd8b26590e5e4d67304131a4721a3ede15dfa9e439f017c11f"
     },
@@ -65,6 +65,26 @@
       "sha256": "24c69a9fbb17a618f18d286ddbbe50f4b675053c79423605da47ac15677c960a"
     },
     {
+      "path": "snapshots/paired_statistics.json",
+      "sha256": "873c3f5bf3947d99e81c0ced1c8ed227324f238b21bebfe937b9cc18dc0dbf78"
+    },
+    {
+      "path": "snapshots/realm26_second_family_manifest.json",
+      "sha256": "25e83fa214e36fb7c431c8164b4b3e49b39a7636c0a20352094b17d0c00146e9"
+    },
+    {
+      "path": "snapshots/realm26_second_family_model_snapshot.json",
+      "sha256": "657ed1a449083de198b1817771a359ec2b5a0aa9082377fc55da3ab4ef9ed18b"
+    },
+    {
+      "path": "snapshots/realm26_second_family_v1.json",
+      "sha256": "ca1a724435027a45bb66a591c83dc7cd59a8eebbaf12f197f93b89631b06639f"
+    },
+    {
+      "path": "snapshots/second_family_replication_v1.json",
+      "sha256": "abbc9244a5fc2f04910ad5a9d8f15271fe0da71f85f6bbe09b4cec76185cd709"
+    },
+    {
       "path": "snapshots/selective_router.json",
       "sha256": "6d3eb8c45db852853e3b6354304e1ad69c6776a0ac4831263f2accc6ae3234b6"
     },
@@ -75,8 +95,8 @@
   ],
   "partition": "development_only",
   "provider_calls": false,
-  "purpose": "provider-free reproduction of development aggregation and protocol inspection",
+  "purpose": "provider-free audit of recorded development statistics and protocol inputs",
   "schema": "realm-anonymous-artifact-v1",
   "sealed_final_partition": "excluded",
-  "source_commit": "c08d0ae"
+  "source_commit": "473fd0612f8b60bdca58d3cb4c46757910a84d6d"
 }
