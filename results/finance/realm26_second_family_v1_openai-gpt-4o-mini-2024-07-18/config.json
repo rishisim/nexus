@@ -1,0 +1,13 @@
+{
+  "frameworks": [
+    "nexus",
+    "react"
+  ],
+  "manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+  "model_id": "openai/gpt-4o-mini-2024-07-18",
+  "protocol_fingerprint": "sha256:9fe47bc3a6deeb419facdeeeaf791fc8b14e9215a530e93c30a8191f1da752b7",
+  "protocol_id": "realm26_second_family_v1",
+  "result_schema_version": "realm26-finance-replication-result-v1",
+  "sample_count": 75,
+  "seed": 42
+}

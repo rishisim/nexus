@@ -1,0 +1,411 @@
+{
+  "analysis_fingerprint": "sha256:357a3125b12db4c9c6ac5601a6c91348bc83019fd62bc0f7d6eb48da14614879",
+  "analysis_implementation_correction": {
+    "changed_computation": false,
+    "corrected_executable": "analyze_realm26_replication_v1_1.py",
+    "frozen_executable_failure": "The planned execution_accuracy label was looked up literally, but the existing scorer serializes that binary endpoint as exact_match.",
+    "mapping": {
+      "execution_accuracy": "exact_match"
+    },
+    "provider_calls_after_correction": 0
+  },
+  "analysis_plan": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260715,
+    "complementarity_binary_metric": "exact_match",
+    "dataset_quality_metrics": {
+      "convfinqa": "execution_accuracy",
+      "finqa": "execution_accuracy",
+      "tatqa": "f1"
+    },
+    "primary_quality": "unweighted macro mean across the three dataset-native metrics",
+    "report": [
+      "per-dataset quality",
+      "primary macro quality",
+      "paired percentile-bootstrap 95% intervals for react minus nexus",
+      "exact McNemar complementarity counts",
+      "calls, token categories, dollars, median latency, and p95 latency",
+      "failures and binding completeness"
+    ],
+    "transfer_criterion": {
+      "cost": "nexus mean effective USD per example <= react",
+      "quality": "nexus primary macro >= react",
+      "unique_successes": "nexus-only exact successes >= react-only exact successes",
+      "workflow_calls": "nexus mean calls per example < react"
+    }
+  },
+  "datasets": {
+    "convfinqa": {
+      "bootstrap_react_minus_nexus": {
+        "confidence": 0.95,
+        "estimate": -0.16,
+        "lower": -0.32,
+        "n_pairs": 25,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.04
+      },
+      "complementarity_exact": {
+        "both_correct": 1,
+        "both_wrong": 20,
+        "discordant_pairs": 4,
+        "left_only_correct": 4,
+        "p_value": 0.125,
+        "right_only_correct": 0,
+        "statistic": 2.25
+      },
+      "efficiency": {
+        "nexus": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1856.3897499989253,
+          "latency_p95_ms": 4247.306424594715,
+          "mean_cost_usd": 0.00061028154,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 92481.0,
+            "output_tokens": 2565.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 95046.0
+          },
+          "total_cost_usd": 0.015257038499999997,
+          "total_llm_calls": 25.0,
+          "total_retrieval_calls": 0
+        },
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 7617.160417023115,
+          "latency_p95_ms": 10229.568684357218,
+          "mean_cost_usd": 0.0013179672,
+          "mean_llm_calls": 6.04,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 199936.0,
+            "input_tokens": 300524.0,
+            "output_tokens": 5331.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 305855.0
+          },
+          "total_cost_usd": 0.03294918,
+          "total_llm_calls": 151.0,
+          "total_retrieval_calls": 0
+        }
+      },
+      "metric": "execution_accuracy",
+      "quality": {
+        "nexus": 0.2,
+        "react": 0.04
+      }
+    },
+    "finqa": {
+      "bootstrap_react_minus_nexus": {
+        "confidence": 0.95,
+        "estimate": -0.04,
+        "lower": -0.16,
+        "n_pairs": 25,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": 0.08
+      },
+      "complementarity_exact": {
+        "both_correct": 0,
+        "both_wrong": 22,
+        "discordant_pairs": 3,
+        "left_only_correct": 2,
+        "p_value": 1.0,
+        "right_only_correct": 1,
+        "statistic": 0.0
+      },
+      "efficiency": {
+        "nexus": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 3455.22620799602,
+          "latency_p95_ms": 5140.20250000176,
+          "mean_cost_usd": 0.00060083694,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 79595.0,
+            "output_tokens": 5389.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 84984.0
+          },
+          "total_cost_usd": 0.0150209235,
+          "total_llm_calls": 25.0,
+          "total_retrieval_calls": 0
+        },
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 7927.176792029059,
+          "latency_p95_ms": 10756.557482993227,
+          "mean_cost_usd": 0.0014318667,
+          "mean_llm_calls": 5.88,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 213120.0,
+            "input_tokens": 321855.0,
+            "output_tokens": 6440.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 328295.0
+          },
+          "total_cost_usd": 0.03579666749999999,
+          "total_llm_calls": 147.0,
+          "total_retrieval_calls": 0
+        }
+      },
+      "metric": "execution_accuracy",
+      "quality": {
+        "nexus": 0.08,
+        "react": 0.04
+      }
+    },
+    "tatqa": {
+      "bootstrap_react_minus_nexus": {
+        "confidence": 0.95,
+        "estimate": -0.5232,
+        "lower": -0.69201,
+        "n_pairs": 25,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.3444
+      },
+      "complementarity_exact": {
+        "both_correct": 0,
+        "both_wrong": 12,
+        "discordant_pairs": 13,
+        "left_only_correct": 13,
+        "p_value": 0.000244140625,
+        "right_only_correct": 0,
+        "statistic": 11.076923076923077
+      },
+      "efficiency": {
+        "nexus": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1752.508833014872,
+          "latency_p95_ms": 3455.630316399038,
+          "mean_cost_usd": 0.00032097978,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 42913.0,
+            "output_tokens": 2781.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 45694.0
+          },
+          "total_cost_usd": 0.008024494500000002,
+          "total_llm_calls": 25.0,
+          "total_retrieval_calls": 0
+        },
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 25,
+          "input_rows": 25,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 7189.546540961601,
+          "latency_p95_ms": 9840.615000209073,
+          "mean_cost_usd": 0.00070447212,
+          "mean_llm_calls": 5.56,
+          "mean_retrieval_calls": null,
+          "telemetry_complete_examples": 25,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 25,
+            "input_tokens": 25,
+            "output_tokens": 25,
+            "reasoning_tokens": 25,
+            "total_tokens": 25
+          },
+          "token_totals": {
+            "cached_tokens": 40192.0,
+            "input_tokens": 117170.0,
+            "output_tokens": 5381.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 122551.0
+          },
+          "total_cost_usd": 0.017611803,
+          "total_llm_calls": 139.0,
+          "total_retrieval_calls": 0
+        }
+      },
+      "metric": "f1",
+      "quality": {
+        "nexus": 0.648,
+        "react": 0.1248
+      }
+    }
+  },
+  "frameworks": {
+    "nexus": {
+      "cost_coverage": 1.0,
+      "excluded_examples": 0,
+      "included_examples": 75,
+      "input_rows": 75,
+      "latency_coverage": 1.0,
+      "latency_median_ms": 2532.307082990883,
+      "latency_p95_ms": 4584.26237060048,
+      "mean_cost_usd": 0.00051069942,
+      "mean_llm_calls": 1.0,
+      "mean_retrieval_calls": null,
+      "telemetry_complete_examples": 75,
+      "telemetry_completeness": 1.0,
+      "token_coverage": {
+        "cached_tokens": 75,
+        "input_tokens": 75,
+        "output_tokens": 75,
+        "reasoning_tokens": 75,
+        "total_tokens": 75
+      },
+      "token_totals": {
+        "cached_tokens": 0.0,
+        "input_tokens": 214989.0,
+        "output_tokens": 10735.0,
+        "reasoning_tokens": 0.0,
+        "total_tokens": 225724.0
+      },
+      "total_cost_usd": 0.0383024565,
+      "total_llm_calls": 75.0,
+      "total_retrieval_calls": 0
+    },
+    "react": {
+      "cost_coverage": 1.0,
+      "excluded_examples": 0,
+      "included_examples": 75,
+      "input_rows": 75,
+      "latency_coverage": 1.0,
+      "latency_median_ms": 7570.650000998285,
+      "latency_p95_ms": 10473.647738056023,
+      "mean_cost_usd": 0.00115143534,
+      "mean_llm_calls": 5.826666666666667,
+      "mean_retrieval_calls": null,
+      "telemetry_complete_examples": 75,
+      "telemetry_completeness": 1.0,
+      "token_coverage": {
+        "cached_tokens": 75,
+        "input_tokens": 75,
+        "output_tokens": 75,
+        "reasoning_tokens": 75,
+        "total_tokens": 75
+      },
+      "token_totals": {
+        "cached_tokens": 453248.0,
+        "input_tokens": 739549.0,
+        "output_tokens": 17152.0,
+        "reasoning_tokens": 0.0,
+        "total_tokens": 756701.0
+      },
+      "total_cost_usd": 0.0863576505,
+      "total_llm_calls": 437.0,
+      "total_retrieval_calls": 0
+    }
+  },
+  "manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+  "model_id": "openai/gpt-4o-mini-2024-07-18",
+  "overall": {
+    "bootstrap_react_minus_nexus": {
+      "confidence": 0.95,
+      "estimate": -0.24106666666666668,
+      "lower": -0.3429433333333332,
+      "n_pairs": 75,
+      "n_resamples": 10000,
+      "seed": 20260715,
+      "upper": -0.1416
+    },
+    "complementarity_exact": {
+      "both_correct": 1,
+      "both_wrong": 54,
+      "discordant_pairs": 20,
+      "left_only_correct": 19,
+      "p_value": 4.00543212890625e-05,
+      "right_only_correct": 1,
+      "statistic": 14.45
+    },
+    "macro_quality": {
+      "nexus": 0.30933333333333335,
+      "react": 0.06826666666666667
+    },
+    "transfer_checks": {
+      "cost": true,
+      "quality": true,
+      "unique_successes": true,
+      "workflow_calls": true
+    },
+    "transfer_criterion_met": true
+  },
+  "pre_result_commit": "f5baf1e11ed7b9d77ab6dc8d8a86e83488d0767e",
+  "protocol_id": "realm26_second_family_v1",
+  "provider_spend_usd": 0.12466010699999998,
+  "resolved_model_ids": [
+    "openai/gpt-4o-mini-2024-07-18"
+  ],
+  "sample_items": 75,
+  "schema_version": "realm26-replication-analysis-v1"
+}

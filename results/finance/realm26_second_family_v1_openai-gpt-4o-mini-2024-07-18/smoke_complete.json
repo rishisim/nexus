@@ -1,0 +1,8 @@
+{
+  "binding": "openai/gpt-4o-mini-2024-07-18",
+  "completed_at": "2026-07-15T00:17:23+00:00",
+  "pair_count": 2,
+  "protocol_fingerprint": "sha256:9fe47bc3a6deeb419facdeeeaf791fc8b14e9215a530e93c30a8191f1da752b7",
+  "spend_usd": 0.0030758804999999998,
+  "telemetry_complete": true
+}

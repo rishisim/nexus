@@ -34,6 +34,25 @@ class OpenRouterBodyTests(unittest.TestCase):
         self.assertNotIn("temperature", body)
         self.assertNotIn("top_p", body)
 
+    def test_exact_gpt_4o_mini_binds_openai_provider_without_fallbacks(self):
+        stop = ["\nObservation 1:", "Finish["]
+        body = llm_module._build_openrouter_body(
+            "question", stop, 0.0, 256, "openai/gpt-4o-mini-2024-07-18"
+        )
+
+        self.assertEqual(body["model"], "openai/gpt-4o-mini-2024-07-18")
+        self.assertEqual(body["temperature"], 0.0)
+        self.assertEqual(body["stop"], stop)
+        self.assertEqual(
+            body["provider"],
+            {
+                "only": ["OpenAI"],
+                "allow_fallbacks": False,
+                "require_parameters": True,
+                "data_collection": "deny",
+            },
+        )
+
 
 class UsageParsingTests(unittest.TestCase):
     def test_openrouter_usage_is_defensive_and_preserves_provider_totals(self):
