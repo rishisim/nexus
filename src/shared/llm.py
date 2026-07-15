@@ -120,6 +120,15 @@ def _build_openrouter_body(
     if model_id == "google/gemini-2.5-flash":
         # The primary experiment protocol disables model-internal thinking.
         body["reasoning"] = {"max_tokens": 0}
+    if model_id == "openai/gpt-4o-mini-2024-07-18":
+        # Bind the replication request to OpenAI's exact model provider and
+        # fail closed rather than silently routing to a fallback provider.
+        body["provider"] = {
+            "only": ["OpenAI"],
+            "allow_fallbacks": False,
+            "require_parameters": True,
+            "data_collection": "deny",
+        }
     if stop:
         body["stop"] = stop
     return body
