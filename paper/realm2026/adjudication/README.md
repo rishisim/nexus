@@ -1,27 +1,64 @@
-# REALM 2026 blinded adjudication packet
+# REALM 2026 blinded author adjudication
 
-`blinded_packet.csv` is the authoritative fillable packet and
-`blinded_packet.md` is a reviewer-friendly rendering. Both contain exactly
-the 51 cases selected by the committed fairness audit that require semantic
-manual review. They intentionally do not expose system identities or the
-audit's deterministic categories.
+This directory defines the frozen, human-only review of the 51 development
+cases selected by `paper/realm2026/artifacts/fairness_audit.json`. Codex must
+not fill, infer, or resolve any human label.
 
-Codex must not fill the human labels. Two authors should independently label
-every A/B answer, then a third author (or an agreed adjudicator) may use the
-private A/B key to resolve disagreements. Keep the independent forms and
-record the final resolution and rationale. Do not alter official scores or
-include the 900-example final partition in this process.
+## Why the reviewer forms are private
 
-The packet is generated offline from
-`paper/realm2026/artifacts/fairness_audit.json`:
+The forms contain exact benchmark questions, prior dialogue where required,
+reference answers, and submitted responses. They are generated under
+`private/`, which is ignored, and must be transferred directly to reviewers.
+The public repository contains the generator, frozen rubric, and an integrity
+manifest, not the fillable forms or A/B key.
+
+This is operational blinding, not a claim that the underlying public audit is
+cryptographically unlinkable. During independent review, reviewers must receive
+only their assigned CSV, `rubric.md`, and `REVIEWER_GUIDE.md`; they must not
+inspect the repository, audit, other reviewer's form, or private key.
+
+## Generate or verify the packet
+
+The generator reads only the recorded development result files named by the
+audit and verifies their frozen SHA-256 hashes. It does not load datasets, open
+the sealed final partition, or call a provider.
+
+Initialize the private assignment once:
+
+```bash
+python3 scripts/realm26_blinded_adjudication.py --initialize-private-key
+```
+
+Rerun deterministically with the preserved private key:
 
 ```bash
 python3 scripts/realm26_blinded_adjudication.py
 ```
 
-The deterministic assignment seed is embedded in the packet metadata. The
-mapping is written to `paper/realm2026/adjudication/private/ab_key.json`.
-That directory is intentionally ignored and must be transferred through a
-private author channel, never committed, uploaded with the packet, or shown
-to independent reviewers. The private key is not needed for independent
-review.
+Use `--rotate-private-key` only before either reviewer receives a form. Never
+rotate or regenerate the assignment after review begins.
+
+Generated private files:
+
+- `private/reviewer_packets/reviewer_1.csv`
+- `private/reviewer_packets/reviewer_2.csv`
+- `private/reviewer_packets/REVIEWER_GUIDE.md`
+- `private/key/ab_key.json`
+
+The tracked `packet_manifest.json` commits to the secret assignment and hashes
+the exact private reviewer files without exposing the seed or mapping.
+
+## Human workflow
+
+1. Freeze and hash the two reviewer forms before distribution.
+2. Give each reviewer only their own CSV, the reviewer guide, and `rubric.md`.
+3. Each reviewer independently labels every A/B answer and returns the locked
+   form without discussing cases.
+4. Validate both returned forms, then reveal the A/B key to the adjudicator.
+5. Resolve disagreements against the frozen rubric and record the rationale.
+6. Report these as human adjudication of development examples; do not silently
+   replace the official benchmark scores.
+
+Keep the ignored private directory until adjudication and manuscript updates
+are complete. Do not upload it to GitHub or include it in the anonymous
+artifact.

@@ -1,0 +1,32 @@
+{
+  "assignment_commitment": "sha256:a976f3293f9d0a2640c14c9bcc64c52d54d9b3168661d2e831f54d75accbb8d7",
+  "packet_case_ids_sha256": "sha256:7907757b394d6bd4789464c3fdf33dae7f4b9a92f4d91debc4cffbaaee84d12c",
+  "private_packet_sha256": {
+    "REVIEWER_GUIDE.md": "sha256:7ef950f8d55fa04a220d6a41f76bdf9f846d1ef50ec6ba8c0b45bb2bb6c4c6c8",
+    "reviewer_1.csv": "sha256:e09deceb3ae448b6ce1994dc6a954dc2147f1162c316d63f03702796f0d5e72e",
+    "reviewer_2.csv": "sha256:13b2011fbb17f3b1fdc8ba9232776f0d91e513d1330c6451af58f00246b1f28c"
+  },
+  "rubric_sha256": "sha256:501b616e4207ab66a1f1046584e6e4489a2790c6c57a262893a969254f5496b9",
+  "rubric_version": "realm26-human-adjudication-rubric-v1",
+  "schema_version": "realm26-blinded-adjudication-v2",
+  "scope": {
+    "case_count": 51,
+    "external_provider_calls": 0,
+    "human_labels_prefilled": false,
+    "partition": "development_only",
+    "sealed_final_partition_accessed": false
+  },
+  "source": {
+    "development_run": "finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709",
+    "verified_source_files": {
+      "results/finance/convfinqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/nexus/results.json": "sha256:758f1cfafdf38977f0d7a07f38d80f7b4f2efab9a832a5111328ab82a3a10f62",
+      "results/finance/convfinqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/react/results.json": "sha256:ea7dc11728e156fff2999f372cb87c2f6fc9731a978bd5d25ec21459d665ee8c",
+      "results/finance/financebench/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/nexus/results.json": "sha256:ff81653c6f8614ffff2c413cc966e869a423e5e3980498b531aea0b8467f9aaa",
+      "results/finance/financebench/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/react/results.json": "sha256:1a08150ca29b2cc65ff471af242cad27203dde7b2ea8e2487526e6765f4e6e84",
+      "results/finance/finqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/nexus/results.json": "sha256:6cb5d3d1ec56031ed196a107bab02099deee1ce6ee16a25b2580bb62d3196572",
+      "results/finance/finqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/react/results.json": "sha256:1f8f9237c025a1e34240f8c49052bedee604e849b9ba91f57cac9fbe60abf92d",
+      "results/finance/tatqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/nexus/results.json": "sha256:0c1d053bc6fb4781118f9556ae2edd1fe49e983cd182aaf88b92f08b36013b8b",
+      "results/finance/tatqa/finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709/react/results.json": "sha256:ba5c7ed93bc628438e6ed37796d7f0f3f350dc9f49252f35e6a8f8e4fe4d13a3"
+    }
+  }
+}
