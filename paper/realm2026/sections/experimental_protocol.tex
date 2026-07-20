@@ -15,8 +15,8 @@ replication sample. The runner refuses final execution because the required
 post-gate freeze fields remain unset.
 
 \paragraph{Execution.}
-All five systems are paired by example and share the same evidence and retrieval
-implementation; Direct, CoT/PoT, and Static Nexus also share a maximum dossier
+All five systems are paired by example and share the controlled evidence corpus
+and retrieval implementation; Direct, CoT/PoT, and Static Nexus also share a maximum dossier
 budget. Runs use \nolinkurl{google/gemini-2.5-flash}, temperature zero, and
 disabled model thinking. A valid output is never rerun because it scores poorly;
 only typed infrastructure failures are resumable. Each response records the
@@ -27,10 +27,12 @@ A 75-item second-family check repeated the configured ordering but retained the
 contract differences. The audit therefore motivated a corrective study using
 \nolinkurl{openai/gpt-4o-mini-2024-07-18} on 150 further development items (50
 per primary dataset), excluding every earlier or final identifier. Both arms
-shared a strict JSON answer contract, parser, scorer input, one-attempt policy,
-and evidence/retrieval/context/output limits. ReAct retained up to seven steps,
-but its first model action had to be Search; every row required observed
-evidence, at least one retrieval, two model calls, and valid parsing. A first
+shared a strict JSON final-answer contract, malformed-response fallback, scorer
+input, one-attempt policy, retrieval API, and evidence/context/output ceilings.
+Static deterministically issued up to three retrievals; ReAct chose its queries
+adaptively, but its first model action had to be Search. Every ReAct row
+required observed evidence, at least one retrieval, two model calls, and valid
+parsing. A first
 fresh-sample freeze that allowed immediate abstention failed this manipulation
 check and remains diagnostic only; v2 reused none of its items. V2's public
 commit, sample, prompts, tests, and analysis were hash-bound before inference;

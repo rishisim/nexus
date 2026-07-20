@@ -6,9 +6,10 @@ were ReAct-only successes, versus 42 Static-only successes; the documented
 fallback gate then escalated 70\% of cases and reduced exact accuracy from
 0.395 to 0.295. Because a trace audit exposed unequal answer and context
 contracts, we ran a prospectively frozen corrective study on 150 fresh items.
-Both arms used the same model, parser, scorer, and evidence, retrieval, context,
-and output limits; every ReAct row was verified to begin with Search and observe
-evidence. Static scored 0.342 versus ReAct's 0.257 (paired macro difference
+Both arms used the same model, final-answer parser and scorer, retrieval API,
+and evidence, context, and output ceilings; every ReAct row was verified to
+produce the required first Search and observe evidence. Static scored 0.342
+versus ReAct's 0.257 (paired macro difference
 $-0.085$, 95\% CI $[-0.147,-0.025]$), with 21 versus five unique exact
 successes. ReAct used more calls and time but fewer input tokens and dollars.
 These are development-only results for bounded workflows, not a universal claim
