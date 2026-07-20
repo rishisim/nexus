@@ -9,16 +9,8 @@
       "sha256": "4cf5d4dda9b87abe8dfb3acb9c3b5b35439e439dbc891d31ce8e536a489f232e"
     },
     {
-      "path": "__pycache__/assemble_artifact.cpython-314.pyc",
-      "sha256": "246b9468a19ea73ec958fbce6d4349bb3abc832dbf2dc09264c41e1d7cd7687b"
-    },
-    {
-      "path": "__pycache__/validate_artifact.cpython-314.pyc",
-      "sha256": "2e1d73e85fbdcb26091a86b177cdc2e78c48f41257127d531d58e7062ef085f6"
-    },
-    {
       "path": "assemble_artifact.py",
-      "sha256": "fb60fb7b53888f774e4ced32dc830809b47c19b1e4f57b2d8a4d1d111d0cf3b5"
+      "sha256": "f2c6755289c0098fb29836be0834bef6d3dc7eb617d36e3839fa349f13f6ee5a"
     },
     {
       "path": "development_manifests/convfinqa.json",

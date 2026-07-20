@@ -252,7 +252,12 @@ def main() -> None:
 
     entries = []
     for path in sorted(ARTIFACT.rglob("*")):
-        if path.is_file() and path.name not in {"checksums.sha256", "manifest.json"}:
+        if (
+            path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix != ".pyc"
+            and path.name not in {"checksums.sha256", "manifest.json"}
+        ):
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
         "schema": "realm-anonymous-artifact-v1",
@@ -268,7 +273,12 @@ def main() -> None:
     # Recompute after manifest creation; checksums excludes itself by design.
     entries = []
     for path in sorted(ARTIFACT.rglob("*")):
-        if path.is_file() and path.name != "checksums.sha256":
+        if (
+            path.is_file()
+            and "__pycache__" not in path.parts
+            and path.suffix != ".pyc"
+            and path.name != "checksums.sha256"
+        ):
             entries.append(f"{sha256(path)}  {path.relative_to(ARTIFACT).as_posix()}")
     (ARTIFACT / "checksums.sha256").write_text("\n".join(entries) + "\n", encoding="utf-8")
 
