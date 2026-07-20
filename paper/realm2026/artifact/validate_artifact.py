@@ -32,6 +32,10 @@ SCORE_ROW_KEYS = {
     "f1",
     "llm_calls",
     "retrieval_operations",
+    "evidence_word_count",
+    "first_model_action",
+    "parse_status",
+    "process_integrity",
     "retry_count",
     "input_tokens",
     "output_tokens",
@@ -88,11 +92,11 @@ def main() -> int:
     manifest_path = ARTIFACT / "manifest.json"
     checksums_path = ARTIFACT / "checksums.sha256"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    assert manifest["schema"] == "realm-anonymous-artifact-v1"
+    assert manifest["schema"] == "realm-anonymous-artifact-v2"
     assert manifest["partition"] == "development_only"
     assert manifest["sealed_final_partition"] == "excluded"
     assert manifest["provider_calls"] is False
-    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v1"
+    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v2"
     assert "source_commit" not in manifest
     listed = {entry["path"]: entry["sha256"] for entry in manifest["entries"]}
     assert "checksums.sha256" not in listed
@@ -120,8 +124,8 @@ def main() -> int:
         (ARTIFACT / "snapshots/score_ledger.json").read_text(encoding="utf-8")
     )
     rows = ledger["rows"]
-    assert ledger["schema_version"] == "realm-anonymous-score-ledger-v1"
-    assert ledger["row_count"] == len(rows) == 1050
+    assert ledger["schema_version"] == "realm-anonymous-score-ledger-v2"
+    assert ledger["row_count"] == len(rows) == 1350
     assert all(set(row) == SCORE_ROW_KEYS for row in rows)
     assert all(row["status"] == "success" for row in rows)
 
@@ -129,8 +133,10 @@ def main() -> int:
     replication = [
         row for row in rows if row["study"] == "second_family_replication"
     ]
+    harmonized = [row for row in rows if row["study"] == "harmonized_v2"]
     assert len(original) == 900
     assert len(replication) == 150
+    assert len(harmonized) == 300
 
     paired = json.loads(
         (ARTIFACT / "snapshots/paired_statistics.json").read_text(encoding="utf-8")
@@ -234,6 +240,67 @@ def main() -> int:
     expected_patterns = replication_summary["overall"]["complementarity_exact"]
     for key, observed in replication_patterns.items():
         assert observed == expected_patterns[key]
+
+    harmonized_summary = json.loads(
+        (ARTIFACT / "snapshots/harmonized_replication_v2.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    for system, expected in harmonized_summary["overall"]["macro_quality"].items():
+        dataset_means = []
+        for dataset in ("finqa", "tatqa", "convfinqa"):
+            values = [
+                row["primary_score"]
+                for row in harmonized
+                if row["system"] == system and row["dataset"] == dataset
+            ]
+            assert len(values) == 50
+            dataset_means.append(sum(values) / len(values))
+        observed = sum(dataset_means) / len(dataset_means)
+        assert abs(observed - expected) < 1e-12
+
+    harmonized_pairs: dict[tuple[str, str], dict[str, float]] = {}
+    for row in harmonized:
+        harmonized_pairs.setdefault(
+            (row["dataset"], row["example_id"]), {}
+        )[row["system"]] = row["exact_match"]
+    assert len(harmonized_pairs) == 150
+    assert all(set(pair) == {"static", "react"} for pair in harmonized_pairs.values())
+    harmonized_patterns = {
+        "both_correct": 0,
+        "both_wrong": 0,
+        "left_only_correct": 0,
+        "right_only_correct": 0,
+    }
+    for pair in harmonized_pairs.values():
+        static = bool(pair["static"])
+        react = bool(pair["react"])
+        if static and react:
+            harmonized_patterns["both_correct"] += 1
+        elif static:
+            harmonized_patterns["left_only_correct"] += 1
+        elif react:
+            harmonized_patterns["right_only_correct"] += 1
+        else:
+            harmonized_patterns["both_wrong"] += 1
+    expected_harmonized = harmonized_summary["overall"]["complementarity_exact"]
+    for key, observed in harmonized_patterns.items():
+        assert observed == expected_harmonized[key]
+
+    harmonized_static = [row for row in harmonized if row["system"] == "static"]
+    harmonized_react = [row for row in harmonized if row["system"] == "react"]
+    assert len(harmonized_static) == len(harmonized_react) == 150
+    assert all(row["llm_calls"] == 1 for row in harmonized_static)
+    assert all(
+        row["first_model_action"] == "Search"
+        and row["process_integrity"] is True
+        and row["parse_status"] == "ok"
+        and row["evidence_word_count"] > 0
+        and row["retrieval_operations"] >= 1
+        and row["llm_calls"] >= 2
+        and row["retry_count"] == 0
+        for row in harmonized_react
+    )
 
     readme = (ARTIFACT / "README.md").read_text(encoding="utf-8").lower()
     for required in ("sealed final partition is excluded", "provider-free", "no final outcomes"):

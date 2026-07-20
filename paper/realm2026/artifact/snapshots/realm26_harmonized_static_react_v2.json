@@ -1,0 +1,166 @@
+{
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260720,
+    "complementarity_binary_metric": "native_scores.exact_match",
+    "dataset_quality_metrics": {
+      "convfinqa": "native_scores.exact_match",
+      "finqa": "native_scores.exact_match",
+      "tatqa": "native_scores.f1"
+    },
+    "directional_interpretation": {
+      "inconclusive": "primary 95% interval includes zero",
+      "react_advantage": "primary react-minus-static 95% interval lower bound is greater than zero",
+      "static_advantage": "primary react-minus-static 95% interval upper bound is less than zero"
+    },
+    "efficiency_paired_intervals": [
+      "llm_call_count",
+      "retrieval_operation_count",
+      "total_tokens",
+      "effective_cost_usd",
+      "episode_wall_ms"
+    ],
+    "primary_estimand": "unweighted macro mean across FinQA, TAT-QA, and ConvFinQA",
+    "primary_serialized_metric": "dataset_quality_metrics mapping above",
+    "uncertainty": "dataset-stratified paired percentile bootstrap for react minus static"
+  },
+  "artifact_hashes": {
+    "components": [
+      "analysis",
+      "attestation",
+      "base_methods",
+      "data_adapter",
+      "executor",
+      "finance_env",
+      "finance_statistics",
+      "finance_utils",
+      "llm_telemetry",
+      "llm_wrapper",
+      "manifest",
+      "methods",
+      "model_snapshot",
+      "prompts",
+      "protocol_guard",
+      "protocol_memo",
+      "protocol_utils",
+      "pytest_config",
+      "runner_telemetry",
+      "scorers",
+      "tests",
+      "v1_harmonized_methods",
+      "v1_harmonized_prompts",
+      "v1_manifest"
+    ],
+    "status": "verified before calls; values omitted for double-blind review"
+  },
+  "budget": {
+    "hard_cap_usd": 5.0,
+    "planning_basis": "Harmonized v1 cost USD 0.0728215785 for 300 calls; v2 keeps the same ceilings but requires at least two ReAct calls per item.",
+    "planning_estimate_usd": 0.25,
+    "planning_maximum_usd": 2.0,
+    "reservation_multiplier": 1.25,
+    "smoke_counts_toward_cap": true
+  },
+  "claims_scope": "development_only_v2_corrective_study_separate_from_v1_and_original_gate",
+  "created_at_utc": "2026-07-20T18:00:09Z",
+  "datasets": [
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "exclusions": {
+    "allowed_final_use": "identifier_overlap_exclusion_only",
+    "original_protocol": "finance_icaif26_v2.json",
+    "second_family_manifest": "manifests/realm26_second_family_v1/manifest.json",
+    "v1_manifest": "manifests/realm26_harmonized_static_react_v1/manifest.json"
+  },
+  "frameworks": [
+    "static",
+    "react"
+  ],
+  "freeze_state": "frozen",
+  "inference": {
+    "backend": "openrouter",
+    "inter_call_delay_seconds": 0.1,
+    "model_id": "openai/gpt-4o-mini-2024-07-18",
+    "provider_routing": {
+      "allow_fallbacks": false,
+      "data_collection": "deny",
+      "only": [
+        "OpenAI"
+      ],
+      "require_parameters": true
+    },
+    "temperature": 0,
+    "top_p": 1.0
+  },
+  "manifest": "manifests/realm26_harmonized_static_react_v2/manifest.json",
+  "model_snapshot": "snapshots/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18.json",
+  "protocol_id": "realm26_harmonized_static_react_v2",
+  "publication": {
+    "status": "public pre-result freeze verified; branch and remote omitted for double-blind review"
+  },
+  "purpose": "Fresh-sample structural correction after the v1 empty-context abstention collapse; v2 prospectively requires ReAct to enact evidence retrieval and remains separate from the original selector gate.",
+  "results": {
+    "root": "results/finance/realm26_harmonized_static_react_v2_openai-gpt-4o-mini-2024-07-18",
+    "tag": "realm26_harmonized_static_react_v2"
+  },
+  "retry_policy": {
+    "max_attempts_per_call": 1,
+    "valid_outputs_are_immutable": true
+  },
+  "sample": {
+    "per_dataset": 50,
+    "selection": {
+      "convfinqa": "one seeded turn from each of 50 new dialogues after original-development, second-family, harmonized-v1, and sealed-final identifier exclusions",
+      "finqa": "seeded sample after original-development, second-family, harmonized-v1, and sealed-final identifier exclusions",
+      "tatqa": "seeded answer_type x answer_source stratified sample from contexts containing no original-development, second-family, harmonized-v1, or sealed-final identifiers"
+    },
+    "total_items": 150
+  },
+  "schema_version": "realm26-harmonized-replication-v2",
+  "seed": 20260720,
+  "smoke": {
+    "dataset": "finqa",
+    "item_ordinal": 0,
+    "outcomes_must_not_be_summarized_before_full_run": true,
+    "process_checks": {
+      "forbid_answer_or_score_access": true,
+      "react_evidence_word_count_minimum": 1,
+      "react_first_model_action": "Search",
+      "react_llm_call_count_minimum": 2,
+      "react_parse_status": "ok",
+      "react_retrieval_operation_count_minimum": 1,
+      "static_llm_call_count": 1
+    },
+    "runs_both_workflows": true
+  },
+  "stopping_rule": {
+    "provider_failures": 1,
+    "stop_immediately_on": [
+      "any provider or telemetry failure",
+      "hard-cap reservation failure or breach",
+      "requested/resolved model or provider mismatch",
+      "dataset drift or any excluded-identifier overlap",
+      "any ReAct first-action or treatment-integrity failure",
+      "frozen artifact, public-push, clean-tree, test-attestation, or resume mismatch",
+      "unresolved spend reservation after interruption",
+      "any need to alter the frozen study"
+    ]
+  },
+  "test_attestation": "attestations/realm26_harmonized_static_react_v2_tests.json",
+  "workflows": {
+    "answer_contract": "strict_json_finish_v1",
+    "context_word_budget_per_call": 4096,
+    "evidence_word_budget_per_item": 3000,
+    "malformed_fallback": "UNKNOWN_without_retry",
+    "max_output_tokens_per_call": 384,
+    "max_retrieval_operations_per_item": 3,
+    "react_action_policy": "first_model_action_must_be_search_v2",
+    "react_max_steps": 7,
+    "react_min_evidence_operations": 1,
+    "react_min_model_calls": 2,
+    "scorer_input": "canonical_parsed_answer_only",
+    "static_model_calls": 1
+  }
+}

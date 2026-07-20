@@ -1,9 +1,8 @@
 \section{Development Gate Outcome}
 \label{sec:results}
 
-Table~\ref{tab:development-gate} reports two development comparisons. The
-original block drove the development decision; the replication block is a separate
-sample and model and must not be compared across blocks as a benchmark ranking.
+Table~\ref{tab:development-gate} reports the original gate and fresh harmonized
+v2. They use separate samples and models and are not a benchmark ranking.
 
 \begin{table}[t]
   \caption{Development-only quality and efficiency. ``Macro'' averages FinQA
@@ -23,9 +22,9 @@ sample and model and must not be compared across blocks as a benchmark ranking.
     ReAct & 0.2993 & 2.97 & 0.001479 \\
     Selective Nexus & 0.3675 & 2.19 & 0.001322 \\
     \midrule
-    \multicolumn{4}{@{}l}{\emph{GPT-4o-mini replication ($n=75$/system)}} \\
-    Static Nexus & 0.3093 & 1.00 & 0.000511 \\
-    ReAct & 0.0683 & 5.83 & 0.001151 \\
+    \multicolumn{4}{@{}l}{\emph{Harmonized GPT-4o-mini v2 ($n=150$/system)}} \\
+    Static & \textbf{0.3421} & 1.00 & 0.000452 \\
+    ReAct & 0.2572 & 2.04 & \textbf{0.000304} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -38,13 +37,16 @@ Nexus (ReAct-minus-Static CI: $[-0.207,-0.056]$) and costs more. Selective Nexus
 is 0.0648 below CoT/PoT while also costing more, so it fails that gate
 regardless of whether that development difference is treated inferentially.
 
-\paragraph{Prospective replication.}
-On 75 newly sampled primary-dataset items, Static Nexus scored 0.3093 versus
-0.0683 for ReAct (paired CI for ReAct minus Static: $[-0.343,-0.142]$).
-Official exact scores yielded 19 Static-only versus one ReAct-only success.
-Static used one call and US\$0.000511 per item; ReAct used 5.83 calls and
-US\$0.001151. The frozen qualitative transfer criterion was met. These remain
-development observations, not a final-partition estimate.
+\paragraph{Corrective study.}
+In fresh harmonized v2, all 150 ReAct rows passed the retrieval-first
+manipulation check. Static scored 0.3421 versus 0.2572; the paired stratified
+ReAct-minus-Static estimate was $-0.0849$ (95\% CI
+$[-0.1467,-0.0252]$). Exact complementarity was 21 Static-only, five
+ReAct-only, 23 both-correct, and 101 both-wrong (McNemar $p=0.00249$). The
+difference was clearest on FinQA ($-0.160$); dataset-level intervals included
+zero for TAT-QA and ConvFinQA. ReAct averaged 2.04 calls and 1.02 additional
+seconds per item, but its smaller evidence requests used fewer tokens and cost
+less than Static. This is development evidence, not a final-partition estimate.
 
 \paragraph{Go/no-go decision.}
 The recorded conditional required Selective Nexus either to improve quality

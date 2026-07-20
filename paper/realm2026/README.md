@@ -23,14 +23,16 @@ accuracy-cost trade-offs when its expensive expert has little measured
 complementary accuracy. Under controlled evidence, bounded ReAct produced only
 10 unique official successes among 200 objective routing examples, while Static
 Nexus produced 42; the documented fallback therefore escalated too broadly and
-hurt both quality and cost. A frozen second-family replication repeated the
-configured ordering, while a trace audit exposed answer-contract and scorer
-sensitivity that qualifies the official complementarity counts.
+hurt both quality and cost. A trace audit exposed answer/context asymmetries.
+The strongest evidence is now a prospectively frozen, fresh-sample harmonized
+v2: all 150 ReAct rows passed a retrieval-first manipulation check, yet Static
+scored 0.3421 versus 0.2572 (paired difference $-0.0849$, 95% CI
+$[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
 
 ## Current evidence boundary
 
 - Reported results are development-only: the original 250-example, five-system
-  study and a separate 75-item, two-system replication.
+  study; a separate 75-item replication; and a 150-item harmonized v2.
 - The 900-example final manifest is unexecuted and unscored. Identifier metadata
   was used only to enforce disjointness.
 - FinanceBench and FinDER do not enter the three-dataset primary macro.
@@ -54,12 +56,16 @@ sensitivity that qualifies the official complementarity counts.
 4. Prospectively froze and completed the second-family replication.
 5. Added the essential evidence to the four-page ACL manuscript.
 6. Built an anonymous, provider-free reproducibility and integrity bundle.
+7. Preserved a failed harmonized-v1 manipulation check as a diagnostic, then
+   prospectively froze and completed a fresh-sample v2 with verified ReAct
+   treatment delivery.
 
 ### Highest-value remaining work
 
-Complete human author adjudication of the 51 frozen fairness cases. If time and
-budget permit, separately freeze a prompt-harmonized and context-matched rerun
-on fresh development evidence; do not retune on the current outcomes.
+Keep human adjudication explicitly unresolved unless independent reviewers
+become available. Integrate harmonized v2 into the anonymous artifact, run
+hostile methodological reviews, tighten the four-page draft, and complete the
+submission/admin checklist without retuning on current outcomes.
 
 ### Internal schedule
 

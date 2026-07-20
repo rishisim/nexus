@@ -23,13 +23,18 @@ only typed infrastructure failures are resumable. Each response records the
 resolved model, token categories, calls, retries, provider or manifest-estimated
 cost, and end-to-end latency.
 
-After the original gate, we prospectively froze a second-family replication:
-25 new items from each primary dataset, disjoint from both existing partitions,
-with Static Nexus and ReAct only. It used
-\nolinkurl{openai/gpt-4o-mini-2024-07-18} through OpenRouter with OpenAI-only
-routing, no fallback, temperature zero, exact model-binding checks, and a
-US\$15 hard cap. The protocol and manifest were publicly timestamped before the
-first call; all 150 system-item rows completed for US\$0.125.
+A 75-item second-family check repeated the configured ordering but retained the
+contract differences. The audit therefore motivated a corrective study using
+\nolinkurl{openai/gpt-4o-mini-2024-07-18} on 150 further development items (50
+per primary dataset), excluding every earlier or final identifier. Both arms
+shared a strict JSON answer contract, parser, scorer input, one-attempt policy,
+and evidence/retrieval/context/output limits. ReAct retained up to seven steps,
+but its first model action had to be Search; every row required observed
+evidence, at least one retrieval, two model calls, and valid parsing. A first
+fresh-sample freeze that allowed immediate abstention failed this manipulation
+check and remains diagnostic only; v2 reused none of its items. V2's public
+commit, sample, prompts, tests, and analysis were hash-bound before inference;
+all 300 system-item rows completed for US\$0.113.
 
 \paragraph{Endpoints and gate.}
 The primary quality measure is the unweighted macro-average of FinQA execution

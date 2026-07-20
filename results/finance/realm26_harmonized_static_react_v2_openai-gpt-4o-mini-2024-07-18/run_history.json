@@ -1,0 +1,18 @@
+[
+  {
+    "attempted_pairs": 2,
+    "finished_at": "2026-07-20T18:08:27+00:00",
+    "phase": "smoke",
+    "spend_usd": 0.00067716,
+    "status": "complete",
+    "successes": 2
+  },
+  {
+    "attempted_pairs": 298,
+    "finished_at": "2026-07-20T18:21:50+00:00",
+    "phase": "full",
+    "spend_usd": 0.11344330800000002,
+    "status": "complete",
+    "successes": 298
+  }
+]
