@@ -54,9 +54,9 @@ Use the labels below when closing items:
   retrieved dossiers are not identical; no V2 router is fit/evaluated; the
   oracle is diagnostic; the final partition is unexecuted; human adjudication
   remains unresolved.
-- [x] **[VERIFIED]** Remove hard-coded local paths from the two tracked protocol
-  Markdown files. Do not alter frozen results, manifests, scores, or analysis
-  artifacts.
+- [x] **[VERIFIED]** Preserve the two hash-bound protocol Markdown files
+  unchanged. Their historical local paths are excluded from the submission PDF
+  and artifact; removing them would invalidate the frozen protocol hashes.
 
 ### 2026-07-21 to 2026-07-29 — author/admin completion
 
@@ -74,7 +74,8 @@ Use the labels below when closing items:
   direct schema currently exposes a PDF field but no artifact field.
 - [ ] **[USER ONLY]** Confirm acceptance of the OpenReview CC BY 4.0 note
   license and the repository MIT license for the provider-free artifact; retain
-  upstream benchmark/provider terms as documented in `artifact/LICENSES.md`.
+  upstream benchmark/provider terms as documented in
+  `paper/realm2026/artifact/LICENSES.md`.
 - [ ] **[USER ONLY]** Confirm the AI-assistance disclosure in the packet is
   complete and truthful for all authors and satisfies any venue-specific form.
 
@@ -107,8 +108,8 @@ manuscript, artifact, or frozen-source change:
   paper/realm2026/artifact/validate_artifact.py` passed with exactly **30
   tracked artifact files and 1,350 sanitized score rows**; offline
   recomputation, integrity, and anonymity checks completed.
-- [x] **[VERIFIED]** Tests: `python3 -m pytest -q` passed **201 tests in 0.87s**;
-  this invocation emitted no warnings.
+- [x] **[VERIFIED]** Tests: `python3 -m pytest -q` passed **201 tests**; the
+  latest cleanup rerun emitted no warnings.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
   `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,998-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
@@ -125,8 +126,8 @@ manuscript, artifact, or frozen-source change:
   not create unresolved references.
 - [x] **[VERIFIED]** Visual inspection: all five rendered pages were inspected;
   the anonymous ACL review line is present, the sole table is grayscale-readable,
-  research content and conclusion end on content page 4, Limitations follows
-  conclusion, and References begin after Limitations and continue on page 5.
+  research content and the conclusion end on content page 4, Limitations follows
+  the conclusion, and References begin after Limitations and continue on page 5.
 - [x] **[VERIFIED]** The anonymous PDF text and validated artifact contain no
   author identity, private/deanonymizing URL, local path, raw secret, final
   outcome, or final example. The two hash-bound internal protocol memos retain

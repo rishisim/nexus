@@ -71,8 +71,8 @@ end-to-end retrieval, complete filings, OCR, or missing evidence. All reported
 samples are development evidence; the 900-item final partition was not executed
 or scored. V2 was frozen before inference but designed after the original study
 and a failed first corrective freeze, so it is prospective corrective evidence,
-not an independent preregistered confirmation. The arms share model, final
-answer/parser/scorer path, retrieval API, and resource ceilings, but not
+not an independent preregistered confirmation. The arms share model,
+final-answer/parser/scorer path, retrieval API, and resource ceilings, but not
 identical retrieved dossiers; this is an end-to-end retrieval-policy comparison.
 Provider behavior, pricing, and latency may change, and stronger or differently
 designed agents may behave differently. The deterministic trace audit is not
@@ -88,16 +88,17 @@ or deployment to make financial decisions. The outputs are not investment,
 accounting, or trading advice, and readers should not treat benchmark accuracy
 as evidence of financial reliability. We discuss the risk that an agentic QA
 system could be over-trusted and therefore keep the claims conditional on the
-tested models, policies, evidence, and scoring contracts. The sealed final
-partition was not accessed, no provider calls were made during release QA, and
-no human adjudication has been completed or represented as completed.
+tested models, policies, evidence, and scoring contracts. Final-partition
+identifiers were used only for overlap exclusion; no final example was rendered,
+executed, or scored. No experimental provider calls were made during release QA,
+and no human adjudication has been completed or represented as completed.
 
 ### AI-assistance disclosure
 
 AI assistance was used to inspect repository documentation, draft and edit the
 submission packet/checklist, perform source-level consistency checks, and
-orchestrate provider-free compilation and validation. No provider/model
-inference calls, final-partition access, new labels, or new experimental results
+orchestrate provider-free project compilation and validation. No experimental
+model/API calls, final-example access, new labels, or new experimental results
 were generated during this preparation. The authors retain responsibility for
 the manuscript, data provenance, scientific claims, ethics answers, and final
 OpenReview submission.
@@ -117,8 +118,8 @@ integrity, anonymity checks, and package hashes. It excludes benchmark data,
 answers, raw traces, credentials, provider responses, final identifiers and
 outcomes, and all build products; it cannot rerun a model or scorer without
 withheld answer/gold text. The repository license is MIT, upstream benchmark
-and provider terms remain applicable, and `artifact/LICENSES.md` records the
-distribution boundary.
+and provider terms remain applicable, and
+`paper/realm2026/artifact/LICENSES.md` records the distribution boundary.
 
 The live direct OpenReview schema currently exposes a required PDF field but no
 dedicated artifact field. Do not add a public or author-identifying URL to the
