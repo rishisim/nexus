@@ -11,7 +11,36 @@
 - Workshop: October 29, 2026, hybrid
 
 The July 19 date discussed earlier is not the REALM deadline. The official REALM
-site currently lists August 5 for direct submissions.
+site currently lists August 5 for direct submissions. The live OpenReview venue
+configuration expresses the same deadline as August 6, 2026 at 11:59 UTC,
+which is August 5 at 23:59 Anywhere on Earth (UTC-12).
+
+## Official requirement verification
+
+Checked 2026-07-20 against primary sources:
+
+- [REALM 2026 call for papers](https://realm-workshop.github.io/call_for_papers/):
+  archival short papers are original unpublished focused contributions, may
+  include negative results, have up to four pages of content plus unlimited
+  references and appendix, must use ACL 2026 style, be PDF, anonymous, and not
+  be under review elsewhere during the REALM review period. It also states the
+  direct deadline as August 5, 2026 at 23:59 AoE, asks authors to attest to
+  ethics, and asks each submission to nominate one author as a reviewer.
+- [REALM OpenReview venue](https://openreview.net/group?id=EMNLP%2F2026%2FWorkshop%2FREALM)
+  and its [live submission invitation schema](https://api2.openreview.net/invitations?id=EMNLP%2F2026%2FWorkshop%2FREALM%2F-%2FSubmission):
+  the direct form currently requires title, author profiles, comma-separated
+  keywords, abstract, PDF, an Archival/Non-archival choice, and at least one
+  nominated reviewer; it also exposes an optional cross-submission field.
+  The schema records the OpenReview note license as CC BY 4.0.
+- [ACL paper formatting guidelines](https://acl-org.github.io/ACLPUB/formatting.html):
+  review short papers have at most four content pages plus unlimited references,
+  must use A4 PDF with embedded fonts, abstracts are at most 200 words, metadata
+  should be plain Unicode, and Limitations must follow the conclusion and
+  precede references without a page break.
+
+The paste-ready values and the fields that require author decisions are in
+[`submission_packet.md`](submission_packet.md). The executable release gate is
+in [`notes/release_checklist.md`](notes/release_checklist.md).
 
 ## Working title and thesis
 
