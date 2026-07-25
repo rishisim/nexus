@@ -103,9 +103,6 @@ were generated during this preparation. The authors retain responsibility for
 the manuscript, data provenance, scientific claims, ethics answers, and final
 OpenReview submission.
 
-This disclosure describes the assistance used for this preparation; authors
-must confirm that it is complete and compatible with any venue-specific policy.
-
 ### Reproducibility / artifact statement
 
 An anonymous, provider-free artifact accompanies the source release where the
