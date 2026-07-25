@@ -1,0 +1,14 @@
+{
+  "frameworks": [
+    "static",
+    "react"
+  ],
+  "manifest_fingerprint": "sha256:a1a5767084659eec72b252a9ed1170049b083bc91db3fb91b05dd52dd4b1161d",
+  "model_id": "openai/gpt-4o-mini-2024-07-18",
+  "pre_result_commit": "a823f884ee5b187e1732be5273776115f41e3501",
+  "protocol_fingerprint": "sha256:e07725a1cc7af25cbba5598e2948aab72f8a2e6323fcb827bb582cb5ab7b966c",
+  "protocol_id": "realm26_harmonized_static_react_v2",
+  "result_schema_version": "realm26-harmonized-result-v2",
+  "sample_count": 150,
+  "seed": 20260720
+}

@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[3]
 ARTIFACT = Path(__file__).resolve().parent
 ORIGINAL_RUN = "finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709"
 REPLICATION_RUN = "realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18"
+HARMONIZED_RUN = "realm26_harmonized_static_react_v2_openai-gpt-4o-mini-2024-07-18"
 PRIMARY_DATASETS = ("finqa", "tatqa", "convfinqa")
 PRIMARY_SYSTEMS = ("direct", "cot", "nexus", "react", "selective")
 
@@ -59,6 +60,10 @@ def safe_score_row(study: str, row: dict[str, object]) -> dict[str, object]:
         "f1": native.get("f1"),
         "llm_calls": row.get("llm_call_count"),
         "retrieval_operations": row.get("retrieval_operation_count"),
+        "evidence_word_count": row.get("evidence_word_count"),
+        "first_model_action": row.get("first_model_action"),
+        "parse_status": row.get("parse_status"),
+        "process_integrity": row.get("react_process_integrity"),
         "retry_count": row.get("retry_count"),
         "input_tokens": row.get("input_tokens"),
         "output_tokens": row.get("output_tokens"),
@@ -120,6 +125,22 @@ def score_ledger() -> dict[str, object]:
                 raise SystemExit(f"expected 25 replication rows: {source}")
             rows.extend(safe_score_row("second_family_replication", row) for row in payload)
 
+    for dataset in PRIMARY_DATASETS:
+        for system in ("static", "react"):
+            source = (
+                ROOT
+                / "results"
+                / "finance"
+                / HARMONIZED_RUN
+                / dataset
+                / system
+                / "results.json"
+            )
+            payload = read_json(source)
+            if not isinstance(payload, list) or len(payload) != 50:
+                raise SystemExit(f"expected 50 harmonized-v2 rows: {source}")
+            rows.extend(safe_score_row("harmonized_v2", row) for row in payload)
+
     rows.sort(
         key=lambda row: (
             row["study"],
@@ -129,7 +150,7 @@ def score_ledger() -> dict[str, object]:
         )
     )
     return {
-        "schema_version": "realm-anonymous-score-ledger-v1",
+        "schema_version": "realm-anonymous-score-ledger-v2",
         "scope": (
             "development-only scored outcomes and telemetry; no answer, gold, "
             "prompt, evidence, or trace text"
@@ -163,6 +184,8 @@ def main() -> None:
 
     additional_snapshots = {
         "paired_statistics.json": ROOT / "paper/realm2026/artifacts/paired_statistics.json",
+        "realm26_harmonized_v2_prompts.py": ROOT
+        / "src/agents/finance/realm26_harmonized_v2_prompts.py",
         "realm26_second_family_model_snapshot.json": ROOT
         / "src/agents/finance/protocols/snapshots/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18.json",
     }
@@ -209,6 +232,52 @@ def main() -> None:
     replication_manifest.pop("manifest_fingerprint", None)
     (snapshots / "realm26_second_family_manifest.json").write_text(
         stable(replication_manifest), encoding="utf-8"
+    )
+
+    harmonized = read_json(
+        ROOT / "paper/realm2026/artifacts/harmonized_replication_v2.json"
+    )
+    if not isinstance(harmonized, dict):
+        raise SystemExit("harmonized-v2 analysis must be a JSON object")
+    for key in ("analysis_fingerprint", "manifest_fingerprint", "pre_result_commit"):
+        harmonized.pop(key, None)
+    harmonized["freeze_provenance"] = (
+        "prospective public pre-result freeze verified; identity-bearing reference "
+        "omitted from double-blind review artifact"
+    )
+    (snapshots / "harmonized_replication_v2.json").write_text(
+        stable(harmonized), encoding="utf-8"
+    )
+
+    harmonized_protocol = read_json(
+        ROOT
+        / "src/agents/finance/protocols/realm26_harmonized_static_react_v2.json"
+    )
+    if not isinstance(harmonized_protocol, dict):
+        raise SystemExit("harmonized-v2 protocol must be a JSON object")
+    harmonized_hashes = harmonized_protocol.get("artifact_hashes", {})
+    harmonized_protocol["artifact_hashes"] = {
+        "components": sorted(harmonized_hashes)
+        if isinstance(harmonized_hashes, dict)
+        else [],
+        "status": "verified before calls; values omitted for double-blind review",
+    }
+    harmonized_protocol["publication"] = {
+        "status": "public pre-result freeze verified; branch and remote omitted for double-blind review"
+    }
+    (snapshots / "realm26_harmonized_static_react_v2.json").write_text(
+        stable(harmonized_protocol), encoding="utf-8"
+    )
+
+    harmonized_manifest = read_json(
+        ROOT
+        / "src/agents/finance/protocols/manifests/realm26_harmonized_static_react_v2/manifest.json"
+    )
+    if not isinstance(harmonized_manifest, dict):
+        raise SystemExit("harmonized-v2 manifest must be a JSON object")
+    harmonized_manifest.pop("manifest_fingerprint", None)
+    (snapshots / "realm26_harmonized_static_react_v2_manifest.json").write_text(
+        stable(harmonized_manifest), encoding="utf-8"
     )
 
     (snapshots / "score_ledger.json").write_text(
@@ -260,13 +329,13 @@ def main() -> None:
         ):
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
-        "schema": "realm-anonymous-artifact-v1",
-        "purpose": "provider-free audit of recorded development statistics and protocol inputs",
+        "schema": "realm-anonymous-artifact-v2",
+        "purpose": "provider-free audit of recorded development statistics, harmonized v2, and protocol inputs",
         "partition": "development_only",
         "sealed_final_partition": "excluded",
         "provider_calls": False,
         "entries": entries,
-        "source_freeze": "anonymous-review-source-freeze-v1",
+        "source_freeze": "anonymous-review-source-freeze-v2",
     }
     (ARTIFACT / "manifest.json").write_text(stable(manifest), encoding="utf-8")
 

@@ -1,19 +1,29 @@
 \section*{Limitations}
 
-\paragraph{Controlled rather than end-to-end evidence.}
-The study measures orchestration conditional on benchmark-provided evidence. It cannot establish how the systems retrieve from complete filings, handle OCR, or operate under missing evidence. Calling the primary result ``RAG performance'' would therefore be incorrect.
+\paragraph{Evidence and inference scope.}
+We measure orchestration over benchmark-provided evidence, not end-to-end RAG,
+complete filings, OCR, or missing evidence. All reported samples are
+development evidence. Final identifiers were used only for overlap exclusion;
+no final example was executed or scored, so there is no confirmatory accuracy
+claim. V2 was frozen before its inference calls but designed after inspecting the
+original study and failed first corrective freeze; it is prospective corrective
+evidence, not an independent preregistered confirmation.
 
-\paragraph{Narrative evaluation.}
-FinanceBench and especially FinDER contain semantically valid answers that strict matching may miss. The unused confirmatory protocol specified two model-judge sensitivity analyses, but the failed development gate stopped them before execution; in any event, no human labels would validate their calibration, and judge agreement would not remove shared model bias. These datasets remain secondary and do not enter the headline macro-average.
+\paragraph{Model, policy, and scoring dependence.}
+Provider behavior, latency, and prices change. V2 uses one inexpensive 2024
+OpenAI model and one retrieval-first bounded ReAct policy; stronger or
+differently designed agents may behave differently. Dataset-native metrics may
+miss semantically valid explanations or accept normalization artifacts. The
+trace audit is not human validation, and its semantic candidates remain
+unresolved; v2 instead uses fresh objective-dataset items under a shared strict
+final-answer contract. Its arms share retrieval interfaces and ceilings, not
+identical retrieved dossiers, so the estimate includes retrieval-policy effects.
 
-\paragraph{Development size and selection shift.}
-This manuscript reports development evidence, not a test estimate. The second-family sample was prospectively frozen but remains another development comparison. Identifier metadata from the final manifest was used only for overlap exclusion; no final example was executed or scored. The stop therefore preserves the confirmatory partition but leaves no basis for a final accuracy claim.
-
-\paragraph{Model and price dependence.}
-Provider behavior, latency, and prices change. The second-family replication uses one inexpensive 2024 OpenAI model through OpenRouter and the same prompts and scoring contract; it is not broad cross-model validation. We snapshot resolved identifiers and prices and report raw token counts alongside dollars, but the ordering may not transfer to stronger models or other deployment settings.
-
-\paragraph{Benchmark and scoring validity.}
-Dataset-native execution metrics emphasize answer correctness but may under-reward valid explanations. Conversely, tolerance, scale inference, and normalization can create false matches. The trace audit found a consequential answer-contract interaction and is not human validation; official scores remain unchanged pending author adjudication. FinDER was excluded from routing and primary quality because no human-validated objective labels were available. The five benchmarks are public English-language tasks and do not cover private data, multilingual reporting, or investment-decision safety.
-
-\paragraph{No autonomous multi-agent claim.}
-The query parser, evidence ranker, dossier builder, and output parser are deterministic workflow components. Describing each as an autonomous agent would inflate the architectural claim. Our contribution is selective orchestration between a static language-model call and bounded iterative reasoning.
+\paragraph{Benchmark and system scope.}
+FinDER remains secondary because it lacks human-validated objective labels.
+The public English benchmarks do not represent private data, multilingual
+reporting, or investment-decision safety. Query parsing, ranking, dossier
+construction, and output parsing are deterministic workflow components, not
+autonomous agents; our claim concerns selection between one-call Static and
+bounded iterative reasoning. V2 measures expert complementarity only: no new
+router is trained or evaluated on those outcomes.

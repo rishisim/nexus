@@ -3,7 +3,7 @@
 This is a provider-free bundle for auditing the paper's recorded development
 statistics and inspecting the exact protocol inputs. It contains the original
 development aggregates, paired-statistics output, a trace-audit summary with
-raw answers removed, second-family replication aggregates and frozen protocol,
+raw answers removed, replication and harmonized-v2 aggregates/protocols,
 development manifest rows, a sanitized per-example score/telemetry ledger,
 prompt/scorer snapshots, the router snapshot, dated prices, and resolved model
 snapshots.
@@ -11,8 +11,9 @@ snapshots.
 The sealed final partition is excluded. No final outcomes, final examples,
 provider responses, raw traces, credentials, datasets, archives, or build
 products are included. The package recomputes the headline macro and
-complementarity counts from 1,050 whitelisted per-example metric/telemetry rows
-and verifies its internal hashes. It cannot rerun the scorer without withheld
+complementarity counts from 1,350 whitelisted per-example metric/telemetry rows,
+including all 300 harmonized-v2 arm rows, and verifies treatment-integrity
+fields and internal hashes. It cannot rerun the scorer without withheld
 answer/gold text, does not validate a Git commit, and does not rerun a model.
 
 ## One-command validation
@@ -42,15 +43,16 @@ Regeneration is a maintainer action, not a review-time provider call.
 
 * `snapshots/` contains exact byte copies of the protocol, prompt templates,
   scorer, price-table source, router, development aggregates, paired analysis,
-  sanitized fairness summary, per-example score ledger, replication
-  protocol/analysis, and model catalog snapshots. Their package integrity is
+  sanitized fairness summary, per-example score ledger, replication and
+  harmonized-v2 protocols/analyses, the v2 prompt, and model catalog snapshots.
+  Their package integrity is
   recorded in `manifest.json` and `checksums.sha256`. The fairness summary
   excludes trace items, answers, and ground truth.
 * `development_manifests/` contains only the 50 development records per
   dataset. The `final` field is removed and an explicit exclusion marker is
   added.
-* `manifest.json` records the artifact schema, source commit, partition, and
-  expected file hashes. `checksums.sha256` is the independently convenient
+* `manifest.json` records the artifact schema, opaque source freeze, partition,
+  and expected file hashes. `checksums.sha256` is the independently convenient
   hash list.
 
 The manifest uses an opaque source-freeze label. Identity-bearing repository

@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "4cf5d4dda9b87abe8dfb3acb9c3b5b35439e439dbc891d31ce8e536a489f232e"
+      "sha256": "7e85860efb2dbfccbcffbece80290fcf0c5a5f64ac494c0f1bc9ffc92a927d0b"
     },
     {
       "path": "assemble_artifact.py",
-      "sha256": "f2c6755289c0098fb29836be0834bef6d3dc7eb617d36e3839fa349f13f6ee5a"
+      "sha256": "c0e4bd5506d0627721cf25203c4e82f67ea45f0b9c4075bb440083423452239c"
     },
     {
       "path": "development_manifests/convfinqa.json",
@@ -53,6 +53,10 @@
       "sha256": "c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e"
     },
     {
+      "path": "snapshots/harmonized_replication_v2.json",
+      "sha256": "231746926abb2f7992196ffe97d1962ebc2d9f17bb1ae0dcaa8b83bebb41958e"
+    },
+    {
       "path": "snapshots/llm_telemetry.py",
       "sha256": "be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469"
     },
@@ -69,6 +73,18 @@
       "sha256": "873c3f5bf3947d99e81c0ced1c8ed227324f238b21bebfe937b9cc18dc0dbf78"
     },
     {
+      "path": "snapshots/realm26_harmonized_static_react_v2.json",
+      "sha256": "ef11d598857e3b769d5c0adb8f24cfa0be1891fb7eb74619f4465ab2fb8cf205"
+    },
+    {
+      "path": "snapshots/realm26_harmonized_static_react_v2_manifest.json",
+      "sha256": "df5afdf2f480d709cb2e3270f832c523a048c53b4e695808285dc5563ede08cb"
+    },
+    {
+      "path": "snapshots/realm26_harmonized_v2_prompts.py",
+      "sha256": "664735819569b10749b0e72f1458a88c8739d10d6bedde6f0e106de48e23d78d"
+    },
+    {
       "path": "snapshots/realm26_second_family_manifest.json",
       "sha256": "e22f8d769ca66e37605faecf6a108eeee42ffd6572cc27fcee75f8c61382c8aa"
     },
@@ -82,7 +98,7 @@
     },
     {
       "path": "snapshots/score_ledger.json",
-      "sha256": "6425674128b1791a1ff26478ffa7ce16667c41b19f38dbcfda4be9cfd72fe186"
+      "sha256": "2225afd6932e688a7b14e1696d4b0aa71219b4cb3bdae992fe582f63c53ebf3f"
     },
     {
       "path": "snapshots/second_family_replication_v1.json",
@@ -94,13 +110,13 @@
     },
     {
       "path": "validate_artifact.py",
-      "sha256": "f0400efde917747953d7d0bf23a7badd1a77c7532644f98087dec237a4055f9e"
+      "sha256": "b8781ad98461e922ab34877daa2d981ec4a3ebf77d15f97ddc385d63e403767a"
     }
   ],
   "partition": "development_only",
   "provider_calls": false,
-  "purpose": "provider-free audit of recorded development statistics and protocol inputs",
-  "schema": "realm-anonymous-artifact-v1",
+  "purpose": "provider-free audit of recorded development statistics, harmonized v2, and protocol inputs",
+  "schema": "realm-anonymous-artifact-v2",
   "sealed_final_partition": "excluded",
-  "source_freeze": "anonymous-review-source-freeze-v1"
+  "source_freeze": "anonymous-review-source-freeze-v2"
 }

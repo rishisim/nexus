@@ -15,17 +15,27 @@ and a framework-blind scorer, but it is not equal-prompt or equal-context.
 One-call prompts require a short final answer; ReAct only requires
 \texttt{Finish[answer]}, and its growing transcript has no common dossier cap.
 A deterministic post hoc audit flagged 28/52 one-sided scored-wrong outputs as
-scorer-sensitive candidates because they visibly contained the reference value
-or a close form, including all 10 ReAct-only and 18 Static-only cases. We do not
-change official scores: presence can reflect an operand, wrong unit, ambiguity,
-or extra claims, and 51 frozen cases still require author review. Among the
-remaining Static-only cases, ReAct explicitly abstained after retrieval 18
-times. The result therefore characterizes these configured workflows and
+scorer-sensitive because they contained the reference value or a close form,
+including all 10 ReAct-only cases. We do not change official scores or call this
+human adjudication: the value may be an operand, use a wrong unit, or appear in
+an invalid extra claim. The result characterizes configured workflows and
 evaluation contracts, not pure reasoning ability.
 
-The routing failure still follows mechanically from measured complementarity:
-a broad rule cannot recover rare official benefits without sending many cases
-to the weaker measured branch. A credible redesign needs a harmonized answer
-contract and context budget, new development evidence, and an iterative expert
-that first demonstrates unique value. Retuning on present outcomes and then
-treating them as evaluation would invalidate the protocol.
+\paragraph{Corrective evidence.}
+The harmonized v2 addresses the two largest contract asymmetries on fresh items
+excluded from earlier studies: both arms share final-answer, context-ceiling,
+output, and malformed-response rules, and all ReAct rows demonstrably retrieved
+before answering. They share a retrieval API and ceiling, not identical evidence
+exposure: Static averaged 2.87 retrievals and ReAct 1.04. Static still had 16
+more unique exact successes, and the frozen macro interval excluded zero. Thus
+empty-context abstention and parser asymmetry cannot explain the v2 ordering,
+but the comparison is between end-to-end retrieval policies rather than pure
+reasoning over identical dossiers. It does not identify whether ReAct's errors
+arise from query choice, evidence selection, arithmetic, or answer synthesis.
+
+The routing failure follows mechanically from measured complementarity: a
+broad rule cannot recover rare benefits without sending many cases to the
+weaker measured branch. The v2 oracle union improves over always-Static exact
+accuracy by only 3.3 points. No router is fit or evaluated on v2; its oracle is a
+diagnostic upper bound. Retuning a router on these outcomes and then treating
+them as evaluation would invalidate the protocol.
