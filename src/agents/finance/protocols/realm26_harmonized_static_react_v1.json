@@ -1,0 +1,147 @@
+{
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260715,
+    "complementarity_binary_metric": "native_scores.exact_match",
+    "dataset_quality_metrics": {
+      "convfinqa": "native_scores.exact_match",
+      "finqa": "native_scores.exact_match",
+      "tatqa": "native_scores.f1"
+    },
+    "directional_interpretation": {
+      "inconclusive": "primary 95% interval includes zero",
+      "react_advantage": "primary react-minus-static 95% interval lower bound is greater than zero",
+      "static_advantage": "primary react-minus-static 95% interval upper bound is less than zero"
+    },
+    "efficiency_paired_intervals": [
+      "llm_call_count",
+      "retrieval_operation_count",
+      "total_tokens",
+      "effective_cost_usd",
+      "episode_wall_ms"
+    ],
+    "primary_estimand": "unweighted macro mean across FinQA, TAT-QA, and ConvFinQA",
+    "primary_serialized_metric": "dataset_quality_metrics mapping above",
+    "uncertainty": "dataset-stratified paired percentile bootstrap for react minus static"
+  },
+  "artifact_hashes": {
+    "analysis": "sha256:76e0ccf5a5fe31cdcb90bcc98ee3aaaa1944842c7bcef7a38b4120adfefaedef",
+    "attestation": "sha256:6bf55799373445f7ccb7f5876eae538a222c72aabf82a432498e855d8029a2a7",
+    "base_methods": "sha256:a3027259a30332d2a23bdc366e85830b240a187723cb2028b6d469231de61fb3",
+    "data_adapter": "sha256:3c7423c9c1c49b57ccffc7f74d9018d671d22192dd02d1d225191a064820f7a5",
+    "executor": "sha256:a835ec693f833d17f50ddad97a178fa70a1d15f712354b5ff495e79c45305d8f",
+    "finance_env": "sha256:8419860e1f2601c304f5cedf0fb1ca5f626bcafd307ecce30be8b3945343ccd5",
+    "finance_statistics": "sha256:7e2022a2769ec4f68ef8e4a0e4b371e30a37d741f56c406817fbcb5999a824eb",
+    "finance_utils": "sha256:9f9ce4b70c95b90ac485faafaa4a3e733659ad6bba07bc64fc43bc1734f398c5",
+    "llm_telemetry": "sha256:be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469",
+    "llm_wrapper": "sha256:831705c7061c8fe63f36ec7f068112cd662144c558b0894ec6e507067d772f6e",
+    "manifest": "sha256:f81e769aa7c6dc317b8e2dd94ea9a4da194f92806d8f0ef4e09545738bd6bf0e",
+    "methods": "sha256:1bd97ae31794f2786f2952a8abe859fef30fa3bb7a16080bf0abdc84015fef5f",
+    "model_snapshot": "sha256:657ed1a449083de198b1817771a359ec2b5a0aa9082377fc55da3ab4ef9ed18b",
+    "prompts": "sha256:599e4bcb6f7d422438928fa8cd1630ddfa6c7027bc9c3b3ef1bc0717e4895376",
+    "protocol_guard": "sha256:5b94f7255a469eb81c0f50a288e7f1b96dacd25523dccfc7ce2846bd50a467e9",
+    "protocol_memo": "sha256:3e8b86456431417d4be8e0fde17858e014cc3e38a09b7e326ff64f6f23ca5adc",
+    "protocol_utils": "sha256:306d5e2f28b2ba7535376c1a92396640ec0abe6a634fd1e6aa6ca76ede00dab9",
+    "pytest_config": "sha256:4551307f5b1a58adb7ec215d513089ba670b1737b81ada5a5863afe796d67343",
+    "runner_telemetry": "sha256:476c78e26b88eeb7b9808dd560f2f39e1485c1707f47decd1f64cc476486a03e",
+    "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e"
+  },
+  "budget": {
+    "hard_cap_usd": 5.0,
+    "planning_estimate_usd": 0.35,
+    "planning_maximum_usd": 2.0,
+    "planning_basis": "The prior 75-item run cost USD 0.124660107 for 512 calls; this 150-item corrective study uses stricter evidence/retrieval/output ceilings.",
+    "reservation_multiplier": 1.25,
+    "smoke_counts_toward_cap": true
+  },
+  "claims_scope": "development_only_corrective_study_separate_from_original_gate",
+  "created_at_utc": "2026-07-15T01:45:00Z",
+  "datasets": [
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "exclusions": {
+    "allowed_final_use": "identifier_overlap_exclusion_only",
+    "original_protocol": "finance_icaif26_v2.json",
+    "second_family_manifest": "manifests/realm26_second_family_v1/manifest.json"
+  },
+  "frameworks": [
+    "static",
+    "react"
+  ],
+  "freeze_state": "frozen",
+  "inference": {
+    "backend": "openrouter",
+    "model_id": "openai/gpt-4o-mini-2024-07-18",
+    "provider_routing": {
+      "allow_fallbacks": false,
+      "data_collection": "deny",
+      "only": [
+        "OpenAI"
+      ],
+      "require_parameters": true
+    },
+    "temperature": 0,
+    "top_p": 1.0,
+    "inter_call_delay_seconds": 0.1
+  },
+  "manifest": "manifests/realm26_harmonized_static_react_v1/manifest.json",
+  "model_snapshot": "snapshots/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18.json",
+  "protocol_id": "realm26_harmonized_static_react_v1",
+  "publication": {
+    "base_branch": "realm26/archival-short-paper",
+    "branch": "realm26/prompt-context-harmonized-replication",
+    "remote": "origin"
+  },
+  "purpose": "Acceptance-critical prompt/context-harmonized Static-vs-ReAct corrective replication; it is not the original selector gate and cannot change that gate's decision.",
+  "results": {
+    "root": "results/finance/realm26_harmonized_static_react_v1_openai-gpt-4o-mini-2024-07-18",
+    "tag": "realm26_harmonized_static_react_v1"
+  },
+  "retry_policy": {
+    "max_attempts_per_call": 1,
+    "valid_outputs_are_immutable": true
+  },
+  "sample": {
+    "per_dataset": 50,
+    "selection": {
+      "convfinqa": "one seeded turn from each of 50 new dialogues after original-development, second-family, and sealed-final identifier exclusions",
+      "finqa": "seeded sample after original-development, second-family, and sealed-final identifier exclusions",
+      "tatqa": "seeded answer_type x answer_source stratified sample after all identifier exclusions"
+    },
+    "total_items": 150
+  },
+  "schema_version": "realm26-harmonized-replication-v1",
+  "seed": 20260715,
+  "smoke": {
+    "dataset": "finqa",
+    "item_ordinal": 0,
+    "outcomes_must_not_be_summarized_before_full_run": true,
+    "runs_both_workflows": true
+  },
+  "stopping_rule": {
+    "provider_failures": 1,
+    "stop_immediately_on": [
+      "any provider or telemetry failure",
+      "hard-cap reservation failure or breach",
+      "requested/resolved model or provider mismatch",
+      "dataset drift or any excluded-identifier overlap",
+      "frozen artifact, public-push, clean-tree, test-attestation, or resume mismatch",
+      "unresolved spend reservation after interruption",
+      "any need to alter the frozen study"
+    ]
+  },
+  "test_attestation": "attestations/realm26_harmonized_static_react_v1_tests.json",
+  "workflows": {
+    "answer_contract": "strict_json_finish_v1",
+    "context_word_budget_per_call": 4096,
+    "evidence_word_budget_per_item": 3000,
+    "malformed_fallback": "UNKNOWN_without_retry",
+    "max_output_tokens_per_call": 384,
+    "max_retrieval_operations_per_item": 3,
+    "react_max_steps": 7,
+    "scorer_input": "canonical_parsed_answer_only",
+    "static_model_calls": 1
+  }
+}
