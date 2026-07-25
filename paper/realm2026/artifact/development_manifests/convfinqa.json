@@ -1,0 +1,319 @@
+{
+  "artifact_partition": "development_only",
+  "dataset": "convfinqa",
+  "dataset_fingerprint": "sha256:e74ba1edd0d008ba37dbdc78db865303bfe89b2940a1ebe99cf06231337fafa0",
+  "dataset_size": 2213,
+  "development": {
+    "count": 50,
+    "examples": [
+      {
+        "dialogue_id": "0",
+        "example_id": "convfinqa1",
+        "index": 1
+      },
+      {
+        "dialogue_id": "16",
+        "example_id": "convfinqa60",
+        "index": 60
+      },
+      {
+        "dialogue_id": "37",
+        "example_id": "convfinqa136",
+        "index": 136
+      },
+      {
+        "dialogue_id": "46",
+        "example_id": "convfinqa169",
+        "index": 169
+      },
+      {
+        "dialogue_id": "50",
+        "example_id": "convfinqa182",
+        "index": 182
+      },
+      {
+        "dialogue_id": "57",
+        "example_id": "convfinqa207",
+        "index": 207
+      },
+      {
+        "dialogue_id": "59",
+        "example_id": "convfinqa213",
+        "index": 213
+      },
+      {
+        "dialogue_id": "70",
+        "example_id": "convfinqa250",
+        "index": 250
+      },
+      {
+        "dialogue_id": "76",
+        "example_id": "convfinqa272",
+        "index": 272
+      },
+      {
+        "dialogue_id": "76",
+        "example_id": "convfinqa274",
+        "index": 274
+      },
+      {
+        "dialogue_id": "84",
+        "example_id": "convfinqa300",
+        "index": 300
+      },
+      {
+        "dialogue_id": "98",
+        "example_id": "convfinqa342",
+        "index": 342
+      },
+      {
+        "dialogue_id": "102",
+        "example_id": "convfinqa361",
+        "index": 361
+      },
+      {
+        "dialogue_id": "128",
+        "example_id": "convfinqa457",
+        "index": 457
+      },
+      {
+        "dialogue_id": "179",
+        "example_id": "convfinqa645",
+        "index": 645
+      },
+      {
+        "dialogue_id": "184",
+        "example_id": "convfinqa667",
+        "index": 667
+      },
+      {
+        "dialogue_id": "197",
+        "example_id": "convfinqa715",
+        "index": 715
+      },
+      {
+        "dialogue_id": "230",
+        "example_id": "convfinqa845",
+        "index": 845
+      },
+      {
+        "dialogue_id": "235",
+        "example_id": "convfinqa862",
+        "index": 862
+      },
+      {
+        "dialogue_id": "238",
+        "example_id": "convfinqa872",
+        "index": 872
+      },
+      {
+        "dialogue_id": "242",
+        "example_id": "convfinqa886",
+        "index": 886
+      },
+      {
+        "dialogue_id": "250",
+        "example_id": "convfinqa911",
+        "index": 911
+      },
+      {
+        "dialogue_id": "272",
+        "example_id": "convfinqa987",
+        "index": 987
+      },
+      {
+        "dialogue_id": "281",
+        "example_id": "convfinqa1016",
+        "index": 1016
+      },
+      {
+        "dialogue_id": "287",
+        "example_id": "convfinqa1041",
+        "index": 1041
+      },
+      {
+        "dialogue_id": "289",
+        "example_id": "convfinqa1044",
+        "index": 1044
+      },
+      {
+        "dialogue_id": "291",
+        "example_id": "convfinqa1051",
+        "index": 1051
+      },
+      {
+        "dialogue_id": "294",
+        "example_id": "convfinqa1066",
+        "index": 1066
+      },
+      {
+        "dialogue_id": "295",
+        "example_id": "convfinqa1072",
+        "index": 1072
+      },
+      {
+        "dialogue_id": "299",
+        "example_id": "convfinqa1088",
+        "index": 1088
+      },
+      {
+        "dialogue_id": "328",
+        "example_id": "convfinqa1197",
+        "index": 1197
+      },
+      {
+        "dialogue_id": "344",
+        "example_id": "convfinqa1250",
+        "index": 1250
+      },
+      {
+        "dialogue_id": "349",
+        "example_id": "convfinqa1266",
+        "index": 1266
+      },
+      {
+        "dialogue_id": "384",
+        "example_id": "convfinqa1388",
+        "index": 1388
+      },
+      {
+        "dialogue_id": "395",
+        "example_id": "convfinqa1431",
+        "index": 1431
+      },
+      {
+        "dialogue_id": "425",
+        "example_id": "convfinqa1549",
+        "index": 1549
+      },
+      {
+        "dialogue_id": "429",
+        "example_id": "convfinqa1561",
+        "index": 1561
+      },
+      {
+        "dialogue_id": "437",
+        "example_id": "convfinqa1592",
+        "index": 1592
+      },
+      {
+        "dialogue_id": "439",
+        "example_id": "convfinqa1599",
+        "index": 1599
+      },
+      {
+        "dialogue_id": "459",
+        "example_id": "convfinqa1666",
+        "index": 1666
+      },
+      {
+        "dialogue_id": "461",
+        "example_id": "convfinqa1671",
+        "index": 1671
+      },
+      {
+        "dialogue_id": "468",
+        "example_id": "convfinqa1695",
+        "index": 1695
+      },
+      {
+        "dialogue_id": "500",
+        "example_id": "convfinqa1819",
+        "index": 1819
+      },
+      {
+        "dialogue_id": "506",
+        "example_id": "convfinqa1843",
+        "index": 1843
+      },
+      {
+        "dialogue_id": "515",
+        "example_id": "convfinqa1874",
+        "index": 1874
+      },
+      {
+        "dialogue_id": "546",
+        "example_id": "convfinqa1982",
+        "index": 1982
+      },
+      {
+        "dialogue_id": "550",
+        "example_id": "convfinqa1994",
+        "index": 1994
+      },
+      {
+        "dialogue_id": "550",
+        "example_id": "convfinqa1995",
+        "index": 1995
+      },
+      {
+        "dialogue_id": "567",
+        "example_id": "convfinqa2062",
+        "index": 2062
+      },
+      {
+        "dialogue_id": "581",
+        "example_id": "convfinqa2114",
+        "index": 2114
+      }
+    ],
+    "indices": [
+      1,
+      60,
+      136,
+      169,
+      182,
+      207,
+      213,
+      250,
+      272,
+      274,
+      300,
+      342,
+      361,
+      457,
+      645,
+      667,
+      715,
+      845,
+      862,
+      872,
+      886,
+      911,
+      987,
+      1016,
+      1041,
+      1044,
+      1051,
+      1066,
+      1072,
+      1088,
+      1197,
+      1250,
+      1266,
+      1388,
+      1431,
+      1549,
+      1561,
+      1592,
+      1599,
+      1666,
+      1671,
+      1695,
+      1819,
+      1843,
+      1874,
+      1982,
+      1994,
+      1995,
+      2062,
+      2114
+    ]
+  },
+  "final_partition": "excluded",
+  "manifest_fingerprint": "sha256:1c11086b58e748c2171346edf814945784dff378f385860ac2d230b3f90965c7",
+  "manifest_schema_version": "finance-manifest-v2",
+  "protocol_id": "finance_icaif26_v2",
+  "seed": 20260709,
+  "selection_policy": "seeded sample from dialogue IDs absent from development"
+}

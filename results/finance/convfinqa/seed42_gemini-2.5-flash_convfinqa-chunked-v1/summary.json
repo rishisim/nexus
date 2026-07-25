@@ -1,0 +1,35 @@
+{
+  "react": {
+    "total_examples": 10,
+    "valid_examples": 10,
+    "error_count": 0,
+    "accuracy_em": 0.5,
+    "accuracy_f1": 0.24,
+    "em_success_count": 5.0,
+    "total_llm_calls": 37,
+    "avg_calls_per_example": 3.7,
+    "correct_per_llm_call": 0.135135
+  },
+  "nexus": {
+    "total_examples": 10,
+    "valid_examples": 10,
+    "error_count": 0,
+    "accuracy_em": 0.8,
+    "accuracy_f1": 0.45,
+    "em_success_count": 8.0,
+    "total_llm_calls": 10,
+    "avg_calls_per_example": 1.0,
+    "correct_per_llm_call": 0.8
+  },
+  "_experiment": {
+    "dataset": "convfinqa",
+    "dataset_name": "ConvFinQA",
+    "model": "gemini-2.5-flash",
+    "seed": 42,
+    "results_tag": "convfinqa-chunked-v1",
+    "num_examples_requested": 10,
+    "planned_indices": [],
+    "claim_status": "supported_better_and_cheaper",
+    "claim_rule": "supported only when paired Nexus accuracy is greater than ReAct and Nexus mean LLM calls are lower on the same valid example count"
+  }
+}

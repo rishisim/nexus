@@ -1,0 +1,423 @@
+{
+  "analysis_fingerprint": "sha256:935a2571807c56e22294d3a74ed6f25a0e09211a4f23e260e54c5b28cba9245f",
+  "analysis_schema_version": "realm26-harmonized-analysis-v1",
+  "claims_scope": "development_only_corrective_study_separate_from_original_gate",
+  "datasets": {
+    "convfinqa": {
+      "complementarity_exact": {
+        "both_correct": 0,
+        "both_wrong": 38,
+        "discordant_pairs": 12,
+        "left_only_correct": 12,
+        "p_value": 0.00048828125,
+        "right_only_correct": 0,
+        "statistic": 10.083333333333334
+      },
+      "paired_bootstrap_react_minus_static": {
+        "confidence": 0.95,
+        "estimate": -0.24,
+        "lower": -0.36,
+        "n_pairs": 50,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.12
+      },
+      "quality": {
+        "metric": "native_scores.exact_match",
+        "react": 0.0,
+        "static": 0.24
+      },
+      "systems": {
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1206.22270849708,
+          "latency_p95_ms": 2032.1825475555663,
+          "mean_cost_usd": 5.106024e-05,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 0.0,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 10652.0,
+            "output_tokens": 1635.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 12287.0
+          },
+          "total_cost_usd": 0.002553012,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 0.0
+        },
+        "static": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1582.5532085000305,
+          "latency_p95_ms": 2963.715262495679,
+          "mean_cost_usd": 0.00057174579,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 2.88,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 179315.0,
+            "output_tokens": 3298.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 182613.0
+          },
+          "total_cost_usd": 0.028587289499999995,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 144.0
+        }
+      }
+    },
+    "finqa": {
+      "complementarity_exact": {
+        "both_correct": 0,
+        "both_wrong": 41,
+        "discordant_pairs": 9,
+        "left_only_correct": 9,
+        "p_value": 0.00390625,
+        "right_only_correct": 0,
+        "statistic": 7.111111111111111
+      },
+      "paired_bootstrap_react_minus_static": {
+        "confidence": 0.95,
+        "estimate": -0.18,
+        "lower": -0.3,
+        "n_pairs": 50,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.08
+      },
+      "quality": {
+        "metric": "native_scores.exact_match",
+        "react": 0.0,
+        "static": 0.18
+      },
+      "systems": {
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1225.2314795041457,
+          "latency_p95_ms": 1653.9166893970096,
+          "mean_cost_usd": 5.329665e-05,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 0.0,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 10785.0,
+            "output_tokens": 1790.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 12575.0
+          },
+          "total_cost_usd": 0.0026648324999999995,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 0.0
+        },
+        "static": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 2132.314229005715,
+          "latency_p95_ms": 3394.8890518935505,
+          "mean_cost_usd": 0.00048442482,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 2.84,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 145834.0,
+            "output_tokens": 4318.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 150152.0
+          },
+          "total_cost_usd": 0.024221240999999998,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 142.0
+        }
+      }
+    },
+    "tatqa": {
+      "complementarity_exact": {
+        "both_correct": 0,
+        "both_wrong": 32,
+        "discordant_pairs": 18,
+        "left_only_correct": 18,
+        "p_value": 7.62939453125e-06,
+        "right_only_correct": 0,
+        "statistic": 16.055555555555557
+      },
+      "paired_bootstrap_react_minus_static": {
+        "confidence": 0.95,
+        "estimate": -0.4972,
+        "lower": -0.6218,
+        "n_pairs": 50,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.3754
+      },
+      "quality": {
+        "metric": "native_scores.f1",
+        "react": 0.0,
+        "static": 0.4972
+      },
+      "systems": {
+        "react": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1196.2438545015175,
+          "latency_p95_ms": 1566.5052751457551,
+          "mean_cost_usd": 4.997916e-05,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 0.0,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 10548.0,
+            "output_tokens": 1570.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 12118.0
+          },
+          "total_cost_usd": 0.002498958,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 0.0
+        },
+        "static": {
+          "cost_coverage": 1.0,
+          "excluded_examples": 0,
+          "included_examples": 50,
+          "input_rows": 50,
+          "latency_coverage": 1.0,
+          "latency_median_ms": 1767.577270999027,
+          "latency_p95_ms": 2994.2915939012887,
+          "mean_cost_usd": 0.00024592491,
+          "mean_llm_calls": 1.0,
+          "mean_retrieval_calls": 2.84,
+          "telemetry_complete_examples": 50,
+          "telemetry_completeness": 1.0,
+          "token_coverage": {
+            "cached_tokens": 50,
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "reasoning_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_totals": {
+            "cached_tokens": 0.0,
+            "input_tokens": 68179.0,
+            "output_tokens": 3656.0,
+            "reasoning_tokens": 0.0,
+            "total_tokens": 71835.0
+          },
+          "total_cost_usd": 0.012296245499999999,
+          "total_llm_calls": 50.0,
+          "total_retrieval_calls": 142.0
+        }
+      }
+    }
+  },
+  "frameworks": {
+    "react": {
+      "cost_coverage": 1.0,
+      "excluded_examples": 0,
+      "included_examples": 150,
+      "input_rows": 150,
+      "latency_coverage": 1.0,
+      "latency_median_ms": 1207.8348955037654,
+      "latency_p95_ms": 1788.3085210392892,
+      "mean_cost_usd": 5.144535e-05,
+      "mean_llm_calls": 1.0,
+      "mean_retrieval_calls": 0.0,
+      "telemetry_complete_examples": 150,
+      "telemetry_completeness": 1.0,
+      "token_coverage": {
+        "cached_tokens": 150,
+        "input_tokens": 150,
+        "output_tokens": 150,
+        "reasoning_tokens": 150,
+        "total_tokens": 150
+      },
+      "token_totals": {
+        "cached_tokens": 0.0,
+        "input_tokens": 31985.0,
+        "output_tokens": 4995.0,
+        "reasoning_tokens": 0.0,
+        "total_tokens": 36980.0
+      },
+      "total_cost_usd": 0.007716802499999998,
+      "total_llm_calls": 150.0,
+      "total_retrieval_calls": 0.0
+    },
+    "static": {
+      "cost_coverage": 1.0,
+      "excluded_examples": 0,
+      "included_examples": 150,
+      "input_rows": 150,
+      "latency_coverage": 1.0,
+      "latency_median_ms": 1791.8088125006761,
+      "latency_p95_ms": 3225.086856396955,
+      "mean_cost_usd": 0.00043403184,
+      "mean_llm_calls": 1.0,
+      "mean_retrieval_calls": 2.8533333333333335,
+      "telemetry_complete_examples": 150,
+      "telemetry_completeness": 1.0,
+      "token_coverage": {
+        "cached_tokens": 150,
+        "input_tokens": 150,
+        "output_tokens": 150,
+        "reasoning_tokens": 150,
+        "total_tokens": 150
+      },
+      "token_totals": {
+        "cached_tokens": 0.0,
+        "input_tokens": 393328.0,
+        "output_tokens": 11272.0,
+        "reasoning_tokens": 0.0,
+        "total_tokens": 404600.0
+      },
+      "total_cost_usd": 0.06510477600000003,
+      "total_llm_calls": 150.0,
+      "total_retrieval_calls": 428.0
+    }
+  },
+  "manifest_fingerprint": "sha256:20fbf66aef529d697edece85176a1763dbea082de75ae545a2b5d028115e33c0",
+  "model_id": "openai/gpt-4o-mini-2024-07-18",
+  "overall": {
+    "complementarity_exact": {
+      "both_correct": 0,
+      "both_wrong": 111,
+      "discordant_pairs": 39,
+      "left_only_correct": 39,
+      "oracle_union_accuracy": 0.26,
+      "p_value": 3.637978807091713e-12,
+      "right_only_correct": 0,
+      "statistic": 37.02564102564103,
+      "success_overlap_jaccard": 0.0
+    },
+    "directional_interpretation": "static_advantage",
+    "efficiency_paired_bootstrap_react_minus_static": {
+      "effective_cost_usd": {
+        "confidence": 0.95,
+        "estimate": -0.00038258649,
+        "lower": -0.00041073028425,
+        "n_pairs": 150,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -0.00035462928599999996
+      },
+      "episode_wall_ms": {
+        "confidence": 0.95,
+        "estimate": -736.2161506074093,
+        "lower": -880.8965802880217,
+        "n_pairs": 150,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -608.0914870721707
+      },
+      "llm_call_count": {
+        "confidence": 0.95,
+        "estimate": 0.0,
+        "lower": 0.0,
+        "n_pairs": 150,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": 0.0
+      },
+      "retrieval_operation_count": {
+        "confidence": 0.95,
+        "estimate": -2.8533333333333335,
+        "lower": -2.9066666666666667,
+        "n_pairs": 150,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -2.7933333333333334
+      },
+      "total_tokens": {
+        "confidence": 0.95,
+        "estimate": -2450.8,
+        "lower": -2643.5991666666664,
+        "n_pairs": 150,
+        "n_resamples": 10000,
+        "seed": 20260715,
+        "upper": -2263.8828333333336
+      }
+    },
+    "macro_quality": {
+      "react": 0.0,
+      "static": 0.3057333333333333
+    },
+    "primary_stratified_bootstrap_react_minus_static": {
+      "confidence": 0.95,
+      "estimate": -0.3057333333333333,
+      "lower": -0.37360333333333334,
+      "n_pairs": 150,
+      "n_resamples": 10000,
+      "seed": 20260715,
+      "upper": -0.239465
+    }
+  },
+  "pre_result_commit": "95690654f6724315f5465db0e0d3d9a97db95abc",
+  "protocol_id": "realm26_harmonized_static_react_v1",
+  "provider_spend_usd": 0.07282157850000003,
+  "sample": {
+    "datasets": 3,
+    "items": 150,
+    "paired_arm_rows": 300
+  },
+  "separation_statement": "This development-only corrective study is separate from, and does not reopen or replace, the original documented selector gate."
+}

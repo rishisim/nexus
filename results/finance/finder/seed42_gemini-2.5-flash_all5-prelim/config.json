@@ -1,0 +1,33 @@
+{
+  "dataset": "finder",
+  "dataset_name": "FinDER",
+  "task_type": "financial_rag_qa",
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "frameworks": [
+    "react",
+    "nexus"
+  ],
+  "results_tag": "all5-prelim",
+  "num_examples": 10,
+  "max_examples": 5703,
+  "created_or_updated": "2026-06-15 18:42:28",
+  "dataset_metadata": {
+    "id": "finder",
+    "name": "FinDER",
+    "task_type": "financial_rag_qa",
+    "source_url": "https://huggingface.co/datasets/Linq-AI-Research/FinDER",
+    "paper_url": "https://arxiv.org/abs/2504.15800",
+    "public_examples": 5703,
+    "size_note": "5,703 expert-annotated query-evidence-answer triplets.",
+    "evidence_type": "10-K filings and expert-annotated evidence",
+    "answer_style": "answer with retrieved evidence",
+    "nexus_fit": "High: ambiguous analyst queries match Scout/Architect bridge-query behavior.",
+    "first_pass_priority": 2,
+    "implementation_notes": [
+      "Use retrieval evidence as gold support when available.",
+      "Track retrieval success separately from final answer correctness.",
+      "Expect this to be the strongest RAG-specific finance benchmark."
+    ]
+  }
+}

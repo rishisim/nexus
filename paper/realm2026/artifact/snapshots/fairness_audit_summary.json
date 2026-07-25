@@ -1,0 +1,187 @@
+{
+  "fairness_matrix": [
+    {
+      "assessment": "equivalent_source",
+      "dimension": "controlled_evidence_access",
+      "evidence": "All methods use the same dataset adapter and controlled evidence packet; external retrieval and calculators are disabled."
+    },
+    {
+      "assessment": "shared_api_different_policy",
+      "dimension": "retrieval_api_and_policy",
+      "evidence": "All methods share Search/Lookup environment semantics, but Direct/CoT use one Search, Static uses up to three deterministic Searches, and ReAct adaptively selects Search/Lookup operations."
+    },
+    {
+      "assessment": "equivalent",
+      "dimension": "model_binding_and_sampling",
+      "evidence": "Every saved row requests and resolves google/gemini-2.5-flash; single-trace calls use temperature 0 and protocol thinking budget 0."
+    },
+    {
+      "assessment": "method_specific_with_output_asymmetry",
+      "dimension": "prompts_and_answer_contract",
+      "evidence": "Direct/CoT/Static explicitly require a short final Answer line; ReAct requests Finish[answer] but does not require a short, number-only final answer."
+    },
+    {
+      "assessment": "intentionally_not_equal",
+      "dimension": "step_and_call_limits",
+      "evidence": "Direct/CoT/Static receive one 768-output-token call; ReAct receives up to seven 512-output-token calls."
+    },
+    {
+      "assessment": "not_equivalent_and_incompletely_enforced",
+      "dimension": "context_and_evidence_budget",
+      "evidence": "The 4096-token dossier cap is applied before one-call prompts, but ReAct's growing transcript is not truncated during inference; its dossier is truncated only when saved after the episode."
+    },
+    {
+      "assessment": "equivalent",
+      "dimension": "retry_policy",
+      "evidence": "All calls share the five-attempt transport-only retry policy; observed development retry_count is zero for every audited row."
+    },
+    {
+      "assessment": "same_scorer_with_prompt_interaction",
+      "dimension": "scorer_behavior",
+      "evidence": "Dataset-native scorers are applied framework-blind after generation, but reject ambiguous multi-number or verbose answers; method-specific answer contracts therefore interact with exact correctness."
+    },
+    {
+      "assessment": "complete_calls_but_missing_method_diagnostics",
+      "dimension": "telemetry",
+      "evidence": "Saved rows contain per-call tokens, latency, cost, retries, requested/resolved model, and raw traces; runner serialization drops method-layer n_badcalls, dossier_truncated, and explicit termination reason."
+    },
+    {
+      "assessment": "asymmetric",
+      "dimension": "malformed_and_nontermination_handling",
+      "evidence": "A malformed ReAct action becomes immediate Finish[UNKNOWN], and step exhaustion adds Finish[UNKNOWN]; a one-call output missing Answer falls back to its last non-empty line. Valid but malformed outputs are not retried."
+    },
+    {
+      "assessment": "incomplete",
+      "dimension": "artifact_freeze_and_run_provenance",
+      "evidence": "The protocol is foundation_unfrozen with null prompt/scorer hashes. Config files were updated by the later Selective run, while run_history preserves the original four-framework run."
+    }
+  ],
+  "limitations": [
+    "Categories are deterministic surface signals, not human-validated correctness or causal diagnoses.",
+    "Scorer-sensitive candidates are deliberately over-inclusive and do not alter official scores.",
+    "Saved success records omit n_badcalls, dossier truncation, and explicit termination reason, limiting malformed-action reconstruction.",
+    "The both-wrong audit is a frozen 20-item sample, not the full both-wrong population.",
+    "The audit cannot reconstruct provider-side context-window truncation or tokenization from aggregate telemetry."
+  ],
+  "provenance": {
+    "development_run": "finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709",
+    "input_integrity": "verified internally; identity-linkable hashes omitted",
+    "labels": "deterministic trace rules; not human validation"
+  },
+  "sampling": {
+    "both_wrong_population_by_dataset": {
+      "convfinqa": 29,
+      "financebench": 27,
+      "finqa": 30,
+      "tatqa": 25
+    },
+    "per_dataset": 5,
+    "population": "Static Nexus and ReAct both exact-wrong on objective development examples",
+    "rank": "ascending SHA-256(seed:dataset:example_id), then example_id",
+    "sample_size": 20,
+    "seed": "realm2026-both-wrong-v1"
+  },
+  "schema_version": "realm2026-fairness-trace-audit-v1",
+  "scope": {
+    "development_examples": 250,
+    "external_provider_calls": 0,
+    "frameworks": [
+      "direct",
+      "cot",
+      "nexus",
+      "react"
+    ],
+    "objective_datasets": [
+      "financebench",
+      "finqa",
+      "tatqa",
+      "convfinqa"
+    ],
+    "objective_trace_examples": 200,
+    "partition": "development_only",
+    "sealed_final_partition_accessed": false,
+    "secondary_dataset": "finder"
+  },
+  "summary": {
+    "category_counts": {
+      "abstained_after_retrieval": 18,
+      "forced_nontermination": 1,
+      "mixed_or_ambiguous": 11,
+      "premature_finish_no_retrieval": 1,
+      "scorer_sensitive_candidate": 33,
+      "substantive_answer_mismatch": 7,
+      "unexecuted_calculation": 1
+    },
+    "category_counts_one_sided": {
+      "abstained_after_retrieval": 18,
+      "forced_nontermination": 1,
+      "premature_finish_no_retrieval": 1,
+      "scorer_sensitive_candidate": 28,
+      "substantive_answer_mismatch": 3,
+      "unexecuted_calculation": 1
+    },
+    "manual_review_count": 51,
+    "manual_review_item_ids": [
+      "financebench:financebench_id_00302",
+      "financebench:financebench_id_00566",
+      "financebench:financebench_id_00724",
+      "financebench:financebench_id_02416",
+      "financebench:financebench_id_03029",
+      "financebench:financebench_id_03031",
+      "financebench:financebench_id_03473",
+      "financebench:financebench_id_03620",
+      "financebench:financebench_id_04700",
+      "financebench:financebench_id_00521",
+      "financebench:financebench_id_00723",
+      "financebench:financebench_id_00882",
+      "financebench:financebench_id_01028",
+      "financebench:financebench_id_01346",
+      "finqa:finqa152",
+      "finqa:finqa386",
+      "finqa:finqa515",
+      "finqa:finqa532",
+      "finqa:finqa88",
+      "finqa:finqa110",
+      "finqa:finqa202",
+      "finqa:finqa392",
+      "finqa:finqa534",
+      "finqa:finqa764",
+      "tatqa:25978230d70cd8e677358c8cc4d69f5c",
+      "tatqa:368a3ea86c6cce6be5197600a8e492e6",
+      "tatqa:475eae0efee24cef567f489b0f06e592",
+      "tatqa:64eb28ae3c08547e6d2200bd3589ee37",
+      "tatqa:95e8a0028dbced02c7f28c79c62bb281",
+      "tatqa:b42eb76932f8c9fb874f7ce384a3c2de",
+      "tatqa:c418d4ec256c02dcc14d4e495d77778f",
+      "tatqa:db3301d09c419606702f36f44f7652d4",
+      "tatqa:e7ee9654a4faf700a3839ef377a1381d",
+      "tatqa:efccdf1a2d22ea55fae61dffcc35dfda",
+      "tatqa:1eb127e42e0d7aa90d3aea0eb58fc69a",
+      "tatqa:7c27ebc8ac884cda4febb9f399d296e0",
+      "tatqa:935015b20dd8cfd9a24826afbcfbf42b",
+      "tatqa:c888300a8c8cca2c3e0f08ffa3c6b5f7",
+      "tatqa:e26cd3d746da1785bbc08023485f83f2",
+      "convfinqa:convfinqa1044",
+      "convfinqa:convfinqa1671",
+      "convfinqa:convfinqa1994",
+      "convfinqa:convfinqa2114",
+      "convfinqa:convfinqa457",
+      "convfinqa:convfinqa667",
+      "convfinqa:convfinqa911",
+      "convfinqa:convfinqa1041",
+      "convfinqa:convfinqa1197",
+      "convfinqa:convfinqa1549",
+      "convfinqa:convfinqa1819",
+      "convfinqa:convfinqa645"
+    ],
+    "one_sided": {
+      "react_only": 10,
+      "static_only": 42
+    },
+    "selection_counts": {
+      "both_wrong_frozen_sample": 20,
+      "one_sided": 52
+    },
+    "trace_item_count": 72
+  }
+}

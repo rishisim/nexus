@@ -1,0 +1,54 @@
+\section{Experimental Protocol}
+\label{sec:protocol}
+
+\paragraph{Evidence and splits.}
+The study uses FinanceBench, FinDER, FinQA, TAT-QA, and ConvFinQA. Systems see
+only benchmark-provided evidence: filing passages for FinanceBench/FinDER and
+legitimate table, text, or dialogue context for the numerical tasks. Gold
+answers and target-derived fields are removed, including FinanceBench
+justifications and TAT-QA derivations/scales. This is evidence-conditioned
+reasoning, not end-to-end RAG. The complete development partition contains 50
+examples per dataset. A deterministic 900-example manifest is disjoint at the
+row level and, for ConvFinQA, the dialogue level. It remains unexecuted; only
+identifier metadata was used programmatically to prevent overlap with the
+replication sample. The runner refuses final execution because the required
+post-gate freeze fields remain unset.
+
+\paragraph{Execution.}
+All five systems are paired by example and share the controlled evidence corpus
+and retrieval implementation; Direct, CoT/PoT, and Static Nexus also share a maximum dossier
+budget. Runs use \nolinkurl{google/gemini-2.5-flash}, temperature zero, and
+disabled model thinking. A valid output is never rerun because it scores poorly;
+only typed infrastructure failures are resumable. Each response records the
+resolved model, token categories, calls, retries, provider or manifest-estimated
+cost, and end-to-end latency.
+
+A 75-item second-family check repeated the configured ordering but retained the
+contract differences. The audit therefore motivated a corrective study using
+\nolinkurl{openai/gpt-4o-mini-2024-07-18} on 150 further development items (50
+per primary dataset), excluding every earlier or final identifier. Both arms
+shared a strict JSON final-answer contract, malformed-response fallback, scorer
+input, one-attempt policy, retrieval API, and evidence/context/output ceilings.
+Static deterministically issued up to three retrievals; ReAct chose its queries
+adaptively, but its first model action had to be Search. Every ReAct row
+required observed evidence, at least one retrieval, two model calls, and valid
+parsing. A first
+fresh-sample freeze that allowed immediate abstention failed this manipulation
+check and remains diagnostic only; v2 reused none of its items. V2's public
+commit, sample, prompts, tests, and analysis were hash-bound before inference;
+all 300 system-item rows completed for US\$0.113.
+
+\paragraph{Endpoints and gate.}
+The primary quality measure is the unweighted macro-average of FinQA execution
+accuracy, official TAT-QA F1 with prediction-side scale inference, and ConvFinQA
+execution accuracy. FinanceBench strict accuracy supplies objective router
+labels; FinDER remains secondary. Efficiency measures include calls, tokens,
+dollars per example, and median/P95 latency. The recorded decision rule requires
+Selective Nexus either to improve quality while reducing cost or to remain
+within one absolute point of the best primary macro while reducing dollar cost
+by at least 30\%. Failure stops the study before final evaluation.
+
+Automated tests check forbidden target fields, manifest disjointness and
+byte-identical regeneration, scorer edge cases, command-line model binding,
+telemetry, routing features, and duplicate-free resume. Development outputs are
+tagged \texttt{dev-20260709}; no final result is reported.

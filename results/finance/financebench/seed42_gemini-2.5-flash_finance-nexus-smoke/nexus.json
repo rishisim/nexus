@@ -1,0 +1,24 @@
+[
+  {
+    "question_idx": 63,
+    "question_text": "Who are the primary customers of Boeing as of FY2022?",
+    "answer": "Commercial airlines and the U.S. government.",
+    "gt_answer": "Boeing's primary customers as of FY2022 are a limited number of commercial airlines and the US government. The US government accounted for 40% of Boeing's total revenues in FY2022.",
+    "em": 1.0,
+    "f1": 0.4444444444444445,
+    "company": "Boeing",
+    "doc_name": "BOEING_2022_10K",
+    "doc_type": "10k",
+    "doc_period": 2022,
+    "question_type": "domain-relevant",
+    "question_reasoning": "Information extraction OR Logical reasoning",
+    "reward": 1.0,
+    "n_calls": 1,
+    "n_badcalls": 0,
+    "traj": "Question: Who are the primary customers of Boeing as of FY2022?\n\n[Phase 1: Deterministic Scout]\nScout Search[Who are the primary customers of Boeing as of FY2022?] -> OK\nScout Search[primary customers] -> OK\n\n[Phase 2: Deterministic Architect]\n\n[Phase 3: Adjudicator]\nReasoning: Evidence 1 and 2 from both search results state that Boeing derives a significant portion of its revenues from a limited number of commercial airlines and a substantial portion of its revenue from the U.S. government.\nAnswer: Commercial airlines and the U.S. government.",
+    "dossier": "[Scout evidence: Who are the primary customers of Boeing as of FY2022?]\nSearch results for: Who are the primary customers of Boeing as of FY2022?\n\n[1] Company: Boeing\nDocument: BOEING_2022_10K\nDocument type: 10k\nPeriod: 2022\nQuestion type: domain-relevant\nReasoning type: Information extraction OR Logical reasoning\n\n[2] Evidence 2:\nWe derive a substantial portion of our revenue from the U.S. government\n\n[3] Evidence 1:\nWe derive a significant portion of our revenues from a limited number of commercial airlines.\n\n[Scout evidence: primary customers]\nSearch results for: primary customers\n\n[1] Company: Boeing\nDocument: BOEING_2022_10K\nDocument type: 10k\nPeriod: 2022\nQuestion type: domain-relevant\nReasoning type: Information extraction OR Logical reasoning\n\n[2] Evidence 1:\nWe derive a significant portion of our revenues from a limited number of commercial airlines.\n\n[3] Evidence 2:\nWe derive a substantial portion of our revenue from the U.S. government",
+    "framework": "nexus",
+    "nexus_mode": "finance_deterministic_scout_architect",
+    "status": "success"
+  }
+]

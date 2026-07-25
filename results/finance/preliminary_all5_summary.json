@@ -1,0 +1,67 @@
+{
+  "financebench": {
+    "run_dir": "results/finance/financebench/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "supported_better_and_cheaper",
+    "react_em": 0.8,
+    "nexus_em": 0.9,
+    "react_calls": 24,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.4,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.333333,
+    "nexus_correct_per_call": 0.9,
+    "n": 10
+  },
+  "finder": {
+    "run_dir": "results/finance/finder/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "not_supported_yet",
+    "react_em": 0.5,
+    "nexus_em": 0.3,
+    "react_calls": 21,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.1,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.238095,
+    "nexus_correct_per_call": 0.3,
+    "n": 10
+  },
+  "finqa": {
+    "run_dir": "results/finance/finqa/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "not_supported_yet",
+    "react_em": 0.6,
+    "nexus_em": 0.6,
+    "react_calls": 32,
+    "nexus_calls": 10,
+    "react_avg_calls": 3.2,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.1875,
+    "nexus_correct_per_call": 0.6,
+    "n": 10
+  },
+  "tatqa": {
+    "run_dir": "results/finance/tatqa/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "not_supported_yet",
+    "react_em": 0.9,
+    "nexus_em": 0.9,
+    "react_calls": 21,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.1,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.428571,
+    "nexus_correct_per_call": 0.9,
+    "n": 10
+  },
+  "convfinqa": {
+    "run_dir": "results/finance/convfinqa/seed42_gemini-2.5-flash_all5-prelim-fixed",
+    "claim_status": "supported_better_and_cheaper",
+    "react_em": 0.1,
+    "nexus_em": 0.2,
+    "react_calls": 52,
+    "nexus_calls": 10,
+    "react_avg_calls": 5.2,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.019231,
+    "nexus_correct_per_call": 0.2,
+    "n": 10
+  }
+}

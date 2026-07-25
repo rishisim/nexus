@@ -1,0 +1,1524 @@
+{
+  "dataset": "tatqa",
+  "dataset_fingerprint": "sha256:4c78336e9598e2722664741da04ba50a144a67a57008e72ca6e75de262ad8aeb",
+  "dataset_size": 1644,
+  "development": {
+    "count": 50,
+    "examples": [
+      {
+        "example_id": "935015b20dd8cfd9a24826afbcfbf42b",
+        "index": 5,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c7b467c65583b466039f2a7942cf6078",
+        "index": 9,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "db3301d09c419606702f36f44f7652d4",
+        "index": 36,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "ff307954f10744c45fefacf07bb122d4",
+        "index": 45,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "9b7135060c4cbf2d522a9ec7c5f80198",
+        "index": 57,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "861d03f423b84d91bc37f58d774ec183",
+        "index": 68,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "b42eb76932f8c9fb874f7ce384a3c2de",
+        "index": 100,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "cb727530c971930f152cc10c012fa79b",
+        "index": 132,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "eaefe9fcf68f6d1d30638b45076cf27e",
+        "index": 172,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "8375d5669c02a9c64e08a0467ad372db",
+        "index": 174,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "6e1d1948dfce647d26e335cfc5d102fa",
+        "index": 181,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "7f9b93c21edc3ebd07094bddc89b8ba6",
+        "index": 211,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "e26cd3d746da1785bbc08023485f83f2",
+        "index": 259,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "652ea108c2238699482566c47f99b79f",
+        "index": 288,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "95e8a0028dbced02c7f28c79c62bb281",
+        "index": 290,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "5758dc5a51092827539edd7fc2a3a3e9",
+        "index": 315,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "1eb127e42e0d7aa90d3aea0eb58fc69a",
+        "index": 364,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "6641672618ae883621f03d16a16c4593",
+        "index": 444,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "87cd81975e990674df554047afc7205a",
+        "index": 474,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "7c27ebc8ac884cda4febb9f399d296e0",
+        "index": 486,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c888300a8c8cca2c3e0f08ffa3c6b5f7",
+        "index": 492,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "64eb28ae3c08547e6d2200bd3589ee37",
+        "index": 670,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "25978230d70cd8e677358c8cc4d69f5c",
+        "index": 690,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c6237a933b22f32faa6652d8bd24777e",
+        "index": 691,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "fc35a740556eccd5414635d0a75ebb2c",
+        "index": 697,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "475eae0efee24cef567f489b0f06e592",
+        "index": 711,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "668fc940f449fc9b697d9bc0c65e0472",
+        "index": 730,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "0f22f818c77f19cb865216c3ea2d2fc9",
+        "index": 752,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "c418d4ec256c02dcc14d4e495d77778f",
+        "index": 757,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "e7ee9654a4faf700a3839ef377a1381d",
+        "index": 759,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "4318ce64a1732c2c634ee721dd0d3d80",
+        "index": 766,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "a3dad02030951c7b10b80c5f80312341",
+        "index": 806,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c990e1683837855961a7a19dd2bb4efe",
+        "index": 874,
+        "stratum": "count | table-text"
+      },
+      {
+        "example_id": "368a3ea86c6cce6be5197600a8e492e6",
+        "index": 879,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "80ee44506feaf4d057b346de032f68e7",
+        "index": 898,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "0c738ca101b8437189cc9138fe3ee100",
+        "index": 935,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "50a876f58ad3d5f4f8c8479c958f4a53",
+        "index": 964,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "49f3abfde08f9511cd8169491e3ae9da",
+        "index": 965,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "51be1fc1f554ad6c15e8d0d043a0f738",
+        "index": 989,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "f3d53198e708710851e470ad44eda6fe",
+        "index": 1006,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c9097e88dc56de3a0553c170693491cd",
+        "index": 1299,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "b2dd14e2d0520555a1143e82c835dd94",
+        "index": 1346,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "92ad3771f159af69c3d2ac75287b553e",
+        "index": 1364,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "b2ee7c120ea225650b9c9093e5a43d5c",
+        "index": 1416,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "110352945ede4cddcc7a3e6070f469fd",
+        "index": 1423,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "69d6708c007f52be21714b4411a6b38c",
+        "index": 1455,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "efccdf1a2d22ea55fae61dffcc35dfda",
+        "index": 1519,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "d12b3e3a3a22bfa7f2eb61ba48da8f0b",
+        "index": 1534,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "9f003bb46e6c6004493b7616fc64e535",
+        "index": 1567,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "40aeff619040683219ce6ab23ee9e55f",
+        "index": 1575,
+        "stratum": "arithmetic | table-text"
+      }
+    ],
+    "indices": [
+      5,
+      9,
+      36,
+      45,
+      57,
+      68,
+      100,
+      132,
+      172,
+      174,
+      181,
+      211,
+      259,
+      288,
+      290,
+      315,
+      364,
+      444,
+      474,
+      486,
+      492,
+      670,
+      690,
+      691,
+      697,
+      711,
+      730,
+      752,
+      757,
+      759,
+      766,
+      806,
+      874,
+      879,
+      898,
+      935,
+      964,
+      965,
+      989,
+      1006,
+      1299,
+      1346,
+      1364,
+      1416,
+      1423,
+      1455,
+      1519,
+      1534,
+      1567,
+      1575
+    ]
+  },
+  "final": {
+    "count": 200,
+    "examples": [
+      {
+        "example_id": "33ff20f73d37e7014d573a0caf54d6bb",
+        "index": 13,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "74a607476a06e81081d5a30ecfb3a581",
+        "index": 23,
+        "stratum": "multi-span | text"
+      },
+      {
+        "example_id": "68d431332fc692df9dedce7d5338cb65",
+        "index": 25,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "f3137e99edbb27d4cb15d9e6520c730e",
+        "index": 27,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "02091bed6204c0b2641e0bbb8547ebf8",
+        "index": 32,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "d82b7ccd833e11d1a28f8c1aef563f73",
+        "index": 43,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "04101630b98a334e2cf9e6d1650868eb",
+        "index": 54,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "9dbb2760483c63a510139e0063343c54",
+        "index": 61,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "3daee142b5bd4a294fcb3ee27eff4fdd",
+        "index": 63,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "3f57c58f16a38bea4d55878b51145106",
+        "index": 78,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "b0c38a9aa7969f8768b50b7ab309d03a",
+        "index": 90,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "abc87ff0305696fe80f33e5d26818d76",
+        "index": 92,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "6d87d86bac813aa7752813163d6ea3cb",
+        "index": 99,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "cc8461a1ea57bc804c393e2961815882",
+        "index": 111,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "fbcb7f1585f52794c6743f5e6ea08f4f",
+        "index": 121,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "7678575901ca7c1364f7c4c04fab2bf8",
+        "index": 125,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "2f9c5c998df495b861fff7a323bc70b9",
+        "index": 129,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "cfc883aaac4b43fb360560544cd6f14e",
+        "index": 143,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "fa58f382cfd63d1b7f956c8e843aaf68",
+        "index": 146,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "e4085a97a81f6ac4f97baa7c0bf9fbc7",
+        "index": 151,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "e45efc52a50c59cf6eff0cc5372ca276",
+        "index": 152,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "ea8d737bd10ada37d60de65ecb6e74db",
+        "index": 177,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "c94b56a53817b7e51f6d49dfaf6ae906",
+        "index": 200,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "7894d6aca047b4804e7d543435f68867",
+        "index": 209,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "6d8320502d35d4d4b4ec94ce8b9f1b7c",
+        "index": 225,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "02c24d77afa1726722258116ef09efc9",
+        "index": 227,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "fb1c1b6cdda9a4b45b6fd38fc81d6047",
+        "index": 237,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "3550c8a7b8169ea69b73939da439370f",
+        "index": 254,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "a9ecf51302dbfb3a8af5017c6e7c600b",
+        "index": 261,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "2671e374572a2cb938027733b9483a70",
+        "index": 262,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "7f59395c86e06e5e326f2e67108d0c7f",
+        "index": 269,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "2829f4d2cdbf2b9b5433d541fd5ccc99",
+        "index": 273,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c59fe1ab423cb7edefe3a4be39526e19",
+        "index": 279,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "5241b785f66099968910ab10b7dd5aee",
+        "index": 283,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "404aa226ba8c58fa1d7d3d625708aaa1",
+        "index": 304,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "e958d370c40750d8e0caac5c492e1988",
+        "index": 305,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "999de9a7f9e52c7d924ec98a11f6248e",
+        "index": 310,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "253c0aebff710d81397ff40d9478aee5",
+        "index": 311,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "78086b2e7a9fffc77f7bae698ab946f9",
+        "index": 313,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "babfe53fb5b6be0dbfd243f09f7a7e1d",
+        "index": 324,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "574b6ed7bd0d78f51fb05f8896ef474c",
+        "index": 340,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "3cc18afadb8620dd833f87abba3349d1",
+        "index": 346,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "642bc026f8b2c1510363d5d87a71ebde",
+        "index": 350,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "0db4ccdc316a0f8a51a24a8b971e4975",
+        "index": 357,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "875e7147ab2f6e742718d77ea647e8c7",
+        "index": 365,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "ba1c618888e182b19a4a9e33323c4d3c",
+        "index": 368,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "30fd8f5081139c783553048b9ca81767",
+        "index": 370,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "1b05d9c41f77eadac93b73ecdf5e2bcb",
+        "index": 383,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "7c825d5df172153680a1b1724734f06f",
+        "index": 387,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "062a67befff9f3ae7f4aa1b659f39d65",
+        "index": 397,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c97dc20c486d6aa89732c95c83738050",
+        "index": 411,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "576138ef2fc64843745fb6a242d74ac2",
+        "index": 418,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "974ea4685a3322b23ac80e3a89131498",
+        "index": 423,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "4610cabe17c794c8202a6046788cebff",
+        "index": 428,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "1c3da0214d22f097129d4d58036a19e7",
+        "index": 429,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c3dc61f86a52cbb92ae8dee63b9dc269",
+        "index": 430,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "a7825de7f4d66a23bf6848a91150c21a",
+        "index": 440,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "a9fcfc726074248442894d592ff3b1e1",
+        "index": 451,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "4e3e50379274b2d1d084a6d4f296b914",
+        "index": 452,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "4b5b7b3def65b832a683719f6cae1e21",
+        "index": 453,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c4ef6861eed13164437197b0ed4f2dad",
+        "index": 464,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "74781837c203250684107905c999b946",
+        "index": 468,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "1a71b6ddd32ad33753cbd5b4a61d3963",
+        "index": 481,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "cb3bd1ca14e3ebd1448168ced348bc69",
+        "index": 483,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "4466775998fa8eece0661875bf9cd6cd",
+        "index": 485,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "f62a8da400b98bd74ca29abbe79fc000",
+        "index": 499,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "3556dba43364b9e7bb19e8413d7d85ef",
+        "index": 511,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "d3653d4b096b22f93a2395de3e300b0e",
+        "index": 512,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "2c104b74efda56a220f6c8c57b0d5d3c",
+        "index": 516,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "5eb73af108d100ecb478a0d370eecb18",
+        "index": 527,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "e4199538eac666d5b547494bc832aa74",
+        "index": 530,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "c3dafa89eac1112e786e65ee1845c95e",
+        "index": 535,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "875857b97a5226d9ff1f4cd7fb15032a",
+        "index": 548,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "1a5a62ab2f319767b9d275e091b155c9",
+        "index": 569,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "86ea064fe862710e648c86901d8b9b50",
+        "index": 582,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "6594e718efa34eaf685372c22a206687",
+        "index": 583,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "bf1eb3a312574b7004e0f41be2dd19c5",
+        "index": 592,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "63294ee0c49d2c907b6fa77cdd96b946",
+        "index": 630,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "7f1f3e9fe19715cd784f2db27ea25bcb",
+        "index": 632,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "0364f014a75c0374597390eeb92ab029",
+        "index": 635,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "04d7c05c53fb9b8aed0bc89290e0a07e",
+        "index": 640,
+        "stratum": "count | table-text"
+      },
+      {
+        "example_id": "53c1893dc4f85bd553d86572b9d30980",
+        "index": 643,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "ef0eca56ee563b50849f725cce0a585e",
+        "index": 658,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "3d554e239feaac37bc0b52ace9c26146",
+        "index": 659,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "decd4e5a2489471327f63ea671393120",
+        "index": 666,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "d03dd79e71718a2124ca3dacd1d83c96",
+        "index": 677,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "9d6ae1633c692326eed9a3beeba1143b",
+        "index": 689,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "71ef0b3f4187dd1090a36d6cabe944b2",
+        "index": 700,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "bdafe999ae6e8849d25c9551de9b3041",
+        "index": 713,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "a2865e8be411b6f1427876ad850f4deb",
+        "index": 717,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "131cfaa5e0044dae4e76acc66a974bc2",
+        "index": 728,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "e73dd57395c133d3b1f631713aad6da9",
+        "index": 731,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "753ee9cd8274f3813eb682d2b868d30a",
+        "index": 732,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "1e21163099e89001bca30b9ce59d6a34",
+        "index": 747,
+        "stratum": "arithmetic | text"
+      },
+      {
+        "example_id": "68af38151b27bbb8ad4c0826d9c5e79d",
+        "index": 763,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "067fe72c057b9a9a6722ca8a0e3f35c9",
+        "index": 770,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "7f88c0b95be6f87f007bbc5f4c7d1f19",
+        "index": 782,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "9584be05439a1e3ed8de56ce10479957",
+        "index": 816,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "31528822dbc44e15a7d993ed3f06e7e7",
+        "index": 819,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "ca2199b52dda288d67bfdffd8a568ac2",
+        "index": 820,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "6b432c14e58ee45ee845b34b8257fb05",
+        "index": 827,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "1e2fdcdd4757fbea7fcfa78bde6b8c04",
+        "index": 835,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "de1c6d8031bd231fbb4f9b2b5f087164",
+        "index": 837,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "6ae4e04573e4409e78a4732d2736b63c",
+        "index": 838,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "03e854af62b8452986b5ef6487c126e1",
+        "index": 840,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "926fb5d6e93c3bb907365195aa2b267d",
+        "index": 843,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "01d9065b7d1252a5cc19e1783caa8a80",
+        "index": 850,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "6a77d890d52e18c61a3d67680bfd3f39",
+        "index": 857,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "035324b175477e1ffb2adc0d50813be0",
+        "index": 873,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "2662da86961ef103c076b98067ff6b71",
+        "index": 875,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "e2f8522285722c66eb3a910ca91f28f0",
+        "index": 888,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "53b1dfe9f2b34eddaa2559b416be2199",
+        "index": 918,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "96dde315bd8f1c357ae6751f62648fe9",
+        "index": 919,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "4bc0d228100ba8b650fc5614b23fbf04",
+        "index": 922,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "af0b57468a1b20ae995bfc011fb17f7c",
+        "index": 925,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "ccfffb87fd692319c799c3c35580cb71",
+        "index": 926,
+        "stratum": "multi-span | text"
+      },
+      {
+        "example_id": "498038ae76abe31e2b33f884f9f22e7d",
+        "index": 938,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "602a35cc88611ac3a91eed329fabfda7",
+        "index": 941,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "6a6a71bd996ecdf07041af49a098d702",
+        "index": 959,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "ecfc1d467fa241c80f0794f20995877a",
+        "index": 997,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "cb34391556a396252401847323341e80",
+        "index": 1008,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "11088dd167b3d6c756aaeffe850cbcb9",
+        "index": 1018,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "488d40f33ac1c9aea439ba460829d6d0",
+        "index": 1019,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "fabfff23cbb48032909c093c366054bb",
+        "index": 1024,
+        "stratum": "arithmetic | text"
+      },
+      {
+        "example_id": "40ddf6a75a1fce53e7bfb94678e6ee70",
+        "index": 1025,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "b4b5fe81716ce629e10bf92f968e95a4",
+        "index": 1027,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "3daa8936fe27050e09ca8bd04e7116da",
+        "index": 1036,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "1e6e376b36704af606a395f583f06cc9",
+        "index": 1041,
+        "stratum": "count | table-text"
+      },
+      {
+        "example_id": "d000e63320af2d49df0c9d7a110067a4",
+        "index": 1053,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "b53417c949f4da9fdd445b9de076d683",
+        "index": 1059,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "07ad167d4c4320389059fe59607b947b",
+        "index": 1064,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "08e26ff3738ee81d84b49a9d22d549a4",
+        "index": 1075,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "503cd077529dfd2d84d0d73423ef6d26",
+        "index": 1086,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "c305c64d60704c6c10b97d4f11d68f44",
+        "index": 1092,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "8e605d20dda53b928f8b727e5a40d44b",
+        "index": 1100,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "c7ff34d7e0d45249fd93a16d10c8b5ce",
+        "index": 1108,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "5518d2b073746e2416a10dd25bd5937c",
+        "index": 1113,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "a54fea68abb8811e205a225872303372",
+        "index": 1114,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "8d713ddc53ade47e659786dc2eb036d3",
+        "index": 1115,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "b5939fe5bb36d9c47e754f0e68e8ed79",
+        "index": 1116,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "f4d47c5ab1f68972f89f131cdb4fdef6",
+        "index": 1118,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "dd492afbbc364ad23302cc76835cfaf4",
+        "index": 1138,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "cca3cf27d93f840da0ef46b7941b81f1",
+        "index": 1144,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "5cd9cb088832a29674bdc2dfb0b3f1e2",
+        "index": 1145,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "77700cf5dddd88e3e1070977dd9ef0ed",
+        "index": 1151,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "e605557d2fc892cb39395d50e352e99d",
+        "index": 1160,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "d8c47d81781c88676e0b7381590189d9",
+        "index": 1163,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "dce3bdccbbce1f06cf028bd16563bc8b",
+        "index": 1179,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "5098bef354da563e820c42590c331271",
+        "index": 1183,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "62cc75239e8cda1ae5668c5d3a7adb27",
+        "index": 1189,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "0d76abb8b514ece8bb032c147c0f6963",
+        "index": 1190,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "f6cbf5fca44e7afdf477479afd0703cd",
+        "index": 1194,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "b315f902f15027dad55dad1424a973d5",
+        "index": 1200,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "92106c001557ad6f456f27fbcac3c386",
+        "index": 1210,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "a1a440276154e7d88d2e711c8a8ac433",
+        "index": 1217,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "1e17cb59465a592c862fbaced9b5ca7e",
+        "index": 1235,
+        "stratum": "count | table"
+      },
+      {
+        "example_id": "17bb4291a76f679e93cc5e59a8ed72e7",
+        "index": 1240,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "e9d45a238c6861464f82389b0ca48839",
+        "index": 1251,
+        "stratum": "count | table"
+      },
+      {
+        "example_id": "5b2b4f77f1d1fe2a6db7a09cd0e2edb3",
+        "index": 1255,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "298710a265046c8d3db99f4f2addf4a5",
+        "index": 1257,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "69c49833e848291d68baf1c593355b91",
+        "index": 1268,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "cc3acc137c80ad7865b887540d4d9453",
+        "index": 1291,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "3837082d4d6b4cf44e90ca317cb5aad7",
+        "index": 1305,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "c65b3b88c5fe3795af2283d0c44451ac",
+        "index": 1332,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "39c874ac4d5b3dacd19ead0f593544eb",
+        "index": 1353,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "ca5a45d7da9787d3a133ce31e99c1012",
+        "index": 1356,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "8709d921ebe184d4358d3a101c663397",
+        "index": 1359,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "e874d1e1837af5cf5c6f51c9cd9d2711",
+        "index": 1363,
+        "stratum": "multi-span | text"
+      },
+      {
+        "example_id": "0a21b22e1620257740825db227460b41",
+        "index": 1370,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "8fef85a72428f55bb7758fc526f92419",
+        "index": 1371,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "0f4ce66d4ba839f6491eb5c140af0c1d",
+        "index": 1374,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "9a41a2960ad98aa045c0ea9a70cd67b9",
+        "index": 1376,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "3c2baeb19684fb28101be676c9807c34",
+        "index": 1379,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "237cfd13f0cd6f68dbe8b96bb20c6860",
+        "index": 1390,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "a0bf7f7def3241aa8085ae288e7c05eb",
+        "index": 1401,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "66023ffe4931dfc2ef7a3a5bcb32dbc4",
+        "index": 1402,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "f5a956685d6afecb5fd26b422cf6c350",
+        "index": 1433,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "c758efe37f814c466857662246093371",
+        "index": 1459,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "8a20cdc76e64b66240ec4dfad8bba1cb",
+        "index": 1475,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "9638fb0a19e79dd54f025d2bc46c894c",
+        "index": 1476,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "7ced36f7474e49a4c7f551b4292d06af",
+        "index": 1478,
+        "stratum": "multi-span | table-text"
+      },
+      {
+        "example_id": "2c6a95a5caa742e27d032bef1c59a2c4",
+        "index": 1489,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "9d8e2cd993056de088d74f662568c5f8",
+        "index": 1504,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "bef83b95fb7e94617ad90a14f735e885",
+        "index": 1506,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "20cd7d5d3f87b9ce14dc595a00b08266",
+        "index": 1507,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "ed42e3e536c47d1e1c4e379153ff8e27",
+        "index": 1515,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "b095f1600b4b51c217c1b39e8f9d3142",
+        "index": 1516,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "2a27d4e8a049b7cb7bf0bcc208cc4875",
+        "index": 1521,
+        "stratum": "arithmetic | table-text"
+      },
+      {
+        "example_id": "2e2f787109989795572bc8758c8b7fd2",
+        "index": 1524,
+        "stratum": "span | table-text"
+      },
+      {
+        "example_id": "f1a44950bfcc901427e2e46217deeacf",
+        "index": 1546,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "e536418dd5c5a5662f057d997d3ac047",
+        "index": 1560,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "2c3909328d15843a50b8d49a2db2a4ea",
+        "index": 1579,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "fde2593bf36a6288ab56ac538b826209",
+        "index": 1580,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "1803f7596563fa641b78c6effd7f87cb",
+        "index": 1591,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "47168fda3fadbb9bd6e80b1dd7688886",
+        "index": 1593,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "7372a00f836ac4ea65c7c4a0a351bb72",
+        "index": 1598,
+        "stratum": "span | text"
+      },
+      {
+        "example_id": "38447ceb2e9f58492f62b5082fb3adda",
+        "index": 1613,
+        "stratum": "arithmetic | table"
+      },
+      {
+        "example_id": "4dbff060f7e1ce565ca82c900f43ee09",
+        "index": 1616,
+        "stratum": "multi-span | table"
+      },
+      {
+        "example_id": "fd94b5dc355b4eba7b7788b8d82d0d9a",
+        "index": 1629,
+        "stratum": "span | table"
+      },
+      {
+        "example_id": "a2254c3ed409241dc0d878fab62d23fa",
+        "index": 1636,
+        "stratum": "arithmetic | table"
+      }
+    ],
+    "indices": [
+      13,
+      23,
+      25,
+      27,
+      32,
+      43,
+      54,
+      61,
+      63,
+      78,
+      90,
+      92,
+      99,
+      111,
+      121,
+      125,
+      129,
+      143,
+      146,
+      151,
+      152,
+      177,
+      200,
+      209,
+      225,
+      227,
+      237,
+      254,
+      261,
+      262,
+      269,
+      273,
+      279,
+      283,
+      304,
+      305,
+      310,
+      311,
+      313,
+      324,
+      340,
+      346,
+      350,
+      357,
+      365,
+      368,
+      370,
+      383,
+      387,
+      397,
+      411,
+      418,
+      423,
+      428,
+      429,
+      430,
+      440,
+      451,
+      452,
+      453,
+      464,
+      468,
+      481,
+      483,
+      485,
+      499,
+      511,
+      512,
+      516,
+      527,
+      530,
+      535,
+      548,
+      569,
+      582,
+      583,
+      592,
+      630,
+      632,
+      635,
+      640,
+      643,
+      658,
+      659,
+      666,
+      677,
+      689,
+      700,
+      713,
+      717,
+      728,
+      731,
+      732,
+      747,
+      763,
+      770,
+      782,
+      816,
+      819,
+      820,
+      827,
+      835,
+      837,
+      838,
+      840,
+      843,
+      850,
+      857,
+      873,
+      875,
+      888,
+      918,
+      919,
+      922,
+      925,
+      926,
+      938,
+      941,
+      959,
+      997,
+      1008,
+      1018,
+      1019,
+      1024,
+      1025,
+      1027,
+      1036,
+      1041,
+      1053,
+      1059,
+      1064,
+      1075,
+      1086,
+      1092,
+      1100,
+      1108,
+      1113,
+      1114,
+      1115,
+      1116,
+      1118,
+      1138,
+      1144,
+      1145,
+      1151,
+      1160,
+      1163,
+      1179,
+      1183,
+      1189,
+      1190,
+      1194,
+      1200,
+      1210,
+      1217,
+      1235,
+      1240,
+      1251,
+      1255,
+      1257,
+      1268,
+      1291,
+      1305,
+      1332,
+      1353,
+      1356,
+      1359,
+      1363,
+      1370,
+      1371,
+      1374,
+      1376,
+      1379,
+      1390,
+      1401,
+      1402,
+      1433,
+      1459,
+      1475,
+      1476,
+      1478,
+      1489,
+      1504,
+      1506,
+      1507,
+      1515,
+      1516,
+      1521,
+      1524,
+      1546,
+      1560,
+      1579,
+      1580,
+      1591,
+      1593,
+      1598,
+      1613,
+      1616,
+      1629,
+      1636
+    ]
+  },
+  "manifest_fingerprint": "sha256:c5bd4b83f90f230a55b560f02f876bc2897832df0b3b0c2a467fb6b79d02e65b",
+  "manifest_schema_version": "finance-manifest-v2",
+  "protocol_id": "finance_icaif26_v2",
+  "seed": 20260709,
+  "selection_policy": "proportional strata: answer_type x answer_source"
+}

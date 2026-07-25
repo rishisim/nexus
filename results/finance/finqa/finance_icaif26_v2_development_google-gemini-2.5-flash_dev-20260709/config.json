@@ -1,0 +1,19 @@
+{
+  "created_or_updated": "2026-07-09T20:44:23+00:00",
+  "dataset": "finqa",
+  "dataset_fingerprint": "sha256:d9229f654125c0c3a05be37eb54defba7956327232ed8f4b024843b30eaa0682",
+  "frameworks": [
+    "selective"
+  ],
+  "manifest_fingerprint": "sha256:1a8da627bba037a47fafb2957b9de9fe9fd1895ab43dfb44f4cd7a258ba49acc",
+  "model_id": "google/gemini-2.5-flash",
+  "num_examples": null,
+  "partition": "development",
+  "protocol_fingerprint": "sha256:cbc43cb0ed548dec90f32e61a549208db7c1d49cfd0b337afdb497515369880a",
+  "protocol_id": "finance_icaif26_v2",
+  "result_schema_version": "finance-result-v2",
+  "results_tag": "dev-20260709",
+  "retry_infrastructure_failures": false,
+  "run_id": "finance_icaif26_v2_development_google-gemini-2.5-flash_dev-20260709",
+  "seed": 20260709
+}

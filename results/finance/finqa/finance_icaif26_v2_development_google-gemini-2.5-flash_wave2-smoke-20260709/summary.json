@@ -1,0 +1,55 @@
+{
+  "_experiment": {
+    "dataset": "finqa",
+    "manifest_fingerprint": "sha256:1a8da627bba037a47fafb2957b9de9fe9fd1895ab43dfb44f4cd7a258ba49acc",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 2
+  },
+  "cot": {
+    "accuracy_em": 0.5,
+    "estimated_cost_usd": 0.0019401000000000002,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 2,
+    "total_llm_calls": 2,
+    "valid_examples": 2
+  },
+  "direct": {
+    "accuracy_em": 0.5,
+    "estimated_cost_usd": 0.0009429999999999999,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 2,
+    "total_llm_calls": 2,
+    "valid_examples": 2
+  },
+  "nexus": {
+    "accuracy_em": 0.5,
+    "estimated_cost_usd": 0.0031936000000000004,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 2,
+    "total_llm_calls": 2,
+    "valid_examples": 2
+  },
+  "react": {
+    "accuracy_em": 0.0,
+    "estimated_cost_usd": 0.0027664,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 2,
+    "total_llm_calls": 5,
+    "valid_examples": 2
+  },
+  "selective": {
+    "accuracy_em": 0.5,
+    "estimated_cost_usd": 0.00098662,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 2,
+    "total_llm_calls": 2,
+    "valid_examples": 2
+  }
+}

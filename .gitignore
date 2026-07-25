@@ -1,32 +1,62 @@
+# Secrets and local configuration
 .env
-venv
-nexus_env
-venv-linux
-webshop
-alfworld-parent
-alfworld
-alfworld_data
+.env.*
+!.env.example
+.claude/settings.local.json
 
-# Temporary data directories
-temp_feverous/
-trajs/
-data/
+# Operating-system metadata
+.DS_Store
+Thumbs.db
 
-# Results from experiments
-# results/
-
-# Python
+# Python environments and caches
+.venv/
+venv/
+venv-*/
+nexus_env/
+gemini-agent-env/
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 *.pyd
-.Python
 *.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 *.egg
 *.egg-info/
 dist/
 build/
-gemini-agent-env/
 
-# Backup files
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+paper/**/build/
+
+# Local scratch outputs
+tmp/
+temp_feverous/
+trajs/
+
+# Large local datasets are provisioned separately. Already tracked fixtures
+# remain tracked even though new files under data/ are ignored.
+data/
+
+# Dataset-specific local environments and downloads
+webshop/
+alfworld-parent/
+alfworld/
+alfworld_data/
+
+# Editor and backup files
 *.bak
+*.swp
+*~

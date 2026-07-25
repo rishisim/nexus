@@ -111,6 +111,45 @@ Reasoning: [Step-by-step deduction from the evidence]
 Answer: [Short answer]
 """
 
+# CREAK: Commonsense claim verification (TRUE/FALSE)
+ADJUDICATOR_PROMPT_CREAK = """You are the ADJUDICATOR. You have a full dossier of evidence. Your job is to give the final verdict.
+
+Question: "{question}"
+
+[Dossier]:
+{dossier}
+
+Instructions:
+1. Answer based ONLY on the dossier evidence.
+2. Output one of: TRUE or FALSE.
+3. The claim often requires commonsense reasoning combined with factual knowledge. Consider whether the claim makes a sensible assertion about the entity.
+4. If the claim makes a factually incorrect or nonsensical assertion about the entity, output FALSE.
+5. If the claim makes a factually correct and sensible assertion, output TRUE.
+
+Format:
+Reasoning: [Step-by-step deduction from the evidence]
+Answer: [TRUE | FALSE]
+"""
+
+# HoVer: Multi-hop claim verification (SUPPORTED/NOT_SUPPORTED)
+ADJUDICATOR_PROMPT_HOVER = """You are the ADJUDICATOR. You have a full dossier of evidence. Your job is to give the final verdict.
+
+Question: "{question}"
+
+[Dossier]:
+{dossier}
+
+Instructions:
+1. Answer based ONLY on the dossier evidence.
+2. Output one of: SUPPORTED or NOT_SUPPORTED.
+3. A claim is SUPPORTED only if the dossier evidence explicitly confirms ALL parts of the claim.
+4. If any part of the claim is contradicted or cannot be verified from the evidence, output NOT_SUPPORTED.
+
+Format:
+Reasoning: [Step-by-step deduction from the evidence]
+Answer: [SUPPORTED | NOT_SUPPORTED]
+"""
+
 # Legacy combined prompt for backward compatibility
 ADJUDICATOR_PROMPT = """You are the ADJUDICATOR. You have a full dossier of evidence. Your job is to give the final answer.
 

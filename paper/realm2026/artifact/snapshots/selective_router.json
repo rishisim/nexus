@@ -1,0 +1,30 @@
+{
+  "coefficients": null,
+  "coverage_median": 0.666667,
+  "feature_names": [
+    "question_char_count",
+    "question_token_count",
+    "evidence_char_count",
+    "evidence_token_count",
+    "numeric_count",
+    "operator_count",
+    "period_count",
+    "entity_count",
+    "has_table",
+    "has_conversation",
+    "has_narrative",
+    "lexical_coverage",
+    "retrieval_top_score",
+    "retrieval_second_score",
+    "retrieval_score_margin",
+    "chunk_count",
+    "chunk_dispersion"
+  ],
+  "intercept": null,
+  "margin_q25": 1.0,
+  "means": null,
+  "mode": "rule",
+  "scales": null,
+  "seed": 20260709,
+  "threshold": null
+}

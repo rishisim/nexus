@@ -1,0 +1,29 @@
+\section*{Limitations}
+
+\paragraph{Evidence and inference scope.}
+We measure orchestration over benchmark-provided evidence, not end-to-end RAG,
+complete filings, OCR, or missing evidence. All reported samples are
+development evidence. Final identifiers were used only for overlap exclusion;
+no final example was executed or scored, so there is no confirmatory accuracy
+claim. V2 was frozen before its inference calls but designed after inspecting the
+original study and failed first corrective freeze; it is prospective corrective
+evidence, not an independent preregistered confirmation.
+
+\paragraph{Model, policy, and scoring dependence.}
+Provider behavior, latency, and prices change. V2 uses one inexpensive 2024
+OpenAI model and one retrieval-first bounded ReAct policy; stronger or
+differently designed agents may behave differently. Dataset-native metrics may
+miss semantically valid explanations or accept normalization artifacts. The
+trace audit is not human validation, and its semantic candidates remain
+unresolved; v2 instead uses fresh objective-dataset items under a shared strict
+final-answer contract. Its arms share retrieval interfaces and ceilings, not
+identical retrieved dossiers, so the estimate includes retrieval-policy effects.
+
+\paragraph{Benchmark and system scope.}
+FinDER remains secondary because it lacks human-validated objective labels.
+The public English benchmarks do not represent private data, multilingual
+reporting, or investment-decision safety. Query parsing, ranking, dossier
+construction, and output parsing are deterministic workflow components, not
+autonomous agents; our claim concerns selection between one-call Static and
+bounded iterative reasoning. V2 measures expert complementarity only: no new
+router is trained or evaluated on those outcomes.

@@ -1,0 +1,19 @@
+\section{Limitations and Threats to Validity}
+
+\paragraph{Controlled rather than end-to-end evidence.}
+The study measures orchestration conditional on benchmark-provided evidence. It cannot establish how the systems retrieve from complete filings, handle OCR, or operate under missing evidence. Calling the primary result ``RAG performance'' would therefore be incorrect.
+
+\paragraph{Narrative evaluation.}
+FinanceBench and especially FinDER contain semantically valid answers that strict matching may miss. The unopened confirmatory protocol specified two model-judge sensitivity analyses, but the failed development gate stopped them before execution; in any event, no human labels would validate their calibration, and judge agreement would not remove shared model bias. These datasets remain secondary and do not enter the headline macro-average.
+
+\paragraph{Development size and selection shift.}
+This manuscript reports only a development gate, not a test estimate. Among 200 objectively labeled routing examples, only 10 were ReAct-only successes; the resulting sparse folds forced the rule fallback. Its 70\% escalation rate and lower accuracy show that the current features do not isolate those rare cases. The stop preserves the final manifest but leaves no basis for a confirmatory accuracy claim.
+
+\paragraph{Model and price dependence.}
+Provider behavior, latency, and prices change. We snapshot resolved identifiers and prices and report raw token counts alongside dollars, but the failed gate stopped the planned second-family replication. Even the negative development ordering may not transfer to other models or deployment settings.
+
+\paragraph{Benchmark and scoring validity.}
+Dataset-native execution metrics emphasize answer correctness but may under-reward valid explanations. Conversely, tolerance, scale inference, and normalization can create false matches. FinDER was excluded from routing and primary quality because no human-validated objective labels were available. The five benchmarks are public English-language tasks and do not cover private data, multilingual reporting, or investment-decision safety.
+
+\paragraph{No autonomous multi-agent claim.}
+The query parser, evidence ranker, dossier builder, and output parser are deterministic workflow components. Describing each as an autonomous agent would inflate the architectural claim. Our contribution is selective orchestration between a static language-model call and bounded iterative reasoning.

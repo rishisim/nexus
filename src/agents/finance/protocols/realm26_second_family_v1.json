@@ -1,0 +1,122 @@
+{
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260715,
+    "complementarity_binary_metric": "exact_match",
+    "dataset_quality_metrics": {
+      "convfinqa": "execution_accuracy",
+      "finqa": "execution_accuracy",
+      "tatqa": "f1"
+    },
+    "primary_quality": "unweighted macro mean across the three dataset-native metrics",
+    "report": [
+      "per-dataset quality",
+      "primary macro quality",
+      "paired percentile-bootstrap 95% intervals for react minus nexus",
+      "exact McNemar complementarity counts",
+      "calls, token categories, dollars, median latency, and p95 latency",
+      "failures and binding completeness"
+    ],
+    "transfer_criterion": {
+      "cost": "nexus mean effective USD per example <= react",
+      "quality": "nexus primary macro >= react",
+      "unique_successes": "nexus-only exact successes >= react-only exact successes",
+      "workflow_calls": "nexus mean calls per example < react"
+    }
+  },
+  "artifact_hashes": {
+    "analysis": "sha256:26f5a77ce6744799f03136ebdc15cc2fbdfa05c2476f349d28194d4f79c533ce",
+    "executor": "sha256:2081a7dac56682db70ffdfccefad1530683970355ba47dea8e7286b3669a9b4c",
+    "llm_wrapper": "sha256:831705c7061c8fe63f36ec7f068112cd662144c558b0894ec6e507067d772f6e",
+    "manifest": "sha256:25e83fa214e36fb7c431c8164b4b3e49b39a7636c0a20352094b17d0c00146e9",
+    "methods": "sha256:a3027259a30332d2a23bdc366e85830b240a187723cb2028b6d469231de61fb3",
+    "model_snapshot": "sha256:657ed1a449083de198b1817771a359ec2b5a0aa9082377fc55da3ab4ef9ed18b",
+    "prompts": "sha256:3764b8078f9ea3663c8c199dee9aafc8a24d5e32c2d1a8c765b66bfc10f1af32",
+    "protocol_guard": "sha256:38981d55b24beed84b840d1b360ec7acdfcf2171f3c33ae9b4e856e041363310",
+    "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e"
+  },
+  "budget": {
+    "empirical_basis": "Existing 150 primary-development rows used only for aggregate token/call cost planning; no outcomes used for item selection or tuning.",
+    "hard_cap_usd": 15.0,
+    "planning_estimate_usd": 0.18,
+    "planning_maximum_usd": 2.0,
+    "planning_maximum_method": "More than ten times the prior-development token-profile estimate at the frozen endpoint prices; every logical call is also pre-reserved from the USD 15 ledger.",
+    "reservation_multiplier": 1.25,
+    "smoke_counts_toward_cap": true
+  },
+  "created_at_utc": "2026-07-15T00:16:16Z",
+  "datasets": [
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "frameworks": [
+    "nexus",
+    "react"
+  ],
+  "freeze_state": "frozen",
+  "inference": {
+    "backend": "openrouter",
+    "model_id": "openai/gpt-4o-mini-2024-07-18",
+    "provider_routing": {
+      "allow_fallbacks": false,
+      "data_collection": "deny",
+      "only": [
+        "OpenAI"
+      ],
+      "require_parameters": true
+    },
+    "temperature": 0,
+    "top_p": 1.0
+  },
+  "manifest": "manifests/realm26_second_family_v1/manifest.json",
+  "model_snapshot": "snapshots/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18.json",
+  "protocol_id": "realm26_second_family_v1",
+  "replication_description": "Prospectively frozen and publicly timestamped branch-comparison replication; not a preregistration and not selector tuning.",
+  "results": {
+    "root": "results/finance/realm26_second_family_v1_openai-gpt-4o-mini-2024-07-18",
+    "tag": "realm26_second_family_v1"
+  },
+  "retry_policy": {
+    "max_attempts_per_call": 1,
+    "valid_outputs_are_immutable": true
+  },
+  "sample": {
+    "per_dataset": 25,
+    "selection": {
+      "convfinqa": "one seeded turn from each of 25 distinct dialogues absent from both prior partitions",
+      "finqa": "seeded sample outside both prior partitions",
+      "tatqa": "seeded proportional question_type x answer_from sample outside both prior partitions"
+    },
+    "total_items": 75
+  },
+  "schema_version": "realm26-finance-replication-v1",
+  "seed": 42,
+  "smoke": {
+    "dataset": "finqa",
+    "item_ordinal": 0,
+    "outcomes_must_not_be_summarized_before_full_run": true,
+    "runs_both_workflows": true
+  },
+  "source_protocol": "finance_icaif26_v2.json",
+  "stopping_rule": {
+    "consecutive_provider_failures": 2,
+    "stop_immediately_on": [
+      "hard-cap reservation failure or breach",
+      "requested/resolved model mismatch",
+      "provider routing or snapshot mismatch",
+      "dataset drift, reserved-partition overlap, or runtime target-metadata leakage",
+      "frozen artifact or resume-config mismatch",
+      "unresolved spend reservation after interruption",
+      "any need to change the prospectively frozen plan"
+    ]
+  },
+  "workflows": {
+    "evidence_token_budget": 4096,
+    "nexus": "deterministic structured search with one frozen adjudication prompt",
+    "nexus_max_output_tokens": 768,
+    "react": "bounded Search/Lookup/Finish ReAct using the frozen prompt",
+    "react_max_output_tokens_per_step": 512,
+    "react_max_steps": 7
+  }
+}

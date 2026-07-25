@@ -1,0 +1,46 @@
+{
+  "protocol_id": "finance_all5_50_v1",
+  "created": "2026-06-21",
+  "purpose": "Larger controlled finance Nexus evaluation after the all-five v3 preliminary pilot.",
+  "datasets": [
+    "financebench",
+    "finder",
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "examples_per_dataset": 50,
+  "frameworks": [
+    "react",
+    "nexus"
+  ],
+  "results_tag": "all5-50-v1",
+  "cost_proxy": "answer-generation LLM calls",
+  "accuracy_proxy": "finance-aware exact/numeric match heuristic",
+  "nexus_variant": {
+    "name": "finance_deterministic_scout_architect",
+    "description": "Deterministic evidence retrieval plus one LLM adjudicator call.",
+    "prompt_policy": {
+      "financebench": "FINANCE_ADJUDICATOR_PROMPT",
+      "finder": "FINANCE_NARRATIVE_ADJUDICATOR_PROMPT",
+      "finqa": "FINANCE_NUMERIC_ADJUDICATOR_PROMPT",
+      "tatqa": "FINANCE_NUMERIC_ADJUDICATOR_PROMPT",
+      "convfinqa": "FINANCE_NUMERIC_ADJUDICATOR_PROMPT"
+    }
+  },
+  "adapter_policy": {
+    "financebench": "Use FinanceBench evidence strings plus metadata.",
+    "finder": "Use evidence-packet environment with narrative adjudication.",
+    "finqa": "Use evidence-packet environment with numeric answer normalization.",
+    "tatqa": "Flatten table/text evidence into evidence packets.",
+    "convfinqa": "Include prior conversation context and chunk long filing contexts into overlapping searchable chunks."
+  },
+  "claim_rule": "Claim supported only when Nexus has higher paired accuracy and lower mean LLM calls than ReAct on the same valid example count.",
+  "known_caveats": [
+    "Cost is call-count cost, not token or dollar cost.",
+    "Accuracy uses a finance-aware heuristic scorer, not official dataset-native evaluation.",
+    "The worktree is not clean; interpret this protocol as a frozen research lane configuration, not a repository release tag."
+  ]
+}

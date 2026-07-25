@@ -1,0 +1,19 @@
+{
+  "_experiment": {
+    "dataset": "convfinqa",
+    "manifest_fingerprint": "sha256:1c11086b58e748c2171346edf814945784dff378f385860ac2d230b3f90965c7",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 50
+  },
+  "selective": {
+    "accuracy_em": 0.34,
+    "estimated_cost_usd": 0.08522810000000003,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 50,
+    "total_llm_calls": 122,
+    "valid_examples": 50
+  }
+}

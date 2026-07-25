@@ -1,0 +1,18 @@
+Iterative language-model agents spend additional inference in the hope of
+recovering errors made by simpler readers. We test a necessary precondition for
+that trade-off: whether the iterative expert is actually complementary. In an
+initial controlled-evidence development study, only 10 of 200 routing examples
+were ReAct-only successes, versus 42 Static-only successes; the documented
+fallback gate then escalated 70\% of cases and reduced exact accuracy from
+0.395 to 0.295. Because a trace audit exposed unequal answer and context
+contracts, we ran a prospectively frozen corrective study on 150 fresh items.
+Both arms used the same model, final-answer parser and scorer, retrieval API,
+and evidence, context, and output ceilings; every ReAct row was verified to
+produce the required first Search and observe evidence. Static scored 0.342
+versus ReAct's 0.257 (paired macro difference
+$-0.085$, 95\% CI $[-0.147,-0.025]$), with 21 versus five unique exact
+successes. ReAct used more calls and time but fewer input tokens and dollars.
+These are development-only results for bounded workflows, not a universal claim
+against agents. We followed the gate and left the 900-example final partition
+unexecuted. Routing studies should audit expert complementarity and evaluation
+contracts before optimizing when to escalate.

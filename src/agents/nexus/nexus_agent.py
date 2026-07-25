@@ -4,7 +4,8 @@ import logging
 from typing import List, Dict, Any, Tuple
 from src.agents.nexus.nexus_prompts import (
     SCOUT_PROMPT, ARCHITECT_PROMPT,
-    ADJUDICATOR_PROMPT, ADJUDICATOR_PROMPT_FEVER, ADJUDICATOR_PROMPT_QA
+    ADJUDICATOR_PROMPT, ADJUDICATOR_PROMPT_FEVER, ADJUDICATOR_PROMPT_QA,
+    ADJUDICATOR_PROMPT_CREAK, ADJUDICATOR_PROMPT_HOVER
 )
 
 logger = logging.getLogger(__name__)
@@ -306,7 +307,11 @@ class NexusAgent:
             prompt = self._adjudicator_prompt.format(question=question, dossier=dossier)
         elif self.task_type == "fever" or self.task_type == "feverous":
             prompt = ADJUDICATOR_PROMPT_FEVER.format(question=question, dossier=dossier)
-        elif self.task_type in ("hotpotqa", "musique"):
+        elif self.task_type == "creak":
+            prompt = ADJUDICATOR_PROMPT_CREAK.format(question=question, dossier=dossier)
+        elif self.task_type == "hover":
+            prompt = ADJUDICATOR_PROMPT_HOVER.format(question=question, dossier=dossier)
+        elif self.task_type in ("hotpotqa", "musique", "bamboogle", "popqa"):
             prompt = ADJUDICATOR_PROMPT_QA.format(question=question, dossier=dossier)
         else:
             prompt = ADJUDICATOR_PROMPT.format(question=question, dossier=dossier)
@@ -335,6 +340,22 @@ class NexusAgent:
                     if label in clean_line:
                         return label
             return "NOT ENOUGH INFO"
+        elif self.task_type == "creak":
+            for line in reversed(lines):
+                clean_line = line.upper().strip()
+                if "TRUE" in clean_line and "FALSE" not in clean_line:
+                    return "TRUE"
+                if "FALSE" in clean_line:
+                    return "FALSE"
+            return "FALSE"
+        elif self.task_type == "hover":
+            for line in reversed(lines):
+                clean_line = line.upper().strip()
+                if "NOT_SUPPORTED" in clean_line or "NOT SUPPORTED" in clean_line:
+                    return "NOT_SUPPORTED"
+                if "SUPPORTED" in clean_line:
+                    return "SUPPORTED"
+            return "NOT_SUPPORTED"
         else:
             # For QA: return the last non-empty line
             for line in reversed(lines):

@@ -1,0 +1,15 @@
+[
+  {
+    "run_id": 1,
+    "start_time": "2026-06-15 18:42:28",
+    "end_time": "2026-06-15 18:43:19",
+    "duration_minutes": 0.8422666666666667,
+    "num_attempted": 10,
+    "num_successful": 10,
+    "num_failed": 0,
+    "frameworks": [
+      "react",
+      "nexus"
+    ]
+  }
+]

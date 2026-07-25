@@ -1,0 +1,19 @@
+{
+  "_experiment": {
+    "dataset": "finder",
+    "manifest_fingerprint": "sha256:b98ec80928a6c050a9daa95a3636a4fd2d25c89dc9887f1682f164427b11f093",
+    "model_id": "google/gemini-2.5-flash",
+    "partition": "development",
+    "protocol_id": "finance_icaif26_v2",
+    "selected_examples": 50
+  },
+  "selective": {
+    "accuracy_em": null,
+    "estimated_cost_usd": 0.0929826,
+    "infrastructure_failure_count": 0,
+    "model_failure_count": 0,
+    "total_examples": 50,
+    "total_llm_calls": 144,
+    "valid_examples": 50
+  }
+}

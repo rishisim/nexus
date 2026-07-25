@@ -1,0 +1,35 @@
+\section{Introduction}
+
+Financial QA requires evidence selection, arithmetic, and careful handling of
+entities, periods, signs, and units. Iterative language-model agents appear well
+suited to these demands: they can search, inspect evidence, and revise an answer.
+Each extra step, however, consumes tokens and latency and can introduce a new
+retrieval, arithmetic, or formatting error. The relevant deployment question is
+therefore not simply whether an agent can answer, but when its additional
+computation is worth paying for.
+
+We study a necessary precondition for selective agency: \emph{expert
+complementarity}. A router can improve an accuracy--cost frontier only when its
+expensive branch supplies enough unique correct answers. We isolate this issue
+under controlled evidence. Every system receives the same leakage-audited
+benchmark corpus and tools, so differences reflect orchestration rather than
+access to different documents. A pre-generation gate chooses between a static,
+one-call workflow and bounded ReAct using only target-independent question and
+evidence features.
+
+Our original development study spans five financial-QA datasets, five systems,
+and provider-level telemetry. ReAct was the least accurate and most expensive
+primary system; the fallback gate routed too broadly and failed its documented
+quality--cost criterion. A trace audit then exposed an important qualification:
+method-specific answer and context contracts interact with the conservative
+scorer, so the original unique-success counts are not a semantic error
+adjudication. We therefore ran a separately, prospectively frozen corrective
+comparison on fresh development evidence. Under a shared final-answer contract,
+common resource ceilings, and a verified retrieval-first ReAct treatment, Static
+retained a macro advantage
+whose frozen 95\% interval excluded zero, although ReAct still supplied a small
+number of unique successes.
+The contribution is an auditable negative result rather than a successful
+router or a universal claim against agents: establish both measured
+complementarity and evaluation-contract fairness before training a difficulty
+router or spending a confirmatory test set.

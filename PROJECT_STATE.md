@@ -1,159 +1,122 @@
 # Project State
 
-> **Last Updated**: 2025-12-29 by Claude
-> 
-> This document describes the current state of the project. AI agents should read this file when starting work and update it when making significant changes.
+> Last updated: 2026-07-14
 
-## Quick Start
+## Active objective
 
-```bash
-# Activate environment
-source nexus_env/bin/activate
+Prepare a strong four-page **archival short paper** for REALM 2026 at EMNLP.
 
-# Run a quick test
-python test_setup.py
-```
+- Working branch: `realm26/archival-short-paper`
+- Direct-submission deadline: **2026-08-05, 23:59 AoE (UTC-12)**
+- Review format: anonymous ACL 2026 style
+- Active manuscript: `paper/realm2026/`
+- Predecessor manuscript and gate artifacts: `paper/icaif2026/`
 
----
+The July 19 deadline discussed in earlier planning belongs to the separate,
+non-archival COLM Workshop on Efficient Reasoning. It is not the REALM
+deadline.
 
-## Project Structure
+## Scientific status
 
-```
-react-research/
-├── src/
-│   ├── agents/           # Agent implementations
-│   │   ├── fever/        # FEVER fact verification (4 frameworks)
-│   │   ├── feverous/     # FEVEROUS with table support
-│   │   ├── hotpotqa/     # Multi-hop QA (4 frameworks)
-│   │   ├── musique/      # Multi-hop reasoning
-│   │   ├── nexus/        # Nexus agent core
-│   │   └── scifact/      # Scientific fact verification
-│   └── shared/           # Shared utilities (wikienv, wrappers)
-├── scripts/              # Utility scripts (analysis, downloads, debug)
-├── data/                 # Datasets (see below)
-├── results/              # Experiment results
-├── progress_notes/       # Research notes and documentation
-├── nexus_env/            # Python 3.10 virtual environment
-├── requirements.txt      # Python dependencies
-├── SETUP.md              # Setup instructions
-└── AGENTS.md             # Agent framework documentation
-```
+Protocol `finance_icaif26_v2` repaired leakage, added dataset-native scoring,
+bound model identifiers to requests, recorded tokens/cost/latency, and created
+deterministic development/final manifests.
 
----
+The full development sweep contains 1,250 system-example results: five systems
+on 50 examples from each of five datasets. All runs completed without provider
+failures. On the three objective primary datasets:
 
-## Environment
+| System | Development macro | USD/example |
+| --- | ---: | ---: |
+| CoT/PoT | **0.4323** | 0.000819 |
+| Static Nexus | 0.4304 | 0.001010 |
+| Direct | 0.4138 | 0.000343 |
+| Selective Nexus | 0.3675 | 0.001322 |
+| ReAct | 0.2993 | 0.001479 |
 
-| Component | Version/Status |
-|-----------|----------------|
-| Python | 3.10 (via Homebrew) |
-| Virtual Environment | `nexus_env/` |
-| PyTorch | 2.9.1 |
-| spaCy | 3.8.11 |
-| NumPy | 2.2.6 |
-| Gemini API | ✅ Configured in `.env` |
+Only 10 of 200 objective routing examples were ReAct-only successes, versus 42
+Static-only successes. The documented fallback escalated 70% of cases and
+reduced exact accuracy from 0.395 (always static) to 0.295. The documented
+go/no-go criterion failed. A prospectively frozen 75-item replication on
+`openai/gpt-4o-mini-2024-07-18` repeated the configured-system ordering:
+Static scored 0.3093 versus ReAct's 0.0683, with 19 versus one unique exact
+success.
 
-### API Keys
-- `GEMINI_API_KEY` — Required, stored in `.env`
+A deterministic trace audit flagged 28 of the original 52 one-sided cases as
+scorer-sensitive candidates. This is not human adjudication and does not change
+the official scores; it shows that the method-specific answer contracts and
+context budgets must be treated as part of the result.
 
----
+## Locked research constraints
 
-## Datasets
+- The 900-example final manifest remains unexecuted and unscored. Identifier
+  metadata was used only to enforce replication disjointness.
+- Do not run `--partition final` until a new, independently frozen protocol
+  explicitly passes its own development gate.
+- Do not tune on the existing 250 outcomes and then describe them as evaluation.
+- Describe the setting as controlled/evidence-conditioned reasoning, not
+  end-to-end retrieval or RAG.
+- Keep FinDER secondary unless narrative correctness receives human validation.
+- Treat deterministic parser/ranker/builder stages as workflow components, not
+  autonomous agents.
 
-| Dataset | File(s) | Status | Size |
-|---------|---------|--------|------|
-| HotPotQA (dev) | `data/hotpot_dev_distractor_v1.json` | ✅ Ready | 44.2 MB |
-| FEVER (train) | `data/train.jsonl` | ✅ Ready | 31.4 MB |
-| FEVER (dev) | `data/paper_dev.jsonl` | ✅ Ready | 2.1 MB |
-| FEVEROUS (train) | `data/feverous_train.jsonl` | ✅ Ready | 13.7 MB |
-| FEVEROUS (dev) | `data/feverous_dev.jsonl` | ✅ Ready | 1.5 MB |
-| FEVEROUS DB | `data/feverous_wikiv1.db` | ✅ Ready | ~13 GB |
-| SciFact | `data/scifact/` | ✅ Ready | 8.4 MB |
-| AVeriTeC | `data/averitec_*.jsonl` | ⚠️ Present but not used | 0.7 MB |
+## Current paper claim
 
----
+The defensible short-paper claim is a focused negative result:
 
-## Agent Frameworks
+> Under controlled evidence, a bounded ReAct expert was rarely complementary
+> to a structured one-call workflow; its documented fallback therefore routed
+> too broadly, increasing cost and reducing accuracy. A frozen second-family
+> replication repeated the configured ordering, while a trace audit exposed
+> answer-contract and scorer sensitivity. Agent routers should establish both
+> measured complementarity and evaluation-contract fairness before learning
+> when to escalate.
 
-Four agent frameworks are implemented for each task:
+The paper must label every reported number as development-only and must not
+claim universal agentic failure.
 
-1. **ReAct** — Standard single-trace reasoning
-2. **CoT-SC** — Chain-of-thought with self-consistency  
-3. **Nexus** — Scout → Architect → Adjudicator pipeline
-4. **Reflexion** — Self-reflection with iterative improvement
+## Completed acceptance work
 
-See [`AGENTS.md`](AGENTS.md) and [`progress_notes/frameworks.md`](progress_notes/frameworks.md) for details.
+1. Ran the deterministic ReAct/Static fairness audit and produced a frozen
+   author-review queue.
+2. Froze and completed a 75-item second-family replication without executing
+   the final partition.
+3. Added paired bootstrap intervals, complementarity counts, and full
+   calls/tokens/cost/latency artifacts.
+4. Reframed the ACL draft around the negative result and its evaluation-contract
+   qualification.
+5. Built a provider-free anonymous artifact with integrity and anonymity checks.
 
----
+## High-value work remaining
 
-## Recent Changes
+1. Complete true author adjudication of the 51 queued fairness cases; do not use
+   the deterministic candidate flags as semantic labels.
+2. If budget and time permit, freeze a prompt-harmonized, context-matched rerun
+   on fresh development evidence to separate workflow effects from answer
+   contract effects.
+3. Conduct hostile methodological and clarity reviews, resolve all manuscript
+   claims against artifacts, and finish ACL ethics/AI-use/admin fields.
+4. Perform final four-page, anonymity, citation, font, and rendered-PDF QA before
+   the August 5 submission.
 
-### 2025-12-29
-- Migrated project from Windows to macOS
-- Installed Python 3.10 via Homebrew
-- Created `nexus_env` virtual environment
-- Fixed `requirements.txt` (UTF-16 → UTF-8, removed `pywin32`)
-- Moved 19 loose scripts from root to `scripts/`
-- Downloaded FEVER train.jsonl and SciFact dataset
-- Downloaded FEVEROUS Wikipedia database (~13GB)
-- Created `SETUP.md` with setup instructions
-- Tested FEVEROUS agents (ReAct + Nexus) successfully
+## Key artifacts
 
----
+- `paper/icaif2026/artifacts/development_summary.json`
+- `paper/icaif2026/artifacts/router_training_report.json`
+- `paper/realm2026/artifacts/paired_statistics.json`
+- `paper/realm2026/artifacts/fairness_audit.json`
+- `paper/realm2026/artifacts/second_family_replication_v1.json`
+- `paper/realm2026/notes/fairness_audit.md`
+- `paper/realm2026/artifact/`
+- `paper/icaif2026/main_track_decision.md`
+- `progress_notes/icaif_2026_integration_log.md`
+- `src/agents/finance/protocols/finance_icaif26_v2.json`
+- `src/agents/finance/protocols/manifests/`
+- `results/finance/*/finance_icaif26_v2_development_*`
 
-## Known Issues
+## Validation baseline
 
-1. **Gym deprecation warning** — Gym is unmaintained; consider migrating to Gymnasium
-2. **FEVEROUS table lookups limited** — Need to verify DB utilities are working
-3. **Rate limiting** — Gemini API has 15 RPM limit; agents include delays
-
----
-
-## Running Experiments
-
-### Quick Tests
-```bash
-# Test environment setup
-python test_setup.py
-
-# Test FEVEROUS agents  
-python test_feverous.py
-```
-
-### Full Experiments
-```bash
-# FEVER experiments
-cd src/agents/fever
-python run_reflexion_experiments.py
-
-# HotPotQA experiments
-cd src/agents/hotpotqa
-python run_hotpotqa_experiments.py
-```
-
----
-
-## Notes for AI Agents
-
-When making changes to this repository:
-
-### Keep the Project Clean
-
-1. **No loose files in root** — Scripts go in `scripts/`, agents go in `src/agents/`
-2. **No temporary files** — Delete any temp files, debug outputs, or test artifacts after use
-3. **No duplicate code** — Use shared utilities in `src/shared/` when possible
-4. **Clean imports** — Remove unused imports before committing
-5. **Meaningful names** — Use descriptive file and function names
-6. **Delete before creating** — If replacing a file, delete the old one first
-
-### Before Making Changes
-
-1. **Read `PROJECT_STATE.md`** to understand current state
-2. **Check dataset availability** before running experiments
-3. **Respect API rate limits** (Gemini: 15 RPM)
-
-### After Making Changes
-
-1. **Update `PROJECT_STATE.md`** with what you changed (see `/update-project-state` workflow)
-2. **Test changes** using the test scripts before committing
-3. **Clean up** any temporary files or test outputs you created
-4. **Verify structure** — Run `ls` on root to ensure no new loose files were added
+The task branches individually reported 104--125 passing finance tests and
+successful artifact/PDF checks. Rerun the integrated local finance suite,
+analysis validators, artifact validator, and LaTeX/PDF checks before publishing
+this branch.

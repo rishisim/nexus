@@ -1,0 +1,444 @@
+{
+  "datasets": {
+    "convfinqa": {
+      "cot": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00092418084,
+        "cost_total_usd": 0.046209042000000006,
+        "count": 50,
+        "exact_match": 0.38,
+        "f1": 0.38,
+        "latency_median_ms": 1580.350478998298,
+        "latency_p95_ms": 4218.41974634517,
+        "primary_value": 0.38,
+        "telemetry_complete": 50
+      },
+      "direct": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00042428034,
+        "cost_total_usd": 0.02121401699999999,
+        "count": 50,
+        "exact_match": 0.38,
+        "f1": 0.38,
+        "latency_median_ms": 799.8680209966551,
+        "latency_p95_ms": 1197.9888062520326,
+        "primary_value": 0.38,
+        "telemetry_complete": 50
+      },
+      "nexus": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00117774558,
+        "cost_total_usd": 0.058887279000000015,
+        "count": 50,
+        "exact_match": 0.36,
+        "f1": 0.36,
+        "latency_median_ms": 1028.9803959967685,
+        "latency_p95_ms": 2299.242122251598,
+        "primary_value": 0.36,
+        "telemetry_complete": 50
+      },
+      "react": {
+        "calls_per_example": 3.24,
+        "calls_total": 162,
+        "cost_per_example_usd": 0.0018723375000000001,
+        "cost_total_usd": 0.09361687499999999,
+        "count": 50,
+        "exact_match": 0.28,
+        "f1": 0.28,
+        "latency_median_ms": 3943.3997080013796,
+        "latency_p95_ms": 7787.535054054023,
+        "primary_value": 0.28,
+        "telemetry_complete": 50
+      },
+      "selective": {
+        "calls_per_example": 2.44,
+        "calls_total": 122,
+        "cost_per_example_usd": 0.00168751638,
+        "cost_total_usd": 0.08437581899999998,
+        "count": 50,
+        "exact_match": 0.34,
+        "f1": 0.34,
+        "latency_median_ms": 3421.9108125071216,
+        "latency_p95_ms": 8152.359949453965,
+        "primary_value": 0.34,
+        "telemetry_complete": 50
+      }
+    },
+    "financebench": {
+      "cot": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.0008200328400000001,
+        "cost_total_usd": 0.041001642,
+        "count": 50,
+        "exact_match": 0.46,
+        "f1": 0.46,
+        "latency_median_ms": 1896.6404579987284,
+        "latency_p95_ms": 4595.0966562541,
+        "primary_value": 0.46,
+        "telemetry_complete": 50
+      },
+      "direct": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00028102734,
+        "cost_total_usd": 0.014051367000000002,
+        "count": 50,
+        "exact_match": 0.26,
+        "f1": 0.26,
+        "latency_median_ms": 886.2206255034835,
+        "latency_p95_ms": 1859.7490935968376,
+        "primary_value": 0.26,
+        "telemetry_complete": 50
+      },
+      "nexus": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00089310276,
+        "cost_total_usd": 0.044655138,
+        "count": 50,
+        "exact_match": 0.46,
+        "f1": 0.46,
+        "latency_median_ms": 1278.6775835011213,
+        "latency_p95_ms": 3515.1585999992635,
+        "primary_value": 0.46,
+        "telemetry_complete": 50
+      },
+      "react": {
+        "calls_per_example": 3.38,
+        "calls_total": 169,
+        "cost_per_example_usd": 0.00193271562,
+        "cost_total_usd": 0.09663578099999999,
+        "count": 50,
+        "exact_match": 0.2,
+        "f1": 0.2,
+        "latency_median_ms": 4396.577083502052,
+        "latency_p95_ms": 8801.458408049073,
+        "primary_value": 0.2,
+        "telemetry_complete": 50
+      },
+      "selective": {
+        "calls_per_example": 3.1,
+        "calls_total": 155,
+        "cost_per_example_usd": 0.00175633722,
+        "cost_total_usd": 0.087816861,
+        "count": 50,
+        "exact_match": 0.24,
+        "f1": 0.24,
+        "latency_median_ms": 4304.922062499827,
+        "latency_p95_ms": 9971.24722454682,
+        "primary_value": 0.24,
+        "telemetry_complete": 50
+      }
+    },
+    "finder": {
+      "cot": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00113838318,
+        "cost_total_usd": 0.056919159,
+        "count": 50,
+        "exact_match": null,
+        "f1": null,
+        "latency_median_ms": 2894.988354499219,
+        "latency_p95_ms": 6215.481843899033,
+        "primary_value": null,
+        "telemetry_complete": 50
+      },
+      "direct": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00032915718,
+        "cost_total_usd": 0.016457858999999995,
+        "count": 50,
+        "exact_match": null,
+        "f1": null,
+        "latency_median_ms": 914.090500002203,
+        "latency_p95_ms": 1850.2814062474492,
+        "primary_value": null,
+        "telemetry_complete": 50
+      },
+      "nexus": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00106309962,
+        "cost_total_usd": 0.053154981000000004,
+        "count": 50,
+        "exact_match": null,
+        "f1": null,
+        "latency_median_ms": 1517.6981459990202,
+        "latency_p95_ms": 3790.9072417038246,
+        "primary_value": null,
+        "telemetry_complete": 50
+      },
+      "react": {
+        "calls_per_example": 2.86,
+        "calls_total": 143,
+        "cost_per_example_usd": 0.0018368064,
+        "cost_total_usd": 0.09184032,
+        "count": 50,
+        "exact_match": null,
+        "f1": null,
+        "latency_median_ms": 5125.317540991091,
+        "latency_p95_ms": 8909.00497395123,
+        "primary_value": null,
+        "telemetry_complete": 50
+      },
+      "selective": {
+        "calls_per_example": 2.88,
+        "calls_total": 144,
+        "cost_per_example_usd": 0.0018410554800000001,
+        "cost_total_usd": 0.09205277400000003,
+        "count": 50,
+        "exact_match": null,
+        "f1": null,
+        "latency_median_ms": 5285.385374991165,
+        "latency_p95_ms": 7776.861016409747,
+        "primary_value": null,
+        "telemetry_complete": 50
+      }
+    },
+    "finqa": {
+      "cot": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00096507378,
+        "cost_total_usd": 0.048253689000000016,
+        "count": 50,
+        "exact_match": 0.28,
+        "f1": 0.28,
+        "latency_median_ms": 1981.8673750014568,
+        "latency_p95_ms": 3097.7126792018676,
+        "primary_value": 0.28,
+        "telemetry_complete": 50
+      },
+      "direct": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00036795528,
+        "cost_total_usd": 0.018397764,
+        "count": 50,
+        "exact_match": 0.22,
+        "f1": 0.22,
+        "latency_median_ms": 847.1872704976704,
+        "latency_p95_ms": 1446.9719938995688,
+        "primary_value": 0.22,
+        "telemetry_complete": 50
+      },
+      "nexus": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00117010674,
+        "cost_total_usd": 0.058505336999999984,
+        "count": 50,
+        "exact_match": 0.32,
+        "f1": 0.32,
+        "latency_median_ms": 1378.9950414975465,
+        "latency_p95_ms": 3430.656675148929,
+        "primary_value": 0.32,
+        "telemetry_complete": 50
+      },
+      "react": {
+        "calls_per_example": 2.76,
+        "calls_total": 138,
+        "cost_per_example_usd": 0.00150594444,
+        "cost_total_usd": 0.07529722200000001,
+        "count": 50,
+        "exact_match": 0.14,
+        "f1": 0.14,
+        "latency_median_ms": 3459.1209374993923,
+        "latency_p95_ms": 6619.464931948822,
+        "primary_value": 0.14,
+        "telemetry_complete": 50
+      },
+      "selective": {
+        "calls_per_example": 1.86,
+        "calls_total": 93,
+        "cost_per_example_usd": 0.0013780378259999999,
+        "cost_total_usd": 0.0689018913,
+        "count": 50,
+        "exact_match": 0.28,
+        "f1": 0.28,
+        "latency_median_ms": 2598.86841649859,
+        "latency_p95_ms": 6259.306321597244,
+        "primary_value": 0.28,
+        "telemetry_complete": 50
+      }
+    },
+    "tatqa": {
+      "cot": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00056795508,
+        "cost_total_usd": 0.028397754,
+        "count": 50,
+        "exact_match": 0.5,
+        "f1": 0.637,
+        "latency_median_ms": 1412.5589999966905,
+        "latency_p95_ms": 2193.4671418519424,
+        "primary_value": 0.637,
+        "telemetry_complete": 50
+      },
+      "direct": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00023581008,
+        "cost_total_usd": 0.011790503999999999,
+        "count": 50,
+        "exact_match": 0.44,
+        "f1": 0.6414,
+        "latency_median_ms": 842.924562497501,
+        "latency_p95_ms": 1188.3855083957314,
+        "primary_value": 0.6414,
+        "telemetry_complete": 50
+      },
+      "nexus": {
+        "calls_per_example": 1,
+        "calls_total": 50,
+        "cost_per_example_usd": 0.00068166846,
+        "cost_total_usd": 0.034083423,
+        "count": 50,
+        "exact_match": 0.44,
+        "f1": 0.6112,
+        "latency_median_ms": 1070.101582998177,
+        "latency_p95_ms": 1700.9043456473592,
+        "primary_value": 0.6112,
+        "telemetry_complete": 50
+      },
+      "react": {
+        "calls_per_example": 2.92,
+        "calls_total": 146,
+        "cost_per_example_usd": 0.00105938514,
+        "cost_total_usd": 0.05296925700000001,
+        "count": 50,
+        "exact_match": 0.32,
+        "f1": 0.4778,
+        "latency_median_ms": 3460.9166464979353,
+        "latency_p95_ms": 5910.616970794215,
+        "primary_value": 0.4778,
+        "telemetry_complete": 50
+      },
+      "selective": {
+        "calls_per_example": 2.28,
+        "calls_total": 114,
+        "cost_per_example_usd": 0.00090023472,
+        "cost_total_usd": 0.04501173599999999,
+        "count": 50,
+        "exact_match": 0.32,
+        "f1": 0.48260000000000003,
+        "latency_median_ms": 3080.297062500904,
+        "latency_p95_ms": 4881.987083704371,
+        "primary_value": 0.48260000000000003,
+        "telemetry_complete": 50
+      }
+    }
+  },
+  "model_id": "google/gemini-2.5-flash",
+  "partition": "development",
+  "primary_cost_per_example_usd": {
+    "cot": 0.0008190699,
+    "direct": 0.00034268190000000004,
+    "nexus": 0.00100984026,
+    "react": 0.00147922236,
+    "selective": 0.001321929642
+  },
+  "primary_macro": {
+    "cot": 0.43233333333333335,
+    "direct": 0.4138,
+    "nexus": 0.4304,
+    "react": 0.2992666666666667,
+    "selective": 0.3675333333333334
+  },
+  "results_tag": "dev-20260709",
+  "router_disagreement": {
+    "convfinqa": {
+      "both": 11,
+      "neither": 29,
+      "react_only": 3,
+      "static_only": 7
+    },
+    "financebench": {
+      "both": 10,
+      "neither": 27,
+      "react_only": 0,
+      "static_only": 13
+    },
+    "finqa": {
+      "both": 3,
+      "neither": 30,
+      "react_only": 4,
+      "static_only": 13
+    },
+    "tatqa": {
+      "both": 13,
+      "neither": 25,
+      "react_only": 3,
+      "static_only": 9
+    }
+  },
+  "router_label_policy": {
+    "excluded": {
+      "finder": "no objective human-validated correctness label"
+    },
+    "included": [
+      "financebench",
+      "finqa",
+      "tatqa",
+      "convfinqa"
+    ],
+    "positive": "react exact-correct and static-nexus exact-incorrect"
+  },
+  "router_observed_rerun": {
+    "cost_per_example_usd": 0.0014305315365,
+    "count": 200,
+    "escalation_rate": 0.7,
+    "exact_accuracy": 0.295,
+    "note": "Fresh deployable selective rerun; differs from the offline saved-branch simulation used to select the fallback."
+  },
+  "router_training": {
+    "benefit_count": 10,
+    "cv_auc": null,
+    "fallback_reason": "at least one validation fold has fewer than five usable benefit examples",
+    "fallback_used": true,
+    "n_examples": 200,
+    "react_accuracy": 0.235,
+    "router": {
+      "coefficients": null,
+      "coverage_median": 0.666667,
+      "feature_names": [
+        "question_char_count",
+        "question_token_count",
+        "evidence_char_count",
+        "evidence_token_count",
+        "numeric_count",
+        "operator_count",
+        "period_count",
+        "entity_count",
+        "has_table",
+        "has_conversation",
+        "has_narrative",
+        "lexical_coverage",
+        "retrieval_top_score",
+        "retrieval_second_score",
+        "retrieval_score_margin",
+        "chunk_count",
+        "chunk_dispersion"
+      ],
+      "intercept": null,
+      "margin_q25": 1.0,
+      "means": null,
+      "mode": "rule",
+      "scales": null,
+      "seed": 20260709,
+      "threshold": null
+    },
+    "selected_accuracy": 0.28,
+    "selected_escalation_rate": 0.7,
+    "selected_mean_cost": 0.0014329407015000002,
+    "static_accuracy": 0.395
+  },
+  "schema_version": "finance-development-analysis-v1"
+}

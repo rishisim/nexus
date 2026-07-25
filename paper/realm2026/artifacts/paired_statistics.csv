@@ -1,0 +1,41 @@
+scope,dataset,metric,left,right,n_pairs,left_mean,right_mean,difference_right_minus_left,cohen_dz,ci_lower,ci_upper,bootstrap_seed,paired_test,p_value,discordant_pairs
+dataset,finqa,exact_match,direct,cot,50,0.22,0.28,0.06,0.25010636035367373,0.0,0.14,20260709,exact_two_sided_mcnemar,0.25,3
+dataset,tatqa,f1,direct,cot,50,0.6414,0.637,-0.004400000000000003,-0.01088371022554899,-0.1158,0.10440499999999991,20260710,not_applicable,,
+dataset,convfinqa,exact_match,direct,cot,50,0.38,0.38,0.0,0.0,-0.1,0.1,20260711,exact_two_sided_mcnemar,1.0,6
+dataset,finqa,exact_match,direct,nexus,50,0.22,0.32,0.1,0.27456258919345766,0.0,0.2,20260712,exact_two_sided_mcnemar,0.125,7
+dataset,tatqa,f1,direct,nexus,50,0.6414,0.6112,-0.030200000000000005,-0.0754197264830549,-0.13940499999999995,0.07900499999999992,20260713,not_applicable,,
+dataset,convfinqa,exact_match,direct,nexus,50,0.38,0.36,-0.02,-0.05299078148731252,-0.12,0.08,20260714,exact_two_sided_mcnemar,1.0,7
+dataset,finqa,exact_match,direct,react,50,0.22,0.14,-0.08,-0.1638576060745828,-0.22,0.06,20260715,exact_two_sided_mcnemar,0.3876953125,12
+dataset,tatqa,f1,direct,react,50,0.6414,0.4778,-0.1636,-0.3053405080990315,-0.312005,-0.01778500000000022,20260716,not_applicable,,
+dataset,convfinqa,exact_match,direct,react,50,0.38,0.28,-0.1,-0.1979898987322333,-0.24,0.04,20260717,exact_two_sided_mcnemar,0.266845703125,13
+dataset,finqa,exact_match,direct,selective,50,0.22,0.28,0.06,0.12768375906520113,-0.06,0.18049999999999272,20260718,exact_two_sided_mcnemar,0.548828125,11
+dataset,tatqa,f1,direct,selective,50,0.6414,0.48260000000000003,-0.1588,-0.3083388026299418,-0.3018,-0.019795000000000076,20260719,not_applicable,,
+dataset,convfinqa,exact_match,direct,selective,50,0.38,0.34,-0.04,-0.08109982249088891,-0.18,0.1,20260720,exact_two_sided_mcnemar,0.7744140625,12
+dataset,finqa,exact_match,cot,nexus,50,0.28,0.32,0.04,0.11507929111375009,-0.06,0.14,20260721,exact_two_sided_mcnemar,0.6875,6
+dataset,tatqa,f1,cot,nexus,50,0.637,0.6112,-0.025800000000000003,-0.05753396338246196,-0.148,0.09660999999999986,20260722,not_applicable,,
+dataset,convfinqa,exact_match,cot,nexus,50,0.38,0.36,-0.02,-0.05299078148731252,-0.12,0.08,20260723,exact_two_sided_mcnemar,1.0,7
+dataset,finqa,exact_match,cot,react,50,0.28,0.14,-0.14,-0.26172913441244045,-0.28,0.0,20260724,exact_two_sided_mcnemar,0.11846923828125,15
+dataset,tatqa,f1,cot,react,50,0.637,0.4778,-0.1592,-0.27247539930339604,-0.318005,0.0006049999999999298,20260725,not_applicable,,
+dataset,convfinqa,exact_match,cot,react,50,0.38,0.28,-0.1,-0.2400980191995124,-0.22,0.02,20260726,exact_two_sided_mcnemar,0.1796875,9
+dataset,finqa,exact_match,cot,selective,50,0.28,0.28,0.0,0.0,-0.14,0.14,20260727,exact_two_sided_mcnemar,1.0,12
+dataset,tatqa,f1,cot,selective,50,0.637,0.48260000000000003,-0.1544,-0.29397546840806926,-0.2986,-0.010800000000000004,20260728,not_applicable,,
+dataset,convfinqa,exact_match,cot,selective,50,0.38,0.34,-0.04,-0.08890008890013336,-0.16,0.08,20260729,exact_two_sided_mcnemar,0.75390625,10
+dataset,finqa,exact_match,nexus,react,50,0.32,0.14,-0.18,-0.3212864259352503,-0.32,-0.02,20260730,exact_two_sided_mcnemar,0.049041748046875,17
+dataset,tatqa,f1,nexus,react,50,0.6112,0.4778,-0.1334,-0.3054289982425801,-0.2596,-0.0182,20260731,not_applicable,,
+dataset,convfinqa,exact_match,nexus,react,50,0.36,0.28,-0.08,-0.179990817029303,-0.2,0.04,20260732,exact_two_sided_mcnemar,0.34375,10
+dataset,finqa,exact_match,nexus,selective,50,0.32,0.28,-0.04,-0.08890008890013336,-0.16,0.08,20260733,exact_two_sided_mcnemar,0.75390625,10
+dataset,tatqa,f1,nexus,selective,50,0.6112,0.48260000000000003,-0.1286,-0.29530786501030254,-0.252405,-0.012195000000000069,20260734,not_applicable,,
+dataset,convfinqa,exact_match,nexus,selective,50,0.36,0.34,-0.02,-0.04671860509861999,-0.14,0.1,20260735,exact_two_sided_mcnemar,1.0,9
+dataset,finqa,exact_match,react,selective,50,0.14,0.28,0.14,0.3460500302577599,0.04,0.26,20260736,exact_two_sided_mcnemar,0.0390625,9
+dataset,tatqa,f1,react,selective,50,0.4778,0.48260000000000003,0.004800000000000002,0.020603619736806522,-0.0596,0.0694,20260737,not_applicable,,
+dataset,convfinqa,exact_match,react,selective,50,0.28,0.34,0.06,0.1913047578431963,-0.02,0.14,20260738,exact_two_sided_mcnemar,0.375,5
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",direct,cot,150,0.4138,0.43233333333333335,0.018533333333333332,0.05493649231631555,-0.03513333333333333,0.0716,20261709,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",direct,nexus,150,0.4138,0.4304,0.0166,0.0433377687491134,-0.0436,0.07653499999999996,20261710,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",direct,react,150,0.4138,0.2992666666666667,-0.11453333333333333,-0.225501014492061,-0.19620333333333329,-0.0342,20261711,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",direct,selective,150,0.4138,0.3675333333333334,-0.046266666666666664,-0.09292493044464861,-0.12566833333333333,0.033534999999999975,20261712,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",cot,nexus,150,0.43233333333333335,0.4304,-0.0019333333333333344,-0.004933028269098112,-0.06326833333333332,0.06053666666666662,20261713,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",cot,react,150,0.43233333333333335,0.2992666666666667,-0.13306666666666667,-0.25897212534251884,-0.21546833333333332,-0.05299833333333336,20261714,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",cot,selective,150,0.43233333333333335,0.3675333333333334,-0.0648,-0.13168685779287442,-0.14140166666666665,0.014133333333333331,20261715,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",nexus,react,150,0.4304,0.2992666666666667,-0.13113333333333332,-0.2718981922079897,-0.20727166666666663,-0.05566333333333338,20261716,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",nexus,selective,150,0.4304,0.3675333333333334,-0.06286666666666667,-0.14367776760500078,-0.13186666666666666,0.00506833333333331,20261717,stratified_paired_bootstrap,,
+primary_macro,macro,"unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",react,selective,150,0.2992666666666667,0.3675333333333334,0.06826666666666667,0.20857598802526323,0.01859833333333335,0.12073666666666662,20261718,stratified_paired_bootstrap,,

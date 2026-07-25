@@ -1,0 +1,1972 @@
+{
+  "protocol_id": "finance_all5_50_v1",
+  "generated_at": "2026-06-21 11:21:13",
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "results_tag": "all5-50-v1",
+  "aggregate": {
+    "paired_examples": 250,
+    "react_correct": 165.0,
+    "nexus_correct": 182.0,
+    "react_calls": 609,
+    "nexus_calls": 250,
+    "both_correct": 151,
+    "react_only_correct": 14,
+    "nexus_only_correct": 31,
+    "both_wrong": 54,
+    "react_em": 0.66,
+    "nexus_em": 0.728,
+    "react_correct_per_call": 0.270936,
+    "nexus_correct_per_call": 0.728,
+    "claim_status": "supported_better_and_cheaper"
+  },
+  "datasets": [
+    {
+      "dataset": "financebench",
+      "results_dir": "/Users/rishisim/Documents/research/nexus/results/finance/financebench/seed42_gemini-2.5-flash_all5-50-v1",
+      "status": "ok",
+      "paired_examples": 50,
+      "react": {
+        "valid_examples": 50,
+        "correct": 41.0,
+        "accuracy_em": 0.82,
+        "accuracy_f1": 0.4815,
+        "total_llm_calls": 126,
+        "avg_calls_per_example": 2.52,
+        "correct_per_llm_call": 0.325397
+      },
+      "nexus": {
+        "valid_examples": 50,
+        "correct": 41.0,
+        "accuracy_em": 0.82,
+        "accuracy_f1": 0.4616,
+        "total_llm_calls": 50,
+        "avg_calls_per_example": 1.0,
+        "correct_per_llm_call": 0.82
+      },
+      "audit_counts": {
+        "both_correct": 36,
+        "react_only_correct": 5,
+        "nexus_only_correct": 5,
+        "both_wrong": 4
+      },
+      "disagreements": [
+        {
+          "question_idx": 3,
+          "bucket": "nexus_only_correct",
+          "question": "What drove operating margin change as of FY2022 for 3M? If operating margin is not a useful metric for a company like this, then please state that and explain why.",
+          "gt_answer": "Operating Margin for 3M in FY2022 has decreased by 1.7% primarily due to: \n-Decrease in gross Margin\n-mostly one-off charges including Combat Arms Earplugs litigation, impairment related to exiting PFAS manufacturing, costs related to exiting Russia and divestiture-related restructuring\ncharges",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "The operating margin change for 3M in FY2022 was driven by an increase in SG&A as a percent of sales. This increase was primarily due to special item costs for significant litigation (Combat Arms Earplugs litigation, a $1.2 billion pre-tax charge), impairment costs from exiting PFAS manufacturing, costs related to exiting Russia, divestiture-related restructuring charges, and investments in growth initiatives. These negative impacts were partially offset by restructuring benefits and cost management.",
+            "em": 1.0,
+            "f1": 0.5333,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 16,
+          "bucket": "nexus_only_correct",
+          "question": "Roughly how many times has AES Corporation sold its inventory in FY2022? Calculate inventory turnover ratio for the FY2022; if conventional inventory management is not meaningful for the company then state that and explain why.",
+          "gt_answer": "AES has converted inventory 9.5 times in FY 2022.",
+          "react": {
+            "answer": "12.14 times",
+            "em": 0.0,
+            "f1": 0.2,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "AES Corporation sold its inventory approximately 9.54 times in FY2022. The inventory turnover ratio for FY2022 is 9.54.",
+            "em": 1.0,
+            "f1": 0.3333,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 18,
+          "bucket": "react_only_correct",
+          "question": "What is Amazon's FY2017 days payable outstanding (DPO)? DPO is defined as: 365 * (average accounts payable between FY2016 and FY2017) / (FY2017 COGS + change in inventory between FY2016 and FY2017). Round your answer to two decimal places. Address the question by using the line items and information shown within the balance sheet and the P&L statement.",
+          "gt_answer": "93.86",
+          "react": {
+            "answer": "93.86",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "DPO = 365 * 29,9",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 42,
+          "bucket": "react_only_correct",
+          "question": "How much has the effective tax rate of American Express changed between FY2021 and FY2022?",
+          "gt_answer": "The effective tax rate for American Express has changed/dropped from 24.6% in FY 2021 to 21.6% in FY 2022.",
+          "react": {
+            "answer": "21.6% - 24.6% = -3.0%",
+            "em": 1.0,
+            "f1": 0.2667,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "-3.0%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 53,
+          "bucket": "both_wrong",
+          "question": "Was there any drop in Cash & Cash equivalents between FY 2023 and Q2 of FY2024?",
+          "gt_answer": "Yes, there was a decline of ~42% between FY2023 and Q2 of FY 2024.",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 67,
+          "bucket": "react_only_correct",
+          "question": "What is the FY2017 return on assets (ROA) for Coca Cola? ROA is defined as: FY2017 net income / (average total assets between FY2016 and FY2017). Round your answer to two decimal places. Give a response to the question by relying on the details shown in the balance sheet and the P&L statement.",
+          "gt_answer": "0.01",
+          "react": {
+            "answer": "0.01",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1.42%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 81,
+          "bucket": "both_wrong",
+          "question": "What is the FY2019 cash conversion cycle (CCC) for General Mills? CCC is defined as: DIO + DSO - DPO. DIO is defined as: 365 * (average inventory between FY2018 and FY2019) / (FY2019 COGS). DSO is defined as: 365 * (average accounts receivable between FY2018 and FY2019) / (FY2019 Revenue). DPO is defined as: 365 * (average accounts payable between FY2018 and FY2019) / (FY2019 COGS + change in inventory between FY2018 and FY2019). Round your answer to two decimal places. Address the question by using the line items and information shown within the income statement and the balance sheet.",
+          "gt_answer": "-3.7",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "DSO",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 83,
+          "bucket": "nexus_only_correct",
+          "question": "According to the information provided in the statement of cash flows, what is the FY2020 free cash flow (FCF) for General Mills? FCF here is defined as: (cash from operations - capex). Answer in USD millions.",
+          "gt_answer": "$3215.00",
+          "react": {
+            "answer": "3676.2 - (-460.8) = 4137.0",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "3,215.4 USD millions",
+            "em": 1.0,
+            "f1": 0.6667,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 91,
+          "bucket": "both_wrong",
+          "question": "What is the amount of the gain accruing to JnJ as a result of the separation of its Consumer Health business segment, as of August 30, 2023?",
+          "gt_answer": "JnJ will make a gain of approximately $20 billion from the separation of its Consumer Health business segment.",
+          "react": {
+            "answer": "$13.2 billion",
+            "em": 0.0,
+            "f1": 0.1333,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$13.2 billion",
+            "em": 0.0,
+            "f1": 0.1333,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 95,
+          "bucket": "nexus_only_correct",
+          "question": "If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",
+          "gt_answer": "They could receive $66.56 per share.",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "$66.56",
+            "em": 1.0,
+            "f1": 0.4444,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 127,
+          "bucket": "react_only_correct",
+          "question": "As of May 26, 2023, what is the total amount Pepsico may borrow under its unsecured revolving credit agreements?",
+          "gt_answer": "Total amount Pepsico may borrow under unsecured revolving credit agreements = $8,400,000,000.",
+          "react": {
+            "answer": "$8,400,000,000",
+            "em": 1.0,
+            "f1": 0.1667,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "$4,200,000,000",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 130,
+          "bucket": "nexus_only_correct",
+          "question": "Did Pfizer grow its PPNE between FY20 and FY21?",
+          "gt_answer": "Yes, change in PPNE was positive year over year",
+          "react": {
+            "answer": "Yes, Pfizer grew its PP&E from $13,745 million in FY2020 to $14,882 million in FY2021.",
+            "em": 0.0,
+            "f1": 0.125,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "Yes",
+            "em": 1.0,
+            "f1": 0.25,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 133,
+          "bucket": "both_wrong",
+          "question": "How much does Pfizer expect to pay to spin off Upjohn in the future in USD million?",
+          "gt_answer": "77.78",
+          "react": {
+            "answer": "$70 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "70 USD million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 137,
+          "bucket": "react_only_correct",
+          "question": "What are major acquisitions that Ulta Beauty has done in FY2023 and FY2022?",
+          "gt_answer": "Ulta Beauty did not make any acquisitions in FY2023 and FY2022.",
+          "react": {
+            "answer": "Ulta Beauty had an acquisition, net of cash acquired, of $(1,220) (in thousands) in FY2023. There were no acquisitions in FY2022.",
+            "em": 1.0,
+            "f1": 0.4167,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "finder",
+      "results_dir": "/Users/rishisim/Documents/research/nexus/results/finance/finder/seed42_gemini-2.5-flash_all5-50-v1",
+      "status": "ok",
+      "paired_examples": 50,
+      "react": {
+        "valid_examples": 50,
+        "correct": 28.0,
+        "accuracy_em": 0.56,
+        "accuracy_f1": 0.2476,
+        "total_llm_calls": 124,
+        "avg_calls_per_example": 2.48,
+        "correct_per_llm_call": 0.225806
+      },
+      "nexus": {
+        "valid_examples": 50,
+        "correct": 23.0,
+        "accuracy_em": 0.46,
+        "accuracy_f1": 0.2273,
+        "total_llm_calls": 50,
+        "avg_calls_per_example": 1.0,
+        "correct_per_llm_call": 0.46
+      },
+      "audit_counts": {
+        "both_correct": 22,
+        "react_only_correct": 6,
+        "nexus_only_correct": 1,
+        "both_wrong": 21
+      },
+      "disagreements": [
+        {
+          "question_idx": 676,
+          "bucket": "both_wrong",
+          "question": "NXP's (NXPI) ERM effectiveness in IT cybersecurity oversight influences op performance, cap allocation, & future cash flows.",
+          "gt_answer": "Based on the provided qualitative description, we can assess that NXP’s enterprise risk management process — particularly its oversight of IT and cybersecurity risks — is designed to be robust and proactive. The process involves multiple layers of governance, including an annual risk assessment, detailed oversight by the Audit Committee (which covers IT and cybersecurity), routine briefings to the full Board, and tactical as well as strategic measures (such as a 24x7 Security Operating Center, CSIRT, and integrated identity and access management systems). These measures indicate that NXP has a structured approach to identifying, prioritizing, and mitigating risk. In effect, if the process is working as intended, it should help protect operating results by minimizing the potential financial losses and operational disruptions that can arise from cyber incidents. In addition, by allocating resources effectively towards risk management—supported by clearly defined accountabilities and monitoring mechanisms—the company is likely to maintain efficient capital allocation.\n\nIn terms of the potential impact on future cash flows, effective risk management minimizes the chance of material cybersecurity incidents that could lead to unplanned expenditures, damage to reputation, or interruptions in operations. Thus, if NXP continues to manage these risks well, it could foster stable operating margins, reduce the volatility of cash flows related to unforeseen IT incidents, and preserve capital for strategic investments. Although no precise quantitative calculations can be deduced from the qualitative data provided, the framework as described should contribute to predictable, resilient cash flows by limiting the likelihood of disruptive financial shocks.\n\nIn summary, while not quantifiable without additional financial metrics, the robust design and oversight of NXP’s IT and cybersecurity risk management processes suggest that the company is well-positioned to protect its operating results and ensure efficient capital allocation, thereby supporting steady future cash flows.",
+          "react": {
+            "answer": "No question was asked.",
+            "em": 0.0,
+            "f1": 0.0127,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1116,
+          "bucket": "both_wrong",
+          "question": "Verisk Analytics (VRSK) faces long-term debt refinancing risks impacting capital planning.",
+          "gt_answer": "Based on the data provided, several key points can be highlighted regarding potential refinancing risks and capital planning challenges for Verisk Analytics:\n\n1. **Maturity Concentration**: Although the long-term debt instruments have staggered maturities—from as early as 2025 (e.g., the 4.000% senior notes maturing on 6/15/2025) to as late as 2050 (e.g., the 3.625% senior notes maturing on 5/15/2050)—the nearer‐term maturities (such as the one due in 2025) might require refinancing within the near future. Refinancing a debt instrument on a large scale if several are approaching maturity in a clustered timeframe can increase risk if favorable market conditions are not available.\n\n2. **Interest Rate Environment**: The debt instruments carry fixed interest rates (ranging from 3.625% to 5.750%). However, if the current environment shifts and interest rates rise, refinancing these instruments at maturity could be more costly, potentially affecting the company’s earnings and cash flow.\n\n3. **Access to Credit Markets**: The maturity details of the credit facilities (which are labeled as ‘Various’) suggest flexibility in timing but also uncertainty in terms of the duration the revolving facilities will remain available. This uncertainty may pose challenges if market conditions tighten or if Verisk Analytics faces a reduction in borrowing capacity. The company will need sound capital planning strategies to ensure it maintains access to these facilities.\n\n4. **Liquidity Planning**: The upcoming maturity of the debt in the near term (such as the debt due in 2025) requires stringent liquidity management. This includes ensuring that sufficient cash flows or access to refinancing sources are available to meet debt service obligations without disrupting operational funding or forcing asset sales at inopportune times.\n\nIn summary, while the staggered debt maturities do provide some diversification from a refinancing viewpoint, the near-term maturities and external factors such as rising interest rates and market conditions create identifiable refinancing risks. Verisk Analytics must continue to monitor its liquidity position, maintain robust relationships with creditors, and remain prepared to adjust its capital allocation strategy in response to evolving market conditions.",
+          "react": {
+            "answer": "The available evidence does not contain information about Verisk Analytics' long-term debt refinancing risks impacting capital planning.",
+            "em": 0.0,
+            "f1": 0.1209,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "Verisk Analytics (VRSK) faces long-term debt refinancing risks impacting capital planning.",
+            "em": 0.0,
+            "f1": 0.113,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1187,
+          "bucket": "react_only_correct",
+          "question": "TTWO FY2025 capex trend vs. historical data, implications for financial health.",
+          "gt_answer": "The provided data only includes the anticipated capital expenditures for fiscal year 2025 at $140, with no information on previous years’ capital expenditures. Without historical data for comparison, it's not possible to determine how the 2025 figure compares to prior years or to draw conclusions about trends in financial health and investment capabilities.",
+          "react": {
+            "answer": "The capital expenditure for TTWO in FY2025 is anticipated to be $140. However, there is no historical capital expenditure data available in the provided evidence to establish a trend or analyze its implications for financial health.",
+            "em": 1.0,
+            "f1": 0.3214,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1293,
+          "bucket": "both_wrong",
+          "question": "Capital allocation for Intuitive Surgical (ISRG) focuses on R&D & innovation vs new robotic entrants.",
+          "gt_answer": "The provided excerpt discusses the competitive landscape and emphasizes the importance of continued clinical and technical innovation, quality, and education in robotic-assisted procedures. However, it does not include specific financial data or numerical details on how Intuitive Surgical allocates capital toward R&D, technical innovation, and clinical education. Without such financial specifics or additional data from the company's financial statements or detailed investor reports, it is not possible to accurately answer the question regarding capital allocation.",
+          "react": {
+            "answer": "The provided evidence describes the competitive landscape for Intuitive Surgical and the importance of innovation for their success, but it does not explicitly state that their capital allocation focuses on R&D and innovation versus new robotic entrants.",
+            "em": 0.0,
+            "f1": 0.3611,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1455,
+          "bucket": "both_wrong",
+          "question": "XEL's (Xcel Energy Inc.) cap allocation and ops are crucial drivers for SH value & overall valuation.",
+          "gt_answer": "Although the provided reference data is primarily descriptive—detailing how NSP‐Minnesota, PSCo, and SPS manage wholesale trading, hedging activities, and margin sharing—it does offer a basis from which to infer the importance of strategic capital allocation in enhancing shareholder value. In the case of Xcel Energy Inc., the company’s capital allocation decisions (for example, how it invests excess cash flows, how it reinvests into its core businesses such as renewable or grid modernization initiatives, or chooses to return capital to shareholders via dividends or share repurchases) are closely intertwined with its operational activities. Specifically:\n\n1. Risk Management and Operational Efficiency: The use of physical and financial hedging instruments minimizes commodity price risk and stabilizes margins. This operational discipline creates predictable cash flows. In turn, it enables the company to allocate capital more confidently to high-return opportunities, supporting steady dividend policy or share repurchasing programs that enhance shareholder value.\n\n2. Investment in Growth and Modernization: Strategic capital allocation decisions may involve reinvesting in infrastructure improvements or new technologies that yield long‐term benefits. For a company operating in competitive wholesale energy markets, such investments improve operational efficiencies, which can drive future earnings growth and valuation improvements.\n\n3. Regulatory and Joint Operating Framework Implications: The margins defined through state regulatory proceedings and FERC-approved joint operating agreements indicate a stable regulatory framework. By effectively managing these factors through disciplined capital allocation, Xcel Energy can balance risk with growth, ensuring that any reinvestment or cost of capital decisions directly support its strategic objectives.\n\nThus, the company’s practice of aligning its capital allocation with robust operational activities (which include rigorous risk management through hedging and margin optimization) plays a critical role in both enhancing current shareholder returns and establishing a platform for sustainable future valuation improvements. While no detailed numerical analysis is possible from the limited qualitative operational data provided, the qualitative linkage between disciplined operational activities and sound capital allocation underpins the company’s ability to drive shareholder value over the long term.",
+          "react": {
+            "answer": "The question is incomplete. Please provide the full question.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1603,
+          "bucket": "both_wrong",
+          "question": "The impact of competitive pressure on News Corp's pricing strategy, ticker NWSA, and brand strength in consumer products.",
+          "gt_answer": "The provided information indicates that competitive pressures from alternative news platforms, digital media, and traditional outlets create an environment in which News Corporation (via its consumer products) must balance competitive pricing with the maintenance and enhancement of its brand strength. Specifically:\n\n1. **Pricing Strategy**: As competition for both circulation and advertising intensifies, especially with the rapid evolution of digital media and alternative news sources, the company is compelled to consider pricing adjustments and promotional offers. For example, subscription pricing and promotional discounts may be utilized to remain competitive relative to other sources of news and content. The need to remain price‐competitive while covering rising costs (such as those related to obtaining and renewing content rights) pushes the company to continually assess its value proposition and price points.\n\n2. **Brand Strength**: In a market where consumers have access to an increasing array of news and information sources, brand strength becomes a key differentiator. The pressure from multiple competitors means that News Corporation must rely on its established reputation, global reach, and proprietary technology to maintain consumer loyalty. Investment in high-quality news, innovation in content delivery, and leveraging its established brand help counterbalance competitive challenges and justify its pricing strategy.\n\n3. **Integrated Impact**: The interplay between pricing and brand strength is critical. On the one hand, competitive pricing may attract a broader audience or incentivize subscriptions amid a choice-driven market; on the other, a strong brand can command premium pricing or resistant consumer loyalty. The competitive landscape, as described, encourages the company to innovate continuously in both its product offerings and its pricing models so that it can both defend and enhance its market position.\n\nWhile no specific numerical calculations are provided, the qualitative assessment outlines that the need to balance competitive pricing with sustained brand equity is a strategic response to the pressures from diverse competitors in a rapidly evolving media landscape.",
+          "react": {
+            "answer": "Competitive pressure impacts News Corp's pricing strategy for its consumer products by influencing subscription pricing, cover prices, and advertising rates. Brand strength is affected as the company must maintain its reputation and continually innovate to compete with a wide array of alternative news and information sources, digital platforms, and evolving consumer behaviors.",
+            "em": 0.0,
+            "f1": 0.2674,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "News Corp's pricing strategy for its consumer products (Dow Jones segment) is directly impacted by competitive pressure, as competition for subscriptions and circulation is based on subscription pricing and cover price. The company faces increasing competition from various media, digital platforms, and evolving technologies, necessitating continuous innovation and leveraging brand recognition to maintain competitiveness in both circulation and advertising revenue.",
+            "em": 0.0,
+            "f1": 0.2591,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1639,
+          "bucket": "both_wrong",
+          "question": "Impacts on margin profitability from revenue recognition in KHC's (Kraft Heinz Co.) shipping & handling.",
+          "gt_answer": "Including shipping and handling charges in revenue recognition means that these charges appear as part of the company’s total sales. This can lead to higher reported revenue, which in turn may positively influence gross margin percentages. However, since these charges are subsequently offset by fulfillment costs (shipping costs that occur post transfer‑of‑control), the net effect on profitability should ideally be neutral if the associated costs are properly matched in the same period. Essentially, the inclusion inflates the top‐line revenue figures but does not necessarily translate into higher operating margins or net income, provided that the shipping and handling expenses are also recognized accurately and in the correct period. Hence, when evaluating margins, one must consider both the revenue boost from the shipping and handling charges and the corresponding fulfillment expenses that reduce profit.",
+          "react": {
+            "answer": "Kraft Heinz Co. includes all shipping and handling charges billed to customers in its revenues. Shipping and handling charges that occur after the transfer of control are accounted for as fulfillment costs. This means that the revenue recognition policy includes these charges as part of the top-line revenue, while the associated costs are recognized as fulfillment costs. The impact on margin profitability would depend on the relationship between the billed charges (increasing revenue) and the fulfillment costs (increasing expenses). The provided text does not quantify this impact or specify whether it leads to an increase or decrease in margin profitability, only how these items are recognized.",
+            "em": 0.0,
+            "f1": 0.3676,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "KHC includes all shipping and handling charges billed to customers in its recognized revenues. Shipping and handling charges that occur after the transfer of control are accounted for as fulfillment costs. The dossier does not explicitly detail the direct impact on margin profitability from this specific accounting treatment.",
+            "em": 0.0,
+            "f1": 0.2655,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 2074,
+          "bucket": "react_only_correct",
+          "question": "Implications of headcount differential between Agilent's A: Americas+Europe vs Asia Pacific, ticker.",
+          "gt_answer": "Calculation: The combined total for the Americas and Europe is 7,000 + 4,400 = 11,400. Subtracting the Asia Pacific employees (6,500) gives 11,400 - 6,500 = 4,900. Analysis: This difference indicates that Agilent employs 4,900 more individuals in the Americas and Europe than in the Asia Pacific region. Such a disparity in headcount can inform an analysis of operational scale by suggesting that these regions might currently be the organization’s primary markets or operational hubs, potentially reflecting higher levels of investment, greater market penetration, or more mature operations relative to the Asia Pacific region. Conversely, the relatively lower number of employees in Asia Pacific could signal either a strategic opportunity for growth or a different model of regional operations, such as more centralized functions or reliance on strategic partnerships. Overall, these figures help analysts gauge where the company may have concentrated its resources and focus, which can be particularly useful in assessing regional competitive positioning and future capital allocation decisions.",
+          "react": {
+            "answer": "Agilent has approximately 11,400 employees in the Americas and Europe combined, compared to 6,500 employees in Asia Pacific. This indicates a significantly larger workforce in the Western regions (Americas and Europe) than in the Asia Pacific region.",
+            "em": 1.0,
+            "f1": 0.2456,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 2330,
+          "bucket": "react_only_correct",
+          "question": "Effects on growth & expansion amid presence of 3M/Orafol in AVY's competitive landscape.",
+          "gt_answer": "The provided information indicates that Avery Dennison operates in a competitive landscape where larger, resource-rich competitors (e.g., 3M and Orafol) serve as significant players in key segments such as graphics, reflective products, and performance tapes. This competitive dynamic impacts the company’s growth potential and strategic expansion in several ways:\n\n1. Competitive Pressure and Market Positioning: Larger competitors often benefit from economies of scale and substantial R&D budgets, which can intensify price competition and innovation cycles. However, Avery Dennison leverages its technical expertise, product quality, and innovation capacity to differentiate itself. These attributes help maintain its competitive edge and allow the company to capture and retain niche market segments.\n\n2. Strategic Advantages and Innovation: The company’s strong brand, broad quality product range, and robust distribution capabilities provide a buffer against the scale of larger competitors. This strategic positioning, as highlighted in the reference, supports its efforts to invest in product and process innovations that can open up new markets or reinforce its position within existing ones.\n\n3. Barriers to New Entrants and Competitive Threats: The text notes that entry into the field of pressure-sensitive adhesives and materials is largely limited by technical know-how and capital requirements. This implies that while larger companies continue to dominate certain segments, the overall landscape is relatively stable with respect to new entrants, thereby providing Avery Dennison with a predictable competitive environment from which to strategically expand.\n\n4. Growth Opportunities: By capitalizing on its core strengths, Avery Dennison could focus on strategic market segments where it has a competitive advantage. This might include investing in niche products, developing high-value technical innovations, and building stronger relationships with distributors and customers in emerging markets, thereby driving long-term growth despite the presence of larger competitors.\n\nIn summary, although the presence of larger competitors such as 3M and Orafol imposes competitive pressures, they also help define clear market segments and boundaries. Avery Dennison’s valuable technical expertise, brand strength, and innovative capabilities are essential in enabling sustainable growth and effective strategic expansion into new markets despite the challenges posed by these larger players.",
+          "react": {
+            "answer": "The presence of 3M and Orafol Group as major competitors in graphics and reflective products means that Avery Dennison (AVY) relies on its technical expertise, size and scale of operations, broad line of quality products and reliable service, product and process innovation, distribution capabilities, and brand strength to maintain and further develop its competitive position, which is essential for its growth and expansion.",
+            "em": 1.0,
+            "f1": 0.2685,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 2409,
+          "bucket": "both_wrong",
+          "question": "The impact of Moody's board appointment on inv. sentiment and governance strategy is under observation.",
+          "gt_answer": "The provided biographical data on Robert Fauber allows for a qualitative analysis of the potential impact his career progression and board appointment might have. His extensive tenure in various leadership roles, from President of MIS and Chief Operating Officer to his current position as President and Chief Executive Officer, demonstrates deep institutional knowledge and a comprehensive understanding of the company’s operations. Additionally, his appointment to the Board of Directors and his role on the Executive Committee signal a commitment to aligning operational execution with strategic oversight.\n\nThis blend of operational experience and governance exposure can be viewed positively by investors for several reasons:\n\n1. Enhanced Investor Confidence: Investors typically value continuity and stability in a company’s leadership. Fauber’s progressive career path suggests that he has a proven track record within the company, which can inspire confidence in his decision-making and the overall strategic direction. The fact that he holds both the CEO position and a board seat indicates that the board trusts his vision, which is reassuring for stakeholders.\n\n2. Stronger Long-term Governance Strategy: His deep involvement in various operational aspects of the company means he is well positioned to integrate strategic initiatives with everyday management. This dual insight supports effective capital allocation and risk management, crucial components of long-term governance. By having a leader who understands both the day-to-day operations and the broader strategic landscape, the company is likely to benefit from a governance framework that is both agile and forward-thinking.\n\n3. Credibility and Alignment: Fauber’s rise through the ranks and his subsequent board membership can be interpreted as a deliberate move by the company to ensure that strategic decisions are governed by leaders who are intimately familiar with the business’s core strengths and challenges. This alignment between management and governance fosters an environment of transparency and accountability, which further enhances investor trust.\n\nOverall, the data suggests that Robert Fauber’s career trajectory, coupled with his recent board appointment, positions him as a key figure in reinforcing robust corporate governance practices and strategic continuity, both of which are crucial for maintaining and enhancing investor confidence over the long term.",
+          "react": {
+            "answer": "I cannot answer this question as it requires qualitative analysis beyond the scope of financial data retrieval.",
+            "em": 0.0,
+            "f1": 0.044,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "The impact of Moody's board appointment on inv. sentiment and governance strategy is under observation.",
+            "em": 0.0,
+            "f1": 0.0559,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 2471,
+          "bucket": "both_wrong",
+          "question": "Impact on FY23 EPS from AIG buyback.",
+          "gt_answer": "The share repurchase reduces the total number of outstanding shares, which, all else being equal, would increase key per‐share metrics such as earnings per share (EPS). Specifically, by buying back 51 million shares for $3.0 billion, American International Group, Inc. decreases the denominator in the EPS calculation. In simple terms, if net income remains constant, a lower number of shares means that the same earnings are distributed over fewer shares, resulting in a higher EPS. \n\nFor example, if net income for 2023 was N, then EPS before the repurchase would be calculated as N divided by the total number of shares originally outstanding. After the buyback, since 51 million shares are removed from the outstanding count, the revised EPS is N divided by (original shares outstanding minus 51 million). Thus, the repurchase can make each share appear more profitable. \n\nIt is important to note that this is a simplified explanation. The actual impact on EPS depends on additional factors including the method of financing the repurchase (e.g., use of cash or additional debt), any associated adjustments to net income due to interest expenses or changes in tax liabilities, and the timing of the repurchase relative to income generation. However, the fundamental effect remains that reducing the share count boosts per-share metrics like EPS.",
+          "react": {
+            "answer": "The available evidence does not provide the necessary information to determine the impact on FY23 EPS from the AIG buyback.",
+            "em": 0.0,
+            "f1": 0.0504,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 3164,
+          "bucket": "react_only_correct",
+          "question": "Alignment of IVZ repurchase activity with overall buyback strategy.",
+          "gt_answer": "The provided data make it possible to evaluate how the repurchase activity fits into Invesco Ltd.’s broader share repurchase strategy. The information reveals that over the three months ended December 31, 2023, Invesco executed repurchases in the open market (with varying average prices in October, November, and December) and, in addition, recorded an aggregate of 151,324 common shares that were surrendered by employees to satisfy tax withholding obligations related to equity awards vesting. Notably, the data also indicate that there remains an available balance of $382.2 million under the publicly announced share repurchase plan. \n\nThis suggests a dual aspect in the company’s approach:\n\n1. Opportunistic Market Activity: The varied monthly purchase prices indicate that Invesco is repurchasing shares over time, likely taking advantage of market conditions. Repurchasing shares on the open market when prices are favorable can help improve key financial metrics such as earnings per share (EPS).\n\n2. Alignment with Broader Capital Allocation and Compensation Strategies: The inclusion of the 151,324 shares surrendered by employees in connection with tax withholding shows that the repurchase activity is not solely driven by market transactions. It also reflects the operational mechanics of its equity compensation program. These surrendered shares, while not bought back in a traditional market transaction, effectively reduce the outstanding share count. Combined with the remaining repurchase capacity (i.e., the $382.2 million availability), it underscores a consistent strategy to manage capital allocation by reducing dilution and enhancing shareholder value.\n\nIn summary, the overall repurchase activity, including the tax-related share conversion, is consistent with Invesco’s broader strategy of returning value to shareholders by reducing outstanding shares and optimizing capital structure. The company’s systematic repurchase approach, supported by the remaining authorization, highlights its intent to take advantage of market opportunities while simultaneously managing equity compensation requirements.",
+          "react": {
+            "answer": "Invesco Ltd.'s repurchase activity for the three months ended December 31, 2023, totaling 151,324 common shares, aligns with its overall buyback strategy as it is conducted under a publicly announced common share repurchase authorization approved by the Board on July 22, 2016. As of December 31, 2023, a balance of $382.2 million remains available under this program.",
+            "em": 1.0,
+            "f1": 0.3011,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 3189,
+          "bucket": "both_wrong",
+          "question": "Impact on cash flow and capital allocation from legal proceedings related to VICI absence.",
+          "gt_answer": "The absence of material legal proceedings minimizes the risk of unexpected cash outflows from litigation-related settlements or legal fees, thereby stabilizing both short‐term cash flows and long‐term financial planning. Without the threat of significant legal liabilities, management may be more confident in allocating capital to growth initiatives, shareholder returns (dividends or share repurchases), or other investments that can yield higher returns. Furthermore, the stable legal environment can improve operational predictability, facilitating better forecasting and budgeting processes, while potentially reducing the need for large cash reserves held as a buffer against potential legal claims. In summary, VICI Properties Inc. can pursue a more aggressive or growth-oriented capital allocation strategy given that resources aren’t being diverted to cover unpredictable legal expenses.",
+          "react": {
+            "answer": "As of December 31, 2023, VICI is not subject to any litigation that is believed to have a material adverse effect on its business, financial condition, results of operations, liquidity, or cash flows.",
+            "em": 0.0,
+            "f1": 0.1296,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "As of December 31, 2023, the company is not subject to any litigation that is believed to have a material adverse effect on its cash flows. The dossier does not provide information regarding the impact on capital allocation or legal proceedings related to VICI absence.",
+            "em": 0.0,
+            "f1": 0.2087,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 3259,
+          "bucket": "nexus_only_correct",
+          "question": "MOS; impact on 2023 GM & OpE from Canadian taxes & intersegment sales adj.; future capex implications?",
+          "gt_answer": "The provided data allows us to isolate and assess the impact of both Canadian resource taxes and intersegment net sales adjustments on 2023 results. In 2023 the reported total gross margin was $2,210.6 million. However, when Canadian resource taxes (which are only applicable to the Potash segment and amount to $403.4 million) are excluded, the gross margin increases to $2,614.0 million. This clearly shows that the resource taxes depressed the gross margin by about $403.4 million. In addition, the intersegment net sales adjustments – with positive entries in some segments (e.g., $829.8 million for Phosphates and $30.5 million for Potash) offset by negative entries in the Corporate, Eliminations and Other category (–$860.3 million) – ultimately result in a net zero effect on total net sales. However, these adjustments are crucial because they remove internal double counting and thus redistribute revenues (and indirectly margins) across segments. This redistribution can affect the perceived performance of individual segments even though the overall totals remain the same.\n\nFor operating earnings in 2023, reported at $1,338.1 million, the same principle applies. The Canadian resource taxes primarily affect gross margins – and by extension, operating earnings, especially for the Potash operations – while the elimination of intersegment sales ensures that only external revenues drive profitability. Even though the net impact of intersegment adjustments is neutral on an aggregate basis, they are important for understanding the true performance of each segment.\n\nImplications for future capital allocation and investment strategy include the following considerations:\n• Management must assess tax efficiency. The noticeable difference between gross margins reported with and without Canadian resource taxes (a 403.4-million-dollar impact) underscores the importance of tax planning in deciding where to allocate capital. Strategies that mitigate tax impact – for example, through reconfiguration of asset locations or shifts in the operational structure – could improve margins and operating earnings.\n• Clarity in internal pricing. The process of eliminating intersegment sales helps to reveal the true profitability of each operating segment. This understanding can guide future investments, directing capital toward segments that intrinsically generate better margins once internal transactions are removed.\n• Reevaluation of segment-specific risk and return profiles. With the adjustments clarifying where value is added (or lost), the company might opt to invest more heavily in areas where the adjusted margins are higher and the tax burden lower, thereby aligning its capital allocation strategy with sustainable, high-margin growth.\n\nIn summary, the inclusion of Canadian resource taxes in the reported figures noticeably depresses the 2023 gross margin, while the intersegment net sales adjustments are critical for ensuring that the reported performance accurately reflects external business results. This analysis suggests that future investments could benefit from strategies aimed at reducing tax expenses and by focusing capital on segments whose standalone profitability (after eliminating intersegment transactions) is more robust.",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "In 2023, Mosaic's gross margin was $2,210.6 million, with Canadian resource taxes accounting for $403.4 million, leading to a gross margin (excluding Canadian resource taxes) of $2,614.0 million. Intersegment net sales for 2023 were $860.3 million (eliminated). Operating earnings for 2023 were $1,338.1 million. Capital expenditures for 2023 were $1,402.4 million. The dossier does not provide information on future capital expenditure implications.",
+            "em": 1.0,
+            "f1": 0.1667,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 3387,
+          "bucket": "both_wrong",
+          "question": "Litigation liability quantification and mgmt for PFE.",
+          "gt_answer": "Pfizer’s approach to quantifying and managing its financial exposure from patent litigation, product liability, and other related lawsuits is rooted in both estimation and accrual practices as described in the reference text. Specifically, Pfizer uses a process that involves: \n\n1. **Estimation and Accrual**: Pfizer accrues amounts on its balance sheet to cover worldwide legal liabilities. These accruals are based on complex judgments and estimates concerning the likelihood and potential financial impact of future legal outcomes. Because legal proceedings are inherently uncertain, these estimates are continually re‐evaluated in light of new developments. \n\n2. **Management of Uncertainties**: Pfizer acknowledges that litigation outcomes, such as excessive verdicts, settlements, or judgments, can significantly differ from initial estimates. The company actively monitors ongoing legal cases, adjusts accruals when appropriate, and revises expectations regarding the outcome of litigation matters to better reflect the actual risk profile. \n\n3. **Comprehensive Risk Disclosure**: In its financial reporting, including filings like the Form 10‑K, Pfizer provides detailed disclosures about the types of litigation and associated risks. This includes the understanding that even with accrued liabilities, additional costs might be incurred beyond those estimates if the legal proceedings evolve unexpectedly. \n\nOverall, Pfizer’s strategy relies on the continuous reassessment of legal and environmental contingencies, ensuring that the financial statements reflect potential adverse effects while also maintaining flexibility to address unforeseen legal exposures.",
+          "react": {
+            "answer": "Pfizer (PFE) quantifies its litigation liabilities by accruing for worldwide legal liabilities based on a complex series of judgments about future events and uncertainties, relying heavily on estimates and assumptions. The company manages these liabilities by incurring judgments, entering into settlements, revising expectations regarding the outcome of matters, and adapting its practices in light of government litigation, settlement precedent, advisory opinions, and special fraud alerts. They also engage in compliance agreements, such as Corporate Integrity Agreements, to resolve government investigations.",
+            "em": 0.0,
+            "f1": 0.2553,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "Pfizer (PFE) quantifies and manages litigation liability by accruing for worldwide legal liabilities, though it acknowledges the inherent unpredictability of litigation and the potential for additional costs beyond accrued amounts. The company is involved in various legal proceedings, including patent litigation, product liability, and government investigations, which can result in judgments, settlements, or material adverse effects on operations.",
+            "em": 0.0,
+            "f1": 0.2674,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 3595,
+          "bucket": "both_wrong",
+          "question": "The impact of ONEOK's operational efficiencies on comp. positioning & risk profile, OKE.",
+          "gt_answer": "Operational improvements in areas such as receipt and delivery capabilities as well as increased storage, withdrawal, and injection capacities positively impact ONEOK’s competitive positioning and risk profile. By enhancing these operational efficiencies, ONEOK is better able to reliably and efficiently handle the logistics of natural gas, NGLs, refined products, and crude oil. This results in several benefits:\n\n1. Enhanced Reliability and Flexibility: Improved receipt and delivery capabilities mean that ONEOK can more quickly and accurately respond to changes in supply and demand. This operational agility improves customer satisfaction and strengthens relationships with both suppliers and end-users.\n\n2. Reduced Operational and Market Risk: With increased storage, withdrawal, and injection capacities, the company can better manage supply fluctuations and commodity price volatility. This helps mitigate risks associated with abrupt market changes and ensures that the company has a buffer against disruptions in supply.\n\n3. Competitive Advantage: As operational efficiencies lead to more effective and efficient asset utilization, ONEOK is able to compete more aggressively with other midstream companies. These improvements facilitate faster access to end-user demand and more effective integration of supply sources with the market, thereby reinforcing their competitive positioning.\n\n4. Improved Capital Allocation: Efficient operations can lower overall operating costs and potentially improve cash flow. The resulting financial flexibility may enable more strategic capital investments which are critical for sustaining long-term market presence and performance.\n\nOverall, such operational efficiencies help ONEOK achieve a more robust and resilient operational framework, positioning it well against competitors while simultaneously reducing exposure to market and operational risks.",
+          "react": {
+            "answer": "ONEOK's operational efficiencies are a key factor in its ability to compete for natural gas, NGL, Refined Products, and crude oil volumes. By improving operating efficiency, ONEOK remains competitive, suggesting a stronger competitive positioning. While not explicitly detailed, improved operational efficiency generally contributes to a more robust and stable risk profile by enhancing reliability and potentially reducing operational costs.",
+            "em": 0.0,
+            "f1": 0.2712,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "ONEOK's improved operating efficiency enhances its competitive positioning by allowing it to compete more effectively for natural gas, NGL, Refined Products, and crude oil volumes. The dossier does not provide information on the impact of operational efficiencies on ONEOK's risk profile.",
+            "em": 0.0,
+            "f1": 0.2275,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 4145,
+          "bucket": "both_wrong",
+          "question": "Risk mitigation & growth in emerging sustainable mkts for Waste Mgmt, Inc.",
+          "gt_answer": "Waste Management, Inc. is positioned to mitigate risks and capitalize on opportunities in emerging sustainable markets through its comprehensive approach to waste management. The company’s strategy involves several key elements:\n\n1. **Diversified Service Offerings**: By providing a wide range of services that extend beyond traditional waste collection and disposal, the company is better equipped to meet varying customer needs—especially in sustainability-focused initiatives. This breadth allows the company to hedge against risks associated with regional market variability and intense competition.\n\n2. **Localized Pricing and Service Customization**: The company tailors its pricing based on local market dynamics, waste types, treatment requirements, and logistical considerations (such as frequency of collections and distance to disposal sites). This localized approach helps manage operational risks and positions the company to compete effectively against both large national players and smaller regional competitors.\n\n3. **Competitive Pricing and Quality Focus**: The emphasis on both competitive pricing and quality of service helps differentiate Waste Management, Inc. even in fragmented markets. As sustainability becomes a higher priority, customers are likely to favor companies that not only offer cost-effective solutions but also maintain high service standards.\n\n4. **Capitalizing on Sustainability Trends**: As individuals, companies, and communities increasingly focus on sustainability, the company's efforts to offer comprehensive services (which may include renewable energy initiatives or waste-to-energy opportunities) position it to tap into emerging markets. By integrating innovative disposal and recycling techniques, the company can turn waste streams into potential revenue sources, effectively mitigating environmental risks and capitalizing on new business opportunities.\n\nOverall, Waste Management, Inc. leverages a multifaceted strategy that includes diversification, local market responsiveness, quality service, and sustainability initiatives to manage competitive risks and exploit emerging market opportunities.",
+          "react": {
+            "answer": "The provided evidence does not contain specific details on Waste Management, Inc.'s risk mitigation strategies or explicit growth strategies in emerging sustainable markets. It only broadly states that the company is \"promoting our comprehensive services that go beyond our core business of collecting and disposing of waste in order to meet their needs\" as customers look for ways to be more sustainable.",
+            "em": 0.0,
+            "f1": 0.1925,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "Waste Management, Inc. is promoting comprehensive services beyond core waste collection and disposal to meet the needs of companies, individuals, and communities looking to be more sustainable. This suggests their approach to growth in emerging sustainable markets. The dossier does not provide specific details on risk mitigation strategies within these markets.",
+            "em": 0.0,
+            "f1": 0.2099,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 4224,
+          "bucket": "both_wrong",
+          "question": "Equity Residential (EQR): CEO dual role impacts on strat. & fin. perf.",
+          "gt_answer": "While the provided reference primarily lists executive and trustee signature information without direct financial metrics, a qualitative assessment is possible. Mark J. Parrell’s role as both CEO (including President) and Trustee positions him uniquely to align management operations with board governance. This dual responsibility can enhance strategic oversight by ensuring that executive decisions are closely in tune with the board’s long‐term vision and risk management protocols. In practice, such overlap can lead to quicker decision-making, more cohesive strategy execution, and improved accountability, as he is directly involved in both the formulation and implementation of the company’s strategy. This structure may contribute indirectly to the company’s overall financial health by promoting robust risk control, optimal capital allocation, and continuity in leadership direction. However, it is important to note that a definitive impact on financial performance would require additional financial data and performance metrics to quantitatively corroborate these qualitative benefits.",
+          "react": {
+            "answer": "Equity Residential (EQR) does not have a CEO dual role. Mark J. Parrell is the President, Chief Executive Officer, and Trustee, while David J. Neithercut is the Chairman of the Board of Trustees. Therefore, there is no impact of a CEO dual role on strategy and financial performance to discuss for EQR.",
+            "em": 0.0,
+            "f1": 0.2205,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "UNKNOWN.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 4301,
+          "bucket": "both_wrong",
+          "question": "Impact of CEO tenure on investor confidence, growth & capex relative to WST board stability.",
+          "gt_answer": "The data clearly indicate a stable and experienced board as well as executive management that can positively influence investor confidence. For example, CEO Eric M. Green has been at the helm since 2015, a tenure that implies a proven track record and consistent strategic direction. In addition, key figures such as the Chief Financial and Operations Officer and the Senior Vice President roles have significant industry experience from reputable companies, providing a layer of reliability and robust financial acumen. This level of stability often reassures investors that the company is guided by leaders who are familiar with industry cycles and capable of executing strategic growth initiatives and disciplined capital allocation. Consequently, such tenure and stability likely translate into a perception that West Pharmaceutical Services is well-positioned to pursue long-term growth while managing operational and financial risks effectively.",
+          "react": {
+            "answer": "I cannot answer this question with the provided tools as it requires qualitative analysis beyond the scope of financial data extraction.",
+            "em": 0.0,
+            "f1": 0.0571,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 4654,
+          "bucket": "react_only_correct",
+          "question": "FICO SSP est. method & ticker pricing variability.",
+          "gt_answer": "Fair Isaac Corporation relies primarily on historical standalone sales data to estimate the standalone selling prices (SSPs) for its products and services when such data is available. In cases where the product or service isn’t sold separately and historical data is not available, the company considers several factors including the stated contract prices, its overall pricing practices and objectives, the go‐to‐market strategy, and the size and type of the transaction. Additionally, geographic influences and various market conditions are also taken into account, as these factors can significantly impact pricing. When price variability is high, Fair Isaac Corporation may employ a residual approach to determine the SSP by allocating the remaining amount of the transaction price after accounting for SSPs of other performance obligations. This approach allows the company to integrate entity-specific market dynamics and external pricing factors into its pricing estimations.",
+          "react": {
+            "answer": "FICO determines standalone selling prices (SSP) using data from historical standalone sales. If such information is not available, they consider factors like stated contract prices, overall pricing practices and objectives, go-to-market strategy, transaction size and type, and geographic area effects on pricing. When a product or service's selling price is highly variable, FICO may use the residual approach to determine the SSP. Significant judgment is required to determine SSPs, considering market conditions and entity-specific factors. The provided evidence does not contain information regarding \"ticker pricing variability.\"",
+            "em": 1.0,
+            "f1": 0.5211,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "FICO determines Standalone Selling Prices (SSP) using historical standalone sales data. If this data is unavailable, they consider factors such as stated contract prices, overall pricing practices and objectives, go-to-market strategy, transaction size and type, and the effects of geographic area on pricing. When the selling price of a product or service is highly variable, FICO may use the residual approach to determine the SSP.",
+            "em": 0.0,
+            "f1": 0.496,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5014,
+          "bucket": "both_wrong",
+          "question": "GE: Revenue volatility due to air travel & defense cycles impacts profitability & resilience.",
+          "gt_answer": "The provided data and context allow for a qualitative assessment of how fluctuations in civil air travel demand and defense procurement cycles can impact GE’s profitability and financial resilience. In particular:\n\n1. Impact on Revenue and Profitability: \n   - Civil Air Travel Demand: Orders for aircraft engines, maintenance, and overhaul services largely follow trends in civil air travel. An increase in passenger travel typically drives higher order volumes and maintenance services, leading to improved revenue and margins. Conversely, downturns in civil air travel demand can lead to order deferrals or cancellations, reducing revenue and pressuring profitability, particularly in the commercial segment.\n   - Defense Procurement Cycles: Defense orders, while often more stable due to government commitments, are still subject to budgeting cycles and policy changes. When defense procurement cycles are weak or delayed, GE might experience revenue reductions in its defense-related segments, impacting overall margins. Defense contracts usually yield higher margins compared to some other segments, so delays or fluctuations here can significantly affect overall profitability.\n\n2. Overall Financial Resilience:\n   - Revenue Mix Volatility: With significant exposure to both civil and defense markets, GE’s revenue stream can be quite volatile. Periods of weak civil travel demand or slow defense procurement cycles might force the company to maintain higher cash reserves or access credit lines to manage fixed production costs and R&D expenditures, which are critical for maintaining competitive advantage.\n   - Risk Management and Capital Allocation: The cyclical nature of these revenue sources underscores the importance of proactive risk management. GE needs to strategically allocate capital—especially in technology innovation, decarbonization initiatives, and efficiency improvements—to mitigate the impacts of such cyclical pressures. The company’s focus on R&D and intellectual property protection, as mentioned in the reference, aims to maintain technological leadership and potentially smooth revenue volatility over time.\n\n3. Strategic Considerations:\n   - Diversification and Product Lifecycle: Fluctuations in market demand necessitate a diversified portfolio and careful timing in product development cycles. The long development cycles for high-end jet engines and related services mean that GE must anticipate market trends well in advance, thereby impacting both short-term profitability and long-term financial resilience.\n   - Competitive and Regulatory Environment: The need to meet stringent quality and regulatory standards (as highlighted with agencies such as FAA, EASA, and CAAC) adds an extra layer of cost. This means that in periods of reduced demand, profitability can be more severely impacted due to fixed costs associated with regulatory compliance and innovation investments.\n\nIn summary, fluctuations in civil air travel demand and defense procurement cycles introduce substantial volatility into GE’s revenue trends. This volatility can translate into periodic pressures on profitability through reduced order volumes and higher fixed costs. However, strategic investments in R&D, diversification through global markets, and a proactive approach to regulatory and technological challenges work to bolster GE’s overall financial resilience despite these market cyclicalities.",
+          "react": {
+            "answer": "This is a statement, not a question. No financial data lookup or calculation is required.",
+            "em": 0.0,
+            "f1": 0.0264,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "GE's revenue volatility is impacted by air travel demand and defense procurement cycles, as aircraft engine and systems orders follow these trends.",
+            "em": 0.0,
+            "f1": 0.1282,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5101,
+          "bucket": "both_wrong",
+          "question": "Impact of BLL cybersecurity risk mgt on risk profile & capital allocation, BLL.",
+          "gt_answer": "The provided data indicates that Ball Corporation’s rigorous approach to assessing and monitoring third-party cybersecurity risks positively influences its risk profile and capital allocation. First, by requiring thorough security assessments and continuous monitoring of third-party service providers, the company minimizes the likelihood of costly breaches and operational disruptions. This proactive approach reduces potential liabilities and the need for large-scale crisis management expenditures, thereby leading to a more stable and predictable risk environment.\n\nFrom a capital allocation perspective, effective risk management means that Ball can avoid allocating excessive capital to contingency reserves or emergency remediation funds. Instead, the company can deploy capital more efficiently toward growth initiatives or strategic investments. Moreover, by mitigating cybersecurity risks, Ball enhances its overall creditworthiness and potentially reduces financing costs, which further supports optimal capital deployment. Although the data does not include explicit financial metrics or calculations, the qualitative description strongly suggests that robust third-party risk oversight helps maintain a lower risk profile and improves capital allocation efficiency by reducing uncertainty and unexpected negative financial impacts.",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "Ball Corporation's cybersecurity risk management program, aligned with NIST CSF and involving internal and external experts, aims to prevent potential cybersecurity incidents from materially affecting the company. While the program is integrated into enterprise risk management and overseen by the Board, the dossier does not explicitly detail its quantitative impact on the company's overall risk profile or how it directly influences capital allocation decisions.",
+            "em": 0.0,
+            "f1": 0.1974,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5211,
+          "bucket": "both_wrong",
+          "question": "Forecasts for mitigating cybersecurity risks by Lockheed Martin, ticker LMT.",
+          "gt_answer": "The provided reference gives a detailed qualitative overview of Lockheed Martin’s cybersecurity risk management practices, including the use of cybersecurity insurance and related risk mitigation strategies. However, it does not provide specific quantitative details or disclose how these strategies are incorporated into the company’s financial forecasts or models to mitigate the potential adverse financial effects from cybersecurity incidents. In other words, while the passage explains that insurance and other risk management processes are part of their overall strategy, explicit forecast adjustments or quantitative factors are not discussed in the provided data.",
+          "react": {
+            "answer": "The provided evidence describes Lockheed Martin's current and ongoing strategies for mitigating cybersecurity risks, including their organizational structure, incident response playbook, compliance with regulations, and supply chain management. It does not contain explicit forecasts or future quantitative targets for mitigating cybersecurity risks.",
+            "em": 0.0,
+            "f1": 0.3146,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "The dossier outlines Lockheed Martin's strategies and measures for mitigating cybersecurity risks, such as their computer incident response team (CIRT), corporate information security organization, and collaboration with the DoD on programs like the Cybersecurity Maturity Model Certification (CMMC). However, it does not provide specific forecasts for the mitigation of these risks.",
+            "em": 0.0,
+            "f1": 0.2979,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5258,
+          "bucket": "both_wrong",
+          "question": "CI exec track records: operational mgmt, ticker, and long-term value in HC.",
+          "gt_answer": "The available biographical data provides qualitative evidence that highlights the executives’ abilities to manage operational challenges and foster long-term value creation in a dynamic healthcare environment. For instance, David Cordani’s extensive tenure—ranging from COO to CEO—demonstrates a deep familiarity with operational oversight and strategic leadership. His progression suggests a capacity to implement change and drive transformation over time. Noelle K. Eder’s background, with senior roles in technology and digital operations at both Capital One and Hilton Worldwide, indicates a strong expertise in digital transformation and operational efficiency. This is particularly relevant as the healthcare market becomes increasingly influenced by digital innovations and technological disruption. Lastly, Eric P. Palmer’s history in enterprise strategy, financial oversight, and leading operational arms in Evernorth Health Services implies a strong balance between strategic vision and practical implementation, which is crucial for adapting to the evolving healthcare landscape. Collectively, these executive tracks signal a leadership team capable of addressing current operational challenges while positioning the company to capitalize on future growth opportunities.",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "The Cigna Group (CI) executives have extensive operational management experience. For example, David M. Cordani has been CEO since December 2009 and COO from June 2008 to December 2009. Noelle K. Eder has responsibility for the Company's technology and operations function since September 2023. Several executives, such as David Brailer and Eric P. Palmer, hold roles directly related to health and healthcare services, demonstrating a focus on long-term value in the healthcare sector.",
+            "em": 0.0,
+            "f1": 0.2658,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5292,
+          "bucket": "both_wrong",
+          "question": "C.$COF interest inc. from orig. fees & deferral impact on yield.",
+          "gt_answer": "Capital One recognizes interest income from loan origination fees by deferring these fees and then amortizing them over the contractual life (or commitment period) of the associated loans. This means that instead of recognizing the entire fee as revenue upfront, the fee is gradually recognized as a yield adjustment using the interest method over the duration of the loan. The practical impact of this deferral is that it smooths the recognition of income over time and ties the revenue recognition to the life of the underlying asset. In other words, the deferred fees become a component of the effective interest rate, ensuring that changes in the yield are reflective of both the cash interest received and the gradual recognition of these fees. This process helps in appropriately matching the income to the period over which the benefit of the origination fees is realized, potentially affecting the effective yield by either increasing or leveling the periodic yield reflected on the financial statements.",
+          "react": {
+            "answer": "The provided evidence explains the accounting treatment for loan origination fees and their impact on yield, stating they are deferred and amortized into interest income as yield adjustments. However, it does not provide a specific numerical value for \"interest income from origination fees and deferral impact on yield.\"",
+            "em": 0.0,
+            "f1": 0.1942,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "C.$COF recognizes interest income from origination fees and deferrals by deferring loan origination fees, direct loan origination costs, premiums, and discounts on loans held for investment, then amortizing them into interest income as yield adjustments over the contractual life or commitment period using the interest method. For credit card loans, these are amortized on a straight-line basis over 12 months. Prepayment estimates may also influence the effective yield calculation.",
+            "em": 0.0,
+            "f1": 0.35,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5373,
+          "bucket": "react_only_correct",
+          "question": "VST, EBITDA calc & margins for 2021-2023.",
+          "gt_answer": "Yes, the question is answerable using the provided data. EBITDA is typically calculated as Operating Income plus Depreciation and Amortization. Using the data for each year, we calculate as follows:\n\n1. For 2023:\n   • Operating Income = $2,661 million\n   • Depreciation and Amortization = $1,502 million\n   • EBITDA = 2,661 + 1,502 = $4,163 million\n   • Operating Revenues = $14,779 million\n   • EBITDA Margin = (4,163 / 14,779) × 100 ≈ 28.2%\n\n2. For 2022:\n   • Operating Income = –$1,177 million\n   • Depreciation and Amortization = $1,596 million\n   • EBITDA = (–1,177 + 1,596) = $419 million\n   • Operating Revenues = $13,728 million\n   • EBITDA Margin = (419 / 13,728) × 100 ≈ 3.05%\n\n3. For 2021:\n   • Operating Income = –$1,515 million\n   • Depreciation and Amortization = $1,753 million\n   • EBITDA = (–1,515 + 1,753) = $238 million\n   • Operating Revenues = $12,077 million\n   • EBITDA Margin = (238 / 12,077) × 100 ≈ 1.97%\n\nThese calculations show that EBITDA and EBITDA margins have significantly improved in 2023 relative to 2022 and 2021.",
+          "react": {
+            "answer": "VST EBITDA and EBITDA Margin:\n2023: EBITDA = $4,163 million, EBITDA Margin = 28.17%\n2022: EBITDA = $419 million, EBITDA Margin = 3.05%\n2021: EBITDA = $238 million, EBITDA Margin = 1.97%",
+            "em": 1.0,
+            "f1": 0.3548,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5542,
+          "bucket": "both_wrong",
+          "question": "Impact on risk profile & capex allocation from alt vacation sectors for Carnival Corp.",
+          "gt_answer": "The provided reference indicates that Carnival Corporation & plc competes not only against other cruise operators but also against land-based vacation alternatives such as hotels, resorts, theme parks, and other accommodation providers. This exposure affects its risk profile and capital allocation strategies in several key ways:\n\n1. Risk Profile – Competitive Pressure and Demand Shifts:\n   • Diversified Consumer Preferences: With consumers having broad vacation options, Carnival faces the risk that shifts in consumer preferences or economic conditions may result in reduced demand for cruise vacations as travelers opt for alternative experiences.\n   • Pricing and Market Share Volatility: The presence of strong alternatives increases competitive pressure on pricing strategies. Carnival may experience margin pressures if consumers choose lower-priced or more flexible vacation options like hotels or theme parks over cruises.\n   • Cyclical and Economic Sensitivity: The alternatives’ performance can be tied to economic cycles that may differ from those impacting the cruise industry. This could lead to unpredictability in the overall travel and leisure market, affecting cruise bookings in times of economic downturn when land-based options may be perceived as a safer choice.\n\n2. Capital Allocation Strategies – Investment in Differentiation and Resilience:\n   • Innovation and Differentiation: To counter the risks of strong competition from alternative vacation sectors, Carnival likely allocates capital toward enhancing onboard experiences, updating fleet technology, and improving service offerings so that its product stays distinct from the standard hotel or theme park experience.\n   • Strategic Investments in Branding and Marketing: Carnival might also invest more in targeted marketing and brand differentiation to reinforce the unique cruise experience in the minds of consumers, thereby mitigating the substitution effect from competing vacation choices.\n   • Fleet Modernization and Cost Efficiency: Understanding the competitive landscape, Carnival may prioritize capital expenditures toward fleet modernization and operational efficiency. This helps in reducing operating costs while maintaining competitive fares, which is essential for retaining and growing market share in an environment where consumers have many vacation alternatives.\n   • Flexibility in Long-Term Planning: Exposure to competing vacation sectors may push Carnival to build more flexibility into its capital allocation plans. This could include maintaining liquidity reserves to quickly capitalize on emerging trends or to buffer against economic downturns that may disproportionately benefit alternative vacation options.\n\nIn summary, Carnival’s exposure to alternative vacation sectors increases its competitive and cyclical risks, which in turn require a defensive and adaptive capital allocation strategy. By investing in differentiation, technological upgrades, marketing, and cost efficiencies, the company aims to mitigate these risks and position itself effectively against a backdrop of broad-based competition in the leisure and tourism market.",
+          "react": {
+            "answer": "The provided evidence states that Carnival Corp. competes with various land-based vacation alternatives but does not explicitly detail the impact of these alternative vacation sectors on Carnival Corp.'s risk profile or capital expenditure allocation.",
+            "em": 0.0,
+            "f1": 0.1453,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 5565,
+          "bucket": "both_wrong",
+          "question": "Impact of ACN class action lawsuit on short vs long-term profitability, ACN.",
+          "gt_answer": "Based on the provided disclosure, Accenture's management states that they believe the Starwood-related class action lawsuit is without merit and that any potential losses—net of insurance recoveries—are not expected to have a material impact on their short-term or long-term profitability. In the short term, while the litigation may result in some legal and administrative expenses, management’s position is that these costs will be immaterial, with no significant disruption expected to operating performance or cash flows. In the long term, unless there is an unexpected adverse ruling that results in a substantial judgment or settlement, the company does not expect the legal proceedings to affect its profitability materially or its financial condition. It is important to note that while the current assessment implies minimal financial implications, such matters inherently carry uncertainty, and any future developments in court or changes in regulatory actions could potentially alter the financial impact. However, with the available information, management’s outlook suggests that the risks to both short-term and long-term profitability remain low.",
+          "react": {
+            "answer": "ACN states that the Marriott/Starwood class action lawsuit is not expected to have a material effect on its results of operations or financial condition, implying no significant impact on short-term or long-term profitability. However, a DOJ investigation into Accenture Federal Services could lead to civil and criminal penalties, administrative sanctions, and debarment from government contracts, which could significantly impact both short-term and long-term profitability, though the cost and resolution are currently unknown.",
+            "em": 0.0,
+            "f1": 0.3421,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "Accenture's management believes the Marriott class action lawsuit will not have a material effect on its results of operations or financial condition. For the Accenture Federal Services investigation, the company cannot currently estimate the cost or range of costs, but it could lead to adverse consequences such as civil and criminal penalties and administrative sanctions. The dossier does not provide a specific breakdown of short-term versus long-term profitability impacts for either matter.",
+            "em": 0.0,
+            "f1": 0.3247,
+            "n_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "finqa",
+      "results_dir": "/Users/rishisim/Documents/research/nexus/results/finance/finqa/seed42_gemini-2.5-flash_all5-50-v1",
+      "status": "ok",
+      "paired_examples": 50,
+      "react": {
+        "valid_examples": 50,
+        "correct": 26.0,
+        "accuracy_em": 0.52,
+        "accuracy_f1": 0.0928,
+        "total_llm_calls": 113,
+        "avg_calls_per_example": 2.26,
+        "correct_per_llm_call": 0.230088
+      },
+      "nexus": {
+        "valid_examples": 50,
+        "correct": 35.0,
+        "accuracy_em": 0.7,
+        "accuracy_f1": 0.1733,
+        "total_llm_calls": 50,
+        "avg_calls_per_example": 1.0,
+        "correct_per_llm_call": 0.7
+      },
+      "audit_counts": {
+        "both_correct": 25,
+        "react_only_correct": 1,
+        "nexus_only_correct": 10,
+        "both_wrong": 14
+      },
+      "disagreements": [
+        {
+          "question_idx": 110,
+          "bucket": "nexus_only_correct",
+          "question": "in 2008 what was the percent of the total operating revenues that was associated with other revenues",
+          "gt_answer": "0.04741",
+          "react": {
+            "answer": "(852 / 17970) * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "4.74%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 202,
+          "bucket": "both_wrong",
+          "question": "what is the percentage change in amortization expense from from 2008 to 2009?",
+          "gt_answer": "0.01981",
+          "react": {
+            "answer": "-1.88%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "-1.88%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 229,
+          "bucket": "both_wrong",
+          "question": "in 2013 what was the percent of the total operating revenues from mexico",
+          "gt_answer": "0.0001",
+          "react": {
+            "answer": "($2,100 million / $21,963 million) * 100 = 9.561535318481947%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "9.56%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 247,
+          "bucket": "nexus_only_correct",
+          "question": "in 2011 , did the company distribute more to shareholders than debtholders?",
+          "gt_answer": "yes",
+          "react": {
+            "answer": "I am unable to answer this question as the necessary cash flow statement data for 2011, specifically \"dividends paid\" and \"interest paid,\" is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 6
+          },
+          "nexus": {
+            "answer": "Yes",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 299,
+          "bucket": "nexus_only_correct",
+          "question": "what was the percentual increase of other income due to favorable foreign exchange and reimbursements in 2011?",
+          "gt_answer": "0.11465",
+          "react": {
+            "answer": "12.95%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "11.46%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 312,
+          "bucket": "nexus_only_correct",
+          "question": "what portion of the purchasing price is dedicated to net tangible assets?",
+          "gt_answer": "0.79233",
+          "react": {
+            "answer": "$24,800 / $31,300",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "0.792332268370607",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 386,
+          "bucket": "nexus_only_correct",
+          "question": "in 2002 what was the ratio of the annual cash sinking fund requirements for debt outstanding that was due in 2004 to 2005",
+          "gt_answer": "1.71179",
+          "react": {
+            "answer": "925005 / 540372",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1.71173",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 397,
+          "bucket": "both_wrong",
+          "question": "as of 2017 what was the ratio of the overall five-year cumulative total return for s&p 500 compared to citi",
+          "gt_answer": "1.15615",
+          "react": {
+            "answer": "208.1 / 193.5 = 1.0754542635658915",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1.075452196382429",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 402,
+          "bucket": "both_wrong",
+          "question": "what is the average yearly amortization expense related to contract-based intangible assets , ( in thousands ) ?",
+          "gt_answer": "103.1",
+          "react": {
+            "answer": "1031 / 6.5 = 158.61538461538462 (in thousands)",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 404,
+          "bucket": "both_wrong",
+          "question": "how much of the securitizations that hold asf framework loans were issued by third parties?",
+          "gt_answer": "0.97945",
+          "react": {
+            "answer": "$19636 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$19,636 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 428,
+          "bucket": "both_wrong",
+          "question": "what portion of the total estimated future contingent acquisition obligation is due in the 12 months?",
+          "gt_answer": "0.1931",
+          "react": {
+            "answer": "$79.3",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "0.196872",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 446,
+          "bucket": "nexus_only_correct",
+          "question": "what percentage of total future principal payments of corporate debt are due in 2011?",
+          "gt_answer": "0.13153",
+          "react": {
+            "answer": "453815 / 3450152 * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "13.1534%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 460,
+          "bucket": "nexus_only_correct",
+          "question": "what percent of the total common stock plans are related to the vertex 401 ( k ) plan?",
+          "gt_answer": "0.00563",
+          "react": {
+            "answer": "(125 / 22203) * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "0.5630725577624645%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 493,
+          "bucket": "both_wrong",
+          "question": "how much more , in percent , was spent on october shares than november shares?",
+          "gt_answer": "1229.08971",
+          "react": {
+            "answer": "((29704 * 5.99) - (4468 * 3.24)) / (4468 * 3.24) * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1129.12%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 533,
+          "bucket": "both_wrong",
+          "question": "what was the difference in percentage cumulative 5-year total return to shareholders of cadence design systems , inc . 2019s common stock and the s&p 500 for the period ended december 30 , 2006?",
+          "gt_answer": "-0.5507",
+          "react": {
+            "answer": "55.07",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "-55.07",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 534,
+          "bucket": "nexus_only_correct",
+          "question": "total future minimum lease payments due after 5 years are what percent of the total remaining?",
+          "gt_answer": "0.15465",
+          "react": {
+            "answer": "(708 / 4578) * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "15.47%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 536,
+          "bucket": "both_wrong",
+          "question": "if overall freight revenues in 2014 grow as the same rate as agricultural arc growth , what would projected 2015 revenues be in millions?",
+          "gt_answer": "22560.05",
+          "react": {
+            "answer": "The agricultural arc growth rate for 2014 is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 599,
+          "bucket": "both_wrong",
+          "question": "in 2018 what was the ratio of the service cost to the interest cost",
+          "gt_answer": "0.66176",
+          "react": {
+            "answer": "136 / 90",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1.511",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 693,
+          "bucket": "nexus_only_correct",
+          "question": "what portion of the minimum total assets available for default is related to assessment powers?",
+          "gt_answer": "0.72665",
+          "react": {
+            "answer": "7973.6 / 10973.1",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "0.72665",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 706,
+          "bucket": "react_only_correct",
+          "question": "what was the difference in operating profit margins as adjusted between 2017 and 2018?",
+          "gt_answer": "-0.006",
+          "react": {
+            "answer": "15.1% - 15.7% = -0.6%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "0.6%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 745,
+          "bucket": "both_wrong",
+          "question": "in 2016 based on the increase in the net sales what was the ratio of the increasing factor to the offsetting factors that reduced sales",
+          "gt_answer": "0.98491",
+          "react": {
+            "answer": "40.73",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "40.73:1",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 764,
+          "bucket": "both_wrong",
+          "question": "by how much did the expected annual dividends per share increase from 2005 to 2007?",
+          "gt_answer": "0.45455",
+          "react": {
+            "answer": "$0.96 - $0.66 = $0.30",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$0.30",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 776,
+          "bucket": "both_wrong",
+          "question": "what percentage of total commercial mortgages were at fair value?",
+          "gt_answer": "0.71064",
+          "react": {
+            "answer": "($1050 million / $1301 million) * 100 = 80.71%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "80.71%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 794,
+          "bucket": "nexus_only_correct",
+          "question": "what portion of contractual obligations is expected to be paid within 12 months?",
+          "gt_answer": "0.48842",
+          "react": {
+            "answer": "$6,932 (in $000s)",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 3
+          },
+          "nexus": {
+            "answer": "0.4884212752469071",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 800,
+          "bucket": "both_wrong",
+          "question": "at december 31 , 2012 , what was the percent of the total future minimum commitments under existing non-cancelable operating leases that was due in 2014",
+          "gt_answer": "0.14108",
+          "react": {
+            "answer": "($136 million / $701 million) * 100 = 19.40%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "19.40%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "tatqa",
+      "results_dir": "/Users/rishisim/Documents/research/nexus/results/finance/tatqa/seed42_gemini-2.5-flash_all5-50-v1",
+      "status": "ok",
+      "paired_examples": 50,
+      "react": {
+        "valid_examples": 50,
+        "correct": 45.0,
+        "accuracy_em": 0.9,
+        "accuracy_f1": 0.5986,
+        "total_llm_calls": 101,
+        "avg_calls_per_example": 2.02,
+        "correct_per_llm_call": 0.445545
+      },
+      "nexus": {
+        "valid_examples": 50,
+        "correct": 48.0,
+        "accuracy_em": 0.96,
+        "accuracy_f1": 0.7875,
+        "total_llm_calls": 50,
+        "avg_calls_per_example": 1.0,
+        "correct_per_llm_call": 0.96
+      },
+      "audit_counts": {
+        "both_correct": 45,
+        "react_only_correct": 0,
+        "nexus_only_correct": 3,
+        "both_wrong": 2
+      },
+      "disagreements": [
+        {
+          "question_idx": 5,
+          "bucket": "nexus_only_correct",
+          "question": "What is the value of the change in goodwill impairment between 2018 and 2019 as a percentage of the 2018 goodwill impairment?",
+          "gt_answer": "87.04",
+          "react": {
+            "answer": "(-12830 / 14740) * 100%",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "(87%)",
+            "em": 1.0,
+            "f1": 0.6667,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 879,
+          "bucket": "nexus_only_correct",
+          "question": "What is the percentage change in the operating loss carryforward from 2018 to 2019?",
+          "gt_answer": "26.82",
+          "react": {
+            "answer": "((73,260 - 57,768) / 57,768) * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "26.81%",
+            "em": 1.0,
+            "f1": 0.5,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 898,
+          "bucket": "nexus_only_correct",
+          "question": "What is the average Selling, general and administrative?",
+          "gt_answer": "399.33",
+          "react": {
+            "answer": "(453 + 361 + 384) / 3",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "399.33 million",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 965,
+          "bucket": "both_wrong",
+          "question": "What was the increase in Products and Licensing segment costs in 2019?",
+          "gt_answer": "$8.6 million",
+          "react": {
+            "answer": "$8,605,302",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$8,605,302",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1534,
+          "bucket": "both_wrong",
+          "question": "What is the average INR-GBP exchange rate in FY 2019?",
+          "gt_answer": "0.01",
+          "react": {
+            "answer": "91.60",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "91.60",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "convfinqa",
+      "results_dir": "/Users/rishisim/Documents/research/nexus/results/finance/convfinqa/seed42_gemini-2.5-flash_all5-50-v1",
+      "status": "ok",
+      "paired_examples": 50,
+      "react": {
+        "valid_examples": 50,
+        "correct": 25.0,
+        "accuracy_em": 0.5,
+        "accuracy_f1": 0.3344,
+        "total_llm_calls": 145,
+        "avg_calls_per_example": 2.9,
+        "correct_per_llm_call": 0.172414
+      },
+      "nexus": {
+        "valid_examples": 50,
+        "correct": 35.0,
+        "accuracy_em": 0.7,
+        "accuracy_f1": 0.51,
+        "total_llm_calls": 50,
+        "avg_calls_per_example": 1.0,
+        "correct_per_llm_call": 0.7
+      },
+      "audit_counts": {
+        "both_correct": 23,
+        "react_only_correct": 2,
+        "nexus_only_correct": 12,
+        "both_wrong": 13
+      },
+      "disagreements": [
+        {
+          "question_idx": 1,
+          "bucket": "nexus_only_correct",
+          "question": "what is that value minus 1?",
+          "gt_answer": "0.04569",
+          "react": {
+            "answer": "$1,576 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "0.04569",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 136,
+          "bucket": "nexus_only_correct",
+          "question": "how much, then, does that change represent in relation to this total?",
+          "gt_answer": "-0.05621",
+          "react": {
+            "answer": "I need more information to answer this question. Please provide the values for \"that change\" and \"this total.\"",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "-5.6208%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 169,
+          "bucket": "both_wrong",
+          "question": "and how much did this change represent in relation to the 2008 losses?",
+          "gt_answer": "0.03288",
+          "react": {
+            "answer": "The 2008 losses for 3M are not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "0.01633",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 207,
+          "bucket": "both_wrong",
+          "question": "what percentage change does this represent?",
+          "gt_answer": "-0.02703",
+          "react": {
+            "answer": "The necessary information to calculate the percentage change in capital expenditures for 3M is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "0.01387",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 213,
+          "bucket": "both_wrong",
+          "question": "what is the sum of cash provided by operating activities and used by investing activities in 2008?",
+          "gt_answer": "1184.0",
+          "react": {
+            "answer": "The information for 2008 is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 274,
+          "bucket": "both_wrong",
+          "question": "what was, then, the change over the year?",
+          "gt_answer": "0.017",
+          "react": {
+            "answer": "The information needed to answer this question is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "$40 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 361,
+          "bucket": "nexus_only_correct",
+          "question": "what percentage change does this represent?",
+          "gt_answer": "0.14286",
+          "react": {
+            "answer": "I am unable to answer this question as the FY2017 capital expenditure for 3M is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 6
+          },
+          "nexus": {
+            "answer": "14.2857%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 645,
+          "bucket": "both_wrong",
+          "question": "what was the net change assuming a $100 initial investment?",
+          "gt_answer": "40.0",
+          "react": {
+            "answer": "$181 - $100 = $81",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 667,
+          "bucket": "nexus_only_correct",
+          "question": "what about the net of proceeds from sales of containers?",
+          "gt_answer": "160.0",
+          "react": {
+            "answer": "The $1,577 million for 3M's FY2018 capital expenditure represents \"Purchases of property, plant and equipment.\" The phrase \"net of proceeds from sales of containers\" is not relevant to 3M's capital expenditures as identified in the evidence, and the provided evidence for that phrase pertains to a different company and context.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$160",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 715,
+          "bucket": "nexus_only_correct",
+          "question": "what is the net change divided by that?",
+          "gt_answer": "0.06385",
+          "react": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "0.06384773745765477",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 862,
+          "bucket": "nexus_only_correct",
+          "question": "what was the value in 2011?",
+          "gt_answer": "7073.0",
+          "react": {
+            "answer": "I am unable to find the capital expenditure for 3M in 2011 within the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "$ 7073",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 872,
+          "bucket": "react_only_correct",
+          "question": "what was the low price?",
+          "gt_answer": "16.28",
+          "react": {
+            "answer": "$16.28",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 911,
+          "bucket": "nexus_only_correct",
+          "question": "and what was it in 2004?",
+          "gt_answer": "111.0",
+          "react": {
+            "answer": "No information available for 3M's 2004 capital expenditures.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "$ 111",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 987,
+          "bucket": "both_wrong",
+          "question": "what percentage change does this represent?",
+          "gt_answer": "-0.37754",
+          "react": {
+            "answer": "I am unable to answer this question as the necessary financial data for FY2017 for 3M could not be retrieved.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "-37.66",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1041,
+          "bucket": "nexus_only_correct",
+          "question": "what is that divided by the earlier sum value?",
+          "gt_answer": "0.90917",
+          "react": {
+            "answer": "I need more information to answer this question. Please specify what \"the earlier sum value\" refers to.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "0.909276",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1051,
+          "bucket": "both_wrong",
+          "question": "what was, then, the annual average of projected benefit payments in that period?",
+          "gt_answer": "183.58",
+          "react": {
+            "answer": "$250.04",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$250.04",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1066,
+          "bucket": "nexus_only_correct",
+          "question": "and what percentage do the restricted shares supposed to vest in 2018 represent?",
+          "gt_answer": "0.26028",
+          "react": {
+            "answer": "2352443 / 9038137 * 100",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "26.0280%",
+            "em": 1.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1072,
+          "bucket": "both_wrong",
+          "question": "what about repurchased shares during fourth quarter of 2012?",
+          "gt_answer": "22944.0",
+          "react": {
+            "answer": "14156696",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "14156696.0",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1266,
+          "bucket": "both_wrong",
+          "question": "and converted to the thousands?",
+          "gt_answer": "11600.0",
+          "react": {
+            "answer": "$1,577,000 thousand",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1388,
+          "bucket": "nexus_only_correct",
+          "question": "and in 2007?",
+          "gt_answer": "237.5",
+          "react": {
+            "answer": "The information is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "237.5",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1431,
+          "bucket": "both_wrong",
+          "question": "what about in in 2016?",
+          "gt_answer": "12556.0",
+          "react": {
+            "answer": "I am unable to find the capital expenditure amount for 3M in 2016 with the available tools.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "net sales: $13462 million, operating profit: $906 million, operating margin: 6.7%, backlog at year-end: $28400 million",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1549,
+          "bucket": "both_wrong",
+          "question": "what is the liquid asset value?",
+          "gt_answer": "22.1",
+          "react": {
+            "answer": "$85.5 billion",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "$85.5 billion",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1561,
+          "bucket": "nexus_only_correct",
+          "question": "what was the value in 2008?",
+          "gt_answer": "540.0",
+          "react": {
+            "answer": "The information is not available in the provided evidence.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 5
+          },
+          "nexus": {
+            "answer": "$540",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1599,
+          "bucket": "both_wrong",
+          "question": "what is the average per year?",
+          "gt_answer": "1.7",
+          "react": {
+            "answer": "Please specify what metric you would like the average per year for.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          },
+          "nexus": {
+            "answer": "UNKNOWN",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1666,
+          "bucket": "nexus_only_correct",
+          "question": "and the value for 2004 again?",
+          "gt_answer": "1502747.0",
+          "react": {
+            "answer": "I am unable to find the capital expenditure amount for 3M for 2004 with the provided tools.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 7
+          },
+          "nexus": {
+            "answer": "1502747.0",
+            "em": 1.0,
+            "f1": 1.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1843,
+          "bucket": "both_wrong",
+          "question": "what is the total value including 2014?",
+          "gt_answer": "0.4",
+          "react": {
+            "answer": "The total intrinsic value of incentive/performance unit and restricted share/restricted share unit awards vested during 2014 was approximately $0.1 billion.",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 4
+          },
+          "nexus": {
+            "answer": "$ .1 billion",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        },
+        {
+          "question_idx": 1994,
+          "bucket": "react_only_correct",
+          "question": "what is the sum of total executive shares owned plus the unvested shares of mr. johnson?",
+          "gt_answer": "8802396.0",
+          "react": {
+            "answer": "8352396 + 450000 = 8802396",
+            "em": 1.0,
+            "f1": 0.5,
+            "n_calls": 2
+          },
+          "nexus": {
+            "answer": "1,900,620",
+            "em": 0.0,
+            "f1": 0.0,
+            "n_calls": 1
+          }
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Cost is measured as answer-generation LLM calls, not provider tokens or dollars.",
+    "Accuracy is rescored with the local finance-aware heuristic.",
+    "Disagreements are candidates for manual scorer audit."
+  ]
+}

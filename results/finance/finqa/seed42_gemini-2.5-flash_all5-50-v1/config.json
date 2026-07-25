@@ -1,0 +1,33 @@
+{
+  "dataset": "finqa",
+  "dataset_name": "FinQA",
+  "task_type": "numerical_financial_qa",
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "frameworks": [
+    "react",
+    "nexus"
+  ],
+  "results_tag": "all5-50-v1",
+  "num_examples": 50,
+  "max_examples": 883,
+  "created_or_updated": "2026-06-21 11:10:23",
+  "dataset_metadata": {
+    "id": "finqa",
+    "name": "FinQA",
+    "task_type": "numerical_financial_qa",
+    "source_url": "https://finqasite.github.io/",
+    "code_url": "https://github.com/czyssrs/FinQA",
+    "hf_url": "https://huggingface.co/datasets/ChanceFocus/flare-finqa",
+    "public_examples": 883,
+    "size_note": "About 2.8k financial reports and 8k expert-annotated QA pairs.",
+    "evidence_type": "financial report text and tables",
+    "answer_style": "numeric or short answer with gold reasoning program",
+    "nexus_fit": "High: useful for checking whether fixed planning helps multi-step numerical reasoning.",
+    "first_pass_priority": 3,
+    "implementation_notes": [
+      "Use gold programs for error analysis, not as model input.",
+      "Normalize numeric answers carefully: units, percentages, signs, and rounding."
+    ]
+  }
+}

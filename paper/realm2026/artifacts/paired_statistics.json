@@ -1,0 +1,4676 @@
+{
+  "bootstrap": {
+    "confidence": 0.95,
+    "n_resamples": 10000,
+    "seed": 20260709
+  },
+  "complementarity": {
+    "aggregate": {
+      "always_static_accuracy": 0.395,
+      "both_correct": 37,
+      "both_wrong": 111,
+      "denominator": "200 paired objective routing development examples",
+      "metric": "exact_match",
+      "n_pairs": 200,
+      "oracle_accuracy": 0.445,
+      "oracle_headroom_over_static": 0.05,
+      "react_accuracy": 0.235,
+      "react_only_correct": 10,
+      "selective_observed_accuracy": 0.295,
+      "selective_observed_cost_per_example_usd": 0.0014305315365,
+      "selective_observed_escalation_rate": 0.7,
+      "selective_route_counts": {
+        "nexus": 60,
+        "react": 140
+      },
+      "selective_route_missing_examples": 0,
+      "static_accuracy": 0.395,
+      "static_only_correct": 42
+    },
+    "by_dataset": {
+      "convfinqa": {
+        "both_correct": 11,
+        "both_wrong": 29,
+        "denominator": "50 paired objective routing development examples",
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "oracle_accuracy": 0.42,
+        "oracle_headroom_over_static": 0.06,
+        "react_accuracy": 0.28,
+        "react_only_correct": 3,
+        "static_accuracy": 0.36,
+        "static_only_correct": 7
+      },
+      "financebench": {
+        "both_correct": 10,
+        "both_wrong": 27,
+        "denominator": "50 paired objective routing development examples",
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "oracle_accuracy": 0.46,
+        "oracle_headroom_over_static": 0.0,
+        "react_accuracy": 0.2,
+        "react_only_correct": 0,
+        "static_accuracy": 0.46,
+        "static_only_correct": 13
+      },
+      "finqa": {
+        "both_correct": 3,
+        "both_wrong": 30,
+        "denominator": "50 paired objective routing development examples",
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "oracle_accuracy": 0.4,
+        "oracle_headroom_over_static": 0.08,
+        "react_accuracy": 0.14,
+        "react_only_correct": 4,
+        "static_accuracy": 0.32,
+        "static_only_correct": 13
+      },
+      "tatqa": {
+        "both_correct": 13,
+        "both_wrong": 25,
+        "denominator": "50 paired objective routing development examples",
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "oracle_accuracy": 0.5,
+        "oracle_headroom_over_static": 0.06,
+        "react_accuracy": 0.32,
+        "react_only_correct": 3,
+        "static_accuracy": 0.44,
+        "static_only_correct": 9
+      }
+    }
+  },
+  "datasets": [
+    "financebench",
+    "finder",
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "efficiency": {
+    "all_5": {
+      "cot": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 250,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.22078128600000002,
+        "failed_rows": 0,
+        "input_rows": 250,
+        "latency_available_successful_examples": 250,
+        "latency_denominator_successful_examples": 250,
+        "latency_median_ms": 1868.602437501977,
+        "latency_p95_ms": 4520.645575151501,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 250,
+            "missing_examples": 250
+          },
+          "total_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.0008831251440000001,
+        "price_source_counts": {
+          "provider": 250
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 250,
+        "status_counts": {
+          "success": 250
+        },
+        "successful_rows": 250,
+        "token_coverage": {
+          "input_tokens": 250,
+          "output_tokens": 250,
+          "total_tokens": 250
+        },
+        "token_per_input_example": {
+          "input_tokens": 953.852,
+          "output_tokens": 242.356,
+          "total_tokens": 1196.208
+        },
+        "token_totals": {
+          "input_tokens": 238463.0,
+          "output_tokens": 60589.0,
+          "total_tokens": 299052.0
+        },
+        "usd_per_example": 0.000883125144
+      },
+      "direct": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 250,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.08191151100000005,
+        "failed_rows": 0,
+        "input_rows": 250,
+        "latency_available_successful_examples": 250,
+        "latency_denominator_successful_examples": 250,
+        "latency_median_ms": 846.8756664988177,
+        "latency_p95_ms": 1623.8501809508302,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 250,
+            "missing_examples": 250
+          },
+          "total_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.0003276460440000002,
+        "price_source_counts": {
+          "provider": 250
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 250,
+        "status_counts": {
+          "success": 250
+        },
+        "successful_rows": 250,
+        "token_coverage": {
+          "input_tokens": 250,
+          "output_tokens": 250,
+          "total_tokens": 250
+        },
+        "token_per_input_example": {
+          "input_tokens": 937.852,
+          "output_tokens": 19.84,
+          "total_tokens": 957.692
+        },
+        "token_totals": {
+          "input_tokens": 234463.0,
+          "output_tokens": 4960.0,
+          "total_tokens": 239423.0
+        },
+        "usd_per_example": 0.000327646044
+      },
+      "nexus": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 250,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.24928615799999998,
+        "failed_rows": 0,
+        "input_rows": 250,
+        "latency_available_successful_examples": 250,
+        "latency_denominator_successful_examples": 250,
+        "latency_median_ms": 1214.9631879983644,
+        "latency_p95_ms": 2984.0529124980094,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 250,
+            "missing_examples": 250
+          },
+          "total_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.000997144632,
+        "price_source_counts": {
+          "provider": 250
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 702,
+        "status_counts": {
+          "success": 250
+        },
+        "successful_rows": 250,
+        "token_coverage": {
+          "input_tokens": 250,
+          "output_tokens": 250,
+          "total_tokens": 250
+        },
+        "token_per_input_example": {
+          "input_tokens": 2433.296,
+          "output_tokens": 113.98,
+          "total_tokens": 2547.276
+        },
+        "token_totals": {
+          "input_tokens": 608324.0,
+          "output_tokens": 28495.0,
+          "total_tokens": 636819.0
+        },
+        "usd_per_example": 0.000997144632
+      },
+      "react": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 3.032,
+        "answer_calls_total": 758,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.410359455,
+        "failed_rows": 0,
+        "input_rows": 250,
+        "latency_available_successful_examples": 250,
+        "latency_denominator_successful_examples": 250,
+        "latency_median_ms": 3894.5584789980785,
+        "latency_p95_ms": 8240.78305245893,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 250,
+            "missing_examples": 250
+          },
+          "total_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.00164143782,
+        "price_source_counts": {
+          "provider": 250
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 509,
+        "status_counts": {
+          "success": 250
+        },
+        "successful_rows": 250,
+        "token_coverage": {
+          "input_tokens": 250,
+          "output_tokens": 250,
+          "total_tokens": 250
+        },
+        "token_per_input_example": {
+          "input_tokens": 2582.284,
+          "output_tokens": 355.1,
+          "total_tokens": 2937.384
+        },
+        "token_totals": {
+          "input_tokens": 645571.0,
+          "output_tokens": 88775.0,
+          "total_tokens": 734346.0
+        },
+        "usd_per_example": 0.00164143782
+      },
+      "selective": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 2.512,
+        "answer_calls_total": 628,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.3781590813000001,
+        "failed_rows": 0,
+        "input_rows": 250,
+        "latency_available_successful_examples": 250,
+        "latency_denominator_successful_examples": 250,
+        "latency_median_ms": 3736.360707996937,
+        "latency_p95_ms": 7966.393933306242,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 250,
+            "missing_examples": 0
+          },
+          "total_tokens": {
+            "denominator": 250,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.0015126363252000003,
+        "price_source_counts": {
+          "provider": 250
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 735,
+        "status_counts": {
+          "success": 250
+        },
+        "successful_rows": 250,
+        "token_coverage": {
+          "input_tokens": 250,
+          "output_tokens": 250,
+          "total_tokens": 250
+        },
+        "token_per_input_example": {
+          "input_tokens": 2560.672,
+          "output_tokens": 305.652,
+          "total_tokens": 2866.324
+        },
+        "token_totals": {
+          "input_tokens": 640168.0,
+          "output_tokens": 76413.0,
+          "total_tokens": 716581.0
+        },
+        "usd_per_example": 0.0015126363252
+      }
+    },
+    "by_dataset": {
+      "convfinqa": {
+        "cot": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.046209042000000006,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1580.350478998298,
+          "latency_p95_ms": 4218.41974634517,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0009241808400000001,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1376.72,
+            "output_tokens": 208.2,
+            "total_tokens": 1584.92
+          },
+          "token_totals": {
+            "input_tokens": 68836.0,
+            "output_tokens": 10410.0,
+            "total_tokens": 79246.0
+          },
+          "usd_per_example": 0.00092418084
+        },
+        "direct": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.02121401699999999,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 799.8680209966551,
+          "latency_p95_ms": 1197.9888062520326,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0004242803399999998,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1360.72,
+            "output_tokens": 8.14,
+            "total_tokens": 1368.86
+          },
+          "token_totals": {
+            "input_tokens": 68036.0,
+            "output_tokens": 407.0,
+            "total_tokens": 68443.0
+          },
+          "usd_per_example": 0.00042428034
+        },
+        "nexus": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.058887279000000015,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1028.9803959967685,
+          "latency_p95_ms": 2299.242122251598,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0011777455800000003,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 130,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 3384.14,
+            "output_tokens": 69.76,
+            "total_tokens": 3453.9
+          },
+          "token_totals": {
+            "input_tokens": 169207.0,
+            "output_tokens": 3488.0,
+            "total_tokens": 172695.0
+          },
+          "usd_per_example": 0.00117774558
+        },
+        "react": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 3.24,
+          "answer_calls_total": 162,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.09361687499999999,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 3943.3997080013796,
+          "latency_p95_ms": 7787.535054054023,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0018723374999999997,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 112,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 3568.0,
+            "output_tokens": 328.34,
+            "total_tokens": 3896.34
+          },
+          "token_totals": {
+            "input_tokens": 178400.0,
+            "output_tokens": 16417.0,
+            "total_tokens": 194817.0
+          },
+          "usd_per_example": 0.0018723375000000001
+        },
+        "selective": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.44,
+          "answer_calls_total": 122,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.08437581899999998,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 3421.9108125071216,
+          "latency_p95_ms": 8152.359949453965,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0016875163799999996,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 152,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 3564.04,
+            "output_tokens": 254.14,
+            "total_tokens": 3818.18
+          },
+          "token_totals": {
+            "input_tokens": 178202.0,
+            "output_tokens": 12707.0,
+            "total_tokens": 190909.0
+          },
+          "usd_per_example": 0.00168751638
+        }
+      },
+      "financebench": {
+        "cot": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.041001642,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1896.6404579987284,
+          "latency_p95_ms": 4595.0966562541,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00082003284,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 750.72,
+            "output_tokens": 241.24,
+            "total_tokens": 991.96
+          },
+          "token_totals": {
+            "input_tokens": 37536.0,
+            "output_tokens": 12062.0,
+            "total_tokens": 49598.0
+          },
+          "usd_per_example": 0.0008200328400000001
+        },
+        "direct": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.014051367000000002,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 886.2206255034835,
+          "latency_p95_ms": 1859.7490935968376,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00028102734000000004,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 734.72,
+            "output_tokens": 25.38,
+            "total_tokens": 760.1
+          },
+          "token_totals": {
+            "input_tokens": 36736.0,
+            "output_tokens": 1269.0,
+            "total_tokens": 38005.0
+          },
+          "usd_per_example": 0.00028102734
+        },
+        "nexus": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.044655138,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1278.6775835011213,
+          "latency_p95_ms": 3515.1585999992635,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0008931027599999999,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 149,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1959.58,
+            "output_tokens": 125.7,
+            "total_tokens": 2085.28
+          },
+          "token_totals": {
+            "input_tokens": 97979.0,
+            "output_tokens": 6285.0,
+            "total_tokens": 104264.0
+          },
+          "usd_per_example": 0.00089310276
+        },
+        "react": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 3.38,
+          "answer_calls_total": 169,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.09663578099999999,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 4396.577083502052,
+          "latency_p95_ms": 8801.458408049073,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00193271562,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 120,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 3096.58,
+            "output_tokens": 418.14,
+            "total_tokens": 3514.72
+          },
+          "token_totals": {
+            "input_tokens": 154829.0,
+            "output_tokens": 20907.0,
+            "total_tokens": 175736.0
+          },
+          "usd_per_example": 0.00193271562
+        },
+        "selective": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 3.1,
+          "answer_calls_total": 155,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.087816861,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 4304.922062499827,
+          "latency_p95_ms": 9971.24722454682,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00175633722,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 161,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 2666.26,
+            "output_tokens": 389.68,
+            "total_tokens": 3055.94
+          },
+          "token_totals": {
+            "input_tokens": 133313.0,
+            "output_tokens": 19484.0,
+            "total_tokens": 152797.0
+          },
+          "usd_per_example": 0.00175633722
+        }
+      },
+      "finder": {
+        "cot": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.056919159,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 2894.988354499219,
+          "latency_p95_ms": 6215.481843899033,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00113838318,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 778.94,
+            "output_tokens": 366.48,
+            "total_tokens": 1145.42
+          },
+          "token_totals": {
+            "input_tokens": 38947.0,
+            "output_tokens": 18324.0,
+            "total_tokens": 57271.0
+          },
+          "usd_per_example": 0.00113838318
+        },
+        "direct": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.016457858999999995,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 914.090500002203,
+          "latency_p95_ms": 1850.2814062474492,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0003291571799999999,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 762.94,
+            "output_tokens": 41.44,
+            "total_tokens": 804.38
+          },
+          "token_totals": {
+            "input_tokens": 38147.0,
+            "output_tokens": 2072.0,
+            "total_tokens": 40219.0
+          },
+          "usd_per_example": 0.00032915718
+        },
+        "nexus": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.053154981000000004,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1517.6981459990202,
+          "latency_p95_ms": 3790.9072417038246,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00106309962,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 147,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 2080.96,
+            "output_tokens": 179.82,
+            "total_tokens": 2260.78
+          },
+          "token_totals": {
+            "input_tokens": 104048.0,
+            "output_tokens": 8991.0,
+            "total_tokens": 113039.0
+          },
+          "usd_per_example": 0.00106309962
+        },
+        "react": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.86,
+          "answer_calls_total": 143,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.09184032,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 5125.317540991091,
+          "latency_p95_ms": 8909.00497395123,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0018368064,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 93,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1988.7,
+            "output_tokens": 503.5,
+            "total_tokens": 2492.2
+          },
+          "token_totals": {
+            "input_tokens": 99435.0,
+            "output_tokens": 25175.0,
+            "total_tokens": 124610.0
+          },
+          "usd_per_example": 0.0018368064
+        },
+        "selective": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.88,
+          "answer_calls_total": 144,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.09205277400000003,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 5285.385374991165,
+          "latency_p95_ms": 7776.861016409747,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0018410554800000005,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 144,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 2092.84,
+            "output_tokens": 492.72,
+            "total_tokens": 2585.56
+          },
+          "token_totals": {
+            "input_tokens": 104642.0,
+            "output_tokens": 24636.0,
+            "total_tokens": 129278.0
+          },
+          "usd_per_example": 0.0018410554800000001
+        }
+      },
+      "finqa": {
+        "cot": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.048253689000000016,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1981.8673750014568,
+          "latency_p95_ms": 3097.7126792018676,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0009650737800000003,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1187.74,
+            "output_tokens": 247.4,
+            "total_tokens": 1435.14
+          },
+          "token_totals": {
+            "input_tokens": 59387.0,
+            "output_tokens": 12370.0,
+            "total_tokens": 71757.0
+          },
+          "usd_per_example": 0.00096507378
+        },
+        "direct": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.018397764,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 847.1872704976704,
+          "latency_p95_ms": 1446.9719938995688,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00036795528,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1171.74,
+            "output_tokens": 8.06,
+            "total_tokens": 1179.8
+          },
+          "token_totals": {
+            "input_tokens": 58587.0,
+            "output_tokens": 403.0,
+            "total_tokens": 58990.0
+          },
+          "usd_per_example": 0.00036795528
+        },
+        "nexus": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.058505336999999984,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1378.9950414975465,
+          "latency_p95_ms": 3430.656675148929,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0011701067399999996,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 136,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 3022.12,
+            "output_tokens": 125.56,
+            "total_tokens": 3147.68
+          },
+          "token_totals": {
+            "input_tokens": 151106.0,
+            "output_tokens": 6278.0,
+            "total_tokens": 157384.0
+          },
+          "usd_per_example": 0.00117010674
+        },
+        "react": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.76,
+          "answer_calls_total": 138,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.07529722200000001,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 3459.1209374993923,
+          "latency_p95_ms": 6619.464931948822,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0015059444400000001,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 88,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 2654.52,
+            "output_tokens": 289.92,
+            "total_tokens": 2944.44
+          },
+          "token_totals": {
+            "input_tokens": 132726.0,
+            "output_tokens": 14496.0,
+            "total_tokens": 147222.0
+          },
+          "usd_per_example": 0.00150594444
+        },
+        "selective": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.86,
+          "answer_calls_total": 93,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.0689018913,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 2598.86841649859,
+          "latency_p95_ms": 6259.306321597244,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.001378037826,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 139,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 2941.46,
+            "output_tokens": 212.64,
+            "total_tokens": 3154.1
+          },
+          "token_totals": {
+            "input_tokens": 147073.0,
+            "output_tokens": 10632.0,
+            "total_tokens": 157705.0
+          },
+          "usd_per_example": 0.0013780378259999999
+        }
+      },
+      "tatqa": {
+        "cot": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.028397754,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1412.5589999966905,
+          "latency_p95_ms": 2193.4671418519424,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00056795508,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 675.14,
+            "output_tokens": 148.46,
+            "total_tokens": 823.6
+          },
+          "token_totals": {
+            "input_tokens": 33757.0,
+            "output_tokens": 7423.0,
+            "total_tokens": 41180.0
+          },
+          "usd_per_example": 0.00056795508
+        },
+        "direct": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.011790503999999999,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 842.924562497501,
+          "latency_p95_ms": 1188.3855083957314,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.00023581007999999996,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 50,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 659.14,
+            "output_tokens": 16.18,
+            "total_tokens": 675.32
+          },
+          "token_totals": {
+            "input_tokens": 32957.0,
+            "output_tokens": 809.0,
+            "total_tokens": 33766.0
+          },
+          "usd_per_example": 0.00023581008
+        },
+        "nexus": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 1.0,
+          "answer_calls_total": 50,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.034083423,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 1070.101582998177,
+          "latency_p95_ms": 1700.9043456473592,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0006816684600000001,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 140,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1719.68,
+            "output_tokens": 69.06,
+            "total_tokens": 1788.74
+          },
+          "token_totals": {
+            "input_tokens": 85984.0,
+            "output_tokens": 3453.0,
+            "total_tokens": 89437.0
+          },
+          "usd_per_example": 0.00068166846
+        },
+        "react": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.92,
+          "answer_calls_total": 146,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.05296925700000001,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 3460.9166464979353,
+          "latency_p95_ms": 5910.616970794215,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 50
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0010593851400000002,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 96,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1603.62,
+            "output_tokens": 235.6,
+            "total_tokens": 1839.22
+          },
+          "token_totals": {
+            "input_tokens": 80181.0,
+            "output_tokens": 11780.0,
+            "total_tokens": 91961.0
+          },
+          "usd_per_example": 0.00105938514
+        },
+        "selective": {
+          "answer_call_coverage": 1.0,
+          "answer_calls_per_input_example": 2.28,
+          "answer_calls_total": 114,
+          "cost_coverage": 1.0,
+          "cost_total_usd": 0.04501173599999999,
+          "failed_rows": 0,
+          "input_rows": 50,
+          "latency_available_successful_examples": 50,
+          "latency_denominator_successful_examples": 50,
+          "latency_median_ms": 3080.297062500904,
+          "latency_p95_ms": 4881.987083704371,
+          "missingness": {
+            "estimated_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "input_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "latency_ms": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "llm_call_count": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "output_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "provider_cost_usd": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "resolved_model": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "route_selected": {
+              "denominator": 50,
+              "missing_examples": 0
+            },
+            "total_tokens": {
+              "denominator": 50,
+              "missing_examples": 0
+            }
+          },
+          "observed_cost_per_input_example": 0.0009002347199999998,
+          "price_source_counts": {
+            "provider": 50
+          },
+          "provider_failure_examples": 0,
+          "retrieval_operations_total": 139,
+          "status_counts": {
+            "success": 50
+          },
+          "successful_rows": 50,
+          "token_coverage": {
+            "input_tokens": 50,
+            "output_tokens": 50,
+            "total_tokens": 50
+          },
+          "token_per_input_example": {
+            "input_tokens": 1538.76,
+            "output_tokens": 179.08,
+            "total_tokens": 1717.84
+          },
+          "token_totals": {
+            "input_tokens": 76938.0,
+            "output_tokens": 8954.0,
+            "total_tokens": 85892.0
+          },
+          "usd_per_example": 0.00090023472
+        }
+      }
+    },
+    "primary": {
+      "cot": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 150,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.122860485,
+        "failed_rows": 0,
+        "input_rows": 150,
+        "latency_available_successful_examples": 150,
+        "latency_denominator_successful_examples": 150,
+        "latency_median_ms": 1708.827353999368,
+        "latency_p95_ms": 3097.7126792018653,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 150,
+            "missing_examples": 150
+          },
+          "total_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.0008190699,
+        "price_source_counts": {
+          "provider": 150
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 150,
+        "status_counts": {
+          "success": 150
+        },
+        "successful_rows": 150,
+        "token_coverage": {
+          "input_tokens": 150,
+          "output_tokens": 150,
+          "total_tokens": 150
+        },
+        "token_per_input_example": {
+          "input_tokens": 1079.8666666666666,
+          "output_tokens": 201.35333333333332,
+          "total_tokens": 1281.22
+        },
+        "token_totals": {
+          "input_tokens": 161980.0,
+          "output_tokens": 30203.0,
+          "total_tokens": 192183.0
+        },
+        "usd_per_example": 0.0008190699
+      },
+      "direct": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 150,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.05140228499999999,
+        "failed_rows": 0,
+        "input_rows": 150,
+        "latency_available_successful_examples": 150,
+        "latency_denominator_successful_examples": 150,
+        "latency_median_ms": 827.1802915005537,
+        "latency_p95_ms": 1272.776756253006,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 150,
+            "missing_examples": 150
+          },
+          "total_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.00034268189999999994,
+        "price_source_counts": {
+          "provider": 150
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 150,
+        "status_counts": {
+          "success": 150
+        },
+        "successful_rows": 150,
+        "token_coverage": {
+          "input_tokens": 150,
+          "output_tokens": 150,
+          "total_tokens": 150
+        },
+        "token_per_input_example": {
+          "input_tokens": 1063.8666666666666,
+          "output_tokens": 10.793333333333333,
+          "total_tokens": 1074.66
+        },
+        "token_totals": {
+          "input_tokens": 159580.0,
+          "output_tokens": 1619.0,
+          "total_tokens": 161199.0
+        },
+        "usd_per_example": 0.0003426819
+      },
+      "nexus": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 1.0,
+        "answer_calls_total": 150,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.15147603899999992,
+        "failed_rows": 0,
+        "input_rows": 150,
+        "latency_available_successful_examples": 150,
+        "latency_denominator_successful_examples": 150,
+        "latency_median_ms": 1162.9312705008488,
+        "latency_p95_ms": 2247.6850347495188,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 150,
+            "missing_examples": 150
+          },
+          "total_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.0010098402599999995,
+        "price_source_counts": {
+          "provider": 150
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 406,
+        "status_counts": {
+          "success": 150
+        },
+        "successful_rows": 150,
+        "token_coverage": {
+          "input_tokens": 150,
+          "output_tokens": 150,
+          "total_tokens": 150
+        },
+        "token_per_input_example": {
+          "input_tokens": 2708.6466666666665,
+          "output_tokens": 88.12666666666667,
+          "total_tokens": 2796.7733333333335
+        },
+        "token_totals": {
+          "input_tokens": 406297.0,
+          "output_tokens": 13219.0,
+          "total_tokens": 419516.0
+        },
+        "usd_per_example": 0.00100984026
+      },
+      "react": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 2.973333333333333,
+        "answer_calls_total": 446,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.221883354,
+        "failed_rows": 0,
+        "input_rows": 150,
+        "latency_available_successful_examples": 150,
+        "latency_denominator_successful_examples": 150,
+        "latency_median_ms": 3611.037375005253,
+        "latency_p95_ms": 7003.262233596248,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 150,
+            "missing_examples": 150
+          },
+          "total_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.00147922236,
+        "price_source_counts": {
+          "provider": 150
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 296,
+        "status_counts": {
+          "success": 150
+        },
+        "successful_rows": 150,
+        "token_coverage": {
+          "input_tokens": 150,
+          "output_tokens": 150,
+          "total_tokens": 150
+        },
+        "token_per_input_example": {
+          "input_tokens": 2608.713333333333,
+          "output_tokens": 284.62,
+          "total_tokens": 2893.3333333333335
+        },
+        "token_totals": {
+          "input_tokens": 391307.0,
+          "output_tokens": 42693.0,
+          "total_tokens": 434000.0
+        },
+        "usd_per_example": 0.00147922236
+      },
+      "selective": {
+        "answer_call_coverage": 1.0,
+        "answer_calls_per_input_example": 2.1933333333333334,
+        "answer_calls_total": 329,
+        "cost_coverage": 1.0,
+        "cost_total_usd": 0.1982894463,
+        "failed_rows": 0,
+        "input_rows": 150,
+        "latency_available_successful_examples": 150,
+        "latency_denominator_successful_examples": 150,
+        "latency_median_ms": 3044.8094794992357,
+        "latency_p95_ms": 7240.668892602115,
+        "missingness": {
+          "estimated_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "input_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "latency_ms": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "llm_call_count": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "output_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "provider_cost_usd": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "resolved_model": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "route_selected": {
+            "denominator": 150,
+            "missing_examples": 0
+          },
+          "total_tokens": {
+            "denominator": 150,
+            "missing_examples": 0
+          }
+        },
+        "observed_cost_per_input_example": 0.001321929642,
+        "price_source_counts": {
+          "provider": 150
+        },
+        "provider_failure_examples": 0,
+        "retrieval_operations_total": 430,
+        "status_counts": {
+          "success": 150
+        },
+        "successful_rows": 150,
+        "token_coverage": {
+          "input_tokens": 150,
+          "output_tokens": 150,
+          "total_tokens": 150
+        },
+        "token_per_input_example": {
+          "input_tokens": 2681.42,
+          "output_tokens": 215.28666666666666,
+          "total_tokens": 2896.7066666666665
+        },
+        "token_totals": {
+          "input_tokens": 402213.0,
+          "output_tokens": 32293.0,
+          "total_tokens": 434506.0
+        },
+        "usd_per_example": 0.001321929642
+      }
+    }
+  },
+  "headlines": {
+    "dataset_summaries": {
+      "convfinqa": {
+        "cot": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00092418084,
+          "cost_total_usd": 0.046209042000000006,
+          "count": 50,
+          "exact_match": 0.38,
+          "f1": 0.38,
+          "latency_median_ms": 1580.350478998298,
+          "latency_p95_ms": 4218.41974634517,
+          "primary_value": 0.38,
+          "telemetry_complete": 50
+        },
+        "direct": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00042428034,
+          "cost_total_usd": 0.02121401699999999,
+          "count": 50,
+          "exact_match": 0.38,
+          "f1": 0.38,
+          "latency_median_ms": 799.8680209966551,
+          "latency_p95_ms": 1197.9888062520326,
+          "primary_value": 0.38,
+          "telemetry_complete": 50
+        },
+        "nexus": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00117774558,
+          "cost_total_usd": 0.058887279000000015,
+          "count": 50,
+          "exact_match": 0.36,
+          "f1": 0.36,
+          "latency_median_ms": 1028.9803959967685,
+          "latency_p95_ms": 2299.242122251598,
+          "primary_value": 0.36,
+          "telemetry_complete": 50
+        },
+        "react": {
+          "calls_per_example": 3.24,
+          "calls_total": 162,
+          "cost_per_example_usd": 0.0018723375000000001,
+          "cost_total_usd": 0.09361687499999999,
+          "count": 50,
+          "exact_match": 0.28,
+          "f1": 0.28,
+          "latency_median_ms": 3943.3997080013796,
+          "latency_p95_ms": 7787.535054054023,
+          "primary_value": 0.28,
+          "telemetry_complete": 50
+        },
+        "selective": {
+          "calls_per_example": 2.44,
+          "calls_total": 122,
+          "cost_per_example_usd": 0.00168751638,
+          "cost_total_usd": 0.08437581899999998,
+          "count": 50,
+          "exact_match": 0.34,
+          "f1": 0.34,
+          "latency_median_ms": 3421.9108125071216,
+          "latency_p95_ms": 8152.359949453965,
+          "primary_value": 0.34,
+          "telemetry_complete": 50
+        }
+      },
+      "financebench": {
+        "cot": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.0008200328400000001,
+          "cost_total_usd": 0.041001642,
+          "count": 50,
+          "exact_match": 0.46,
+          "f1": 0.46,
+          "latency_median_ms": 1896.6404579987284,
+          "latency_p95_ms": 4595.0966562541,
+          "primary_value": 0.46,
+          "telemetry_complete": 50
+        },
+        "direct": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00028102734,
+          "cost_total_usd": 0.014051367000000002,
+          "count": 50,
+          "exact_match": 0.26,
+          "f1": 0.26,
+          "latency_median_ms": 886.2206255034835,
+          "latency_p95_ms": 1859.7490935968376,
+          "primary_value": 0.26,
+          "telemetry_complete": 50
+        },
+        "nexus": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00089310276,
+          "cost_total_usd": 0.044655138,
+          "count": 50,
+          "exact_match": 0.46,
+          "f1": 0.46,
+          "latency_median_ms": 1278.6775835011213,
+          "latency_p95_ms": 3515.1585999992635,
+          "primary_value": 0.46,
+          "telemetry_complete": 50
+        },
+        "react": {
+          "calls_per_example": 3.38,
+          "calls_total": 169,
+          "cost_per_example_usd": 0.00193271562,
+          "cost_total_usd": 0.09663578099999999,
+          "count": 50,
+          "exact_match": 0.2,
+          "f1": 0.2,
+          "latency_median_ms": 4396.577083502052,
+          "latency_p95_ms": 8801.458408049073,
+          "primary_value": 0.2,
+          "telemetry_complete": 50
+        },
+        "selective": {
+          "calls_per_example": 3.1,
+          "calls_total": 155,
+          "cost_per_example_usd": 0.00175633722,
+          "cost_total_usd": 0.087816861,
+          "count": 50,
+          "exact_match": 0.24,
+          "f1": 0.24,
+          "latency_median_ms": 4304.922062499827,
+          "latency_p95_ms": 9971.24722454682,
+          "primary_value": 0.24,
+          "telemetry_complete": 50
+        }
+      },
+      "finder": {
+        "cot": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00113838318,
+          "cost_total_usd": 0.056919159,
+          "count": 50,
+          "exact_match": null,
+          "f1": null,
+          "latency_median_ms": 2894.988354499219,
+          "latency_p95_ms": 6215.481843899033,
+          "primary_value": null,
+          "telemetry_complete": 50
+        },
+        "direct": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00032915718,
+          "cost_total_usd": 0.016457858999999995,
+          "count": 50,
+          "exact_match": null,
+          "f1": null,
+          "latency_median_ms": 914.090500002203,
+          "latency_p95_ms": 1850.2814062474492,
+          "primary_value": null,
+          "telemetry_complete": 50
+        },
+        "nexus": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00106309962,
+          "cost_total_usd": 0.053154981000000004,
+          "count": 50,
+          "exact_match": null,
+          "f1": null,
+          "latency_median_ms": 1517.6981459990202,
+          "latency_p95_ms": 3790.9072417038246,
+          "primary_value": null,
+          "telemetry_complete": 50
+        },
+        "react": {
+          "calls_per_example": 2.86,
+          "calls_total": 143,
+          "cost_per_example_usd": 0.0018368064,
+          "cost_total_usd": 0.09184032,
+          "count": 50,
+          "exact_match": null,
+          "f1": null,
+          "latency_median_ms": 5125.317540991091,
+          "latency_p95_ms": 8909.00497395123,
+          "primary_value": null,
+          "telemetry_complete": 50
+        },
+        "selective": {
+          "calls_per_example": 2.88,
+          "calls_total": 144,
+          "cost_per_example_usd": 0.0018410554800000001,
+          "cost_total_usd": 0.09205277400000003,
+          "count": 50,
+          "exact_match": null,
+          "f1": null,
+          "latency_median_ms": 5285.385374991165,
+          "latency_p95_ms": 7776.861016409747,
+          "primary_value": null,
+          "telemetry_complete": 50
+        }
+      },
+      "finqa": {
+        "cot": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00096507378,
+          "cost_total_usd": 0.048253689000000016,
+          "count": 50,
+          "exact_match": 0.28,
+          "f1": 0.28,
+          "latency_median_ms": 1981.8673750014568,
+          "latency_p95_ms": 3097.7126792018676,
+          "primary_value": 0.28,
+          "telemetry_complete": 50
+        },
+        "direct": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00036795528,
+          "cost_total_usd": 0.018397764,
+          "count": 50,
+          "exact_match": 0.22,
+          "f1": 0.22,
+          "latency_median_ms": 847.1872704976704,
+          "latency_p95_ms": 1446.9719938995688,
+          "primary_value": 0.22,
+          "telemetry_complete": 50
+        },
+        "nexus": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00117010674,
+          "cost_total_usd": 0.058505336999999984,
+          "count": 50,
+          "exact_match": 0.32,
+          "f1": 0.32,
+          "latency_median_ms": 1378.9950414975465,
+          "latency_p95_ms": 3430.656675148929,
+          "primary_value": 0.32,
+          "telemetry_complete": 50
+        },
+        "react": {
+          "calls_per_example": 2.76,
+          "calls_total": 138,
+          "cost_per_example_usd": 0.00150594444,
+          "cost_total_usd": 0.07529722200000001,
+          "count": 50,
+          "exact_match": 0.14,
+          "f1": 0.14,
+          "latency_median_ms": 3459.1209374993923,
+          "latency_p95_ms": 6619.464931948822,
+          "primary_value": 0.14,
+          "telemetry_complete": 50
+        },
+        "selective": {
+          "calls_per_example": 1.86,
+          "calls_total": 93,
+          "cost_per_example_usd": 0.0013780378259999999,
+          "cost_total_usd": 0.0689018913,
+          "count": 50,
+          "exact_match": 0.28,
+          "f1": 0.28,
+          "latency_median_ms": 2598.86841649859,
+          "latency_p95_ms": 6259.306321597244,
+          "primary_value": 0.28,
+          "telemetry_complete": 50
+        }
+      },
+      "tatqa": {
+        "cot": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00056795508,
+          "cost_total_usd": 0.028397754,
+          "count": 50,
+          "exact_match": 0.5,
+          "f1": 0.637,
+          "latency_median_ms": 1412.5589999966905,
+          "latency_p95_ms": 2193.4671418519424,
+          "primary_value": 0.637,
+          "telemetry_complete": 50
+        },
+        "direct": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00023581008,
+          "cost_total_usd": 0.011790503999999999,
+          "count": 50,
+          "exact_match": 0.44,
+          "f1": 0.6414,
+          "latency_median_ms": 842.924562497501,
+          "latency_p95_ms": 1188.3855083957314,
+          "primary_value": 0.6414,
+          "telemetry_complete": 50
+        },
+        "nexus": {
+          "calls_per_example": 1.0,
+          "calls_total": 50,
+          "cost_per_example_usd": 0.00068166846,
+          "cost_total_usd": 0.034083423,
+          "count": 50,
+          "exact_match": 0.44,
+          "f1": 0.6112,
+          "latency_median_ms": 1070.101582998177,
+          "latency_p95_ms": 1700.9043456473592,
+          "primary_value": 0.6112,
+          "telemetry_complete": 50
+        },
+        "react": {
+          "calls_per_example": 2.92,
+          "calls_total": 146,
+          "cost_per_example_usd": 0.00105938514,
+          "cost_total_usd": 0.05296925700000001,
+          "count": 50,
+          "exact_match": 0.32,
+          "f1": 0.4778,
+          "latency_median_ms": 3460.9166464979353,
+          "latency_p95_ms": 5910.616970794215,
+          "primary_value": 0.4778,
+          "telemetry_complete": 50
+        },
+        "selective": {
+          "calls_per_example": 2.28,
+          "calls_total": 114,
+          "cost_per_example_usd": 0.00090023472,
+          "cost_total_usd": 0.04501173599999999,
+          "count": 50,
+          "exact_match": 0.32,
+          "f1": 0.48260000000000003,
+          "latency_median_ms": 3080.297062500904,
+          "latency_p95_ms": 4881.987083704371,
+          "primary_value": 0.48260000000000003,
+          "telemetry_complete": 50
+        }
+      }
+    },
+    "model_id": "google/gemini-2.5-flash",
+    "per_dataset": {
+      "convfinqa": {
+        "cot": {
+          "cost_per_example_usd": 0.00092418084,
+          "metric": "exact_match",
+          "quality_mean": 0.38
+        },
+        "direct": {
+          "cost_per_example_usd": 0.00042428034,
+          "metric": "exact_match",
+          "quality_mean": 0.38
+        },
+        "nexus": {
+          "cost_per_example_usd": 0.00117774558,
+          "metric": "exact_match",
+          "quality_mean": 0.36
+        },
+        "react": {
+          "cost_per_example_usd": 0.0018723375000000001,
+          "metric": "exact_match",
+          "quality_mean": 0.28
+        },
+        "selective": {
+          "cost_per_example_usd": 0.00168751638,
+          "metric": "exact_match",
+          "quality_mean": 0.34
+        }
+      },
+      "finqa": {
+        "cot": {
+          "cost_per_example_usd": 0.00096507378,
+          "metric": "exact_match",
+          "quality_mean": 0.28
+        },
+        "direct": {
+          "cost_per_example_usd": 0.00036795528,
+          "metric": "exact_match",
+          "quality_mean": 0.22
+        },
+        "nexus": {
+          "cost_per_example_usd": 0.00117010674,
+          "metric": "exact_match",
+          "quality_mean": 0.32
+        },
+        "react": {
+          "cost_per_example_usd": 0.00150594444,
+          "metric": "exact_match",
+          "quality_mean": 0.14
+        },
+        "selective": {
+          "cost_per_example_usd": 0.0013780378259999999,
+          "metric": "exact_match",
+          "quality_mean": 0.28
+        }
+      },
+      "tatqa": {
+        "cot": {
+          "cost_per_example_usd": 0.00056795508,
+          "metric": "f1",
+          "quality_mean": 0.637
+        },
+        "direct": {
+          "cost_per_example_usd": 0.00023581008,
+          "metric": "f1",
+          "quality_mean": 0.6414
+        },
+        "nexus": {
+          "cost_per_example_usd": 0.00068166846,
+          "metric": "f1",
+          "quality_mean": 0.6112
+        },
+        "react": {
+          "cost_per_example_usd": 0.00105938514,
+          "metric": "f1",
+          "quality_mean": 0.4778
+        },
+        "selective": {
+          "cost_per_example_usd": 0.00090023472,
+          "metric": "f1",
+          "quality_mean": 0.48260000000000003
+        }
+      }
+    },
+    "primary_cost_per_example_usd": {
+      "cot": 0.0008190699,
+      "direct": 0.00034268190000000004,
+      "nexus": 0.00100984026,
+      "react": 0.00147922236,
+      "selective": 0.001321929642
+    },
+    "primary_macro": {
+      "cot": 0.43233333333333335,
+      "direct": 0.4138,
+      "nexus": 0.4304,
+      "react": 0.2992666666666667,
+      "selective": 0.3675333333333334
+    },
+    "results_tag": "dev-20260709"
+  },
+  "model_id": "google/gemini-2.5-flash",
+  "partition": "development",
+  "protocol_id": "finance_icaif26_v2",
+  "quality": {
+    "dataset_pairwise": [
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.06,
+          "lower": 0.0,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260709,
+          "upper": 0.14
+        },
+        "cohen_dz": 0.25010636035367373,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.06,
+        "left": "direct",
+        "left_mean": 0.22,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 11,
+          "both_wrong": 36,
+          "discordant_pairs": 3,
+          "left_only_correct": 0,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.25,
+          "right_only_correct": 3,
+          "statistic": 1.3333333333333333
+        },
+        "right": "cot",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.004400000000000003,
+          "lower": -0.1158,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260710,
+          "upper": 0.10440499999999991
+        },
+        "cohen_dz": -0.01088371022554899,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.004400000000000003,
+        "left": "direct",
+        "left_mean": 0.6414,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "cot",
+        "right_mean": 0.637
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.0,
+          "lower": -0.1,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260711,
+          "upper": 0.1
+        },
+        "cohen_dz": 0.0,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.0,
+        "left": "direct",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 16,
+          "both_wrong": 28,
+          "discordant_pairs": 6,
+          "left_only_correct": 3,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 1.0,
+          "right_only_correct": 3,
+          "statistic": 0.0
+        },
+        "right": "cot",
+        "right_mean": 0.38
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.1,
+          "lower": 0.0,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260712,
+          "upper": 0.2
+        },
+        "cohen_dz": 0.27456258919345766,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.1,
+        "left": "direct",
+        "left_mean": 0.22,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 10,
+          "both_wrong": 33,
+          "discordant_pairs": 7,
+          "left_only_correct": 1,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.125,
+          "right_only_correct": 6,
+          "statistic": 2.2857142857142856
+        },
+        "right": "nexus",
+        "right_mean": 0.32
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.030200000000000005,
+          "lower": -0.13940499999999995,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260713,
+          "upper": 0.07900499999999992
+        },
+        "cohen_dz": -0.0754197264830549,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.030200000000000005,
+        "left": "direct",
+        "left_mean": 0.6414,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "nexus",
+        "right_mean": 0.6112
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.02,
+          "lower": -0.12,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260714,
+          "upper": 0.08
+        },
+        "cohen_dz": -0.05299078148731252,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.02,
+        "left": "direct",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 15,
+          "both_wrong": 28,
+          "discordant_pairs": 7,
+          "left_only_correct": 4,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 1.0,
+          "right_only_correct": 3,
+          "statistic": 0.0
+        },
+        "right": "nexus",
+        "right_mean": 0.36
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.08,
+          "lower": -0.22,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260715,
+          "upper": 0.06
+        },
+        "cohen_dz": -0.1638576060745828,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.08,
+        "left": "direct",
+        "left_mean": 0.22,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 3,
+          "both_wrong": 35,
+          "discordant_pairs": 12,
+          "left_only_correct": 8,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.3876953125,
+          "right_only_correct": 4,
+          "statistic": 0.75
+        },
+        "right": "react",
+        "right_mean": 0.14
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1636,
+          "lower": -0.312005,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260716,
+          "upper": -0.01778500000000022
+        },
+        "cohen_dz": -0.3053405080990315,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1636,
+        "left": "direct",
+        "left_mean": 0.6414,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "react",
+        "right_mean": 0.4778
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1,
+          "lower": -0.24,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260717,
+          "upper": 0.04
+        },
+        "cohen_dz": -0.1979898987322333,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1,
+        "left": "direct",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 10,
+          "both_wrong": 27,
+          "discordant_pairs": 13,
+          "left_only_correct": 9,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.266845703125,
+          "right_only_correct": 4,
+          "statistic": 1.2307692307692308
+        },
+        "right": "react",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.06,
+          "lower": -0.06,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260718,
+          "upper": 0.18049999999999272
+        },
+        "cohen_dz": 0.12768375906520113,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.06,
+        "left": "direct",
+        "left_mean": 0.22,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 7,
+          "both_wrong": 32,
+          "discordant_pairs": 11,
+          "left_only_correct": 4,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.548828125,
+          "right_only_correct": 7,
+          "statistic": 0.36363636363636365
+        },
+        "right": "selective",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1588,
+          "lower": -0.3018,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260719,
+          "upper": -0.019795000000000076
+        },
+        "cohen_dz": -0.3083388026299418,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1588,
+        "left": "direct",
+        "left_mean": 0.6414,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "selective",
+        "right_mean": 0.48260000000000003
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.04,
+          "lower": -0.18,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260720,
+          "upper": 0.1
+        },
+        "cohen_dz": -0.08109982249088891,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.04,
+        "left": "direct",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 12,
+          "both_wrong": 26,
+          "discordant_pairs": 12,
+          "left_only_correct": 7,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.7744140625,
+          "right_only_correct": 5,
+          "statistic": 0.08333333333333333
+        },
+        "right": "selective",
+        "right_mean": 0.34
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.04,
+          "lower": -0.06,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260721,
+          "upper": 0.14
+        },
+        "cohen_dz": 0.11507929111375009,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.04,
+        "left": "cot",
+        "left_mean": 0.28,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 12,
+          "both_wrong": 32,
+          "discordant_pairs": 6,
+          "left_only_correct": 2,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.6875,
+          "right_only_correct": 4,
+          "statistic": 0.16666666666666666
+        },
+        "right": "nexus",
+        "right_mean": 0.32
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.025800000000000003,
+          "lower": -0.148,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260722,
+          "upper": 0.09660999999999986
+        },
+        "cohen_dz": -0.05753396338246196,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.025800000000000003,
+        "left": "cot",
+        "left_mean": 0.637,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "nexus",
+        "right_mean": 0.6112
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.02,
+          "lower": -0.12,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260723,
+          "upper": 0.08
+        },
+        "cohen_dz": -0.05299078148731252,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.02,
+        "left": "cot",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 15,
+          "both_wrong": 28,
+          "discordant_pairs": 7,
+          "left_only_correct": 4,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 1.0,
+          "right_only_correct": 3,
+          "statistic": 0.0
+        },
+        "right": "nexus",
+        "right_mean": 0.36
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.14,
+          "lower": -0.28,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260724,
+          "upper": 0.0
+        },
+        "cohen_dz": -0.26172913441244045,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.14,
+        "left": "cot",
+        "left_mean": 0.28,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 3,
+          "both_wrong": 32,
+          "discordant_pairs": 15,
+          "left_only_correct": 11,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.11846923828125,
+          "right_only_correct": 4,
+          "statistic": 2.4
+        },
+        "right": "react",
+        "right_mean": 0.14
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1592,
+          "lower": -0.318005,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260725,
+          "upper": 0.0006049999999999298
+        },
+        "cohen_dz": -0.27247539930339604,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1592,
+        "left": "cot",
+        "left_mean": 0.637,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "react",
+        "right_mean": 0.4778
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1,
+          "lower": -0.22,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260726,
+          "upper": 0.02
+        },
+        "cohen_dz": -0.2400980191995124,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1,
+        "left": "cot",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 12,
+          "both_wrong": 29,
+          "discordant_pairs": 9,
+          "left_only_correct": 7,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.1796875,
+          "right_only_correct": 2,
+          "statistic": 1.7777777777777777
+        },
+        "right": "react",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.0,
+          "lower": -0.14,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260727,
+          "upper": 0.14
+        },
+        "cohen_dz": 0.0,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.0,
+        "left": "cot",
+        "left_mean": 0.28,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 8,
+          "both_wrong": 30,
+          "discordant_pairs": 12,
+          "left_only_correct": 6,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 1.0,
+          "right_only_correct": 6,
+          "statistic": 0.0
+        },
+        "right": "selective",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1544,
+          "lower": -0.2986,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260728,
+          "upper": -0.010800000000000004
+        },
+        "cohen_dz": -0.29397546840806926,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1544,
+        "left": "cot",
+        "left_mean": 0.637,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "selective",
+        "right_mean": 0.48260000000000003
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.04,
+          "lower": -0.16,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260729,
+          "upper": 0.08
+        },
+        "cohen_dz": -0.08890008890013336,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.04,
+        "left": "cot",
+        "left_mean": 0.38,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 13,
+          "both_wrong": 27,
+          "discordant_pairs": 10,
+          "left_only_correct": 6,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.75390625,
+          "right_only_correct": 4,
+          "statistic": 0.1
+        },
+        "right": "selective",
+        "right_mean": 0.34
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.18,
+          "lower": -0.32,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260730,
+          "upper": -0.02
+        },
+        "cohen_dz": -0.3212864259352503,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.18,
+        "left": "nexus",
+        "left_mean": 0.32,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 3,
+          "both_wrong": 30,
+          "discordant_pairs": 17,
+          "left_only_correct": 13,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.049041748046875,
+          "right_only_correct": 4,
+          "statistic": 3.764705882352941
+        },
+        "right": "react",
+        "right_mean": 0.14
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1334,
+          "lower": -0.2596,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260731,
+          "upper": -0.0182
+        },
+        "cohen_dz": -0.3054289982425801,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1334,
+        "left": "nexus",
+        "left_mean": 0.6112,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "react",
+        "right_mean": 0.4778
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.08,
+          "lower": -0.2,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260732,
+          "upper": 0.04
+        },
+        "cohen_dz": -0.179990817029303,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.08,
+        "left": "nexus",
+        "left_mean": 0.36,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 11,
+          "both_wrong": 29,
+          "discordant_pairs": 10,
+          "left_only_correct": 7,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.34375,
+          "right_only_correct": 3,
+          "statistic": 0.9
+        },
+        "right": "react",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.04,
+          "lower": -0.16,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260733,
+          "upper": 0.08
+        },
+        "cohen_dz": -0.08890008890013336,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.04,
+        "left": "nexus",
+        "left_mean": 0.32,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 10,
+          "both_wrong": 30,
+          "discordant_pairs": 10,
+          "left_only_correct": 6,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.75390625,
+          "right_only_correct": 4,
+          "statistic": 0.1
+        },
+        "right": "selective",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.1286,
+          "lower": -0.252405,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260734,
+          "upper": -0.012195000000000069
+        },
+        "cohen_dz": -0.29530786501030254,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.1286,
+        "left": "nexus",
+        "left_mean": 0.6112,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "selective",
+        "right_mean": 0.48260000000000003
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.02,
+          "lower": -0.14,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260735,
+          "upper": 0.1
+        },
+        "cohen_dz": -0.04671860509861999,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": -0.02,
+        "left": "nexus",
+        "left_mean": 0.36,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 13,
+          "both_wrong": 28,
+          "discordant_pairs": 9,
+          "left_only_correct": 5,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 1.0,
+          "right_only_correct": 4,
+          "statistic": 0.0
+        },
+        "right": "selective",
+        "right_mean": 0.34
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.14,
+          "lower": 0.04,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260736,
+          "upper": 0.26
+        },
+        "cohen_dz": 0.3460500302577599,
+        "dataset": "finqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.14,
+        "left": "react",
+        "left_mean": 0.14,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 6,
+          "both_wrong": 35,
+          "discordant_pairs": 9,
+          "left_only_correct": 1,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.0390625,
+          "right_only_correct": 8,
+          "statistic": 4.0
+        },
+        "right": "selective",
+        "right_mean": 0.28
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.004800000000000002,
+          "lower": -0.0596,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260737,
+          "upper": 0.0694
+        },
+        "cohen_dz": 0.020603619736806522,
+        "dataset": "tatqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.004800000000000002,
+        "left": "react",
+        "left_mean": 0.4778,
+        "metric": "f1",
+        "n_pairs": 50,
+        "paired_test": {
+          "name": "not_applicable",
+          "reason": "primary TAT-QA metric is continuous official F1, not binary correctness"
+        },
+        "right": "selective",
+        "right_mean": 0.48260000000000003
+      },
+      {
+        "bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.06,
+          "lower": -0.02,
+          "n_pairs": 50,
+          "n_resamples": 10000,
+          "seed": 20260738,
+          "upper": 0.14
+        },
+        "cohen_dz": 0.1913047578431963,
+        "dataset": "convfinqa",
+        "denominator": "50 paired development examples",
+        "difference_right_minus_left": 0.06,
+        "left": "react",
+        "left_mean": 0.28,
+        "metric": "exact_match",
+        "n_pairs": 50,
+        "paired_test": {
+          "both_correct": 13,
+          "both_wrong": 32,
+          "discordant_pairs": 5,
+          "left_only_correct": 1,
+          "name": "exact_two_sided_mcnemar",
+          "p_value": 0.375,
+          "right_only_correct": 4,
+          "statistic": 0.8
+        },
+        "right": "selective",
+        "right_mean": 0.34
+      }
+    ],
+    "primary_macro_pairwise": [
+      {
+        "cohen_dz_over_micro_pairs": 0.05493649231631555,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": 0.018533333333333332,
+        "left": "direct",
+        "left_macro": 0.4138,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": 0.0,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.38
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.06,
+            "left_mean": 0.22,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.004400000000000003,
+            "left_mean": 0.6414,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.637
+          }
+        },
+        "right": "cot",
+        "right_macro": 0.43233333333333335,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.018533333333333332,
+          "lower": -0.03513333333333333,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261709,
+          "upper": 0.0716
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": 0.0433377687491134,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": 0.0166,
+        "left": "direct",
+        "left_macro": 0.4138,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.02,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.36
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.1,
+            "left_mean": 0.22,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.32
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.030200000000000005,
+            "left_mean": 0.6414,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.6112
+          }
+        },
+        "right": "nexus",
+        "right_macro": 0.4304,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.0166,
+          "lower": -0.0436,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261710,
+          "upper": 0.07653499999999996
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.225501014492061,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.11453333333333333,
+        "left": "direct",
+        "left_macro": 0.4138,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.1,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "finqa": {
+            "difference_right_minus_left": -0.08,
+            "left_mean": 0.22,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.14
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1636,
+            "left_mean": 0.6414,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.4778
+          }
+        },
+        "right": "react",
+        "right_macro": 0.2992666666666667,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.11453333333333333,
+          "lower": -0.19620333333333329,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261711,
+          "upper": -0.0342
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.09292493044464861,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.046266666666666664,
+        "left": "direct",
+        "left_macro": 0.4138,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.04,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.34
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.06,
+            "left_mean": 0.22,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1588,
+            "left_mean": 0.6414,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.48260000000000003
+          }
+        },
+        "right": "selective",
+        "right_macro": 0.3675333333333334,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.046266666666666664,
+          "lower": -0.12566833333333333,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261712,
+          "upper": 0.033534999999999975
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.004933028269098112,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.0019333333333333344,
+        "left": "cot",
+        "left_macro": 0.43233333333333335,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.02,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.36
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.04,
+            "left_mean": 0.28,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.32
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.025800000000000003,
+            "left_mean": 0.637,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.6112
+          }
+        },
+        "right": "nexus",
+        "right_macro": 0.4304,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.0019333333333333344,
+          "lower": -0.06326833333333332,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261713,
+          "upper": 0.06053666666666662
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.25897212534251884,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.13306666666666667,
+        "left": "cot",
+        "left_macro": 0.43233333333333335,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.1,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "finqa": {
+            "difference_right_minus_left": -0.14,
+            "left_mean": 0.28,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.14
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1592,
+            "left_mean": 0.637,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.4778
+          }
+        },
+        "right": "react",
+        "right_macro": 0.2992666666666667,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.13306666666666667,
+          "lower": -0.21546833333333332,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261714,
+          "upper": -0.05299833333333336
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.13168685779287442,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.0648,
+        "left": "cot",
+        "left_macro": 0.43233333333333335,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.04,
+            "left_mean": 0.38,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.34
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.0,
+            "left_mean": 0.28,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1544,
+            "left_mean": 0.637,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.48260000000000003
+          }
+        },
+        "right": "selective",
+        "right_macro": 0.3675333333333334,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.0648,
+          "lower": -0.14140166666666665,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261715,
+          "upper": 0.014133333333333331
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.2718981922079897,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.13113333333333332,
+        "left": "nexus",
+        "left_macro": 0.4304,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.08,
+            "left_mean": 0.36,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "finqa": {
+            "difference_right_minus_left": -0.18,
+            "left_mean": 0.32,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.14
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1334,
+            "left_mean": 0.6112,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.4778
+          }
+        },
+        "right": "react",
+        "right_macro": 0.2992666666666667,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.13113333333333332,
+          "lower": -0.20727166666666663,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261716,
+          "upper": -0.05566333333333338
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": -0.14367776760500078,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": -0.06286666666666667,
+        "left": "nexus",
+        "left_macro": 0.4304,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": -0.02,
+            "left_mean": 0.36,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.34
+          },
+          "finqa": {
+            "difference_right_minus_left": -0.04,
+            "left_mean": 0.32,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "tatqa": {
+            "difference_right_minus_left": -0.1286,
+            "left_mean": 0.6112,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.48260000000000003
+          }
+        },
+        "right": "selective",
+        "right_macro": 0.3675333333333334,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": -0.06286666666666667,
+          "lower": -0.13186666666666666,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261717,
+          "upper": 0.00506833333333331
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      },
+      {
+        "cohen_dz_over_micro_pairs": 0.20857598802526323,
+        "datasets": [
+          "finqa",
+          "tatqa",
+          "convfinqa"
+        ],
+        "denominator": "three equally weighted dataset means; 50 paired development examples per dataset",
+        "difference_right_minus_left": 0.06826666666666667,
+        "left": "react",
+        "left_macro": 0.2992666666666667,
+        "metric": "unweighted macro of FinQA exact_match, TAT-QA F1, ConvFinQA exact_match",
+        "n_pairs": 150,
+        "per_dataset": {
+          "convfinqa": {
+            "difference_right_minus_left": 0.06,
+            "left_mean": 0.28,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.34
+          },
+          "finqa": {
+            "difference_right_minus_left": 0.14,
+            "left_mean": 0.14,
+            "metric": "exact_match",
+            "n_pairs": 50,
+            "right_mean": 0.28
+          },
+          "tatqa": {
+            "difference_right_minus_left": 0.004800000000000002,
+            "left_mean": 0.4778,
+            "metric": "f1",
+            "n_pairs": 50,
+            "right_mean": 0.48260000000000003
+          }
+        },
+        "right": "selective",
+        "right_macro": 0.3675333333333334,
+        "scope": "primary_macro",
+        "stratified_bootstrap_ci": {
+          "confidence": 0.95,
+          "estimate": 0.06826666666666667,
+          "lower": 0.01859833333333335,
+          "n_pairs": 150,
+          "n_resamples": 10000,
+          "seed": 20261718,
+          "upper": 0.12073666666666662
+        },
+        "stratum_sizes": {
+          "convfinqa": 50,
+          "finqa": 50,
+          "tatqa": 50
+        }
+      }
+    ]
+  },
+  "results_tag": "dev-20260709",
+  "schema_version": "realm-paired-statistics-v1",
+  "systems": [
+    "direct",
+    "cot",
+    "nexus",
+    "react",
+    "selective"
+  ],
+  "verification": {
+    "discrepancies": [],
+    "existing_summary": "paper/icaif2026/artifacts/development_summary.json",
+    "status": "passed"
+  }
+}

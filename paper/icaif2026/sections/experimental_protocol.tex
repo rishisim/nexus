@@ -1,0 +1,26 @@
+\section{Experimental Protocol}
+\label{sec:protocol}
+
+\subsection{Scope, datasets, and split discipline}
+
+The evaluation is evidence-conditioned. For FinanceBench and FinDER we expose only benchmark evidence passages; for FinQA, TAT-QA, and ConvFinQA we expose their legitimate tables, text, and dialogue context. Gold answers and target-derived annotations are never model-visible. In particular, FinanceBench justifications and TAT-QA derivations and gold scales are removed. The resulting experiment isolates orchestration over controlled evidence and must not be interpreted as end-to-end retrieval or RAG performance.
+
+The 50-example-per-dataset sweep used during method construction (250 examples total) is the complete development set. A separate confirmatory manifest was prepared with 900 disjoint examples: the 100 unused FinanceBench examples; 200 stratified FinDER examples; 200 fresh FinQA validation examples; 200 TAT-QA validation examples stratified by answer type and evidence source; and 200 ConvFinQA examples whose dialogue identifiers do not occur in development. Manifest tests enforce empty development/final intersections and dialogue-level separation. Protocol \texttt{finance\_icaif26\_v2} records dataset revisions, row identifiers, content fingerprints, model settings, retry policy, and the development-selected router hash. A final freeze would additionally bind prompt, scorer, price, and manifest hashes; those fields remain deliberately unset, so the runner refuses final-partition execution. The locked go/no-go rule was evaluated before opening the final manifest, and no final examples were run or inspected.
+
+\subsection{Systems, models, and budgets}
+
+On development data we evaluate Direct, structured one-call reasoning (CoT/PoT), ReAct, Static Finance Nexus, and Selective Finance Nexus. Direct, CoT/PoT, and Static Finance Nexus receive the same maximum dossier-token budget; all systems use the same controlled evidence corpus and search/lookup implementation, with no external calculator. Each policy constrains how often those operations may be invoked, and ReAct is capped at seven model steps. Runs are paired by example and resumed only after a typed infrastructure failure, never in response to an incorrect valid output.
+
+The development gate uses \nolinkurl{google/gemini-2.5-flash} with temperature zero and model thinking disabled. Had the gate passed, the full evaluation would have used the same configuration and a fixed 50-example-per-dataset replication with a second model family. The frozen protocol records the provider-resolved model identifier, evaluation date, and request parameters rather than relying on a mutable alias. Each development response records input, cached, reasoning, output, and total tokens; model and retrieval calls; provider-reported or price-manifest-estimated dollar cost; retries; and end-to-end latency.
+
+\subsection{Metrics and inference}
+
+The development objective endpoints are FinQA execution accuracy, the official TAT-QA exact/F1 measures with prediction-side scale inference, and ConvFinQA execution accuracy. The development quality summary is the unweighted macro-average across these three datasets. The planned final analysis additionally specifies paired bootstrap 95\% confidence intervals, exact McNemar tests for binary correctness, and Holm-adjusted dataset-level $p$-values; these confirmatory analyses were not run.
+
+FinanceBench strict exact/numeric accuracy is used only for objective router labels. FinDER is excluded from both the development macro and router training because its narrative answers lack human-validated objective labels. The unexecuted confirmatory protocol retains blinded dual-judge sensitivity analyses, but they cannot support a universal narrative-quality claim without human validation.
+
+Development efficiency endpoints are model and retrieval calls, token categories, dollars per example, median and 95th-percentile latency. The locked main-track gate required Selective Nexus either to improve quality while reducing cost or to remain within one absolute point of the best primary macro while reducing dollar cost by at least 30\%. Planned paired inference and ablations were conditional on passing that gate.
+
+\subsection{Validity and reproducibility controls}
+
+Automated tests scan rendered prompts and evidence for forbidden target fields, confirm deterministic manifest regeneration, exercise scale/sign/percentage scoring fixtures, verify that command-line model identifiers reach provider requests, and ensure resumption cannot duplicate a completed framework/example pair. Development rows store protocol and run identifiers plus prompt and evidence hashes; run configuration stores the protocol fingerprint and provider model snapshot, while the selected router is separately content-hashed. Infrastructure failures remain distinct from model nontermination or malformed answers. The gate outcome is frozen in the development analysis artifact tagged \texttt{dev-20260709}; no final scorer freeze is claimed.

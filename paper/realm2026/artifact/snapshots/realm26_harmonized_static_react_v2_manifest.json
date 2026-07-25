@@ -1,0 +1,912 @@
+{
+  "datasets": {
+    "convfinqa": {
+      "candidate_count": 1888,
+      "dataset_size": 2213,
+      "examples": [
+        {
+          "dialogue_hash": "sha256:a4aab3f1f08004e907d2357fafe74cab56359bcb32e23f52e7eb1d3a9c0a2ad3",
+          "example_id": "convfinqa9",
+          "index": 9,
+          "item_hash": "sha256:ca0604fbb8fec2c59bb7c4a49d15b85a48cc744dd718bbef022a5cf0af2a18a8"
+        },
+        {
+          "dialogue_hash": "sha256:2bf175f9655e7bb7357b9f0a7c6051465a5ae701104ffe741b98e852c0e4d460",
+          "example_id": "convfinqa12",
+          "index": 12,
+          "item_hash": "sha256:5a20909002af1cfe06e7c472ce403b7b5a944f7338f14a35108768f9a7d315f8"
+        },
+        {
+          "dialogue_hash": "sha256:d10a4bc9e0c1fa4e8f3d7ce2512b8756e47ca5fa451f373c39a1431bb88db49f",
+          "example_id": "convfinqa16",
+          "index": 16,
+          "item_hash": "sha256:472488a890bd127d1a4390fbc882b4ddf1f7024cefb2d1a692d9dc8574e70cba"
+        },
+        {
+          "dialogue_hash": "sha256:986b79d4b69dffb1d19836f47b27073d95bf55201b3385aceb7e0687a21d8667",
+          "example_id": "convfinqa30",
+          "index": 30,
+          "item_hash": "sha256:eb06d5463ebb8e50858c2efb84b40d934cfa0ecbebf41660eff2d9c39193bc5e"
+        },
+        {
+          "dialogue_hash": "sha256:06998a9f7c3bd27271effa6f37d89ba0f60a00fb32f5f48b1d1309c30fade120",
+          "example_id": "convfinqa104",
+          "index": 104,
+          "item_hash": "sha256:0cc1e63e77e5d392f7bdf8ccecfd76d988ba3f3ebcb806cd05be51474e16e9a4"
+        },
+        {
+          "dialogue_hash": "sha256:f20e4586c63ba3b2c06a97c4e585acea4a2977c3d8d81dc2d1f2275439ad90a7",
+          "example_id": "convfinqa108",
+          "index": 108,
+          "item_hash": "sha256:df12d3df8a50a4330db0ee1433bf083be44ea90285a9140f16a9a139dfdca466"
+        },
+        {
+          "dialogue_hash": "sha256:8018d4e214f7712129e9bb820d69cc944f9808e98bc7969e4c7b36b92af6cd76",
+          "example_id": "convfinqa208",
+          "index": 208,
+          "item_hash": "sha256:cf30ea2e1e72aa54cab9016ed40870cd74f2d9bce1a3cfd33cba431b1bc42f50"
+        },
+        {
+          "dialogue_hash": "sha256:ade516f85ff9f88e2ed3ff0977e2ed8081386b6ed660552f8f4d54736babad99",
+          "example_id": "convfinqa233",
+          "index": 233,
+          "item_hash": "sha256:abf2149dbb968ad5b869e3e2c7d08e956270315d38fe48b9280c24a46ea74eda"
+        },
+        {
+          "dialogue_hash": "sha256:af37a2e6dfb5c301bc0402bb93b09d4ffd9275a12d95bf4b6130a820196a0359",
+          "example_id": "convfinqa278",
+          "index": 278,
+          "item_hash": "sha256:2baeb8408b3cf2b76a1667709a1c2e1a6ca0a55aec4aadde29d290072b43fa0a"
+        },
+        {
+          "dialogue_hash": "sha256:bf6851affc08517fff77b736c1b9c4504a14e7207b73d44eaf8a5d1c1326ae0a",
+          "example_id": "convfinqa296",
+          "index": 296,
+          "item_hash": "sha256:faaef9a3c2cd29cedf8e3bb69103cdfbb33289d20a9c02d9217897a4908d80fb"
+        },
+        {
+          "dialogue_hash": "sha256:d5790f88937e8fe760afa1fcc6ff0b737e630a65c72abe45e1ff20ec4dbe1c9a",
+          "example_id": "convfinqa379",
+          "index": 379,
+          "item_hash": "sha256:e95f302b3e776ee894ae1c6dfcae5cf2d3c71a5a54361e5379aa639783faa37a"
+        },
+        {
+          "dialogue_hash": "sha256:ec1742ad00f7ee36f9693751a92f14dd79ad8ff117bdbbfab603f2db7efa4bb7",
+          "example_id": "convfinqa381",
+          "index": 381,
+          "item_hash": "sha256:11f21db1a5caf08c5e2af7af436ef7c3c12851a67355568d71c0f1c08b036c60"
+        },
+        {
+          "dialogue_hash": "sha256:95c791c5701ded25ff741ba30670137166fd3ab6b8e336e7982e3af4541ddf86",
+          "example_id": "convfinqa436",
+          "index": 436,
+          "item_hash": "sha256:35576e73c532b5fa477e40978de8fd5ac1ffb5c5ee58cbb9b35fa88992df409b"
+        },
+        {
+          "dialogue_hash": "sha256:592e71f19e777e38d154c1787e1f36657c7a8da81db4e297a7c63507e9043bfc",
+          "example_id": "convfinqa454",
+          "index": 454,
+          "item_hash": "sha256:54c1b7232212ee0f06c26f6ce97b067c10f0b4c7273a783e76cc9abefc659f2a"
+        },
+        {
+          "dialogue_hash": "sha256:33c8cbbbc2d5a4764b7517827d816e870759797db632613fe744accfa4ce1513",
+          "example_id": "convfinqa493",
+          "index": 493,
+          "item_hash": "sha256:0b0c6e7ac5d5cce8d8247638f1f2dba2c3a1cab6891eccf1083538e742ea74b2"
+        },
+        {
+          "dialogue_hash": "sha256:b9617b8f80e4bae2b8bffd2758e7b2f0cf336241297eceafde923a2a18cd440d",
+          "example_id": "convfinqa502",
+          "index": 502,
+          "item_hash": "sha256:d2cec940b1e145f628624975729706fd3896188b5efa9da6f33e677083c48d71"
+        },
+        {
+          "dialogue_hash": "sha256:9a2fdb11a8475e8a7845410eb514c7a0499116b377b1a28a11c07b176834c8ee",
+          "example_id": "convfinqa507",
+          "index": 507,
+          "item_hash": "sha256:726c3fd0d5714d0de9584a42e613e22b0d389bc8b7067832bdf9507c659a31d1"
+        },
+        {
+          "dialogue_hash": "sha256:28573e8070e2ed29bf1ae70c68a7334a3a903a8d33b51111776bf54c582adcda",
+          "example_id": "convfinqa536",
+          "index": 536,
+          "item_hash": "sha256:8e98375fbd944baa7fc0de8a6110b3bdeb1b295c9e39e94755ac4816c4cbb728"
+        },
+        {
+          "dialogue_hash": "sha256:1c79305e86be176b17d7be4c54295c5adc89427416c8c246f2ed4144fea952cf",
+          "example_id": "convfinqa538",
+          "index": 538,
+          "item_hash": "sha256:00cd45762eb42c823dc7c24cb52d083c219e27f21ed435bd47ae6ba357c471d6"
+        },
+        {
+          "dialogue_hash": "sha256:bec9f99ab6b26fdfc1a4fb35db96fa923e7daa30d2539086a5c09d255c4311ef",
+          "example_id": "convfinqa551",
+          "index": 551,
+          "item_hash": "sha256:6ab5a85dde9bb3dff18c0cf111fc432251bc0148ca7c87cffb529047af1035fd"
+        },
+        {
+          "dialogue_hash": "sha256:f262157ebacb873493f62b72ceacab795950f0a2070754d5b82693f5f4dcafac",
+          "example_id": "convfinqa635",
+          "index": 635,
+          "item_hash": "sha256:53147d14eb351a94ec2140988e5e9b06bd50671b79b30d456e9cb431bcc86381"
+        },
+        {
+          "dialogue_hash": "sha256:1cd76f6417153745012f8ddfca27866efae3e2c3b00f88642314f55d093778bf",
+          "example_id": "convfinqa655",
+          "index": 655,
+          "item_hash": "sha256:f5f9475dfb75d1ce79ae7955dda169fa69d064022e05afde5e5718e0d4df2756"
+        },
+        {
+          "dialogue_hash": "sha256:8f2a980ecd7d41b935b86fec127a3ff48d4f223b4ac80210c5fc156cc23387b8",
+          "example_id": "convfinqa744",
+          "index": 744,
+          "item_hash": "sha256:0bcb5a0d90b489054e4ddc0abe98e095decac08f04e21b1ef3078784a3e814ec"
+        },
+        {
+          "dialogue_hash": "sha256:e0c8128719f2efcbc194bd5dd24d62e590ab40c674604a4dcdc27386bcb42f2a",
+          "example_id": "convfinqa781",
+          "index": 781,
+          "item_hash": "sha256:bff0fe888e0a210bd4dec71cedb01ee61f272a9dc15d01440e03c8d5f5e7bc2b"
+        },
+        {
+          "dialogue_hash": "sha256:3efd58170e6e173ae742e67d5690162b40d56fe4946d29b82c635241f600d142",
+          "example_id": "convfinqa833",
+          "index": 833,
+          "item_hash": "sha256:e906676f9fbb9b08795e4fe75beadd2d815c0579aa5c62ba4b40d003ce739f8d"
+        },
+        {
+          "dialogue_hash": "sha256:f2d46e44a6c393926dcc0a7e4b75badde76a2d4168279e9ed9dccb40959d2080",
+          "example_id": "convfinqa881",
+          "index": 881,
+          "item_hash": "sha256:04ae3767d7a65f40a7ba250f7fd0c242b8e752be1a4501a34ceeb8e88a778579"
+        },
+        {
+          "dialogue_hash": "sha256:2daaaa4ff2bea9a1ffb4a3161f2b3a28a8c54e741f307fe37678c143ebc86205",
+          "example_id": "convfinqa891",
+          "index": 891,
+          "item_hash": "sha256:e5ef729ee259f2d9d907daf233429a23276139a91ce6fe5fb7f505655ba70ae7"
+        },
+        {
+          "dialogue_hash": "sha256:634c71dee59362037e0c1c8b598a1269a13a2887a7488d4dee36cdb15d259931",
+          "example_id": "convfinqa894",
+          "index": 894,
+          "item_hash": "sha256:ff24ed16c56a7ce4b6757d36628e3f12fa3ea2d3b9915f2b8eecfbba3f8eebeb"
+        },
+        {
+          "dialogue_hash": "sha256:a2dfffd2e4b3720863f7515f39b3aeb5644316978c8a0844631ec6bc07deed69",
+          "example_id": "convfinqa914",
+          "index": 914,
+          "item_hash": "sha256:3147619d6bd3fce6c9a79a3c7257d5390845cafa15b8aa959ea2b71324de610b"
+        },
+        {
+          "dialogue_hash": "sha256:41ecbfeb76dc635de08d6f48b83b6f4a2e2825f2f1e678630c159c3e289e49f4",
+          "example_id": "convfinqa919",
+          "index": 919,
+          "item_hash": "sha256:2772e08381b827022422bf2297baf94359a538e50a5df5cdd1fc605def7ed1a3"
+        },
+        {
+          "dialogue_hash": "sha256:1b00bd5c22f08268d8772935cfe346f83a86f7d6fc1a30c1855e83f744f83b22",
+          "example_id": "convfinqa1101",
+          "index": 1101,
+          "item_hash": "sha256:618303dd75b546dedde1d76dcab0f0ac1a26dab5d3544e4ca16b0219c4e87be3"
+        },
+        {
+          "dialogue_hash": "sha256:0f258d53ef47ee58bc29369573d168921a5b5e389ef253c96671b2b3568e62bd",
+          "example_id": "convfinqa1138",
+          "index": 1138,
+          "item_hash": "sha256:638af76ab5a5df1cfab97e6e715b1417e2b89289b58e7fc2ba8faf12a8ae5e52"
+        },
+        {
+          "dialogue_hash": "sha256:aed3575bd120d7ae74587c710e59fb524fc0d639bbaee54bf2a586a9ac0a9752",
+          "example_id": "convfinqa1151",
+          "index": 1151,
+          "item_hash": "sha256:104485b6987ccfeb6986770e8ea9f4a40729e3b8c99430585144cdf5beb63501"
+        },
+        {
+          "dialogue_hash": "sha256:0dc698c700f5507131ddedf8fda5204050ba4bbc21518988b59102bef0f92436",
+          "example_id": "convfinqa1172",
+          "index": 1172,
+          "item_hash": "sha256:7731e33a9d28c5144c76cd8c8a7c71d77042190e66d979547285f7f1dfb7f92e"
+        },
+        {
+          "dialogue_hash": "sha256:dfe2a347b33ecc711edba32933bb5aad1449b557f7cbb2be088ce7db80f92cd4",
+          "example_id": "convfinqa1203",
+          "index": 1203,
+          "item_hash": "sha256:5839b00f3170352ec6987ab671c82db199b45e1a3d39cce86f304cbc7a3e09f9"
+        },
+        {
+          "dialogue_hash": "sha256:06f886d030164644fb79f299f185ca500e1e0c1886bebdc66e098fcf04a5384e",
+          "example_id": "convfinqa1305",
+          "index": 1305,
+          "item_hash": "sha256:2f93310f6ee1f372bfe878efe8a2c5c88491c7dba21aa67a2ff04a036c909ea0"
+        },
+        {
+          "dialogue_hash": "sha256:0033c0413d264d6baa8a44f6d45498abce915c53c789637a515a777348b26275",
+          "example_id": "convfinqa1319",
+          "index": 1319,
+          "item_hash": "sha256:f7bf1418fd76f783b723903e09a92a4e407850dd48c5cceb0af2fa0772c36e43"
+        },
+        {
+          "dialogue_hash": "sha256:ab4435549e9bbdc1a1e3421203f9effcbaf5d45e7892ba992de020fa42b48aa7",
+          "example_id": "convfinqa1417",
+          "index": 1417,
+          "item_hash": "sha256:10432b1d330c5f8615eeb810deaa7b7a884c89273a00bf92309182b14f21c2e4"
+        },
+        {
+          "dialogue_hash": "sha256:e64041b10714299afcf3d3cd343b329fa171a34db2c9f7dfb8a8cb885be59f4a",
+          "example_id": "convfinqa1438",
+          "index": 1438,
+          "item_hash": "sha256:225b6f7605c9c048fd4237944984262e9403918cc80792ca1a32fc9a37610735"
+        },
+        {
+          "dialogue_hash": "sha256:d1f856595dd84f3c0b5ab15df5604d7af1233aa5af6e5ccb5a2210a4eadea571",
+          "example_id": "convfinqa1509",
+          "index": 1509,
+          "item_hash": "sha256:a8ec6348a7441df90776d11500f1fcfa3de0a4c7880e1d6b5447803153f9f6ba"
+        },
+        {
+          "dialogue_hash": "sha256:5ad2c8b168183b4b8464d0f3f85de77f2ff108edc169d1e2b124a470acd27048",
+          "example_id": "convfinqa1537",
+          "index": 1537,
+          "item_hash": "sha256:93b1dccada0a2b1f53c69ace796a4326ee734c2bcd21ea1bb90dd3e3670a69d7"
+        },
+        {
+          "dialogue_hash": "sha256:fcf2fdad3ef4e4a90f3dd574bfcf12e8f10ded3a56bb5a962bf970c5ffaee6ab",
+          "example_id": "convfinqa1623",
+          "index": 1623,
+          "item_hash": "sha256:9859f63dbb0d52180354d6136a75ec7c98931fb2521c3487c660e6f3604dbdc1"
+        },
+        {
+          "dialogue_hash": "sha256:819c9cb391c04c02643b08ba9f27ce137fca54f3d8e89a214699df8ab7cfa001",
+          "example_id": "convfinqa1652",
+          "index": 1652,
+          "item_hash": "sha256:ec80b10d1675a3db68347357d0a27847cea9f7f083917e313b91429904e17b0c"
+        },
+        {
+          "dialogue_hash": "sha256:7846aa7ef9f1cb3b42ae44714bd9ec42eefc38dabb1db817d7cfb0d8563e35f6",
+          "example_id": "convfinqa1781",
+          "index": 1781,
+          "item_hash": "sha256:da177c10256ad251c58d8012f239a8e97cff5fbf84e38cc340261cbc13f0bbfb"
+        },
+        {
+          "dialogue_hash": "sha256:981cbf9424b4c566f1787440f4fbe290f9d583df396c69ce7e85423c1f2b4a78",
+          "example_id": "convfinqa1823",
+          "index": 1823,
+          "item_hash": "sha256:437e85cae3a197f35e18b7ffc75ce7a1061aa4f48fe9a1bdd4144985787a5325"
+        },
+        {
+          "dialogue_hash": "sha256:d0b7c6af8fecf908691ff221a1f2a124ee5115a249e56a18f235d6f04ea6d48f",
+          "example_id": "convfinqa1906",
+          "index": 1906,
+          "item_hash": "sha256:7362362539e7b41eea930470bc2c29bc52ef3b877dd87768a1f21eb616b02518"
+        },
+        {
+          "dialogue_hash": "sha256:c16e119d91e8c510ffc7630dfb34b074e36ae1a0d3e90f22a2ddc000334b91ce",
+          "example_id": "convfinqa1918",
+          "index": 1918,
+          "item_hash": "sha256:51dc5cfafb22891a3a92becb7b775948c204165588c756cd6bc5484f64cf3c35"
+        },
+        {
+          "dialogue_hash": "sha256:311bd0a1c9102bc70eb3c1fb77d818e5616c94e67d189d1561f4b64fb97207f7",
+          "example_id": "convfinqa2054",
+          "index": 2054,
+          "item_hash": "sha256:a2d27de963a5ea48b2fb3942a24324f030aa10bf54a00cb7c6537600addf47cf"
+        },
+        {
+          "dialogue_hash": "sha256:b0edcf0cb992eb63837e8323967b4ea4289ccec03bd48eae0f2397e2ad6686a2",
+          "example_id": "convfinqa2156",
+          "index": 2156,
+          "item_hash": "sha256:a303f669089267f793d33e677c8de55650ab65f5405fd5b6f10bd6417626f6b1"
+        },
+        {
+          "dialogue_hash": "sha256:9da5c055c4c412aa2587ae49f61a1cf3c3869f61e970e0700b4f3e257d0d6ea2",
+          "example_id": "convfinqa2172",
+          "index": 2172,
+          "item_hash": "sha256:9e3ef9394113f114f7067944e0787fdd0cdcc7ad18b56d8bee13639e76020ba8"
+        }
+      ],
+      "exclusion_counts": {
+        "harmonized_v1": 50,
+        "original_development": 50,
+        "sealed_final_identifiers": 200,
+        "second_family": 25,
+        "total": 325
+      },
+      "exclusion_identifier_fingerprint": "sha256:5d8ce01875a73ecb308c4846ff7682e68f848735e12ce97a572a73e78bca9ae0",
+      "original_manifest_fingerprint": "sha256:1c11086b58e748c2171346edf814945784dff378f385860ac2d230b3f90965c7",
+      "second_manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+      "selection_policy": "one seeded turn per new dialogue after original, second-family, v1, and final identifier exclusions",
+      "v1_manifest_fingerprint": "sha256:20fbf66aef529d697edece85176a1763dbea082de75ae545a2b5d028115e33c0"
+    },
+    "finqa": {
+      "candidate_count": 558,
+      "dataset_size": 883,
+      "examples": [
+        {
+          "example_id": "finqa2",
+          "index": 2,
+          "item_hash": "sha256:6c62fcc07277820352028eef8dc1674d10cfa8ce26d748693a271c5373e8d874"
+        },
+        {
+          "example_id": "finqa6",
+          "index": 6,
+          "item_hash": "sha256:c871cdfd3216dbbb7953ab5dc7d07a6ddb9440ffbcd83526f91f0ac537efb995"
+        },
+        {
+          "example_id": "finqa34",
+          "index": 34,
+          "item_hash": "sha256:c1e2661f30450a3fbb0afabd4e2e25475768725e378a5a1e7efd0e3a0cafc2b7"
+        },
+        {
+          "example_id": "finqa75",
+          "index": 75,
+          "item_hash": "sha256:dc0e3a9cf1d80d606644139f3a196a216c2847682efbcf072ccfaafb3732c8d8"
+        },
+        {
+          "example_id": "finqa77",
+          "index": 77,
+          "item_hash": "sha256:d717f6e972155e2a5a476872faaa2be890f5ccf975fec41e6ec0020bc9a5858f"
+        },
+        {
+          "example_id": "finqa83",
+          "index": 83,
+          "item_hash": "sha256:54de679960f1e4fb4f196d820bffad1466999f187d8354521dc5485617a036b5"
+        },
+        {
+          "example_id": "finqa115",
+          "index": 115,
+          "item_hash": "sha256:2e3847b697c060e204b42ab82d6413495c2ba55fe0d395da1becfbea782d2c67"
+        },
+        {
+          "example_id": "finqa117",
+          "index": 117,
+          "item_hash": "sha256:5ab02a62283f4d799191d37210f76edba09af1f5898fb381f1e6d00b2c040463"
+        },
+        {
+          "example_id": "finqa160",
+          "index": 160,
+          "item_hash": "sha256:2ea6f93f460d3be459ed94cb93d7d10015995ba996e3f45cf5e1de96a14ff374"
+        },
+        {
+          "example_id": "finqa184",
+          "index": 184,
+          "item_hash": "sha256:d5d3221d82b77972a39d3da6b1b52f2c33ff13c606ab19bc391d4e04a3b60ad1"
+        },
+        {
+          "example_id": "finqa204",
+          "index": 204,
+          "item_hash": "sha256:471c6556d524bff87626f6dd1c19cdbc26e5e548a4c92337fe3a804bedae3449"
+        },
+        {
+          "example_id": "finqa206",
+          "index": 206,
+          "item_hash": "sha256:a143b3f860405aa78f8ce9d18d6e56aa8896af829b667802ac909d5b04faaccf"
+        },
+        {
+          "example_id": "finqa210",
+          "index": 210,
+          "item_hash": "sha256:d885c19d70c8262ae9434cb49aa26f50bb603dc088cf752ebf6146bb3764a2ff"
+        },
+        {
+          "example_id": "finqa218",
+          "index": 218,
+          "item_hash": "sha256:1dc280eff057ef905a0f8acef97d1ba6d529a4345c6beb63195617954e7f44f9"
+        },
+        {
+          "example_id": "finqa259",
+          "index": 259,
+          "item_hash": "sha256:0d179ab11acd7c6c04a610db9e58945ff86e0116bfe12a1bed32a524678bda5d"
+        },
+        {
+          "example_id": "finqa261",
+          "index": 261,
+          "item_hash": "sha256:b0b0e98d4faf37deb8c21731f71bd00d0ae3b2bb044bf04ea17866374cebbb1b"
+        },
+        {
+          "example_id": "finqa339",
+          "index": 339,
+          "item_hash": "sha256:9ac7468cc28082c3fcbb6def78d93083df4e82eda229d706cc1d6e225ca7e0ba"
+        },
+        {
+          "example_id": "finqa384",
+          "index": 384,
+          "item_hash": "sha256:71ebee042262429c01a75fdb9047cb1734da347c804620cb8dc40980767e84e5"
+        },
+        {
+          "example_id": "finqa385",
+          "index": 385,
+          "item_hash": "sha256:23a1a49bc1601a85f98413c281652b60a55df6f6b6aecfb966b45182707c50f2"
+        },
+        {
+          "example_id": "finqa395",
+          "index": 395,
+          "item_hash": "sha256:68bee3490c337b403c8ca2276e171d59b335a9889a39fc17096695746392c4c1"
+        },
+        {
+          "example_id": "finqa462",
+          "index": 462,
+          "item_hash": "sha256:3517358b4757642c94a97e9995e67dbdf672864c2315712ac39698bb191124a6"
+        },
+        {
+          "example_id": "finqa490",
+          "index": 490,
+          "item_hash": "sha256:3a48dcc910b8a6eaa2d156e990428d90b2d6ff8f062c86029a90b93e7a9353e7"
+        },
+        {
+          "example_id": "finqa494",
+          "index": 494,
+          "item_hash": "sha256:a54a75b59189b03489e1e6c47d05f4a7db76ebd0fa477bdc6edbd86721dd16eb"
+        },
+        {
+          "example_id": "finqa509",
+          "index": 509,
+          "item_hash": "sha256:e9506c954eadecf8dc31f22a41a2309a48d41f7fe6f300d53929ff5a3e5b0036"
+        },
+        {
+          "example_id": "finqa512",
+          "index": 512,
+          "item_hash": "sha256:d7f0a8dbf080fe049201adf618922559589a6a8672d3ac2578084026ad8ae2d4"
+        },
+        {
+          "example_id": "finqa514",
+          "index": 514,
+          "item_hash": "sha256:5fe3c7e98caddc820cda5d3b6accc2cd21e20ef33082daa87f2d5d3072bc0b1d"
+        },
+        {
+          "example_id": "finqa519",
+          "index": 519,
+          "item_hash": "sha256:e8c2c057528ad94c3591897ed14f88401822c28577fbb70738e7e5650399adc5"
+        },
+        {
+          "example_id": "finqa568",
+          "index": 568,
+          "item_hash": "sha256:86ec43c51dea295eedda8ae9fa70fc45b76e9dc116e3c142a5ad0f602b23251c"
+        },
+        {
+          "example_id": "finqa602",
+          "index": 602,
+          "item_hash": "sha256:d8f4f2340cdb7777f97fd359abd4f652723943bc1dc77a3d95010965c95fa79e"
+        },
+        {
+          "example_id": "finqa614",
+          "index": 614,
+          "item_hash": "sha256:a1eb2d766c3003cf6720d77575f843125d6414803ebfb51fcff562a52599fd23"
+        },
+        {
+          "example_id": "finqa619",
+          "index": 619,
+          "item_hash": "sha256:8b0f6385fccacdf876efc4aede4ac1165909a17048bed8f7f505b18b376068b9"
+        },
+        {
+          "example_id": "finqa621",
+          "index": 621,
+          "item_hash": "sha256:03de8ea93a2a8cf2a900188d3500e18fb19adde352da84d2bb572b5f21f8ded9"
+        },
+        {
+          "example_id": "finqa624",
+          "index": 624,
+          "item_hash": "sha256:c10afe2caeaabdefdd994386f416e799f7ad1d95a7d974a5f9b620ea55fe882d"
+        },
+        {
+          "example_id": "finqa634",
+          "index": 634,
+          "item_hash": "sha256:556a8d78f8b5d14701575dccd929d24d7fe56a4805b7eee6280a6180fa0afa2d"
+        },
+        {
+          "example_id": "finqa635",
+          "index": 635,
+          "item_hash": "sha256:6a8cc420a346645ece6d3032962e03c61eb78697e390038b9f34e6debd0cf2dd"
+        },
+        {
+          "example_id": "finqa666",
+          "index": 666,
+          "item_hash": "sha256:c6c0c4c3cfaf7c9951085e66483aeaac0eea3d4d20bd16a6b62eb012663be213"
+        },
+        {
+          "example_id": "finqa668",
+          "index": 668,
+          "item_hash": "sha256:37bad073dcdf486c457d8688ba35ff141ce60f9ebdd1ebb7937d9fb79e664a1e"
+        },
+        {
+          "example_id": "finqa671",
+          "index": 671,
+          "item_hash": "sha256:e526be50af6558f76978d3e07ff84f23ae272bf56c11518bd3201d1a95bae3cc"
+        },
+        {
+          "example_id": "finqa678",
+          "index": 678,
+          "item_hash": "sha256:fd7e1bd841c1276fe4c96cd0d96bd307f28afeece606172e1ff3e0565135c225"
+        },
+        {
+          "example_id": "finqa688",
+          "index": 688,
+          "item_hash": "sha256:4b0eb3ce8525df65212195cd18e157b90568fb64ec7c25cf2f915696785b7b1d"
+        },
+        {
+          "example_id": "finqa725",
+          "index": 725,
+          "item_hash": "sha256:75b8d8470c923e18896df4b46063931f961e79fc5736f26851a8d700d4dcf535"
+        },
+        {
+          "example_id": "finqa728",
+          "index": 728,
+          "item_hash": "sha256:68e6cdd39369ef340d006721780f1dcf2a9786203124635e26587c7f0ffcad92"
+        },
+        {
+          "example_id": "finqa752",
+          "index": 752,
+          "item_hash": "sha256:0ce038046fb671449aa5ca12fb69bb36356090b9f73dda4025bf9bddaf461843"
+        },
+        {
+          "example_id": "finqa774",
+          "index": 774,
+          "item_hash": "sha256:8c14b156478ff9ffd0d69d33d00238326a251911dcb5e7a64ebe386318acc61f"
+        },
+        {
+          "example_id": "finqa779",
+          "index": 779,
+          "item_hash": "sha256:ec5fbce0fdd130a249b7b4b9ce949f41b4efe4f848f53c5cd2a78ee04a6dcb35"
+        },
+        {
+          "example_id": "finqa783",
+          "index": 783,
+          "item_hash": "sha256:325d9ada23cf9eb56d80794d98a23e442dccac1b7f4c3263f94d3ce9ce9ce736"
+        },
+        {
+          "example_id": "finqa797",
+          "index": 797,
+          "item_hash": "sha256:1379e81aa00118d2c3745d3cde7db8dbaf6acb47699bf3c97563e61b85056329"
+        },
+        {
+          "example_id": "finqa834",
+          "index": 834,
+          "item_hash": "sha256:71ab128e2a611c10ef6bbedbf44107f325cf3b9c3e9fd70adb8b20e847d17bbd"
+        },
+        {
+          "example_id": "finqa849",
+          "index": 849,
+          "item_hash": "sha256:0179b50f3cabdd32d87b09637994b47834ad51f15a68cfe0bc263c8d35d544d3"
+        },
+        {
+          "example_id": "finqa882",
+          "index": 882,
+          "item_hash": "sha256:9884d865a1c553154a33fcf5ce519680e42dd1653f98d3b637dc141ff5b20e69"
+        }
+      ],
+      "exclusion_counts": {
+        "harmonized_v1": 50,
+        "original_development": 50,
+        "sealed_final_identifiers": 200,
+        "second_family": 25,
+        "total": 325
+      },
+      "exclusion_identifier_fingerprint": "sha256:a72ac67923c0e1b8d1b12def2b1e69c8ad080cab663c0cf3a931cc6336abe66c",
+      "original_manifest_fingerprint": "sha256:1a8da627bba037a47fafb2957b9de9fe9fd1895ab43dfb44f4cd7a258ba49acc",
+      "second_manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+      "selection_policy": "seeded sample after original, second-family, v1, and final identifier exclusions",
+      "v1_manifest_fingerprint": "sha256:20fbf66aef529d697edece85176a1763dbea082de75ae545a2b5d028115e33c0"
+    },
+    "tatqa": {
+      "candidate_count": 312,
+      "dataset_size": 1644,
+      "examples": [
+        {
+          "example_id": "f4c8e2d0155ac338249d0fe6feba49ac",
+          "index": 72,
+          "item_hash": "sha256:eeb909b469c2e4e684da107deaa8c245fed74a71703998fc0e4f68fe7a1f5578",
+          "stratum": "multi-span | table"
+        },
+        {
+          "example_id": "a9ab61dd0d95ff725f8d9bb48bb438b2",
+          "index": 76,
+          "item_hash": "sha256:ddf35ea3d0c2454cea55065412c0a44a44e19024a8b7a30b75411ceb6bc05a64",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "d58e9819b47ebb2798000fb01de8ca75",
+          "index": 85,
+          "item_hash": "sha256:b7309660807a66343ce26ecbf9f716d1913ab6feb98ffa6c6ac2a5b3deb46b8b",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "442607ba01c4134452d34af6b5a7d279",
+          "index": 87,
+          "item_hash": "sha256:849db9396ddb1d888cdc373d080f5369ec7b78c7fea9471cd9d7918397dcc89f",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "d6452223eb6d3d15f201f30c3b427686",
+          "index": 229,
+          "item_hash": "sha256:30d8334101a6bcf934407df1499a5bfdb2464d3cf035a33a0516d25126214e6b",
+          "stratum": "multi-span | text"
+        },
+        {
+          "example_id": "4c299cc2a4982be9c07e0819ff8535d6",
+          "index": 299,
+          "item_hash": "sha256:278d87662417c4a2e97bab130eb6d28251a33df25a9df96223953cd866089add",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "dc867d54c2e38dea1332f11f74c20d92",
+          "index": 372,
+          "item_hash": "sha256:5a7124d4ade4b9faf041b384ffa0b72b40c24e8525e45ee4cd00d664171ae697",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "9d33c899c72a238ab7c72edc4bc4f6f1",
+          "index": 377,
+          "item_hash": "sha256:1affdadae8cc0295ec6d33d4b901fef67158bec11da193add86fbd8ab479d87a",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "93d78d23bcdcb69869430ab469bdce6d",
+          "index": 435,
+          "item_hash": "sha256:47bd141493c9239b5138017ca406b68cf669c6cb6f86512c0abbbfeef7de474c",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "c88d72ebfdea61769245e93ed219bb11",
+          "index": 458,
+          "item_hash": "sha256:6bdfc2e533fe85f94503cce4b69ce75fa6af9f76fecb6b5eebef0aef4a60f369",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "1931223fa4834b373c31a2f49d4a31d4",
+          "index": 573,
+          "item_hash": "sha256:7303094678304759ff2951e35b77705f834399c28de8b334f9613a161e8694dc",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "2ca8d5ba81bec9e7bb48721c3bbcfa91",
+          "index": 579,
+          "item_hash": "sha256:442d6fb074ea27bf09ec7d3662838915c8a3b51d0524a2788030ab17ee6c6667",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "1dcec0486e992984508c4b2fa098d0f5",
+          "index": 580,
+          "item_hash": "sha256:827f19c6bd8e93301404b4204c8b0681e95b3877680716898aea8132fb78e706",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "db6853e8a3221ff5d8575f0eca40f5ef",
+          "index": 606,
+          "item_hash": "sha256:8560add6ac0b6665fd0194be95bade626d8531af87621be7356d5c5580f3bb7d",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "67dad855cbcc7cbe1190fed997e943ea",
+          "index": 608,
+          "item_hash": "sha256:8ea2881b48a1731def760d473259885e293aa7d135ec058db496ca9870a3f536",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "7de92d4329e41e323028d0d9df1e7bfe",
+          "index": 618,
+          "item_hash": "sha256:4f82808b857dc8c1792844b589d146e2e795c518e4c43624d097b811dc5d7116",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "feb41a3d1eeafde82a767587ab97cb33",
+          "index": 680,
+          "item_hash": "sha256:690625725d1a59a1d1719732603baba5bed75bf5303c61a0337879a11c18ddaa",
+          "stratum": "multi-span | table"
+        },
+        {
+          "example_id": "9438278a23c30bed9cb9e0f6f892c46f",
+          "index": 704,
+          "item_hash": "sha256:36fb01852c0a463d88f8d767e7a066bc192282bee0398021bd4c624fb60605e8",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "4d20b42937f83223394e6dfaacb1bc99",
+          "index": 788,
+          "item_hash": "sha256:cca14f5b64445f79058b3b6cc5e6f3292c426ad76a4a3e0a7d2d2a3d7ec7ff3f",
+          "stratum": "count | table"
+        },
+        {
+          "example_id": "8cb2f3a58294cd6dce8b20faada1ac73",
+          "index": 794,
+          "item_hash": "sha256:0ccb22db4795b32a5b0cf7d6bdc6648790bd46e004421e887696998402b6b9f3",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "1c64044c45c1f9b8e3d0a84e4926a015",
+          "index": 796,
+          "item_hash": "sha256:a2504d41354b9af69aee146810f567dd3834d07f0117a96077f930d7fc76f12f",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "398a858275d03f774b6f367438228017",
+          "index": 812,
+          "item_hash": "sha256:749368aeb89f3f4dbe66c4d0577c28c4a053411dc4913c596c865c003bfb6e52",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "8270970aa3eac443be18a884947dca31",
+          "index": 813,
+          "item_hash": "sha256:2a5d4e623f92cafa1c4ee1512cd17e3c49b0e7cd2fdd5a3e18063a06e39ec3cd",
+          "stratum": "count | table-text"
+        },
+        {
+          "example_id": "7bad02950b134e75e22c496e76549dcc",
+          "index": 815,
+          "item_hash": "sha256:48af875359b20a215997630c585f4c0993d10d5d3ea59be079ad02ed8ab13620",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "4df2cad94ff711e4738d0576ff5cc433",
+          "index": 863,
+          "item_hash": "sha256:3d520bddb45b497b44dfb849d80233ac2d0a3a2a68d9808150c6bf9c82d3911d",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "10ed0dd0affee4d752977bf58a56c975",
+          "index": 865,
+          "item_hash": "sha256:df4fcd10d572d467076fa181868ba93c23dab8a3bf39919b941636f4b17788e1",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "886ce999eb80a6b946d42a19b397de11",
+          "index": 904,
+          "item_hash": "sha256:678d431a065f53a2278328d50cdfc42da1b74d05318ff1606289dc26f395e4a4",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "7e4e3a3e5776d6fd5cc633927a7ac5dd",
+          "index": 906,
+          "item_hash": "sha256:45e58892a34073912c7b3652ab76fd6c34ddd1de2c32d988041dee74cd866775",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "607f7ec3a2832d3560d71da9560aaa45",
+          "index": 917,
+          "item_hash": "sha256:f6d7a8ea5a6bf1640f83c8dbe0379f81c61c23d44f1cc2eb5a6699f2d7100697",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "15d7e7f5c8dcbeea1c2e11c32c2ecaa9",
+          "index": 948,
+          "item_hash": "sha256:9819519dd763025eaa569f3704c8a040fe01babe3aa3f30d922a89910d59f389",
+          "stratum": "multi-span | table-text"
+        },
+        {
+          "example_id": "10e0fc13499ef245e4bd44f7985f526b",
+          "index": 966,
+          "item_hash": "sha256:fc0d2d28b56a71a7882e8f2a98f99c26d543839a0aa0b89576d3999921c10776",
+          "stratum": "multi-span | table"
+        },
+        {
+          "example_id": "31dc0e2b4b9906b56406b57c96d0ffe5",
+          "index": 967,
+          "item_hash": "sha256:69bf0b32eea23bb08ff108ab0995bdff17a9158afe9ddd1a3fdc8e227e063c00",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "4439b316a93b7ef28b2d9b0803638b97",
+          "index": 969,
+          "item_hash": "sha256:50a082bcffe1d88f6f8324f7318e34889052e8961bfbda20fae4a3dafe4b4aa7",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "5d5cdaca2701dc75ee0d1445a62942e5",
+          "index": 978,
+          "item_hash": "sha256:059a415ee4287b9ee8348513a19b84c39bec83a29dbc73eb69ff430694d8a9ba",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "f4c94bf151a0edb3dfe18027b7265ac6",
+          "index": 980,
+          "item_hash": "sha256:e492b496577309da706ee58106d7e8b67a72ab7d6616997c7a05596fef0a8057",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "3806e089b0e480d002aa443961db08f7",
+          "index": 1166,
+          "item_hash": "sha256:215fb08844db3eb6e0b5dd19a310a4b39bd519d0c2983439ecd29d0399aaf7a8",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "7525d1e860bcf6ea7978e8620c643330",
+          "index": 1172,
+          "item_hash": "sha256:55b26e860cf87ccabf511ab197bdae74fb8560bf0698d65670a984d8f682cf4f",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "bc502e85e5acd8d0f11c3b4331227c55",
+          "index": 1173,
+          "item_hash": "sha256:b4870a6023adfedef9ea454a2b67535c816415664590b929d4854e76f630b71b",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "5faff2539fdb1e0ea2d74038b9b04ad9",
+          "index": 1223,
+          "item_hash": "sha256:94b8c528bd6abd4da605982a23f6ab809eb1a94c4c89f58b3ec522f968d9f331",
+          "stratum": "arithmetic | table-text"
+        },
+        {
+          "example_id": "65b4f20885cb7dbacb23b7125b92b563",
+          "index": 1285,
+          "item_hash": "sha256:62c6f1dda74e365b864d153d4d76af0c6d481bcba9f8410a00a6844a8d7032ea",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "dda2832370cb1ee1b96d8e31ce13fc78",
+          "index": 1287,
+          "item_hash": "sha256:996105e051ec1cc1cc6e9ea50d3ae182d78ce1e21dc1c335d2796ad1fab621fa",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "171c252b1763b1e9da5e55f8ac518b49",
+          "index": 1325,
+          "item_hash": "sha256:0ef2693ca7812217131e1882f0246e6762f123be70c4d0c6e3b8be46cc830bda",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "29aa12b11b3ff8328db92dfd1d0751f3",
+          "index": 1343,
+          "item_hash": "sha256:6754ee52fb6228754a3fb2a518209dff952d01a3bb1f47d81ce8b3d1d23db399",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "fd3cb5e04d13a30a0195f4af7e96c4ba",
+          "index": 1410,
+          "item_hash": "sha256:78f928fe77931a76dab1ea26b3f0091ef78dea27f44195adaf67e8fead29d77b",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "ebce28b34ae2045a15c6eaffd389eaa4",
+          "index": 1413,
+          "item_hash": "sha256:ad4abc3a852a35f33e26da5b805edc8cecf1a058fcd9dc97f16bc28430e05f27",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "3dbea54df00f425c1575520d825927a9",
+          "index": 1537,
+          "item_hash": "sha256:4f2c4d7c1b3ba04ea20ea870827464fa218e20cd6aac494b3e380fd10dacda3a",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "a419fa0f7bbc3031e194e3ff422cd9d6",
+          "index": 1602,
+          "item_hash": "sha256:a568f8bc1244201b3b38bba836186dca8f22ecfefe2924363313432435c4dd19",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "c1dc506cf341f4f716f0574a85ee2ccc",
+          "index": 1603,
+          "item_hash": "sha256:eb39f51b85da3c1edf978ee0412e1eb4e56ae0756bcd24136e52678f40127869",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "595fbcac7394a955a1f9d6ad2622cd8f",
+          "index": 1606,
+          "item_hash": "sha256:16ce71efb3d8b9269532b313b7e081039beebd5e1622603d0bdf344aaf8897bf",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "6453d82fa4fe65b323407550d83156c7",
+          "index": 1640,
+          "item_hash": "sha256:722b4ceaeb234856494f03582f27f1bc1e2f12ac3b7617b83a9559e7e934cde7",
+          "stratum": "span | table"
+        }
+      ],
+      "exclusion_counts": {
+        "harmonized_v1": 50,
+        "original_development": 50,
+        "sealed_final_identifiers": 200,
+        "second_family": 25,
+        "total": 325
+      },
+      "exclusion_identifier_fingerprint": "sha256:df61fe4eee669b258d2dad71c054376e324350c7079c3e0823417be6430bd9a6",
+      "original_manifest_fingerprint": "sha256:c5bd4b83f90f230a55b560f02f876bc2897832df0b3b0c2a467fb6b79d02e65b",
+      "second_manifest_fingerprint": "sha256:d0e0f5597c1fb6ceeee1eb06ddce833cd4fb858223cbd90dd64ad3908cd99a11",
+      "selection_policy": "seeded proportional answer_type x answer_source sample from contexts containing no original, second-family, v1, or final identifiers",
+      "v1_manifest_fingerprint": "sha256:20fbf66aef529d697edece85176a1763dbea082de75ae545a2b5d028115e33c0"
+    }
+  },
+  "manifest_schema_version": "realm26-harmonized-manifest-v2",
+  "protocol_id": "realm26_harmonized_static_react_v2",
+  "scope": "fresh_development_only",
+  "seed": 20260720
+}

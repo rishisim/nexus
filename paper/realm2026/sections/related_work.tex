@@ -1,0 +1,19 @@
+\section{Related Work}
+
+FinQA, TAT-QA, and ConvFinQA evaluate numerical reasoning over financial reports
+and conversations~\cite{chen2021finqa,zhu2021tatqa,chen2022convfinqa};
+FinanceBench and FinDER emphasize filing-grounded open-book or professional
+queries~\cite{islam2023financebench,choi2025finder}. Our controlled-evidence
+setting holds document access fixed and therefore evaluates orchestration, not
+end-to-end retrieval.
+
+ReAct interleaves reasoning with external actions~\cite{yao2023react}, while
+financial agent work explores reflection and multi-stage research
+workflows~\cite{fatemi2024reflection,choi2025finagentbench,sun2025finresearchbench}.
+Prior studies also find diminishing or negative returns from additional
+reasoning~\cite{chen2024donotthink,vamvourellis2025overthinking}. Selective
+prediction and model routing optimize risk--coverage or quality--cost
+trade-offs~\cite{geifman2019selectivenet,chen2024frugalgpt,ong2025routellm}.
+We connect these lines by testing an often implicit prerequisite: whether the
+candidate expensive expert has enough complementary accuracy to make routing
+useful at all.

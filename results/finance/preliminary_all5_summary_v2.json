@@ -1,0 +1,78 @@
+{
+  "financebench": {
+    "run_dir": "results/finance/financebench/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "supported_better_and_cheaper",
+    "react_em": 0.8,
+    "nexus_em": 0.9,
+    "react_calls": 24,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.4,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.333333,
+    "nexus_correct_per_call": 0.9,
+    "n": 10
+  },
+  "finder": {
+    "run_dir": "results/finance/finder/seed42_gemini-2.5-flash_finder-narrative-v1",
+    "claim_status": "supported_better_and_cheaper",
+    "react_em": 0.4,
+    "nexus_em": 0.5,
+    "react_calls": 23,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.3,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.173913,
+    "nexus_correct_per_call": 0.5,
+    "n": 10
+  },
+  "finqa": {
+    "run_dir": "results/finance/finqa/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "not_supported_yet",
+    "react_em": 0.6,
+    "nexus_em": 0.6,
+    "react_calls": 32,
+    "nexus_calls": 10,
+    "react_avg_calls": 3.2,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.1875,
+    "nexus_correct_per_call": 0.6,
+    "n": 10
+  },
+  "tatqa": {
+    "run_dir": "results/finance/tatqa/seed42_gemini-2.5-flash_all5-prelim",
+    "claim_status": "not_supported_yet",
+    "react_em": 0.9,
+    "nexus_em": 0.9,
+    "react_calls": 21,
+    "nexus_calls": 10,
+    "react_avg_calls": 2.1,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.428571,
+    "nexus_correct_per_call": 0.9,
+    "n": 10
+  },
+  "convfinqa": {
+    "run_dir": "results/finance/convfinqa/seed42_gemini-2.5-flash_all5-prelim-fixed",
+    "claim_status": "supported_better_and_cheaper",
+    "react_em": 0.1,
+    "nexus_em": 0.2,
+    "react_calls": 52,
+    "nexus_calls": 10,
+    "react_avg_calls": 5.2,
+    "nexus_avg_calls": 1.0,
+    "react_correct_per_call": 0.019231,
+    "nexus_correct_per_call": 0.2,
+    "n": 10
+  },
+  "_aggregate": {
+    "n": 50,
+    "react_correct": 28.0,
+    "nexus_correct": 31.0,
+    "react_em": 0.56,
+    "nexus_em": 0.62,
+    "react_calls": 152,
+    "nexus_calls": 50,
+    "react_correct_per_call": 0.184211,
+    "nexus_correct_per_call": 0.62
+  }
+}

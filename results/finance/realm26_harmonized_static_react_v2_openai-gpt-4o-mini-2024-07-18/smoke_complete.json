@@ -1,0 +1,18 @@
+{
+  "completed_at": "2026-07-20T18:08:27+00:00",
+  "pair_count": 2,
+  "pre_result_commit": "a823f884ee5b187e1732be5273776115f41e3501",
+  "process_checks": {
+    "react_evidence_observed": true,
+    "react_first_action_search": true,
+    "react_minimum_calls_met": true,
+    "react_minimum_retrieval_met": true,
+    "react_parse_ok": true,
+    "react_process_integrity": true,
+    "static_one_call": true
+  },
+  "process_checks_passed": true,
+  "protocol_fingerprint": "sha256:e07725a1cc7af25cbba5598e2948aab72f8a2e6323fcb827bb582cb5ab7b966c",
+  "spend_usd": 0.00067716,
+  "telemetry_complete": true
+}

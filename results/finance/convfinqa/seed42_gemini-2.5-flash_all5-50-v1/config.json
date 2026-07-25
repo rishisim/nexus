@@ -1,0 +1,33 @@
+{
+  "dataset": "convfinqa",
+  "dataset_name": "ConvFinQA",
+  "task_type": "conversational_numerical_financial_qa",
+  "model": "gemini-2.5-flash",
+  "seed": 42,
+  "frameworks": [
+    "react",
+    "nexus"
+  ],
+  "results_tag": "all5-50-v1",
+  "num_examples": 50,
+  "max_examples": 2213,
+  "created_or_updated": "2026-06-21 11:16:18",
+  "dataset_metadata": {
+    "id": "convfinqa",
+    "name": "ConvFinQA",
+    "task_type": "conversational_numerical_financial_qa",
+    "source_url": "https://github.com/czyssrs/ConvFinQA",
+    "hf_url": "https://huggingface.co/datasets/ChanceFocus/flare-convfinqa",
+    "paper_url": "https://arxiv.org/abs/2210.03849",
+    "public_examples": 14115,
+    "size_note": "3,892 conversations with 14,115 questions.",
+    "evidence_type": "financial reports inherited from FinQA-style contexts",
+    "answer_style": "turn-level numerical or short answers in a conversation",
+    "nexus_fit": "Medium-high: tests follow-up context handling plus numerical reasoning.",
+    "first_pass_priority": 5,
+    "implementation_notes": [
+      "Start with turn-level format to fit current runner style.",
+      "Later add conversation memory as part of the environment state."
+    ]
+  }
+}
