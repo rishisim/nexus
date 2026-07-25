@@ -120,6 +120,11 @@ From this directory:
 latexmk -pdf -output-directory=build main.tex
 ```
 
+The source includes `realm-lineno-compat.sty`, a version-gated workaround for
+the two-column ruler regression in `lineno` v5.7 shipped by current TeX Live
+2026. It is a no-op with `lineno` v5.8 and later and leaves the official ACL
+style file unchanged.
+
 Before submission, verify four content pages, A4 paper size, embedded fonts,
 anonymity, readable grayscale figures, and absence of links to deanonymizing
 resources.
