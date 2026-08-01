@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{realm-lineno-compat}[2026/07/21 ACL two-column line-number compatibility]
+
+% TeX Live 2026 currently ships lineno v5.7, whose LaTeX 2026 hook
+% workaround regresses the ACL review ruler: right-column numbers are
+% placed in the inter-column space.  lineno v5.8+ moves this hook to the
+% after-column hook.  Apply that upstream fix only to the affected version,
+% leaving the official ACL style file unchanged.
+\makeatletter
+\@ifundefined{ver@lineno.sty}{}{%
+  \edef\realm@lineno@version{\csname ver@lineno.sty\endcsname}%
+  \def\realm@lineno@broken{2026/02/16 line numbers on paragraphs v5.7}%
+  \ifx\realm@lineno@version\realm@lineno@broken
+    \ifcsname RemoveFromHook\endcsname
+      \RemoveFromHook{build/column/before}[lineno]%
+      \AddToHook{build/column/after}[realm-lineno-compat]{%
+        \setbox\@outputbox \vbox to\ht\@outputbox{%
+          \boxmaxdepth \@maxdepth
+          \protected@write\@auxout{}{%
+            \string\def\string\@LN@column{\if@firstcolumn1\else2\fi}%
+          }%
+          \unvbox\@outputbox
+        }%
+      }%
+    \fi
+  \fi
+}
+\makeatother
