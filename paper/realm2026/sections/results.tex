@@ -1,13 +1,13 @@
-\section{Development Gate Outcome}
+\section{Development Results}
 \label{sec:results}
 
-Table~\ref{tab:development-gate} reports the original gate and fresh harmonized
+Table~\ref{tab:development-results} reports the original study and fresh harmonized
 v2. They use separate samples and models and are not a benchmark ranking.
 
 \begin{table}[t]
   \caption{Development-only quality and efficiency. ``Macro'' averages FinQA
   execution accuracy, TAT-QA F1, and ConvFinQA execution accuracy.}
-  \label{tab:development-gate}
+  \label{tab:development-results}
   \centering
   \scriptsize
   \setlength{\tabcolsep}{3.1pt}
@@ -15,7 +15,7 @@ v2. They use separate samples and models and are not a benchmark ranking.
     \toprule
     System & Macro & Calls/ex. & US\$/ex. \\
     \midrule
-    \multicolumn{4}{@{}l}{\emph{Gemini development gate ($n=150$/system)}} \\
+    \multicolumn{4}{@{}l}{\emph{Gemini development study ($n=150$/system)}} \\
     Direct & 0.4138 & 1.00 & 0.000343 \\
     CoT/PoT & \textbf{0.4323} & 1.00 & 0.000819 \\
     Static Nexus & 0.4304 & 1.00 & 0.001010 \\
@@ -34,7 +34,8 @@ CoT/PoT has the highest observed macro and costs less than Static Nexus, ReAct,
 and Selective Nexus, although its paired difference from Direct is uncertain
 (95\% stratified bootstrap CI: $[-0.035,0.072]$). ReAct is 0.131 below Static
 Nexus (ReAct-minus-Static CI: $[-0.207,-0.056]$) and costs more. Selective Nexus
-is 0.0648 below CoT/PoT while also costing more, so it fails that gate
+is 0.0648 below CoT/PoT while also costing more, so it does not meet the decision
+criterion
 regardless of whether that development difference is treated inferentially.
 
 \paragraph{Corrective study.}
@@ -49,8 +50,8 @@ seconds per item. Static averaged 2.87 retrievals versus ReAct's 1.04, so ReAct
 used fewer tokens and dollars. This is development evidence, not a
 final-partition estimate.
 
-\paragraph{Go/no-go decision.}
+\paragraph{Confirmatory evaluation.}
 The recorded conditional required Selective Nexus either to improve quality
 while reducing cost or to stay within one absolute point of the best macro with
-at least 30\% lower cost. It does neither. The 900-example final partition
-therefore remains unexecuted; there is no confirmatory or semantic FinDER result.
+at least 30\% lower cost. It does neither, so we did not proceed to confirmatory
+evaluation and report no confirmatory or semantic FinDER results.

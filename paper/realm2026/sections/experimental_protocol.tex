@@ -11,8 +11,8 @@ reasoning, not end-to-end RAG. The complete development partition contains 50
 examples per dataset. A deterministic 900-example manifest is disjoint at the
 row level and, for ConvFinQA, the dialogue level. It remains unexecuted; only
 identifier metadata was used programmatically to prevent overlap with the
-replication sample. The runner refuses final execution because the required
-post-gate freeze fields remain unset.
+replication sample. A separate runner check protects the final partition from
+accidental execution.
 
 \paragraph{Execution.}
 All five systems are paired by example and share the controlled evidence corpus
@@ -38,7 +38,7 @@ check and remains diagnostic only; v2 reused none of its items. V2's public
 commit, sample, prompts, tests, and analysis were hash-bound before inference;
 all 300 system-item rows completed for US\$0.113.
 
-\paragraph{Endpoints and gate.}
+\paragraph{Endpoints and decision rule.}
 The primary quality measure is the unweighted macro-average of FinQA execution
 accuracy, official TAT-QA F1 with prediction-side scale inference, and ConvFinQA
 execution accuracy. FinanceBench strict accuracy supplies objective router

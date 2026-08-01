@@ -13,14 +13,14 @@ complementarity}. A router can improve an accuracy--cost frontier only when its
 expensive branch supplies enough unique correct answers. We isolate this issue
 under controlled evidence. Every system receives the same leakage-audited
 benchmark corpus and tools, so differences reflect orchestration rather than
-access to different documents. A pre-generation gate chooses between a static,
+access to different documents. A pre-generation selector chooses between a static,
 one-call workflow and bounded ReAct using only target-independent question and
 evidence features.
 
 Our original development study spans five financial-QA datasets, five systems,
 and provider-level telemetry. ReAct was the least accurate and most expensive
-primary system; the fallback gate routed too broadly and failed its documented
-quality--cost criterion. A trace audit then exposed an important qualification:
+primary system; the fallback rule routed too broadly, and Selective Nexus did
+not meet the documented quality--cost criterion. A trace audit then exposed an important qualification:
 method-specific answer and context contracts interact with the conservative
 scorer, so the original unique-success counts are not a semantic error
 adjudication. We therefore ran a separately, prospectively frozen corrective

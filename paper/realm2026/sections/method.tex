@@ -3,7 +3,7 @@
 
 Let $q$ be a question and $\mathcal{E}$ its controlled evidence. We compare a
 static workflow $S$ with an iterative workflow $R$. Before either produces an
-answer, a gate $g_\tau$ chooses
+answer, a selector $g_\tau$ chooses
 \begin{equation}
   A(q,\mathcal{E}) =
   \begin{cases}
@@ -23,8 +23,8 @@ seven model steps. Both paths record returned evidence, truncation, model usage,
 and malformed or nonterminating outputs. Deterministic parsing and ranking are
 workflow components, not autonomous agents.
 
-\paragraph{Gate.}
-The gate uses question/evidence length, numeric and temporal
+\paragraph{Selector.}
+The selector uses question/evidence length, numeric and temporal
 cues, table/conversation/narrative indicators, lexical coverage, retrieval score
 and margin, and chunk dispersion. An L2 logistic model with balanced weights and
 five-fold stratified cross-validation targets the asymmetric event
@@ -38,5 +38,5 @@ was excluded because it lacks an objective or human-validated correctness label.
 \paragraph{Comparators.}
 Direct uses one search and one answer call; CoT/PoT uses the same dossier with an
 explicit calculation prompt; Static Nexus always invokes $S$; ReAct always
-invokes $R$; and Selective Nexus applies the gate. An offline oracle measures
+invokes $R$; and Selective Nexus applies the selector. An offline oracle measures
 branch headroom but is not a deployable system.
