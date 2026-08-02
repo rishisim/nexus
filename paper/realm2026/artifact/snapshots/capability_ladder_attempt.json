@@ -1,0 +1,51 @@
+{
+  "analysis_status": "not_run",
+  "budget": {
+    "accounted_maximum_usd": 0.01279752925,
+    "authorized_maximum_usd": 20.0,
+    "recorded_provider_spend_usd": 0.01164296925,
+    "unobserved_first_call_charge_maximum_usd": 0.00115456
+  },
+  "completed_tiers": [],
+  "final_partition": "identifier_overlap_exclusion_only; no final example loaded, executed, or scored",
+  "models": [
+    "openai/gpt-5.6-luna",
+    "openai/gpt-5.6-terra"
+  ],
+  "outcome_policy": "No partial answers, scores, correctness patterns, or aggregates were analyzed.",
+  "process_attempts": [
+    {
+      "provider_calls": 1,
+      "status": "stopped_model_response_alias_differed_from_dated_catalog_slug"
+    },
+    {
+      "provider_calls": 2,
+      "status": "stopped_multiple_action_objects_in_first_react_turn"
+    },
+    {
+      "provider_calls": 8,
+      "status": "stopped_multiple_action_objects_despite_single_action_instruction"
+    },
+    {
+      "provider_calls": 2,
+      "status": "stopped_multiple_action_objects_despite_strict_structured_output_request"
+    },
+    {
+      "provider_calls": 32,
+      "status": "stopped_incomplete_first_action_at_frozen_output_ceiling"
+    }
+  ],
+  "sample": {
+    "datasets": [
+      "finqa",
+      "tatqa",
+      "convfinqa"
+    ],
+    "items": 150,
+    "partition": "fresh_development_only",
+    "same_items_for_both_tiers": true
+  },
+  "schema_version": "realm26-capability-attempt-report-v1",
+  "status": "stopped_before_complete_luna_or_any_terra_execution",
+  "strongest_honest_conclusion": "The planned stronger-model comparison produced no valid outcome estimate because the frozen retrieval-first action contract could not be delivered reliably within the shared output ceiling."
+}

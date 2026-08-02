@@ -302,6 +302,17 @@ def main() -> int:
         for row in harmonized_react
     )
 
+    capability = json.loads(
+        (ARTIFACT / "snapshots/capability_ladder_attempt.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert capability["status"] == "stopped_before_complete_luna_or_any_terra_execution"
+    assert capability["completed_tiers"] == []
+    assert capability["analysis_status"] == "not_run"
+    assert capability["budget"]["accounted_maximum_usd"] <= capability["budget"]["authorized_maximum_usd"] == 20.0
+    assert "No partial answers" in capability["outcome_policy"]
+
     readme = (ARTIFACT / "README.md").read_text(encoding="utf-8").lower()
     for required in ("sealed final partition is excluded", "provider-free", "no final outcomes"):
         assert required in readme, f"missing safety statement: {required}"

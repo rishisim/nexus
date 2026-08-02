@@ -1,57 +1,49 @@
 \section{Development Results}
 \label{sec:results}
 
-Table~\ref{tab:development-results} reports the original study and fresh harmonized
-v2. They use separate samples and models and are not a benchmark ranking.
-
 \begin{table}[t]
-  \caption{Development-only quality and efficiency. ``Macro'' averages FinQA
-  execution accuracy, TAT-QA F1, and ConvFinQA execution accuracy.}
-  \label{tab:development-results}
+  \caption{Main result: fresh harmonized v2 ($n=150$ paired items). Latency is
+  mean end-to-end seconds per item. Cost is US dollars per item.}
+  \label{tab:corrective-result}
   \centering
   \scriptsize
-  \setlength{\tabcolsep}{3.1pt}
-  \begin{tabular}{@{}lrrr@{}}
+  \setlength{\tabcolsep}{3.0pt}
+  \begin{tabular}{@{}lrrlr r@{}}
     \toprule
-    System & Macro & Calls/ex. & US\$/ex. \\
+    Exact outcome & Count & \multicolumn{1}{c}{} & Metric & Static & ReAct \\
     \midrule
-    \multicolumn{4}{@{}l}{\emph{Gemini development study ($n=150$/system)}} \\
-    Direct & 0.4138 & 1.00 & 0.000343 \\
-    CoT/PoT & \textbf{0.4323} & 1.00 & 0.000819 \\
-    Static Nexus & 0.4304 & 1.00 & 0.001010 \\
-    ReAct & 0.2993 & 2.97 & 0.001479 \\
-    Selective Nexus & 0.3675 & 2.19 & 0.001322 \\
-    \midrule
-    \multicolumn{4}{@{}l}{\emph{Harmonized GPT-4o-mini v2 ($n=150$/system)}} \\
-    Static & \textbf{0.3421} & 1.00 & 0.000452 \\
-    ReAct & 0.2572 & 2.04 & \textbf{0.000304} \\
+    Both correct & 23 && Macro quality & \textbf{0.342} & 0.257 \\
+    Static only & 21 && Calls/item & 1.00 & 2.04 \\
+    ReAct only & 5 && Latency (s) & 2.12 & 3.13 \\
+    Both wrong & 101 && Cost/item & 0.000452 & \textbf{0.000304} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\paragraph{Original quality--cost result.}
-CoT/PoT has the highest observed macro and costs less than Static Nexus, ReAct,
-and Selective Nexus, although its paired difference from Direct is uncertain
-(95\% stratified bootstrap CI: $[-0.035,0.072]$). ReAct is 0.131 below Static
-Nexus (ReAct-minus-Static CI: $[-0.207,-0.056]$) and costs more. Selective Nexus
-is 0.0648 below CoT/PoT while also costing more, so it does not meet the decision
-criterion
-regardless of whether that development difference is treated inferentially.
-
 \paragraph{Corrective study.}
-In fresh harmonized v2, all 150 ReAct rows passed the retrieval-first
-manipulation check. Static scored 0.3421 versus 0.2572; the paired stratified
-ReAct-minus-Static estimate was $-0.0849$ (95\% CI
-$[-0.1467,-0.0252]$). Exact complementarity was 21 Static-only, five
-ReAct-only, 23 both-correct, and 101 both-wrong (McNemar $p=0.00249$). The
-difference was clearest on FinQA ($-0.160$); dataset-level intervals included
-zero for TAT-QA and ConvFinQA. ReAct averaged 2.04 calls and 1.02 additional
-seconds per item. Static averaged 2.87 retrievals versus ReAct's 1.04, so ReAct
-used fewer tokens and dollars. This is development evidence, not a
-final-partition estimate.
+Table~\ref{tab:corrective-result} is the narrative centerpiece. All 150 ReAct
+rows passed the retrieval-first manipulation check. The paired stratified
+ReAct-minus-Static macro estimate was $-0.0849$ (95\% CI
+$[-0.1467,-0.0252]$). Exact complementarity was 21 Static-only versus five
+ReAct-only cases (McNemar $p=0.00249$); the oracle union improves over
+always-Static exact accuracy by only 3.3 points. The difference was clearest on
+FinQA ($-0.160$), while dataset-level intervals included zero for TAT-QA and
+ConvFinQA. ReAct averaged 1.04 more model calls and 1.02 additional seconds per
+item. Static averaged 2.87 retrievals versus ReAct's 1.04, so the iterative arm
+used fewer input tokens and dollars despite its additional calls. These are
+development results, not a final-partition estimate.
+
+\paragraph{Pilot routing evidence.}
+The earlier Gemini study used a separate sample and unequal method contracts.
+Its best primary macro was CoT/PoT at 0.4323; Static Nexus scored 0.4304, ReAct
+0.2993, and Selective Nexus 0.3675. ReAct was 0.131 below Static Nexus
+(ReAct-minus-Static CI $[-0.207,-0.056]$) and cost more. The fallback selector
+was 0.0648 below CoT/PoT while also costing more, so it missed the documented
+quality--cost criterion. We retain this as the motivating observation and
+supporting evidence, not a benchmark ranking or the main causal comparison.
 
 \paragraph{Confirmatory evaluation.}
 The recorded conditional required Selective Nexus either to improve quality
 while reducing cost or to stay within one absolute point of the best macro with
-at least 30\% lower cost. It does neither, so we did not proceed to confirmatory
-evaluation and report no confirmatory or semantic FinDER results.
+at least 30\% lower cost. It does neither, so we did not execute the protected
+final partition and report no confirmatory or semantic FinDER results.

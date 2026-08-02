@@ -4,6 +4,7 @@ This is a provider-free bundle for auditing the paper's recorded development
 statistics and inspecting the exact protocol inputs. It contains the original
 development aggregates, paired-statistics output, a trace-audit summary with
 raw answers removed, replication and harmonized-v2 aggregates/protocols,
+the process-only report for the stopped Luna/Terra capability extension,
 development manifest rows, a sanitized per-example score/telemetry ledger,
 prompt/scorer snapshots, the router snapshot, dated prices, and resolved model
 snapshots.
@@ -44,7 +45,8 @@ Regeneration is a maintainer action, not a review-time provider call.
 * `snapshots/` contains exact byte copies of the protocol, prompt templates,
   scorer, price-table source, router, development aggregates, paired analysis,
   sanitized fairness summary, per-example score ledger, replication and
-  harmonized-v2 protocols/analyses, the v2 prompt, and model catalog snapshots.
+  harmonized-v2 protocols/analyses, a capability-attempt report with no partial
+  outcomes, the v2 prompt, and model catalog snapshots.
   Their package integrity is
   recorded in `manifest.json` and `checksums.sha256`. The fairness summary
   excludes trace items, answers, and ground truth.

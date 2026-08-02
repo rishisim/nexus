@@ -183,6 +183,8 @@ def main() -> None:
         shutil.copyfile(source, target)
 
     additional_snapshots = {
+        "capability_ladder_attempt.json": ROOT
+        / "paper/realm2026/artifacts/capability_ladder_attempt.json",
         "paired_statistics.json": ROOT / "paper/realm2026/artifacts/paired_statistics.json",
         "realm26_harmonized_v2_prompts.py": ROOT
         / "src/agents/finance/realm26_harmonized_v2_prompts.py",
@@ -330,7 +332,7 @@ def main() -> None:
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
         "schema": "realm-anonymous-artifact-v2",
-        "purpose": "provider-free audit of recorded development statistics, harmonized v2, and protocol inputs",
+        "purpose": "provider-free audit of recorded development statistics, harmonized v2, the stopped capability extension, and protocol inputs",
         "partition": "development_only",
         "sealed_final_partition": "excluded",
         "provider_calls": False,

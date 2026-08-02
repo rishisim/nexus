@@ -45,8 +45,14 @@ Likely objections and current answers:
 9. **“The trace audit substitutes for human adjudication.”** It does not. The
    audit remains a deterministic sensitivity screen, its semantic cases are
    unresolved, and V2 avoids relying on those cases for its headline result.
+10. **“Why not test a stronger model?”** A prospectively frozen Luna/Terra
+    extension was attempted on fresh development items, but repeated provider
+    output-contract failures stopped the study before a complete Luna tier or
+    any Terra execution. No partial outcomes were analyzed. The artifact reports
+    process and budget status only; the manuscript therefore makes no
+    stronger-model accuracy claim.
 
-Open blockers before archival submission: complete the ACL ethics/AI-use/admin
-answers, confirm citation completeness, perform the final PDF metadata/font
-inspection, and decide whether the venue requires a separate artifact DOI or
-license notice. None is resolved by this source-only commit.
+Open blockers before archival submission are administrative: reconfirm the
+updated AI-use disclosure, complete the ACL ethics/OpenReview fields and license
+choices, and decide whether the venue accepts a separate anonymous artifact.
+Citation, artifact, PDF metadata/font, and visual inspections are complete.
