@@ -49,7 +49,7 @@ def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
             for item, row in zip(manifest["datasets"][dataset]["examples"], ordered):
                 if row.get("status") != "success" or row.get("item_hash") != item.get("item_hash"):
                     raise ProtocolError("Failed row or item drift")
-                if row.get("tier") != tier or row.get("requested_model") != model["requested_model_id"] or row.get("resolved_model") != model["canonical_slug"]:
+                if row.get("tier") != tier or row.get("requested_model") != model["requested_model_id"] or row.get("resolved_model") != model["requested_model_id"] or row.get("catalog_canonical_slug") != model["canonical_slug"]:
                     raise ProtocolError("Tier model binding mismatch")
                 if row.get("provider_name") != "OpenAI" or row.get("reasoning_effort") != "none" or row.get("sampling_parameters_sent") != []:
                     raise ProtocolError("Provider or request-parameter binding mismatch")
@@ -204,11 +204,10 @@ def render_memo(result: Mapping[str, Any]) -> str:
             f"Provider spend: USD {row['provider_spend_usd']:.6f}.",
             "",
         ])
-    trigger = result["terra_trigger"]
     lines.extend([
-        "## Frozen Terra decision",
+        "## Frozen tier execution",
         "",
-        f"Terra triggered: `{str(trigger['run_terra']).lower()}` because Luna's lower confidence bound was {trigger['luna_primary_ci']['lower']:.4f}.",
+        "Luna and Terra were both required prospectively, and no outcomes were analyzed until both completed.",
         "",
         "No sealed-final example was loaded, rendered, executed, or scored.",
         "",
@@ -216,32 +215,19 @@ def render_memo(result: Mapping[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def analyze(protocol_path: str | Path, luna_root: Path, terra_root: Optional[Path] = None) -> Dict[str, Any]:
+def analyze(protocol_path: str | Path, luna_root: Path, terra_root: Path) -> Dict[str, Any]:
     protocol = load_protocol(protocol_path)
     manifest = load_manifest(protocol)
     luna = analyze_tier(protocol, manifest, luna_root, "luna")
-    lower = float(luna["primary_stratified_bootstrap_react_minus_static"]["lower"])
-    trigger = {
-        "automatic_rule": "run Terra iff Luna primary 95% CI lower bound <= 0",
-        "luna_primary_ci": luna["primary_stratified_bootstrap_react_minus_static"],
-        "manual_override": False,
-        "pre_result_commit": luna["pre_result_commit"],
-        "run_terra": lower <= 0,
-        "trigger_schema_version": "realm26-terra-trigger-v1",
-    }
-    tiers: Dict[str, Any] = {"luna": luna}
-    comparison = None
-    if terra_root is not None:
-        if not trigger["run_terra"]:
-            raise ProtocolError("Terra results exist despite a false frozen trigger")
-        tiers["terra"] = analyze_tier(protocol, manifest, terra_root, "terra")
-        comparison = compare_tiers(protocol, manifest, luna_root, terra_root)
+    terra = analyze_tier(protocol, manifest, terra_root, "terra")
+    tiers: Dict[str, Any] = {"luna": luna, "terra": terra}
+    comparison = compare_tiers(protocol, manifest, luna_root, terra_root)
     result: Dict[str, Any] = {
         "analysis_schema_version": "realm26-capability-analysis-v1",
         "claims_scope": protocol["claims_scope"],
         "manifest_fingerprint": manifest["manifest_fingerprint"],
         "protocol_id": protocol["protocol_id"],
-        "terra_trigger": trigger,
+        "tier_execution": protocol["tier_execution"],
         "tier_comparison": comparison,
         "tiers": tiers,
     }
@@ -253,9 +239,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--protocol", default=str(DEFAULT_PROTOCOL_PATH))
     parser.add_argument("--luna-root", required=True)
-    parser.add_argument("--terra-root")
+    parser.add_argument("--terra-root", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--trigger-output", required=True)
     parser.add_argument("--memo", required=True)
     return parser
 
@@ -265,14 +250,12 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     result = analyze(
         args.protocol,
         Path(args.luna_root).resolve(),
-        Path(args.terra_root).resolve() if args.terra_root else None,
+        Path(args.terra_root).resolve(),
     )
     write_stable_json(Path(args.output), result)
-    write_stable_json(Path(args.trigger_output), result["terra_trigger"])
     Path(args.memo).write_text(render_memo(result), encoding="utf-8")
     print(json.dumps({
         "analysis_fingerprint": result["analysis_fingerprint"],
-        "run_terra": result["terra_trigger"]["run_terra"],
         "tiers": sorted(result["tiers"]),
     }, sort_keys=True))
 

@@ -4,10 +4,10 @@
     "HF_DATASETS_OFFLINE=1 HF_HUB_OFFLINE=1 /Users/rishisim/Documents/research/nexus/nexus_env/bin/python -m pytest -q tests/finance/test_realm26_capability_ladder.py -k 'not all_acceptance_critical_artifacts_are_hash_bound'",
     "HF_DATASETS_OFFLINE=1 HF_HUB_OFFLINE=1 /Users/rishisim/Documents/research/nexus/nexus_env/bin/python -m pytest -q tests/finance/test_realm26_harmonized_v2_replication.py"
   ],
-  "completed_at_utc": "2026-08-02T03:54:00Z",
-  "manifest_fingerprint": "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
+  "completed_at_utc": "2026-08-02T04:24:37Z",
+  "manifest_fingerprint": "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
   "results": {
-    "capability_tests": "7 passed, 1 hash-binding test deferred until final hashes",
+    "capability_tests": "6 passed, 1 hash-binding test deferred until final hashes",
     "harmonized_v2_regression": "34 passed",
     "preflight_ignore_probe": "passed with git check-ignore --no-index on an uncreated child path",
     "py_compile": "passed"

@@ -34,7 +34,7 @@ def test_capability_request_uses_reasoning_none_and_no_sampling(monkeypatch):
     def fake_post(url, headers, json, timeout):
         captured.update(json)
         return FakeResponse({
-            "model": "openai/gpt-5.6-luna-20260709",
+            "model": "openai/gpt-5.6-luna",
             "provider": "OpenAI",
             "choices": [{"message": {"content": '{"thought":"x","action":"Finish","answer":"7"}'}}],
             "usage": {"prompt_tokens": 20, "completion_tokens": 8, "total_tokens": 28, "cost": 0.00001},
@@ -47,6 +47,7 @@ def test_capability_request_uses_reasoning_none_and_no_sampling(monkeypatch):
         canonical_slug="openai/gpt-5.6-luna-20260709", max_tokens=384, stop=[],
     )
     assert response.provider_name == "OpenAI"
+    assert response.result.resolved_model == "openai/gpt-5.6-luna"
     assert captured["reasoning_effort"] == "none"
     assert "temperature" not in captured and "top_p" not in captured and "stop" not in captured
     assert captured["provider"] == {
@@ -76,12 +77,16 @@ def test_catalog_snapshot_matches_only_exact_standard_openai_endpoint(monkeypatc
     }
 
 
-def test_protocol_freezes_models_budgets_trigger_and_shared_contract():
+def test_protocol_freezes_models_budgets_both_tiers_and_shared_contract():
     protocol = load_protocol(DEFAULT_PROTOCOL_PATH, validate_artifacts=False)
     validate_protocol(protocol)
-    assert protocol["models"]["luna"]["maximum_reserved_study_cost_usd"] < 5
+    assert protocol["models"]["luna"]["maximum_reserved_study_cost_usd"] < protocol["models"]["luna"]["hard_cap_usd"]
     assert protocol["models"]["terra"]["maximum_reserved_study_cost_usd"] < 15
-    assert protocol["terra_trigger"]["manual_override_forbidden"] is True
+    assert protocol["tier_execution"] == {
+        "analysis_after_both_complete": True, "both_required": True,
+        "manual_skip_forbidden": True, "order": ["luna", "terra"],
+    }
+    assert sum(protocol["models"][tier]["hard_cap_usd"] for tier in ("luna", "terra")) + protocol["budget"]["failed_freeze_maximum_reservation_usd"] == pytest.approx(20)
     assert protocol["inference"]["reasoning_effort"] == "none"
     assert protocol["inference"]["sampling_parameters_forbidden"] == ["temperature", "top_p"]
 
@@ -102,6 +107,9 @@ def test_real_manifest_excludes_every_prior_partition_and_uses_one_sample_for_bo
             "total": 375,
         }
     assert protocol["sample"]["same_items_for_all_tiers"] is True
+    assert manifest["replacement_audit"]["carried_forward_never_called_items"] == 149
+    assert manifest["replacement_audit"]["consumed_example_id"] == "finqa41"
+    assert all(item["example_id"] != "finqa41" for spec in manifest["datasets"].values() for item in spec["examples"])
 
 
 class GuardedRows:
@@ -142,8 +150,8 @@ def test_manifest_builder_never_dereferences_excluded_rows(monkeypatch):
         def __call__(self, dataset):
             return type("Env", (), {"rows": GuardedRows(dataset, reserved)})()
 
-    manifest = build_manifest(protocol, Factory())
-    assert all(len(manifest["datasets"][dataset]["examples"]) == 50 for dataset in DATASETS)
+    with pytest.raises(Exception, match="superseded pre-result manifest"):
+        build_manifest(protocol, Factory())
 
 
 def test_spend_ledger_reserves_separate_tier_cap(tmp_path):
@@ -151,22 +159,6 @@ def test_spend_ledger_reserves_separate_tier_cap(tmp_path):
     ledger = SpendLedger(tmp_path / "ledger.json", "sha256:test", "terra", protocol["models"]["terra"])
     ledger.reserve("call", "sha256:prompt")
     assert ledger.data["pending_reservations"][0]["maximum_cost_usd"] == pytest.approx(0.0115456)
-
-
-def test_terra_trigger_cannot_be_manually_overridden(tmp_path):
-    runner = object.__new__(CapabilityRunner)
-    runner.tier = "terra"
-    missing = tmp_path / "missing.json"
-    with pytest.raises(StopExperiment, match="trigger"):
-        runner._validate_trigger(missing)
-    decision = tmp_path / "decision.json"
-    decision.write_text(json.dumps({
-        "trigger_schema_version": "realm26-terra-trigger-v1",
-        "run_terra": False,
-        "luna_primary_ci": {"lower": -0.1},
-    }))
-    with pytest.raises(StopExperiment, match="authorize"):
-        runner._validate_trigger(decision)
 
 
 def test_all_acceptance_critical_artifacts_are_hash_bound():

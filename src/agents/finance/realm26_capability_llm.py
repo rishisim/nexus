@@ -177,7 +177,10 @@ def call_capability_model(
     usage = parse_openrouter_usage(payload)
     if not text:
         raise CapabilityProviderError("Provider returned no text")
-    if resolved != canonical_slug:
+    # OpenRouter currently returns the requested stable alias here. The dated
+    # catalog slug is validated independently before execution and retained in
+    # every result row; accepting a different response alias remains forbidden.
+    if resolved != requested_model:
         raise CapabilityProviderError(f"Unexpected resolved model: {resolved!r}")
     if provider != "OpenAI":
         raise CapabilityProviderError(f"Unexpected or missing provider: {provider!r}")

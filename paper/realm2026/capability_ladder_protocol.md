@@ -51,6 +51,18 @@ contexts, and dialogues from the original development study, the sealed final
 partition, the second-family study, harmonized v1, and harmonized v2. TAT-QA
 contexts and ConvFinQA dialogues are excluded as complete groups.
 
+The first counted Luna smoke attempt at public commit `3b4698e` stopped after
+one provider call because OpenRouter returned the requested alias in its
+response-model field while the initial freeze expected the dated catalog slug.
+No answer, score, correctness, or aggregate outcome was inspected or retained.
+The replacement freeze preserves the 149 never-called items and replaces only
+the consumed FinQA identifier (`finqa41`) using seed `20260802`. Rebuilding the
+sample must first reproduce the superseded manifest fingerprint and then apply
+that outcome-independent replacement. Excluding the entire superseded manifest
+would make a new balanced sample impossible because no wholly fresh TAT-QA
+context remains. The failed call's maximum reservation still counts toward the
+authorized budget.
+
 The final manifests may be read only for identifier overlap exclusion. Their
 examples are never loaded, rendered, copied, executed, or scored.
 
@@ -65,15 +77,12 @@ Static makes exactly one model call. ReAct must begin with Search, observe
 nonempty evidence, perform at least one retrieval and two model calls, and stay
 within seven model steps. Valid outputs are immutable.
 
-## Prospective Terra trigger
+## Prospective tier execution
 
-Luna runs to completion before any outcome analysis. Terra runs automatically
-if and only if the lower bound of Luna's primary paired 95% bootstrap interval
-for ReAct minus Static is less than or equal to zero. If that lower bound is
-greater than zero, the study stops after Luna. Manual override is forbidden.
-
-If triggered, Terra uses the identical manifest, prompts, methods, limits,
-scoring, and analysis.
+Luna and Terra are both required. They run in that order on the identical
+manifest, prompts, methods, limits, scoring, and analysis contract. No outcome
+or aggregate is inspected until both tiers are complete; skipping Terra based
+on Luna's result is forbidden.
 
 ## Analysis plan
 
@@ -85,8 +94,8 @@ Static.
 For each tier, report dataset and macro quality, the 2-by-2 exact-correctness
 matrix, exact McNemar test, ReAct-only and Static-only frequencies, oracle-union
 accuracy and headroom over the better branch, calls, retrievals, input/cached/
-output/reasoning/total tokens, effective cost, and episode latency. If Terra is
-triggered, paired Terra-minus-Luna changes are reported separately for each
+output/reasoning/total tokens, effective cost, and episode latency. Paired
+Terra-minus-Luna changes are reported separately for each
 workflow. They are secondary and do not replace the primary endpoint.
 
 No router is fit on these outcomes. Router feasibility is interpreted from the
@@ -95,7 +104,9 @@ training and evaluating a selector on the same items.
 
 ## Budget and retained record
 
-The hard caps are USD 5 for Luna and USD 15 for Terra. A conservative planning
+The replacement-run caps are USD 4.99884544 for Luna and USD 15 for Terra; the
+USD 0.00115456 maximum reservation from the failed freeze makes the combined
+authorization exactly USD 20. A conservative planning
 reservation assumes two tokens per prompt word, the 384-token output ceiling,
 one Static call and up to seven ReAct calls on every item, plus a 10% margin.
 This reserves at most USD 1.385472 for Luna and USD 13.854720 for Terra.

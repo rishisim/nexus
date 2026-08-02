@@ -217,7 +217,7 @@ class LeakageGuardEnv:
 
 
 class CapabilityRunner:
-    def __init__(self, protocol_path: str | Path = DEFAULT_PROTOCOL_PATH, *, tier: str, trigger_decision: Optional[Path] = None, env_factory=None):
+    def __init__(self, protocol_path: str | Path = DEFAULT_PROTOCOL_PATH, *, tier: str, env_factory=None):
         self.protocol = load_protocol(protocol_path)
         if tier not in self.protocol["models"]:
             raise StopExperiment(f"Unknown capability tier: {tier}")
@@ -236,29 +236,12 @@ class CapabilityRunner:
         self.results_root.mkdir(parents=True, exist_ok=True)
         body = {key: value for key, value in self.protocol.items() if key != "_path"}
         self.protocol_fingerprint = fingerprint(body)
-        self.trigger_decision = self._validate_trigger(trigger_decision)
-        self.pre_result_commit = self.trigger_decision["pre_result_commit"] if self.trigger_decision else self.publication["commit"]
-        if self.trigger_decision and not _git(repo, "merge-base", "--is-ancestor", self.pre_result_commit, "HEAD") == "":
-            raise StopExperiment("Frozen pre-result commit is not an ancestor of the Terra execution head")
+        self.pre_result_commit = self.publication["commit"]
         self.config_path = self.results_root / "config.json"
         self.smoke_path = self.results_root / "smoke_complete.json"
         self.history_path = self.results_root / "run_history.json"
         self._write_or_validate_config()
         self.ledger = SpendLedger(self.results_root / "spend_ledger.json", self.protocol_fingerprint, tier, self.protocol["models"][tier])
-
-    def _validate_trigger(self, decision_path: Optional[Path]) -> Optional[Dict[str, Any]]:
-        if self.tier == "luna":
-            if decision_path is not None:
-                raise StopExperiment("Luna must not use a Terra trigger file")
-            return None
-        if decision_path is None or not decision_path.exists():
-            raise StopExperiment("Terra requires the committed automatic trigger decision")
-        decision = json.loads(decision_path.read_text(encoding="utf-8"))
-        if decision.get("trigger_schema_version") != "realm26-terra-trigger-v1" or decision.get("run_terra") is not True:
-            raise StopExperiment("Frozen trigger did not authorize Terra")
-        if float(decision.get("luna_primary_ci", {}).get("lower", 1.0)) > 0:
-            raise StopExperiment("Terra trigger contradicts the frozen lower-bound rule")
-        return decision
 
     def _config(self) -> Dict[str, Any]:
         spec = self.protocol["models"][self.tier]
@@ -355,7 +338,7 @@ class CapabilityRunner:
         if not calls or len(calls) != len(prompts) or len(calls) != len(model.call_records):
             raise StopExperiment("Per-call telemetry or prompt coverage is incomplete")
         for call, prompt, model_call in zip(calls, prompts, model.call_records):
-            if call.get("requested_model") != requested or call.get("resolved_model") != canonical or call.get("status") != "ok":
+            if call.get("requested_model") != requested or call.get("resolved_model") != requested or call.get("status") != "ok":
                 raise StopExperiment("Model/status binding mismatch")
             if model_call.get("provider_name") != "OpenAI" or model_call.get("reasoning_effort") != "none" or model_call.get("sampling_parameters_sent") != []:
                 raise StopExperiment("Provider or request-parameter binding mismatch")
@@ -367,6 +350,7 @@ class CapabilityRunner:
                 "prompt_utf8_bytes": prompt["utf8_bytes"],
                 "prompt_word_count": prompt["word_count"],
                 "provider_name": "OpenAI",
+                "catalog_canonical_slug": canonical,
                 "reasoning_effort": "none",
                 "sampling_parameters_sent": [],
             })
@@ -437,7 +421,8 @@ class CapabilityRunner:
             "reasoning_effort": "none",
             "reasoning_tokens": telemetry["reasoning_tokens"],
             "requested_model": requested,
-            "resolved_model": canonical,
+            "resolved_model": requested,
+            "catalog_canonical_slug": canonical,
             "result_schema_version": RESULT_SCHEMA_VERSION,
             "retrieval_operation_count": int(result["retrieval_operation_count"]),
             "retry_count": telemetry["retry_count"],
@@ -456,7 +441,7 @@ class CapabilityRunner:
         static = next(row for row in self._load(dataset, "static") if str(row["example_id"]) == example_id)
         react = next(row for row in self._load(dataset, "react") if str(row["example_id"]) == example_id)
         checks = {
-            "binding": all(row.get("requested_model") == "openai/gpt-5.6-luna" and row.get("resolved_model") == "openai/gpt-5.6-luna-20260709" and row.get("provider_name") == "OpenAI" for row in (static, react)),
+            "binding": all(row.get("requested_model") == "openai/gpt-5.6-luna" and row.get("resolved_model") == "openai/gpt-5.6-luna" and row.get("catalog_canonical_slug") == "openai/gpt-5.6-luna-20260709" and row.get("provider_name") == "OpenAI" for row in (static, react)),
             "reasoning_effort_none": all(row.get("reasoning_effort") == "none" and row.get("sampling_parameters_sent") == [] for row in (static, react)),
             "react_evidence_observed": int(react.get("evidence_word_count", 0)) > 0,
             "react_first_action_search": react.get("first_model_action") == "Search",
@@ -515,7 +500,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--protocol", default=str(DEFAULT_PROTOCOL_PATH))
     parser.add_argument("--tier", choices=("luna", "terra"), required=True)
     parser.add_argument("--phase", choices=("smoke", "full"), required=True)
-    parser.add_argument("--trigger-decision")
     parser.add_argument("--preflight-only", action="store_true")
     return parser
 
@@ -542,7 +526,6 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     CapabilityRunner(
         args.protocol,
         tier=args.tier,
-        trigger_decision=Path(args.trigger_decision).resolve() if args.trigger_decision else None,
     ).run(args.phase)
 
 
