@@ -1,37 +1,40 @@
 \section{Introduction}
 
 Financial QA requires evidence selection, arithmetic, and careful handling of
-entities, periods, signs, and units. Iterative language-model agents appear well
-suited to these demands: they can search, inspect evidence, and revise an answer.
-Each extra step, however, consumes tokens and latency and can introduce a new
-retrieval, arithmetic, or formatting error. The relevant deployment question is
-therefore not simply whether an agent can answer, but when its additional
-computation is worth paying for.
+entities, periods, signs, and units. Iterative language-model agents appear
+well suited to these demands: they can search, inspect evidence, and revise an
+answer. Each extra step, however, consumes latency and tokens and creates
+another opportunity for retrieval, arithmetic, or formatting error. The
+deployment question is therefore not simply whether an agent is capable, but
+whether it contributes answers that a cheaper workflow misses.
 
-We study a necessary precondition for selective agency: \emph{expert
+We study this necessary precondition for selective agency: \emph{expert
 complementarity}. A router can improve an accuracy--cost frontier only when its
-expensive branch supplies enough unique correct answers. We isolate this issue
-under controlled evidence. Every system receives the same leakage-audited
-benchmark corpus and tools, so differences reflect orchestration rather than
-access to different documents. A pre-generation selector chooses between a static,
-one-call workflow and bounded ReAct using only target-independent question and
-evidence features.
+expensive branch supplies enough unique correct answers. This requirement is
+logically prior to learning a difficulty model or tuning a threshold. It also
+differs from asking which branch has higher average accuracy: two systems can
+tie while making nearly identical errors, leaving little routing headroom.
 
-Our main evidence is a separately, prospectively frozen corrective comparison
-on fresh development items. Under a shared final-answer contract, common
-resource ceilings, and a verified retrieval-first ReAct treatment, Static
-retained a macro advantage whose frozen 95\% interval excluded zero, while
-ReAct supplied only five unique exact successes. An earlier five-dataset routing
-study motivates the correction: its fallback routed too broadly and failed its
-quality--cost criterion, but a trace audit exposed unequal answer and context
-contracts. We therefore treat those earlier results as pilot evidence rather
-than the basis for the central claim.
+Our main evidence is a prospectively frozen capability ladder on 150 fresh
+development items from FinQA, TAT-QA, and ConvFinQA. We compare one-call Static
+and bounded retrieval-first ReAct under a shared strict action contract,
+retrieval interface, scorer, and resource ceilings using GPT-4o-mini, GPT-5.6
+Luna, and GPT-5.6 Terra. Static significantly outperforms ReAct for the first
+two tiers, whereas Terra reaches parity; the positive cross-tier interaction
+establishes a capability boundary. Nevertheless, ReAct supplies only two, one,
+and two unique exact successes, so oracle routing headroom remains at most 1.3
+points in every tier.
 
-Our contribution is a feasibility test that precedes ordinary routing
-optimization: expert complementarity must be established before router
-optimization. When the expensive branch contributes few unique correct
-answers, routing cannot materially improve the accuracy--cost frontier,
-regardless of selector quality. Evaluation contracts can distort that measured
-complementarity, so they must be harmonized before the test. This is an
-auditable negative result for bounded workflows, not a universal claim against
-agents.
+An earlier five-dataset selector study and a separate harmonized comparison
+motivate and support this analysis. The original selector failed its
+quality--cost rule but used unequal answer and context contracts. The matched
+study corrected those asymmetries and again found little ReAct
+complementarity. We preserve both as supporting evidence rather than treating
+the flawed pilot as the centerpiece.
+
+Our contribution is thus a feasibility audit for routing: model capability can
+change the Static--ReAct ordering, but it does not automatically create unique
+expert value. Evaluation contracts must first be harmonized, then
+complementarity measured, before selector optimization. This is a scoped result
+for bounded retrieval-first ReAct over controlled benchmark evidence, not a
+universal claim against agents.

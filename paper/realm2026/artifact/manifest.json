@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "81317f7ee5c835ff652ab069f4f7b035eb502259d57008b8a4eef1e0356de3dc"
+      "sha256": "1222926ab17ae504616117358387dba953c5c678667996f1cddfc34b9ab1157e"
     },
     {
       "path": "assemble_artifact.py",
-      "sha256": "7281de77b31001c4312cb34b7ff610104e5317d4683550734985ac70b470d28f"
+      "sha256": "1658c720f132e4454566ec7f778918d834e2102cd09cac840c3dfa8599eda48f"
     },
     {
       "path": "development_manifests/convfinqa.json",
@@ -34,7 +34,7 @@
     },
     {
       "path": "snapshots/capability_ladder_attempt.json",
-      "sha256": "562964736b4bfca63e29f37890827a6bbda006aac5b83ed9f3dbb06f538e6ca9"
+      "sha256": "089140e6d6d7f52d3aa4ac09dc7e3709f29a6de87593113e91716c0b1fccd86d"
     },
     {
       "path": "snapshots/development_summary.json",
@@ -114,13 +114,13 @@
     },
     {
       "path": "validate_artifact.py",
-      "sha256": "0bb6dfbc808d8fb955bcbbe61d094d511face37b90d8e80084d61e77d560dc99"
+      "sha256": "f1d5e0dd14ce9be73a54ace0c16c8abd8d606b9080c0b201a3f49d71307b8bb2"
     }
   ],
   "partition": "development_only",
   "provider_calls": false,
-  "purpose": "provider-free audit of recorded development statistics, harmonized v2, the stopped capability extension, and protocol inputs",
+  "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, and protocol inputs",
   "schema": "realm-anonymous-artifact-v2",
   "sealed_final_partition": "excluded",
-  "source_freeze": "anonymous-review-source-freeze-v2"
+  "source_freeze": "anonymous-review-source-freeze-v3"
 }

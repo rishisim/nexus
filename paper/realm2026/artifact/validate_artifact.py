@@ -96,7 +96,7 @@ def main() -> int:
     assert manifest["partition"] == "development_only"
     assert manifest["sealed_final_partition"] == "excluded"
     assert manifest["provider_calls"] is False
-    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v2"
+    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v3"
     assert "source_commit" not in manifest
     listed = {entry["path"]: entry["sha256"] for entry in manifest["entries"]}
     assert "checksums.sha256" not in listed
@@ -307,11 +307,22 @@ def main() -> int:
             encoding="utf-8"
         )
     )
-    assert capability["status"] == "stopped_before_complete_luna_or_any_terra_execution"
-    assert capability["completed_tiers"] == []
-    assert capability["analysis_status"] == "not_run"
-    assert capability["budget"]["accounted_maximum_usd"] <= capability["budget"]["authorized_maximum_usd"] == 20.0
-    assert "No partial answers" in capability["outcome_policy"]
+    assert capability["status"] == "completed_all_mandatory_tiers"
+    assert capability["analysis"]["status"] == "completed_after_all_mandatory_tiers"
+    assert set(capability["tiers"]) == {"control", "luna", "terra"}
+    assert capability["budget"]["cumulative_spend_including_stopped_attempts_and_probes_usd"] <= capability["budget"]["authorized_maximum_usd"] == 20.0
+    assert capability["prior_process_attempts"]["stopped_freeze_outcomes_analyzed"] is False
+    expected = {
+        "control": (12, 13, 2, 123),
+        "luna": (7, 9, 1, 133),
+        "terra": (21, 1, 2, 126),
+    }
+    for tier, counts in expected.items():
+        matrix = capability["tiers"][tier]["complementarity_exact"]
+        assert (
+            matrix["both_correct"], matrix["static_only"],
+            matrix["react_only"], matrix["both_wrong"],
+        ) == counts
 
     readme = (ARTIFACT / "README.md").read_text(encoding="utf-8").lower()
     for required in ("sealed final partition is excluded", "provider-free", "no final outcomes"):

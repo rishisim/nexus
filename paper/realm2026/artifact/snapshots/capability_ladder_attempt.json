@@ -1,40 +1,38 @@
 {
-  "analysis_status": "not_run",
-  "budget": {
-    "accounted_maximum_usd": 0.01279752925,
-    "authorized_maximum_usd": 20.0,
-    "recorded_provider_spend_usd": 0.01164296925,
-    "unobserved_first_call_charge_maximum_usd": 0.00115456
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "interaction_estimates": {
+      "luna_minus_control": {
+        "estimate": 0.014466666666666666,
+        "lower": -0.04293499999999999,
+        "upper": 0.07100166666666664
+      },
+      "terra_minus_control": {
+        "estimate": 0.07919999999999999,
+        "lower": 0.027733333333333332,
+        "upper": 0.13260499999999995
+      },
+      "terra_minus_luna": {
+        "estimate": 0.06473333333333334,
+        "lower": 0.018266666666666667,
+        "upper": 0.11660000000000001
+      }
+    },
+    "status": "completed_after_all_mandatory_tiers"
   },
-  "completed_tiers": [],
-  "final_partition": "identifier_overlap_exclusion_only; no final example loaded, executed, or scored",
-  "models": [
-    "openai/gpt-5.6-luna",
-    "openai/gpt-5.6-terra"
-  ],
-  "outcome_policy": "No partial answers, scores, correctness patterns, or aggregates were analyzed.",
-  "process_attempts": [
-    {
-      "provider_calls": 1,
-      "status": "stopped_model_response_alias_differed_from_dated_catalog_slug"
-    },
-    {
-      "provider_calls": 2,
-      "status": "stopped_multiple_action_objects_in_first_react_turn"
-    },
-    {
-      "provider_calls": 8,
-      "status": "stopped_multiple_action_objects_despite_single_action_instruction"
-    },
-    {
-      "provider_calls": 2,
-      "status": "stopped_multiple_action_objects_despite_strict_structured_output_request"
-    },
-    {
-      "provider_calls": 32,
-      "status": "stopped_incomplete_first_action_at_frozen_output_ceiling"
-    }
-  ],
+  "budget": {
+    "authorized_maximum_usd": 20.0,
+    "completed_study_spend_usd": 0.9481626000000006,
+    "cumulative_spend_including_stopped_attempts_and_probes_usd": 1.0071798110000005,
+    "provider_calls_in_completed_study": 1462
+  },
+  "final_partition": "identifier_overlap_exclusion_only; no final context, dialogue, answer, or target loaded, executed, or scored",
+  "freeze_provenance": "prospective public pre-result freeze verified; identity-bearing reference omitted from double-blind artifact",
+  "prior_process_attempts": {
+    "early_prefreeze_attempt_count": 5,
+    "public_freezes_stopped_before_analysis": 2,
+    "stopped_freeze_outcomes_analyzed": false
+  },
   "sample": {
     "datasets": [
       "finqa",
@@ -42,10 +40,70 @@
       "convfinqa"
     ],
     "items": 150,
+    "paired_arm_rows_per_tier": 300,
     "partition": "fresh_development_only",
-    "same_items_for_both_tiers": true
+    "same_items_for_all_tiers": true
   },
-  "schema_version": "realm26-capability-attempt-report-v1",
-  "status": "stopped_before_complete_luna_or_any_terra_execution",
-  "strongest_honest_conclusion": "The planned stronger-model comparison produced no valid outcome estimate because the frozen retrieval-first action contract could not be delivered reliably within the shared output ceiling."
+  "schema_version": "realm26-capability-report-v2",
+  "status": "completed_all_mandatory_tiers",
+  "strongest_honest_conclusion": "Model tier changes the ReAct-minus-Static difference: Static wins for control and Luna, while Terra reaches parity. ReAct-only exact successes remain one or two of 150 in every tier, so stronger capability does not create useful routing complementarity.",
+  "tiers": {
+    "control": {
+      "complementarity_exact": {
+        "both_correct": 12,
+        "both_wrong": 123,
+        "react_only": 2,
+        "static_only": 13
+      },
+      "macro_quality": {
+        "react": 0.15466666666666667,
+        "static": 0.22566666666666665
+      },
+      "oracle_headroom_over_best_branch": 0.013333333333333334,
+      "provider_spend_usd": 0.099934857,
+      "react_minus_static": {
+        "estimate": -0.07100000000000001,
+        "lower": -0.119735,
+        "upper": -0.02533166666666669
+      }
+    },
+    "luna": {
+      "complementarity_exact": {
+        "both_correct": 7,
+        "both_wrong": 133,
+        "react_only": 1,
+        "static_only": 9
+      },
+      "macro_quality": {
+        "react": 0.13146666666666668,
+        "static": 0.188
+      },
+      "oracle_headroom_over_best_branch": 0.006666666666666667,
+      "provider_spend_usd": 0.083001303,
+      "react_minus_static": {
+        "estimate": -0.05653333333333334,
+        "lower": -0.09813833333333329,
+        "upper": -0.019731666666666692
+      }
+    },
+    "terra": {
+      "complementarity_exact": {
+        "both_correct": 21,
+        "both_wrong": 126,
+        "react_only": 2,
+        "static_only": 1
+      },
+      "macro_quality": {
+        "react": 0.21773333333333333,
+        "static": 0.20953333333333335
+      },
+      "oracle_headroom_over_best_branch": 0.006666666666666667,
+      "provider_spend_usd": 0.7652264400000001,
+      "react_minus_static": {
+        "estimate": 0.0082,
+        "lower": -0.01540166666666665,
+        "upper": 0.03326833333333331
+      }
+    }
+  }
 }

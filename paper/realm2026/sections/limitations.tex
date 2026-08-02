@@ -1,26 +1,27 @@
 \section*{Limitations}
 
 \paragraph{Evidence and inference scope.}
-We measure orchestration over benchmark evidence, not end-to-end RAG, complete
-filings, OCR, or missing evidence. All samples are development evidence. Final
-identifiers were used only for overlap exclusion; no final example was executed
-or scored. V2 was frozen before inference but designed after the pilot and a
-failed corrective freeze, so it is prospective correction rather than
-independent preregistered confirmation.
+We evaluate orchestration over benchmark-provided evidence, not end-to-end RAG,
+complete filings, OCR, or missing evidence. All samples are development
+evidence. Final identifiers were used only for overlap exclusion; no final
+context, dialogue, answer, or target was loaded, executed, or scored. The
+successful freeze followed two prospectively stopped action-transport freezes,
+whose partial outcomes were never analyzed; their touched items were excluded.
 
 \paragraph{Model, policy, and scoring dependence.}
-V2 uses one inexpensive 2024 model and one bounded retrieval-first ReAct policy.
-A prospective GPT-5.6 Luna/Terra extension stopped on action-contract failures
-before a complete Luna tier or any Terra call; partial outcomes were not
-analyzed. Native metrics may miss semantic validity. The trace audit is author
-review, not independent human validation; adjudicating its unresolved cases
-would be secondary to the cleaner fresh-sample study. The arms share retrieval
-interfaces and ceilings, not dossiers, so the estimate includes retrieval-policy
-effects.
+The three provider product tiers do not constitute a general capability scale,
+and Luna is not monotonically better on these tasks. We test one prompt family,
+one bounded retrieval-first policy, one lexical evidence environment, and
+native metrics. The arms share contracts and ceilings, not identical dossiers,
+so effects include retrieval-policy differences. Provider behavior, prices,
+and latency can change. The original trace audit is sole-author review rather
+than independent adjudication; its unresolved semantic cases remain secondary
+to the fresh matched studies.
 
-\paragraph{Benchmark and system scope.}
-FinDER lacks human-validated labels. Public English benchmarks omit private and
-multilingual data and investment safety. Deterministic parsing and retrieval are
-workflow components, not autonomous agents. Our result concerns bounded
-retrieval-first ReAct over controlled evidence, not iterative agents generally;
-no router is trained or evaluated on v2 outcomes.
+\paragraph{Claim boundary.}
+Public English benchmarks omit private, multilingual, and deployment data.
+Deterministic parsing and retrieval are workflow components, not autonomous
+agents. We show a capability-dependent result for bounded retrieval-first ReAct
+under controlled financial-QA evidence, not that iterative agents are
+generally inferior. The oracle is diagnostic, and no router is trained or
+evaluated on the main outcomes.

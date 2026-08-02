@@ -1,54 +1,51 @@
 \section{Experimental Protocol}
 \label{sec:protocol}
 
-\paragraph{Evidence and splits.}
-The study uses FinanceBench, FinDER, FinQA, TAT-QA, and ConvFinQA. Systems see
-only benchmark-provided evidence: filing passages for FinanceBench/FinDER and
-legitimate table, text, or dialogue context for the numerical tasks. Gold
-answers and target-derived fields are removed, including FinanceBench
-justifications and TAT-QA derivations/scales. This is evidence-conditioned
-reasoning, not end-to-end RAG. The complete development partition contains 50
-examples per dataset. A protected final manifest is disjoint at the row level
-and, for ConvFinQA, the dialogue level. It remains unexecuted; only
-identifier metadata was used programmatically to prevent overlap with the
-replication sample. A separate runner check protects the final partition from
-accidental execution.
+\paragraph{Evidence and fresh split.}
+The main study uses 50 examples each from FinQA, TAT-QA, and ConvFinQA. Systems
+see only benchmark-provided table, text, or dialogue evidence; gold answers and
+target-derived fields are unavailable before Finish. The manifest excludes all
+identifiers used by earlier studies or stopped freezes and all protected-final
+identifiers; ConvFinQA is also disjoint by dialogue. Final content was never
+loaded, executed, or scored. The same 150 items and frozen order are used for
+all tiers and both arms.
 
-\paragraph{Execution.}
-All five systems are paired by example and share the controlled evidence corpus
-and retrieval implementation; Direct, CoT/PoT, and Static Nexus also share a maximum dossier
-budget. Runs use \nolinkurl{google/gemini-2.5-flash}, temperature zero, and
-disabled model thinking. A valid output is never rerun because it scores poorly;
-only typed infrastructure failures are resumable. Each response records the
-resolved model, token categories, calls, retries, provider or manifest-estimated
-cost, and end-to-end latency.
+\paragraph{Capability ladder and action transport.}
+The mandatory tiers are GPT-4o-mini (control), GPT-5.6 Luna, and GPT-5.6 Terra,
+all through the same OpenRouter backend restricted to the OpenAI provider, with
+fallbacks and provider data collection disabled. GPT-4o-mini omits an
+unsupported reasoning field; Luna and Terra use
+\texttt{reasoning\_effort=none}. Every turn must make exactly one
+strict function-tool call with only \texttt{action}, \texttt{argument}, and
+\texttt{answer}; extra tools, assistant text, malformed or trailing objects,
+non-\texttt{tool\_calls} completion, or missing telemetry stops the study.
+Static permits Finish, the first ReAct turn permits Search, and later turns
+permit Search/Lookup/Finish. There is one attempt per call, a 384-token output
+ceiling, a 4,096-word and 8,192-byte prompt ceiling, and a 3,000-word evidence
+ceiling. All ReAct rows must observe evidence, use at least two calls, and parse
+validly.
 
-A 75-item second-family check repeated the configured ordering but retained the
-contract differences. The audit therefore motivated a corrective study using
-\nolinkurl{openai/gpt-4o-mini-2024-07-18} on 150 further development items (50
-per primary dataset), excluding every earlier or final identifier. Both arms
-shared a strict JSON final-answer contract, malformed-response fallback, scorer
-input, one-attempt policy, retrieval API, and evidence/context/output ceilings.
-Static deterministically issued up to three retrievals; ReAct chose its queries
-adaptively, but its first model action had to be Search. Every ReAct row
-required observed evidence, at least one retrieval, two model calls, and valid
-parsing. A first
-fresh-sample freeze that allowed immediate abstention failed this manipulation
-check and remains diagnostic only; v2 reused none of its items. V2's public
-commit, sample, prompts, tests, and analysis were hash-bound before inference;
-all 300 system-item rows completed for US\$0.113.
+The full 900-episode order was counterbalanced before inference: every model
+ordering occurs 25 times, and each tier runs Static first on 75 items and ReAct
+first on 75. Two earlier public freezes stopped on content-channel contract
+failures; no partial outcomes were analyzed, and touched items were excluded
+before each replacement manifest. Nine non-benchmark format probes per final
+transport passed before the successful freeze. The complete run used 1,462
+provider calls and US\$0.948; cumulative spend including all stopped attempts
+and probes was US\$1.007 under a US\$20 cap.
 
-\paragraph{Endpoints and decision rule.}
-The primary quality measure is the unweighted macro-average of FinQA execution
-accuracy, official TAT-QA F1 with prediction-side scale inference, and ConvFinQA
-execution accuracy. FinanceBench strict accuracy supplies objective router
-labels; FinDER remains secondary. Efficiency measures include calls, tokens,
-dollars per example, and median/P95 latency. The recorded decision rule requires
-Selective Nexus either to improve quality while reducing cost or to remain
-within one absolute point of the best primary macro while reducing dollar cost
-by at least 30\%. Failure stops the study before final evaluation.
+\paragraph{Preregistered analysis.}
+Quality is the unweighted macro-average of FinQA exact match, official TAT-QA
+F1 with prediction-side scale inference, and ConvFinQA exact match. For each
+tier we report a dataset-stratified paired 10,000-resample percentile bootstrap
+for ReAct minus Static, the exact complementarity matrix and McNemar test,
+oracle headroom, and efficiency. Cross-tier interactions bootstrap the
+difference between tier-specific ReAct-minus-Static deltas. Outcomes were not
+scored until all three tiers completed.
 
-Automated tests check forbidden target fields, manifest disjointness and
-byte-identical regeneration, scorer edge cases, command-line model binding,
-telemetry, routing features, and duplicate-free resume. Development outputs are
-tagged \texttt{dev-20260709}; no final result is reported.
+\paragraph{Supporting studies.}
+The original five-dataset Gemini study compared five workflows and a selector
+but had unequal answer/context contracts. A later GPT-4o-mini harmonized v2
+used 150 separate fresh items, a shared final-answer contract and ceilings, and
+a verified retrieval-first ReAct treatment. These older experiments are pilot
+and supporting evidence, respectively.

@@ -49,26 +49,27 @@ Use the labels below when closing items:
   not the REALM direct-submission deadline.
 - [x] **[VERIFIED]** Create/update [`submission_packet.md`](../submission_packet.md)
   with paste-ready metadata and clearly separated author-only fields.
-- [x] **[VERIFIED]** Preserve the scientific boundary: V2 is prospective
-  corrective development evidence, not independent preregistered confirmation;
-  retrieved dossiers are not identical; no V2 router is fit/evaluated; the
-  oracle is diagnostic; the final partition is unexecuted; human adjudication
-  remains unresolved.
+- [x] **[VERIFIED]** Preserve the scientific boundary: the three-tier
+  capability study is prospectively frozen development evidence; the older V2
+  study is supporting evidence; Static and ReAct use different retrieval
+  policies over the same corpus; no router is fit/evaluated; the oracle is
+  diagnostic; the final partition is unexecuted; author review is not
+  independent adjudication.
 - [x] **[VERIFIED]** Preserve the two hash-bound protocol Markdown files
   unchanged. Their historical local paths are excluded from the submission PDF
   and artifact; removing them would invalidate the frozen protocol hashes.
 
 ### 2026-07-21 to 2026-07-29 — author/admin completion
 
-- [ ] **[USER ONLY]** Confirm the final author list/order, exact affiliations,
-  OpenReview profile IDs, profile emails, and all conflicts of interest.
-- [ ] **[USER ONLY]** Ensure every author has a complete OpenReview profile;
-  new non-institutional-email profiles may take up to two weeks to moderate.
-- [ ] **[USER ONLY]** Nominate at least one eligible author as reviewer and
-  confirm their willingness/availability.
-- [ ] **[USER ONLY]** Confirm `Archival`, no concurrent review elsewhere, and
-  the value of `cross_submission_to` (use “None—direct submission” only after
-  confirming there is no cross-submission).
+- [x] **[USER ONLY]** Confirm the final sole-author list/order and affiliation.
+  The identity is intentionally not recorded in anonymous release materials;
+  exact OpenReview profile ID/email and conflicts still need to be copied or
+  checked in the submission form.
+- [x] **[USER ONLY]** Confirm the sole author's OpenReview profile is active.
+- [x] **[USER ONLY]** Nominate the sole author as reviewer and confirm
+  willingness/availability.
+- [x] **[USER ONLY]** Confirm `Archival`, no concurrent review elsewhere, and
+  no cross-submission (`cross_submission_to`: “None—direct submission”).
 - [ ] **[USER ONLY]** Confirm subject-area/keyword choices, any preprint status,
   and whether the venue offers a supplementary software/data upload. The live
   direct schema currently exposes a PDF field but no artifact field.
@@ -76,24 +77,24 @@ Use the labels below when closing items:
   license and the repository MIT license for the provider-free artifact; retain
   upstream benchmark/provider terms as documented in
   `paper/realm2026/artifact/LICENSES.md`.
-- [ ] **[USER ONLY]** Confirm the AI-assistance disclosure in the packet is
+- [x] **[USER ONLY]** Confirm the AI-assistance disclosure in the packet is
   complete and truthful for all authors and satisfies any venue-specific form.
 
 ### 2026-07-30 to 2026-08-02 — content and release QA
 
-- [ ] **[VERIFIED]** Run the anonymous artifact validator from the repository
+- [x] **[VERIFIED]** Run the anonymous artifact validator from the repository
   root: `python3 paper/realm2026/artifact/validate_artifact.py`.
-- [ ] **[VERIFIED]** Confirm the artifact remains provider-free, development-only,
+- [x] **[VERIFIED]** Confirm the artifact remains provider-free, development-only,
   answer/trace-free, excludes the sealed final partition, and has matching
   `manifest.json`/`checksums.sha256`.
-- [ ] **[VERIFIED]** Run the full maintained finance test suite and record the
+- [x] **[VERIFIED]** Run the full maintained finance test suite and record the
   exact pass/fail count and any pre-existing warnings. Do not execute provider
   calls or the final partition.
-- [ ] **[VERIFIED]** Compile with the prescribed LaTeX skill command and inspect
+- [x] **[VERIFIED]** Compile with the prescribed LaTeX skill command and inspect
   the rendered PDF page by page. Recheck title/abstract parity, citations,
   anonymity, Limitations placement, and that every scientific number is
   development-only.
-- [ ] **[VERIFIED]** Check `pdfinfo` for A4 and page count, `pdffonts` for
+- [x] **[VERIFIED]** Check `pdfinfo` for A4 and page count, `pdffonts` for
   embedded fonts, extracted text for identity/local-path strings, and logs for
   overfull boxes or unresolved references.
 - [ ] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
@@ -108,17 +109,20 @@ manuscript, artifact, or frozen-source change:
   paper/realm2026/artifact/validate_artifact.py` passed with exactly **31
   tracked artifact files and 1,350 sanitized score rows**; offline
   recomputation, integrity, and anonymity checks completed.
-- [x] **[VERIFIED]** Tests: `python3 -m pytest -q tests/finance` passed **209
-  tests**. It emitted 21 known numerical-overflow warnings from synthetic
-  selective-router stress tests; no test failed.
+- [x] **[VERIFIED]** Tests: `PYTHONPATH=. python3 -m pytest -q tests/finance`
+  passed **234 tests** with no warnings or failures.
+- [x] **[VERIFIED]** Analysis replay: the completed three-tier ledger reproduced
+  the committed aggregate and decision memo byte for byte, with analysis
+  fingerprint
+  `sha256:4b6ccd22e86e001298491f91eba3e8a4d8305e5f71c5a40fefd2efb6885fec80`.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
-  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 151,971-byte**
+  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 167,726-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
   present.
 - [x] **[VERIFIED]** PDF geometry/metadata: `pdfinfo` reports **5 pages** and
   **595.276 x 841.890 pt (A4)**; Author, Subject, and Title are blank; Creator
   is `LaTeX with hyperref`; no identity string is present.
-- [x] **[VERIFIED]** Fonts: `pdffonts` reports **10 embedded fonts**, all with
+- [x] **[VERIFIED]** Fonts: `pdffonts` reports **12 embedded fonts**, all with
   `emb=yes`; no overfull boxes or undefined citations/references were found.
   The log contains 8 underfull-box warnings, which do not change page count
   or clip content.
@@ -131,11 +135,10 @@ manuscript, artifact, or frozen-source change:
   and References begin after Limitations on page 4 and continue on page 5.
 - [x] **[VERIFIED]** The anonymous PDF text and validated artifact contain no
   author identity, private/deanonymizing URL, local path, raw secret, final
-  outcome, or final example. The capability snapshot contains process and budget
-  status only, with no partial outcome analysis. The two hash-bound internal protocol memos retain
-  historical local-path text; editing them would invalidate the frozen protocol
-  hash and test, so they are not submission PDF/artifact payloads and must not
-  be changed without a new protocol version.
+  outcome, or final example. The capability snapshot contains only curated
+  aggregate outcomes and process/budget provenance, with no prompts, answers,
+  traces, or partial-freeze outcomes. Hash-bound protocol files passed their
+  integrity tests and were not edited after inference.
 
 ### 2026-08-03 — internal content freeze
 

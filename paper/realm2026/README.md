@@ -44,30 +44,28 @@ in [`notes/release_checklist.md`](notes/release_checklist.md).
 
 ## Working title and thesis
 
-**When Agentic Reasoning Fails to Pay Off: A Negative Result on Selective
-Routing in Financial Question Answering**
+**Capability Is Not Complementarity: A Routing Feasibility Study in Financial
+Question Answering**
 
-The paper should argue one precise point: a router cannot recover useful
-accuracy-cost trade-offs when its expensive expert has little measured
-complementary accuracy. Under controlled evidence, bounded ReAct produced only
-10 unique official successes among 200 objective routing examples, while Static
-Nexus produced 42; the documented fallback therefore escalated too broadly and
-hurt both quality and cost. A trace audit exposed answer/context asymmetries.
-The strongest evidence is now a prospectively frozen, fresh-sample harmonized
-v2: all 150 ReAct rows passed a retrieval-first manipulation check, yet Static
-scored 0.3421 versus 0.2572 (paired difference $-0.0849$, 95% CI
-$[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
+The paper argues one precise point: model capability and expert complementarity
+are different prerequisites. In the prospectively frozen three-tier main study,
+Static significantly beat ReAct for control and Luna, while Terra reached
+parity and produced a positive cross-tier interaction. Yet ReAct supplied only
+two, one, and two unique exact successes among 150 items, leaving at most 1.3
+points of oracle routing headroom. The harmonized-v2 comparison and original
+selector study remain supporting and pilot evidence.
 
 ## Current evidence boundary
 
-- Reported results are development-only: the original 250-example, five-system
-  study; a separate 75-item replication; and a 150-item harmonized v2.
+- Reported results are development-only: the 150-item, three-tier capability
+  ladder; the original 250-example, five-system study; a separate 75-item
+  replication; and a 150-item harmonized v2.
 - The protected final manifest is unexecuted and unscored. Identifier metadata
   was used only to enforce disjointness.
-- A prospectively frozen GPT-5.6 Luna/Terra extension stopped on
-  treatment-integrity failures before a complete Luna tier or any Terra call.
-  Partial outcomes were not analyzed; the artifact retains only a process and
-  budget report, not an accuracy estimate.
+- The successful capability freeze completed all 900 paired episodes after two
+  earlier public freezes stopped on action-transport failures. No partial
+  outcomes from the stopped freezes were analyzed, and their touched items were
+  excluded from each replacement manifest.
 - FinanceBench and FinDER do not enter the three-dataset primary macro.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
@@ -82,8 +80,8 @@ $[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
 
 ### Completed
 
-1. Reframed the paper around the negative result and complementarity
-   precondition.
+1. Reframed the paper around the distinction between capability and
+   complementarity.
 2. Audited baseline fairness and created a reproducible, frozen review queue.
 3. Reported paired uncertainty, complementarity, and efficiency statistics.
 4. Prospectively froze and completed the second-family replication.
@@ -92,6 +90,8 @@ $[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
 7. Preserved a failed harmonized-v1 manipulation check as a diagnostic, then
    prospectively froze and completed a fresh-sample v2 with verified ReAct
    treatment delivery.
+8. Prospectively froze and completed the mandatory GPT-4o-mini/Luna/Terra
+   capability ladder under a shared strict function-tool contract.
 
 ### Highest-value remaining work
 
