@@ -332,12 +332,12 @@ def main() -> None:
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
         "schema": "realm-anonymous-artifact-v2",
-        "purpose": "provider-free audit of recorded development statistics, harmonized v2, the stopped capability extension, and protocol inputs",
+        "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, and protocol inputs",
         "partition": "development_only",
         "sealed_final_partition": "excluded",
         "provider_calls": False,
         "entries": entries,
-        "source_freeze": "anonymous-review-source-freeze-v2",
+        "source_freeze": "anonymous-review-source-freeze-v3",
     }
     (ARTIFACT / "manifest.json").write_text(stable(manifest), encoding="utf-8")
 

@@ -1,50 +1,38 @@
 {
   "datasets": {
     "convfinqa": {
-      "candidate_count": 1838,
+      "candidate_count": 1835,
       "dataset_size": 2213,
       "examples": [
         {
-          "dialogue_hash": "sha256:e4bb04eec661be0b6c4cde1d3e6dca3fff3c9bdbb8c1244061f85bab274505e9",
-          "example_id": "convfinqa65",
-          "index": 65,
-          "item_hash": "sha256:2f9df36210855b28c182e6b90466555e6b198642c274faad44b3eb6d86ed93ca"
+          "dialogue_hash": "sha256:046419ca5ecebeb34fdfe9dde8106ccee5ce39f8e4dd115e8ef20b869f8bed82",
+          "example_id": "convfinqa73",
+          "index": 73,
+          "item_hash": "sha256:ae022cf17020809ea161760d76c7bcf65c39918c059b5509859f414af812c2da"
         },
         {
-          "dialogue_hash": "sha256:49f65dc5d4333e3ed1ba4c9bbea03134a985509541efa8a4955542d50dea45f0",
-          "example_id": "convfinqa70",
-          "index": 70,
-          "item_hash": "sha256:7befa3438170c03f203ca0829de35fad46a35cc896299e9688b1a60d3f3fe24f"
+          "dialogue_hash": "sha256:21cee27a52b79f89fa2ccbfe8436f7fd5285a4f88027d07fc9a591f7a3178e80",
+          "example_id": "convfinqa89",
+          "index": 89,
+          "item_hash": "sha256:a543ca496b300725751945bb5ef6066c36bf195d8596622ea71ce0e6d9f0d39b"
         },
         {
-          "dialogue_hash": "sha256:21f101951d583e2d2fb9908abdacc71a014c2b9f9d22d24139842c50202d0701",
-          "example_id": "convfinqa91",
-          "index": 91,
-          "item_hash": "sha256:9ee053b7843979f535f14aa666ee1a9f603360aa35697c501c507f895c7116a4"
+          "dialogue_hash": "sha256:227e4918add1d7964e1745439f5cf44f3e3aba15de6f570942d418510b022b9d",
+          "example_id": "convfinqa113",
+          "index": 113,
+          "item_hash": "sha256:5ac39b992f801a41f422390be4f672531711d126672b9c6dfbd88c71fbdff883"
         },
         {
-          "dialogue_hash": "sha256:5defc92d11f38e34facc727521e1d9b596052c3a5e3ba1375fab31609f1edc3a",
-          "example_id": "convfinqa102",
-          "index": 102,
-          "item_hash": "sha256:a7e914325286a0075d164771f847503e7aecc8238c951b6a625df305a5778e88"
+          "dialogue_hash": "sha256:ddc0ed4c28f12534d05798b999432dba3c80e5a4759078cbc24f55cc727c0053",
+          "example_id": "convfinqa186",
+          "index": 186,
+          "item_hash": "sha256:18fe41056df37ab4b80665784e90ae0f42d7180edb078b50ecf2d531a239ff24"
         },
         {
-          "dialogue_hash": "sha256:ca30de1c42bd3e0fdbeb7fb612cbf42e8e757b6948b7a51a67827df28b65107b",
-          "example_id": "convfinqa115",
-          "index": 115,
-          "item_hash": "sha256:793dbfd4d2178743d23a8266c48955722ef5d6a13ce4f1a0a8bec93ebdea0fc9"
-        },
-        {
-          "dialogue_hash": "sha256:d8193a30972ab6daf68dc19c40407232f583ca1fa1768207607273c89a304e13",
-          "example_id": "convfinqa184",
-          "index": 184,
-          "item_hash": "sha256:f79fda42eb002e559cfeb35b169ce8ccbc5b0522e4e9ada55f76f84470409fa0"
-        },
-        {
-          "dialogue_hash": "sha256:bbfe62b956805288c96e1d94b6899589274bb5c71fb698abe831d2c0f128bea4",
-          "example_id": "convfinqa231",
-          "index": 231,
-          "item_hash": "sha256:7a0cc0626dbd7fd8cff47b5584a4ab5ee40ab05e9a49d53231b8f2d8ec320707"
+          "dialogue_hash": "sha256:6ce1ced1ac1f56f8cd7ee5c55d117fe99c805b89a603e36c41852fea49853068",
+          "example_id": "convfinqa194",
+          "index": 194,
+          "item_hash": "sha256:a1357f82c71e378b6fc3abcd54747e8e048dd149c2c9f77f21f45f46d73cba53"
         },
         {
           "dialogue_hash": "sha256:fda986670fb6a19243276a695af584678b074256977b0ce280b7866c8456ab06",
@@ -53,22 +41,22 @@
           "item_hash": "sha256:bcdea10d30f2619e6b21da27dd5ea2d23b4c9b5e60e509dce14730c88f5bda5a"
         },
         {
+          "dialogue_hash": "sha256:dfff24769b1b892eb215c5ac7b227a1ec55be2004c70f18edd0b787acc46c04d",
+          "example_id": "convfinqa304",
+          "index": 304,
+          "item_hash": "sha256:d3729907a4b1b023d972913934c08286252d40dea99ae5debdab2f19c9693d6e"
+        },
+        {
           "dialogue_hash": "sha256:4d231049a895fe6ccb92cac773d7c76dfe7934209ca8de35548ec7a7f523fb2c",
           "example_id": "convfinqa310",
           "index": 310,
           "item_hash": "sha256:d29a570a091c2a5995a05a81d07fdfee22375fadd0a2b14cc5a58f5c515b6d7b"
         },
         {
-          "dialogue_hash": "sha256:7a7cf17d69de528cbf351d0f63b7d281b45ae7e13df5eefb47c02d64cd076c79",
-          "example_id": "convfinqa314",
-          "index": 314,
-          "item_hash": "sha256:a8facb0752e7cf20a593bf0cee8fd91e2777e04328c65fa6012b5d6b08b0d6eb"
-        },
-        {
-          "dialogue_hash": "sha256:d6d3c6318a4582617a85821b502962b17d7f38a93c7e408a0ecf22516f560f71",
-          "example_id": "convfinqa390",
-          "index": 390,
-          "item_hash": "sha256:2ad399fcf30d53fc8b2005c6f55ab1fb63b05caa5bbe3c70e38af22ec1d3c419"
+          "dialogue_hash": "sha256:821c1b8a5eee414642006f599d73bf35acf422f50087a45bca5d5587f04bae80",
+          "example_id": "convfinqa321",
+          "index": 321,
+          "item_hash": "sha256:ef6daddcc9afc5f842ab5cab26f8a646346205a5b0c75b1a10410c491079aad4"
         },
         {
           "dialogue_hash": "sha256:168578b517bbc0eff98cee9a91d5837e3da156479220ed042926495897248387",
@@ -77,118 +65,100 @@
           "item_hash": "sha256:cd195c905d3892c48ff48baeca374cd9cc7c5ffd5024847918cf38e4bab015d5"
         },
         {
-          "dialogue_hash": "sha256:3140d59420ca920c79fdef003360543c12b14da984f00f8665756e9da9c4b743",
-          "example_id": "convfinqa438",
-          "index": 438,
-          "item_hash": "sha256:a0b7734a62332177471310ae9b050d2c95264fec489ee9296bbb8bedacb6bd71"
+          "dialogue_hash": "sha256:f771ff65a8260364ed6a466c57d354f56e21d6a6fabfd56cc31fe532019ae1e2",
+          "example_id": "convfinqa478",
+          "index": 478,
+          "item_hash": "sha256:6f9feb92f79ce8ddec2c7c7946d9f080e2c55277da15ae43fda7ff33475e984b"
         },
         {
-          "dialogue_hash": "sha256:8950e13ae318d1388e11f0486ab310123e6cae153e38f13471d72a779552fbb2",
-          "example_id": "convfinqa531",
-          "index": 531,
-          "item_hash": "sha256:1a582d88b11a6904d0a1b1bd9f50f7dcf4f1dd8b332bfe52809405cadbfa1ced"
-        },
-        {
-          "dialogue_hash": "sha256:2d40648be4e887ddca344c102d960ec8e82d6b017f488a95718b5e75bd7c797c",
-          "example_id": "convfinqa555",
-          "index": 555,
-          "item_hash": "sha256:cde6b3115b2c2fb82826cbe4180c2981ceee8e243eb5f67802e4b7d67570a508"
+          "dialogue_hash": "sha256:8978ea649cc7e226c214f573a3a8be8d8aafa94b10bc106c7e7421df8e2cb1c6",
+          "example_id": "convfinqa569",
+          "index": 569,
+          "item_hash": "sha256:f1c55e9360a1e8c8184621a26634158f8897398eb0d37c568cb9bad8e1e057d1"
         },
         {
           "dialogue_hash": "sha256:70beb59fd7ab9f06d195b140536d4ab0f99f2d1277f9998e5d163e1e949833d9",
-          "example_id": "convfinqa578",
-          "index": 578,
-          "item_hash": "sha256:9ef38d5697355753b01bc69f643dedae4ee87ae752dd0db906df16ba7eb2a61f"
+          "example_id": "convfinqa579",
+          "index": 579,
+          "item_hash": "sha256:5edf54aed2eaa12314b84ce4146f3be351ec17fcb166b615330246bf835f60e7"
         },
         {
-          "dialogue_hash": "sha256:3935dfa46c64fb0844590d43b1c6069ff3e793d7a71aa70d621df0f2a8e2513a",
-          "example_id": "convfinqa596",
-          "index": 596,
-          "item_hash": "sha256:b89c3a5c56666e3f72c633a9fc9bab6e4789ea7a24a45c317d0190959af53aa7"
+          "dialogue_hash": "sha256:97a50bec84ab7cedd64941998ddd92a13df710a3a1b52014b64fad002342e723",
+          "example_id": "convfinqa584",
+          "index": 584,
+          "item_hash": "sha256:6e957e7e9402d5f50ea23f955fd6ca7e5c3a473b5c25fbc2008547c776234711"
         },
         {
-          "dialogue_hash": "sha256:f527aaa35b687f6f988529bf4639204f26bfb9d396658bc6adaf01ff2641469c",
-          "example_id": "convfinqa601",
-          "index": 601,
-          "item_hash": "sha256:d75a863f080b820e238cf8ff821d1a3abd39200023226a6a338164531afd0bdd"
-        },
-        {
-          "dialogue_hash": "sha256:630f388f8bc949d1184884656ebd163f667c6c68835079f19f06a5b1070cba72",
-          "example_id": "convfinqa610",
-          "index": 610,
-          "item_hash": "sha256:88da41d4a299d3480307c26bc2a26b47d8f542801d48c6ef4856a37bd84ca439"
-        },
-        {
-          "dialogue_hash": "sha256:c116c838040f676d887fc856d8fbf4e143f70ce5c91f78e66de880fb35be356d",
-          "example_id": "convfinqa624",
-          "index": 624,
-          "item_hash": "sha256:9eca1cb2d8e60e2a923a2490231e62c798de7c2d69e46b3b34f1746e8119c884"
-        },
-        {
-          "dialogue_hash": "sha256:0907b1f50b44ffdc490e3917fad5bb4b4752d30a29df3178853a36a7d7d6cc0e",
-          "example_id": "convfinqa647",
-          "index": 647,
-          "item_hash": "sha256:184d76a6c20b8f351fe97fc1b475ee5fb23cce65324529ad31ff2377eec0aa60"
-        },
-        {
-          "dialogue_hash": "sha256:870e971f48358bdbdbf900f7c52cdf29537aacabf63253ee7571600bf2fb04f6",
-          "example_id": "convfinqa676",
-          "index": 676,
-          "item_hash": "sha256:20d3358fa0dcf3a225227281f8d12557aa3bb4d2ec90bf0bec9d71cd921a58ff"
+          "dialogue_hash": "sha256:d44591becbf993741ade9ef66f7e5e8d71d8e9e15fb0778078f83fb9aa2e5044",
+          "example_id": "convfinqa617",
+          "index": 617,
+          "item_hash": "sha256:9ce5d829daa8da4d80a90a88a5271758b764964b1db8ed8ab3ae81ebebc38408"
         },
         {
           "dialogue_hash": "sha256:71649a58544527cf8143ebdca270d38f07324d1dd25a69204437fe2397114ca3",
-          "example_id": "convfinqa692",
-          "index": 692,
-          "item_hash": "sha256:a8d06855333f40629de97003cc7436b3406aa50a6c81f2a86d9be1434571cd70"
+          "example_id": "convfinqa693",
+          "index": 693,
+          "item_hash": "sha256:3e3befe122260393fad1dcfb24379ecada45d07a841d3cb866c33f37031d676c"
         },
         {
-          "dialogue_hash": "sha256:455147df5a65a39f52a96e12612ca7f850fcc024972f12a07d1ef1f6b3f307f4",
-          "example_id": "convfinqa760",
-          "index": 760,
-          "item_hash": "sha256:d469e8dff0c5f76b77337b7787d76df1068428eb55f29a2a4b793f6eacb63a13"
+          "dialogue_hash": "sha256:1e0ad59ae15f45c0035686dcd7936a1c30d71670510474a4b74abcbca6eb13c8",
+          "example_id": "convfinqa696",
+          "index": 696,
+          "item_hash": "sha256:65d2d6c86c1235d568eb95a1f71c827d485dab95bf7218d17e857d8d5aa69854"
         },
         {
-          "dialogue_hash": "sha256:54f3955cdd97f42de2033ff39ba4bcbf10c30b6d7e0e4f2664a6217170b9cd5e",
-          "example_id": "convfinqa825",
-          "index": 825,
-          "item_hash": "sha256:651316642ef918384a6220aaa19594f8e58e6172fa1b320fddf60aa14ce00a03"
+          "dialogue_hash": "sha256:1d6e509a333bfff97b4c7488ff049a89badadf8f8cddf58c25b1efc7673849fc",
+          "example_id": "convfinqa788",
+          "index": 788,
+          "item_hash": "sha256:537a1a15403afdc471f1fcbba08ad7f0c167e377a2f0d1711b8ef0995430b20c"
         },
         {
-          "dialogue_hash": "sha256:bf7a77362a0b9962632cf2c3a75e9d5552ae90e3b450184c1d6d0f477f91af35",
-          "example_id": "convfinqa837",
-          "index": 837,
-          "item_hash": "sha256:3429660871f12d05d8d9667917d784090bc3bd484e3d8acd6259c69b0e1820b1"
+          "dialogue_hash": "sha256:3a8fb7d72b5ab4eeaba4a9d1038405c44954f0e5476d2070215da7936c22ce9f",
+          "example_id": "convfinqa810",
+          "index": 810,
+          "item_hash": "sha256:e25e63aebd42392a5d65626eb8c33674a3c038cfdda55912e8241f1cdd6c97a4"
         },
         {
-          "dialogue_hash": "sha256:489d0c86a2b35ee2040879020f7b9bc7e1c4cfbd2b29910dbd6ecaa55b2db7d9",
-          "example_id": "convfinqa869",
-          "index": 869,
-          "item_hash": "sha256:079fec8cdd4bc8936c4a1d33b9b9070bcd4178e2ed3e14f82cdae1ef26ebd37c"
+          "dialogue_hash": "sha256:f3fd90c381a9e00b50fe29f57e9fd29cd8c08121c9b370cd9930d30fa4d4521f",
+          "example_id": "convfinqa820",
+          "index": 820,
+          "item_hash": "sha256:ddbe2abc720d4142711ae079dd0d850549a48975f5a4cb897aa1e2219a057994"
         },
         {
-          "dialogue_hash": "sha256:76e80d4201db3ac0c2da69d72d70a4764e9675048344f1305b5ea13f25d5bb77",
-          "example_id": "convfinqa937",
-          "index": 937,
-          "item_hash": "sha256:a0f04d76da49a7be92736583c9c6cdd871a349ace3e8780c2219f9b95fc7caf0"
+          "dialogue_hash": "sha256:7c9b07c2fa5b1d4e7235278176a80b7886acc8fe4cfc3fe29252dad1bbce1888",
+          "example_id": "convfinqa859",
+          "index": 859,
+          "item_hash": "sha256:23f96ba4e1da927c9d93cd026a0162ea808a45c19e8e179f1622675e287923c0"
         },
         {
-          "dialogue_hash": "sha256:6565aeafdac58d7f6bdaa00716460dc0df888eec27b91a444ca897466039e83a",
-          "example_id": "convfinqa984",
-          "index": 984,
-          "item_hash": "sha256:bb6a7c28fc10bbd4cbe65bdefacd7c0c14a0e3f6eee65bf671f16b2376c5246b"
+          "dialogue_hash": "sha256:9ec619ad1dc43614303b12721ad541d77bff3cbb3edc1659842389b58d8ddb23",
+          "example_id": "convfinqa907",
+          "index": 907,
+          "item_hash": "sha256:a405fde4b8fe7bdbb1a60432b819c5bf5fa256d10718c9799d200b4c0f39a200"
         },
         {
-          "dialogue_hash": "sha256:26d4cd5355046ac40744ca89495810a5fe2e5d24ae431c889037d246568cd29f",
-          "example_id": "convfinqa1005",
-          "index": 1005,
-          "item_hash": "sha256:97715f0cbc934e3c736f35291d27bfae56c53eacd498d88b30a173564af783da"
+          "dialogue_hash": "sha256:2209c12466a4ecd1908149821867a21b6cb79b8501c3208661ffce5397111802",
+          "example_id": "convfinqa929",
+          "index": 929,
+          "item_hash": "sha256:2e99f1e17cfa3bcc77d7ea10ca5f5d2a843bc8efd36300d155aa5c90b3bae98b"
         },
         {
-          "dialogue_hash": "sha256:4853ea403624d71c39eaf1c72150b915574d4f3d5f5c92fe840b54e281e3f16c",
-          "example_id": "convfinqa1127",
-          "index": 1127,
-          "item_hash": "sha256:ab02b2d49bdfe50bc4ff96363d8a09d0ceaba07e5c9f1d2f4bc66206ce2c8825"
+          "dialogue_hash": "sha256:58e139bbd012d7a0f6b0ae35a2fb2135ffbfefce291177325d851dbdb5483ac7",
+          "example_id": "convfinqa1013",
+          "index": 1013,
+          "item_hash": "sha256:71eac3df1abcaf3631c92d34309c4966075b09348ba4cf2fd7e544b12d5484e7"
+        },
+        {
+          "dialogue_hash": "sha256:d5371ffe9ef8c3d74f1562a5b7e894a3e9be51b8e274208f6b6a0d0e99ba8ecf",
+          "example_id": "convfinqa1048",
+          "index": 1048,
+          "item_hash": "sha256:5b0041a5a73f2cdb9044a55cfd61c1f3dbb9b514b5e588b6fec2625bfb35fa7a"
+        },
+        {
+          "dialogue_hash": "sha256:c31ddc9868808bae83cb0cc3dbbb9717c2f49cca247da73ef72929cd5e753f47",
+          "example_id": "convfinqa1060",
+          "index": 1060,
+          "item_hash": "sha256:4cc7f54ec0dd14bc5045ff9da16332497217e599c50c2e0b5c3536d664af369e"
         },
         {
           "dialogue_hash": "sha256:01e537fe58dd4b726c6bd15e012922c275bc03a7f115f4c20b3aef589d614f9f",
@@ -197,10 +167,22 @@
           "item_hash": "sha256:236b97a0cf83660e7e708a3f3aa11ede9e39a8297278ab4745fcabba1550bc0e"
         },
         {
-          "dialogue_hash": "sha256:22795c8e483e8e290421a83083dad08efecfddca8383a7f4bc306043c2e6219e",
-          "example_id": "convfinqa1270",
-          "index": 1270,
-          "item_hash": "sha256:8fd337da125da010cf9f67e31217106c59d7c7ee0e25c25c8f65497ab0907c98"
+          "dialogue_hash": "sha256:a35ced0ad946d0000479b94a8612c14a110ae157f201272c072dc671b5adc985",
+          "example_id": "convfinqa1201",
+          "index": 1201,
+          "item_hash": "sha256:4e4fc68c35fe340e9af98f10c5c54fd857a99cef18a8df2d12664755dff89803"
+        },
+        {
+          "dialogue_hash": "sha256:a3636f215d8d80e4991f4b47f35a8d4bdf5c3130fe5394852a41371ac3751912",
+          "example_id": "convfinqa1207",
+          "index": 1207,
+          "item_hash": "sha256:a82de0e7920f09a01fc73237c833bf7d7a5605a92662c8f194a6cee399431b54"
+        },
+        {
+          "dialogue_hash": "sha256:30dd0b27194598d33febe5b5e4e7068d0da2dbf71ae37f968ea77dca2b4a8a69",
+          "example_id": "convfinqa1268",
+          "index": 1268,
+          "item_hash": "sha256:01024553f1cd80f803af30800737a5ea1cf084099c5569d90e67e999695c4250"
         },
         {
           "dialogue_hash": "sha256:6a6c4080e7013703157d4a22e116f5bd1ef07da9a238f34e12a2cb320fa3d77e",
@@ -209,22 +191,46 @@
           "item_hash": "sha256:7984382624e770d575f12c52779966057bf9b40e7e3d9aa64f95486bfc327170"
         },
         {
-          "dialogue_hash": "sha256:39b0055385d5f5bae318a4789cd30cfccdba568207c74abfcf81752f46bc6ce9",
-          "example_id": "convfinqa1315",
-          "index": 1315,
-          "item_hash": "sha256:165cc1b9e8bba785d8d80df39b5593292e4a431914b22112a731ce3b159e0b69"
+          "dialogue_hash": "sha256:6f298e18c093269b9340270d1ae8416b0487016d569562018695caa66a191fb1",
+          "example_id": "convfinqa1326",
+          "index": 1326,
+          "item_hash": "sha256:8da31db08ee3659e7ea910a4140a3ad7b9700bfc1f89e8faaefd8a87445c77f7"
         },
         {
-          "dialogue_hash": "sha256:52eb9703707be3b5f00bc7a5996cdeaddd37e7b75a26bb19c4b670447e1584e1",
-          "example_id": "convfinqa1367",
-          "index": 1367,
-          "item_hash": "sha256:c8a2c9b9dddbeb1fef7870d57d6f618e00298102f823c2d21c990760996c54ca"
+          "dialogue_hash": "sha256:a2b1053600038e4ecb91bedcfd4b06eca1bdb6ca679321980dff183e5a9ae59b",
+          "example_id": "convfinqa1380",
+          "index": 1380,
+          "item_hash": "sha256:95906fef53e90c70aaee159ae6f800f5ce03d13c78b898ea5332afb0dd467951"
         },
         {
-          "dialogue_hash": "sha256:f4112801f18fbe854e4a2070e0610c5ec8e3261502a0108e0b37d4f09779cb33",
-          "example_id": "convfinqa1374",
-          "index": 1374,
-          "item_hash": "sha256:7dee2b28f37d3219aa223b69b3708de60fd7b282c26a085c607291b7b645febe"
+          "dialogue_hash": "sha256:e9ced23904d65fd36ee3e26432162f0467e25e4574594ca045f20bc35ceead19",
+          "example_id": "convfinqa1395",
+          "index": 1395,
+          "item_hash": "sha256:36d1483c3fb591bb6d6d00354a5120d3921f243334051bbbde29ab09602f8ccd"
+        },
+        {
+          "dialogue_hash": "sha256:839c89cc4bbd310072d0bc23d57b8a2c82b997dbc19dacf5a5330e45684fcd8f",
+          "example_id": "convfinqa1413",
+          "index": 1413,
+          "item_hash": "sha256:9a1f8e28b2e3897cef77f790e7d8cafc0ea95528eb523438b3b9e9be3fe67eaf"
+        },
+        {
+          "dialogue_hash": "sha256:d9d1f554239abcf9dd7f6d9f3ba957331ce69f6cec4e6d0e7ab537fb21df4bef",
+          "example_id": "convfinqa1422",
+          "index": 1422,
+          "item_hash": "sha256:fb84b2bb925aa5959723a8066f0a38c747147734d1730165f2c3a27aac20aa1b"
+        },
+        {
+          "dialogue_hash": "sha256:7632b5e1bed8859cf678a1f4ce309306d40ba6c263e5383eec478a2cb848b829",
+          "example_id": "convfinqa1434",
+          "index": 1434,
+          "item_hash": "sha256:968660b9cc78bb81af7efa37ca88ef850f8123a55f84d7ce5e2407d6435bf031"
+        },
+        {
+          "dialogue_hash": "sha256:ee6a273918d66202dc8e625318ec22842e08dfcfb8920f30457f4865d746b0ac",
+          "example_id": "convfinqa1455",
+          "index": 1455,
+          "item_hash": "sha256:a5a0c0bb4f894d78e23742919eaccba3ca31157a0004f22b2bc666192bfd8343"
         },
         {
           "dialogue_hash": "sha256:e1a87300606eb4f9c4f05f062a7c41674962c90f267196b350a3445cdf877199",
@@ -233,172 +239,197 @@
           "item_hash": "sha256:8e6c0a2bd6b5c4bd4c80a5c9f2106dcab245049a3449095509cc290a3e7ee29d"
         },
         {
-          "dialogue_hash": "sha256:30ce833256daf7166e1f90a25694d775a365a424ecc15d309df61e6eb12170f2",
-          "example_id": "convfinqa1532",
-          "index": 1532,
-          "item_hash": "sha256:b811a50fbaff03a1b2f08955bd3f54223a9629ec60bc9cf0ea0ca4db4941b25f"
-        },
-        {
           "dialogue_hash": "sha256:41d48522c145041f66cd09831fa0e54250d939474be741dfee02f807252ea89e",
           "example_id": "convfinqa1586",
           "index": 1586,
           "item_hash": "sha256:0b2fd742550a36321fc231001ff97773b97e3bc6c3c298cd74723ee961ddbb1a"
         },
         {
-          "dialogue_hash": "sha256:fe320128782ed798f7b7e8a3fe2d0923f9f901b0ed7ef3bb47294addc97ea99a",
-          "example_id": "convfinqa1626",
-          "index": 1626,
-          "item_hash": "sha256:a64350a51adf4ce6b9a046bcfbbba7d95dd423ba748add4b20384637e291a852"
+          "dialogue_hash": "sha256:868e385aa16a43882a9b9dca6e9e31616ed20f8091300434e9432bc192c6966a",
+          "example_id": "convfinqa1708",
+          "index": 1708,
+          "item_hash": "sha256:136f5918e597d4aa4fffb7114805a68bd8715d748cc9b378de7c9ce24fb8fa12"
         },
         {
-          "dialogue_hash": "sha256:b3b6e098c55a94b43d74c264c2ec6c7c8c6516da9c13fa9c634372bee8576c09",
-          "example_id": "convfinqa1727",
-          "index": 1727,
-          "item_hash": "sha256:76a8ba3562f6e952af3410254a3d876d6ca90fda9f3b6aa5810c6d5287d56684"
+          "dialogue_hash": "sha256:ddf963c96c86b4294274bfda046838a690648072171703358294690451e40ee1",
+          "example_id": "convfinqa1771",
+          "index": 1771,
+          "item_hash": "sha256:5d7f0d8723146b1ba09409d4cdb2e14fd447e4ca2c0725c8d6ae51148acfb248"
         },
         {
-          "dialogue_hash": "sha256:7cd3de579909e6c8c21b0a315fae149b6f4c7f2d30b6301c1091aec74d9a2b57",
-          "example_id": "convfinqa1739",
-          "index": 1739,
-          "item_hash": "sha256:9f607956754f077d2a8bda846f83269cae33bdfddc0313cd514ed82904affc64"
+          "dialogue_hash": "sha256:960b6186c59cc4775955e08800aaa011c3d8942ad0414c32a6cffca7bac953d4",
+          "example_id": "convfinqa1829",
+          "index": 1829,
+          "item_hash": "sha256:1b50445912aa8a8d585269ae4bdc138b6a393a39f32c6244abc2383bdc8739bb"
         },
         {
-          "dialogue_hash": "sha256:b049a738c6a32b224ce337b9f65661d66fa352dafd024d8c681e9f96519e508d",
-          "example_id": "convfinqa1766",
-          "index": 1766,
-          "item_hash": "sha256:aa14e0fbff2686203cc1a86d67f1fd573539382eb0a789d8f3dcb82cf35e08f4"
+          "dialogue_hash": "sha256:083e077608cfec3bbf6b3cb9b1ff2388156eae2cfd2960d57dfe2e3b72777fec",
+          "example_id": "convfinqa1855",
+          "index": 1855,
+          "item_hash": "sha256:957c30f8539ba560bbf5fce736cd1fd153b1d56a25deec3a2f1c8adec02751df"
         },
         {
-          "dialogue_hash": "sha256:5c28c024eb46348a749ebcdf4f5a400da783fde2ccaa4a1393388845ebfbb29b",
-          "example_id": "convfinqa1949",
-          "index": 1949,
-          "item_hash": "sha256:5fd57cd36cdc2a0bbfbdd5221dc21d5177538b729aa41f98d77e9ec0ea116ff0"
+          "dialogue_hash": "sha256:546ad92bd586dc0efcef905faefab7fdfa63d38374676cf24f47dce6fa6ff1a3",
+          "example_id": "convfinqa1860",
+          "index": 1860,
+          "item_hash": "sha256:c864ef05a53b36570dc37d7a1048d599b983deaec5687ddab34b4719b7b67360"
         },
         {
-          "dialogue_hash": "sha256:92f233f898ae04c60ff9e032c99325958335ba4e22633318794ec4db37dc9ec7",
-          "example_id": "convfinqa2016",
-          "index": 2016,
-          "item_hash": "sha256:04609574b066b47f977f7aa876fdd61f5cf53ece2c1bcbb73fd92eccc883e51d"
+          "dialogue_hash": "sha256:381c4416493899574cf1d935c616dfea1e4c6f6df2a1a220bccd4e704321f645",
+          "example_id": "convfinqa1935",
+          "index": 1935,
+          "item_hash": "sha256:ff82dbaf2af390e9febefd7347f75c0b552b49ddbdd334cb5a14d8b741d10cd8"
         },
         {
-          "dialogue_hash": "sha256:b05a1cdf3af6cad5d89dd9e3f5dcf51e486f5a3461b2dda26568a65923dc31f7",
-          "example_id": "convfinqa2079",
-          "index": 2079,
-          "item_hash": "sha256:fed34426e6048f8711728e589b5ffd34483b7290722e39b2397146845adcd277"
+          "dialogue_hash": "sha256:22686e9ac9a61eb481881b74ca3abe2b7796b16653c305e190f97c4964a4002c",
+          "example_id": "convfinqa1937",
+          "index": 1937,
+          "item_hash": "sha256:36538b07b8efad003d6b55064ad97664a104c97183670237fac26b557fdf2bc2"
         },
         {
-          "dialogue_hash": "sha256:4fd046a89d9960e32eaaa2d55072438c374b492b6a6bca1ca74c50cab0365e90",
-          "example_id": "convfinqa2107",
-          "index": 2107,
-          "item_hash": "sha256:ebacda823eb8daedec9e9da7ae592030b10fc6b3e3e821bbaf9e1cd98c42c7b2"
+          "dialogue_hash": "sha256:69ac624f5726866f11b0ffcc4cb9f380e829cfbea09f937944c912edb7ac6f95",
+          "example_id": "convfinqa2076",
+          "index": 2076,
+          "item_hash": "sha256:c8c8ef7570508c3918742ba040006fbbecb42c502e0bf50e6d02d6c94548ff7f"
         },
         {
-          "dialogue_hash": "sha256:1e5bcc3336299723b80f832e767b14e1364c50b0affc2feed4892bc8313fd95b",
-          "example_id": "convfinqa2192",
-          "index": 2192,
-          "item_hash": "sha256:53c55a9191f3d4bd420eaf0244fccc52eba0ec8eea1ec27c1a6c5d5ba2ad2cf3"
+          "dialogue_hash": "sha256:e51f1ebf71b9231c555e695056ec0af6b6423da7c242bd89da55ec9dab083951",
+          "example_id": "convfinqa2144",
+          "index": 2144,
+          "item_hash": "sha256:2df01fe331f1212b8bba9f8d7468ffcec07cb8fcfcad1560d6ef703e30a6d42c"
         },
         {
-          "dialogue_hash": "sha256:300b1de9ea7ebcf37468cc217efee24bb1e8b7de8b6048d9f9fe693c4b6fdd1e",
-          "example_id": "convfinqa2197",
-          "index": 2197,
-          "item_hash": "sha256:647d13b16b251ca1aff0359d39f5225db5ca611e533f8ba7c96a41c2dbef4162"
+          "dialogue_hash": "sha256:d6e2a3b6d7a39f8a9306ea68b48855e27fe0dd14b2641970b83a1adb8bd353a5",
+          "example_id": "convfinqa2164",
+          "index": 2164,
+          "item_hash": "sha256:4464dae3fc3b59a2bfe418bbca40c06dc3d05722c7b0060e23bf1d5f8e5a3256"
         }
       ],
       "exclusion_counts": {
+        "failed_freeze_attempted": 3,
         "harmonized_v1": 50,
         "harmonized_v2": 50,
         "original_development": 50,
         "sealed_final_identifiers": 200,
         "second_family": 25,
-        "total": 375
+        "total": 378
       },
-      "exclusion_identifier_fingerprint": "sha256:e9944d0278b2818a84b26b2752fc0248b342ad022e9a2730517073e6bda03d52",
+      "exclusion_identifier_fingerprint": "sha256:c4a24156747184429b3aba49a89e406b1dc93a09e2a8feed7c5dc06d8bcc074b",
       "selection_policy": "one seeded turn per wholly fresh dialogue"
     },
     "finqa": {
-      "candidate_count": 508,
+      "candidate_count": 491,
       "dataset_size": 883,
       "examples": [
         {
-          "example_id": "finqa796",
-          "index": 796,
-          "item_hash": "sha256:4827926abdae12d3c29aae199a0d2e22186d540324fd8bd404bb6c53ea3ef147"
+          "example_id": "finqa38",
+          "index": 38,
+          "item_hash": "sha256:09364b28c802005d932eace3121da7be7a972a0e9c04e856caa231e1309b17d1"
         },
         {
-          "example_id": "finqa659",
-          "index": 659,
-          "item_hash": "sha256:9353dbefc4572dd04475fa92c01d11782bcb3b3c41483c469098a9bcdf3f1548"
+          "example_id": "finqa40",
+          "index": 40,
+          "item_hash": "sha256:4abb2176107f9e67a87d72a2eaf0e008aa58b831ec6a63deaad66aa236d6f03d"
         },
         {
-          "example_id": "finqa855",
-          "index": 855,
-          "item_hash": "sha256:998afd6c518d3d5816aa0d3bce7d467e51b9c6be565b8c14108c38759bfe3b2e"
+          "example_id": "finqa84",
+          "index": 84,
+          "item_hash": "sha256:56dddef2e5564e52c0bd5ae1d15b0c59b9c98be9c5a83d4ecc5e988b82ddbe39"
         },
         {
-          "example_id": "finqa103",
-          "index": 103,
-          "item_hash": "sha256:0e299e724c2ab5a4dd27ad55880a2b9276fd2d3db40d8762e5857c4ab274d2cf"
+          "example_id": "finqa94",
+          "index": 94,
+          "item_hash": "sha256:7250b9f4a10a801239ee5c1e96abd0b8a80712c9b6cfd8c0cd2fa2261eb92d7c"
         },
         {
-          "example_id": "finqa114",
-          "index": 114,
-          "item_hash": "sha256:c30aded8ca7d0183bcf8f7a37f5bc4ae4f8badaf22f7566cc33413771afb53fd"
+          "example_id": "finqa97",
+          "index": 97,
+          "item_hash": "sha256:eefc57c35b4b2d9032605302698843400f8eae1075a08b2fb102fd40bc55553b"
         },
         {
-          "example_id": "finqa124",
-          "index": 124,
-          "item_hash": "sha256:2024528c351b755be18b3d54496ac648e5f8f3b062a19dbb9bf3cf36f9edf689"
+          "example_id": "finqa118",
+          "index": 118,
+          "item_hash": "sha256:131f97c2c5551211e6363e57ea8623e2b301b500ac5457854fa1e95259a27cc4"
         },
         {
-          "example_id": "finqa158",
-          "index": 158,
-          "item_hash": "sha256:7811373b3a09b792362904744e12262a5e2940c9288f20ec0481c77276952cab"
+          "example_id": "finqa143",
+          "index": 143,
+          "item_hash": "sha256:eed14260b4be81c19edd658d2c12eac8aa8967162f598326864edb03d9a23385"
         },
         {
-          "example_id": "finqa168",
-          "index": 168,
-          "item_hash": "sha256:8959585127531c3be111403b5744e5e11e7dbeb4ef5963f2c1e05ce89288a635"
+          "example_id": "finqa147",
+          "index": 147,
+          "item_hash": "sha256:c436de4b29a393a3a30fb73d087169065c576b6f101c844b0916462591d7f011"
         },
         {
-          "example_id": "finqa173",
-          "index": 173,
-          "item_hash": "sha256:7807a83e3aaaa87b7aec27481bc6c8e3e41e34f136d4efd232b6c0c9a5d0286f"
+          "example_id": "finqa153",
+          "index": 153,
+          "item_hash": "sha256:281b83cbb9b3fb1e75fb83695460afe9e280eaed4e0fd669b51f9ea55a9d872d"
         },
         {
-          "example_id": "finqa179",
-          "index": 179,
-          "item_hash": "sha256:61cf2f3c21517d070ef3f8a674ed3c2bd23c45817891763b8e6992e4a9127655"
+          "example_id": "finqa176",
+          "index": 176,
+          "item_hash": "sha256:695f3ea6f2f112e4c7f767c780918127b823d6825e65182f2647cdb5204eb576"
         },
         {
-          "example_id": "finqa205",
-          "index": 205,
-          "item_hash": "sha256:bb9e649bca3cb109f0fd2bb94a8d729addd70ad1c4a30594baad5aafe0ba001d"
+          "example_id": "finqa220",
+          "index": 220,
+          "item_hash": "sha256:f048bee55e1130866440b20a0ae424c049a1b1e580396348857d7a3d7b0fedb2"
         },
         {
-          "example_id": "finqa239",
-          "index": 239,
-          "item_hash": "sha256:e2760b96ff43e1de8fdd8cd34c908218fda46cf27ff4eff2e586cf8cc4fcc2e1"
+          "example_id": "finqa225",
+          "index": 225,
+          "item_hash": "sha256:f886079ae5422cf0e650dcbd114f52f71d3b5b1efa1de100c88456a24a56e6c4"
         },
         {
-          "example_id": "finqa282",
-          "index": 282,
-          "item_hash": "sha256:616f1490c5444faa01911346e0f0459832a24c3bf55416b0115b79158aa8cd43"
+          "example_id": "finqa251",
+          "index": 251,
+          "item_hash": "sha256:bf55850a46a6b9125172c097dcc852e9b668628f018f9370bf9e333513314c62"
         },
         {
-          "example_id": "finqa308",
-          "index": 308,
-          "item_hash": "sha256:a30dd990dd8ee0220b9ea2f75e483765ba400859eb04d83d372764c55dae832a"
+          "example_id": "finqa271",
+          "index": 271,
+          "item_hash": "sha256:20ad7e9f1dbcddd9b56fb2dd25866901aac76f65562f0e2df91140164ac210ae"
         },
         {
-          "example_id": "finqa310",
-          "index": 310,
-          "item_hash": "sha256:91f8b367e9b88d216230d7859703e0165db4a740dfbc2b6684d8147e14c56aa6"
+          "example_id": "finqa305",
+          "index": 305,
+          "item_hash": "sha256:d646074f420c7ec0a992c4f8679e8eae934f5ce44d7581d9e22d1583c9aa61d7"
         },
         {
-          "example_id": "finqa337",
-          "index": 337,
-          "item_hash": "sha256:9ea79f36243fbeaa7be59e83ce726c9dc1b3d149344deb840fdad4f00f72298f"
+          "example_id": "finqa321",
+          "index": 321,
+          "item_hash": "sha256:bffc84966246adf74142cd263348d9242b814dd6e98840ba571747bfb9f90615"
+        },
+        {
+          "example_id": "finqa338",
+          "index": 338,
+          "item_hash": "sha256:e21542090910ed9b6298185f14802d6c83de41f3b097eaef8333c15dcf63279a"
+        },
+        {
+          "example_id": "finqa348",
+          "index": 348,
+          "item_hash": "sha256:fd33e98998fa06234838133689bca81c2dbf77f6c47eec83837dcfccc40bbea9"
+        },
+        {
+          "example_id": "finqa349",
+          "index": 349,
+          "item_hash": "sha256:352678c1404f43dbad682c6cf4f4ec1bdc1cc9da2e80609df93e08fbdf698e00"
+        },
+        {
+          "example_id": "finqa354",
+          "index": 354,
+          "item_hash": "sha256:a208d9a5dd3f8f9492c40973427a80a7445d9cd545f71eb7bf12cb7b5cc94d03"
+        },
+        {
+          "example_id": "finqa374",
+          "index": 374,
+          "item_hash": "sha256:4ffbe5e9b2489f240a2e3ed373f5ca1fa25ea1dc32c3b6b9912f7d4f5c33b708"
+        },
+        {
+          "example_id": "finqa389",
+          "index": 389,
+          "item_hash": "sha256:2fe0342ead6bb77409b6e3c3635ddebcb3dff22980ab4a1a96a826cff31ebf1e"
         },
         {
           "example_id": "finqa393",
@@ -406,34 +437,39 @@
           "item_hash": "sha256:864d7006a8baba6c24627ac7e76b9b5426b65e1b4b6a5ea8bb7df4dce7999ffc"
         },
         {
-          "example_id": "finqa422",
-          "index": 422,
-          "item_hash": "sha256:f8bfd747d73b02a1a3b03e6287f859fd5def813ea83197955f6663aae009a8be"
+          "example_id": "finqa408",
+          "index": 408,
+          "item_hash": "sha256:dc9fa422bfe95c6a98b22fa17277b1fc47efc90514e42ccc68b378b2d936f372"
         },
         {
-          "example_id": "finqa434",
-          "index": 434,
-          "item_hash": "sha256:34e09531274b8b718eda840447cdffa4f6534e2f97ba70bd4d4061bc7688fd50"
+          "example_id": "finqa423",
+          "index": 423,
+          "item_hash": "sha256:6b3860e0a6b33d8f4b7503009334adcdbc0855b58a7a9566478e64595c0bfb82"
         },
         {
-          "example_id": "finqa447",
-          "index": 447,
-          "item_hash": "sha256:661649d19cc2597ab779f38922e7972d1d0bd664f50f15dea76a9fba4a85b28f"
+          "example_id": "finqa457",
+          "index": 457,
+          "item_hash": "sha256:4ca3e8ab6701988ea7c464e6d1776d5918ba96ad4bb73f7cdc23b25e8d4aa935"
         },
         {
-          "example_id": "finqa448",
-          "index": 448,
-          "item_hash": "sha256:19ec8e666fb5981ad5feff45145acdb979792659b7bde7f590dd64212afb029b"
+          "example_id": "finqa461",
+          "index": 461,
+          "item_hash": "sha256:bcbb4b9ff11174d9f72db27031e34641879b3ab89f7401f746b0415d6e0e1133"
         },
         {
-          "example_id": "finqa469",
-          "index": 469,
-          "item_hash": "sha256:2a065f089a225d555490a0bad2b6a3e8ff1e970c6efed3272d5fa1fa7461bf11"
+          "example_id": "finqa467",
+          "index": 467,
+          "item_hash": "sha256:61aaa4b0bac744a384aa5745392a7f41d990671005aae41445ab1059da77f7bc"
         },
         {
-          "example_id": "finqa471",
-          "index": 471,
-          "item_hash": "sha256:6c5306d6bc7305183414ac4d314bb5bf43658fee2ef0eeac1e9feea7cdc2e0cf"
+          "example_id": "finqa470",
+          "index": 470,
+          "item_hash": "sha256:34dd70e1bb2ca69637b63f78ce3ad00e87f764c4653861eedb6ec59d8c3eb5e3"
+        },
+        {
+          "example_id": "finqa491",
+          "index": 491,
+          "item_hash": "sha256:c2ab905449f90a930c07700e5d01d19f7df28865f83d4662c166f957c3188aad"
         },
         {
           "example_id": "finqa508",
@@ -441,29 +477,14 @@
           "item_hash": "sha256:d21af5d82e75e716cdd6f57d8a103dec5d6af47305ba374c464ec78d564256d5"
         },
         {
-          "example_id": "finqa520",
-          "index": 520,
-          "item_hash": "sha256:30b563c8f06ecc0016a5eae8822b7eb92ba7aaf0b7978b8374a71cabbf2942f5"
+          "example_id": "finqa529",
+          "index": 529,
+          "item_hash": "sha256:59c9c1b4e36eda0b23ccfd7cb6759613deda7dd8dc27895fd6ee0dbff7384127"
         },
         {
-          "example_id": "finqa542",
-          "index": 542,
-          "item_hash": "sha256:3a0ede023231c424bfea87993261fa72bc0d5f7a7e540462a0fe846fe0691dfc"
-        },
-        {
-          "example_id": "finqa549",
-          "index": 549,
-          "item_hash": "sha256:b0e5ab0b952ad41df3544053a172dea33e71d1512c8fb0dcc54f7bc7776c6995"
-        },
-        {
-          "example_id": "finqa551",
-          "index": 551,
-          "item_hash": "sha256:b2a0e273c97cbf6277be906a3643f6553e81b0a2c9db3def1ec54d6c5a6b8b44"
-        },
-        {
-          "example_id": "finqa558",
-          "index": 558,
-          "item_hash": "sha256:1cff70fb1f82234eeaa0dfc424abbc14c43320c97f4f6edff5a29a85485b8846"
+          "example_id": "finqa562",
+          "index": 562,
+          "item_hash": "sha256:b3dda9a7f5da01b1994e1205389f4d0bd63ef26fc5370d1f4f2662bdb8007735"
         },
         {
           "example_id": "finqa564",
@@ -471,168 +492,215 @@
           "item_hash": "sha256:f0302d3bcfb36ebddb00f227273f5f2881ff1565a0f28a4a27f57577511c4949"
         },
         {
-          "example_id": "finqa582",
-          "index": 582,
-          "item_hash": "sha256:0d9ac47cc6ccab4d0f830b88d616a9547d2f817ea1cf480805346c1a8fc2e711"
+          "example_id": "finqa590",
+          "index": 590,
+          "item_hash": "sha256:6f4f1328b974a2ec608706554b789b64b276be4383f99cecf6cc307d7b6bd247"
         },
         {
-          "example_id": "finqa597",
-          "index": 597,
-          "item_hash": "sha256:620af6644c44ce95d7c2eb01697f4a05ff43a83cd0e68c12a52ae61e40357be1"
+          "example_id": "finqa592",
+          "index": 592,
+          "item_hash": "sha256:0fa8b03c40a2695ad2753a16a52b03d945cc0e6f865d68bdea35ddd1a78eb3c3"
         },
         {
-          "example_id": "finqa598",
-          "index": 598,
-          "item_hash": "sha256:57250dd4c7b6146db2246b83270612ea58f35fd20751aabd4d40bb38cf660ddc"
+          "example_id": "finqa640",
+          "index": 640,
+          "item_hash": "sha256:b1e54e861e647ce5fc18fe40d7622596ebdf73baf5cfa92ac0d6ceb67fb37fba"
         },
         {
-          "example_id": "finqa618",
-          "index": 618,
-          "item_hash": "sha256:50ded05ac22d3a5fa28f5e04cb673aeb54709df1531b0b9364f24b129d2042f1"
+          "example_id": "finqa644",
+          "index": 644,
+          "item_hash": "sha256:e17f59c9c7e16d6ff90294e5ecb3869ce9b49ca9c10a75d6f850adf7b63f7c47"
         },
         {
-          "example_id": "finqa629",
-          "index": 629,
-          "item_hash": "sha256:d361d11ccf7b088f9dae17efec3977d3086279f010443fc52d8d4b27f8ffdd47"
+          "example_id": "finqa664",
+          "index": 664,
+          "item_hash": "sha256:772a3ca0f2379d42908c9103b95076c737ea679e6ff28a6320cda5bc6e85e0ce"
         },
         {
-          "example_id": "finqa641",
-          "index": 641,
-          "item_hash": "sha256:d98ae6d208ff4666f52f4a9b79fc19047e85887865e13b80137ac37743fe9285"
+          "example_id": "finqa675",
+          "index": 675,
+          "item_hash": "sha256:086c7fe8e6265a4fb8070753a6b905c1df6eedfe9f338ed5db31aa8564a91e60"
         },
         {
-          "example_id": "finqa649",
-          "index": 649,
-          "item_hash": "sha256:8b0b804ed2f1c12859883e197c07c0107196dbbc3d66e0419918ec9579abfb99"
+          "example_id": "finqa689",
+          "index": 689,
+          "item_hash": "sha256:653684c1db2738508da3ce44f20cfb9bcab6403ba1b4ad37f1867a9b76188f39"
         },
         {
-          "example_id": "finqa676",
-          "index": 676,
-          "item_hash": "sha256:85f13e113ed969754c7e88e19cd2f78923a178d09958ef276df2c10b6ce6e064"
+          "example_id": "finqa695",
+          "index": 695,
+          "item_hash": "sha256:775e5b908ffd2bd46a13d52d5cfb58492e1e1203fa0d00df44e26364c8b84c10"
         },
         {
-          "example_id": "finqa691",
-          "index": 691,
-          "item_hash": "sha256:2dd1c642590676432db7d300d6f396a787d8438a06e3132529185c81a7acd13c"
+          "example_id": "finqa765",
+          "index": 765,
+          "item_hash": "sha256:e5db2ca7a8788621c70789e5f9800d161bf82a49f9ba00d7849cdc07edbcd65b"
         },
         {
-          "example_id": "finqa719",
-          "index": 719,
-          "item_hash": "sha256:69c4e327f732f1e7e73e019cfde84c5b35b1f1c14b7374298d584e70cedab771"
+          "example_id": "finqa775",
+          "index": 775,
+          "item_hash": "sha256:9c96fb0b1eb15795a74897bf4f7a3df8473b93d9e87c33f86d7e59ac89727a5a"
         },
         {
-          "example_id": "finqa723",
-          "index": 723,
-          "item_hash": "sha256:e9a62c4668477ca9bd6d082365ca713b9c970f493253c9fc3a81f19344f79695"
+          "example_id": "finqa795",
+          "index": 795,
+          "item_hash": "sha256:4f90b8a1172b42f870aa91f9e42de35110ffc2290d5b13ea5215708518a18702"
         },
         {
-          "example_id": "finqa729",
-          "index": 729,
-          "item_hash": "sha256:907c62fca02327ca90bae59e93c6f1421c497e80806334f2c0385386e1a33793"
+          "example_id": "finqa819",
+          "index": 819,
+          "item_hash": "sha256:441d6f261b9b97b6842680c89c5431d157a27453dd2d927043d8df0bec390e9d"
         },
         {
-          "example_id": "finqa739",
-          "index": 739,
-          "item_hash": "sha256:f87728ea9bda4e5ee019400e75ad43f75a6e647a510c1399166f0b5c91b81ac1"
+          "example_id": "finqa863",
+          "index": 863,
+          "item_hash": "sha256:7db9eab427ff31371169ad1dcfd831c072faa42f998c2df02587f1ad62ccca28"
         },
         {
-          "example_id": "finqa768",
-          "index": 768,
-          "item_hash": "sha256:22b25adf2688fda3e0b00db339689c796cce3e108b4d97e53f945af59e85a16b"
-        },
-        {
-          "example_id": "finqa770",
-          "index": 770,
-          "item_hash": "sha256:1afe99ddf604d132a4c9573b85347a223dd6ef87ec0faff0c79c10a76e144a64"
-        },
-        {
-          "example_id": "finqa771",
-          "index": 771,
-          "item_hash": "sha256:60958f5b7d1036231cf65229e9335fe653925248349da0a7bf9a9da51fe56708"
-        },
-        {
-          "example_id": "finqa808",
-          "index": 808,
-          "item_hash": "sha256:b8a9ae4b6dbe1da7a4f1bcbbc71a2d944bc4de1afdf570025cfc78ba5eafb4d5"
-        },
-        {
-          "example_id": "finqa812",
-          "index": 812,
-          "item_hash": "sha256:0f6f4578f92f74a349d37608824239c6e771277f5db6c49c633fc1cb1d3eba11"
-        },
-        {
-          "example_id": "finqa854",
-          "index": 854,
-          "item_hash": "sha256:0dcb39fcfcc20d3565d59edbc811929d376254bde0da164bdddcbef3a35c63e5"
+          "example_id": "finqa864",
+          "index": 864,
+          "item_hash": "sha256:71f855ed766f8a9eecdb2d3a5927f421ba983f39315b7f26ea4ad61f31a46e70"
         },
         {
           "example_id": "finqa867",
           "index": 867,
           "item_hash": "sha256:b89476ef837eaf1eda5b3b0b8dc551e8413b02a9b331bb1720277bbcd05c8010"
+        },
+        {
+          "example_id": "finqa871",
+          "index": 871,
+          "item_hash": "sha256:40cb04be95cbf82ed992140b9e0617c3acd525eb20c8bcb04891ae2d51744ced"
         }
       ],
       "exclusion_counts": {
+        "failed_freeze_attempted": 17,
         "harmonized_v1": 50,
         "harmonized_v2": 50,
         "original_development": 50,
         "sealed_final_identifiers": 200,
         "second_family": 25,
-        "total": 375
+        "total": 392
       },
-      "exclusion_identifier_fingerprint": "sha256:b39056fc8c2c59244f96862b2ed64206deff7a84fe4212d6ab320762ed8e1893",
-      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions; one consumed smoke item replaced prospectively; second consumed smoke item replaced prospectively; three consumed unconstrained-decoding items replaced prospectively; one consumed multi-object structured-output item replaced prospectively"
+      "exclusion_identifier_fingerprint": "sha256:452f60a1b84533738328f246236b90062a66400d9d65b1709bb38e948b04bb49",
+      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions"
     },
     "tatqa": {
-      "candidate_count": 108,
+      "candidate_count": 1267,
       "dataset_size": 1644,
       "examples": [
         {
-          "example_id": "1308b3bb10bca083ae4f9652ee1343ed",
-          "index": 114,
-          "item_hash": "sha256:887192bd02aaa54bb1bfc9294b12088ba47f733a46b6a23ed883db9eb222b299",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "f285b1c61831fc4ec0511bf6de0e9cac",
-          "index": 118,
-          "item_hash": "sha256:b17739d58b4b59ea25c2f095195704ef1b45fc86efe48244d068bcd02743cc77",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "0b381df349d696af6148b4a254fefe9d",
-          "index": 394,
-          "item_hash": "sha256:93c8991e836fc19e27d41bae0aa6fe76fe4e4856bda9f6c9c34bc152eab460f8",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "a58fb7cd2e47b860cf2c90ac9e86d4bd",
-          "index": 544,
-          "item_hash": "sha256:102792e834b54c6f24ce95077145f469b4435822aa0d289dd7047aaf125bcc77",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "b2d6a9ecc281eec99ba44410ef9d2215",
-          "index": 616,
-          "item_hash": "sha256:8efb625a83586c75786ef6c7e240b2603901145c0db477bd096a40546f3a0f31",
+          "example_id": "11989acf57fd4000baa8de490c0a797d",
+          "index": 46,
+          "item_hash": "sha256:ebc63de7b71e84dc64af11a72c1d2264ee4c9d5cf6cede1e705e9bea81c416dd",
           "stratum": "arithmetic | table-text"
         },
         {
-          "example_id": "b59c7905d1884a3d851c8e9e0986a5c3",
-          "index": 721,
-          "item_hash": "sha256:6e0a7148c6734f414ff11e3f849633fb25d13b3cb9db5fae5740d6479fa4e3c4",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "95408d534ce3e2560b2270d8b4286e6e",
-          "index": 723,
-          "item_hash": "sha256:f5bbf5e23bd406aa5099b8e22301077935fb16618b76333c546fbed7ed9382c8",
+          "example_id": "ecacf25989214fb5a5ebea463feb07b3",
+          "index": 62,
+          "item_hash": "sha256:a2a3a7d9e7f9a7b474d8af5a4e96ac9ca191fd4de52ada07122298a333a2f6de",
           "stratum": "arithmetic | table"
         },
         {
-          "example_id": "1528f96ab2b1681f72de90a96c182850",
-          "index": 741,
-          "item_hash": "sha256:19a6aac4df5fe146eeb9163c22d8ead879fd9d0f410a19e53e59754fd65321c8",
+          "example_id": "3a2082df3368ab1247a35cee9ac5e62b",
+          "index": 74,
+          "item_hash": "sha256:c8edb0858b9e784c228fc80db40959860b1322a6dafd4685312810364114532c",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "c0f9446c09f49760d05f32e91b45db93",
+          "index": 212,
+          "item_hash": "sha256:155d0d4f25d6fba095f1bdd75337c88bbf50a0f6f2c557ea1cc9d8cdfe4c64ea",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "628d42317e7830dfca5e89ab28d7f1ab",
+          "index": 215,
+          "item_hash": "sha256:e9e8e72c655557ecf3df91431cfbe53d02ad9d94f225d0e59435f54500fa4350",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "951b4d5ea3826fa0a07b28bf2292fb6b",
+          "index": 221,
+          "item_hash": "sha256:3a22f618c9d8ac3c95f59c94734e024d5739aeeea326fd76bf5af069951e1548",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "0cb60a42233d3b8d0973ebe047c12019",
+          "index": 246,
+          "item_hash": "sha256:6e66c693b0c5c6694200628348e7140a7ff57279b3bdb3a610b78e83802ec9d0",
+          "stratum": "multi-span | text"
+        },
+        {
+          "example_id": "0db83d388d267f669f40e9fe39d1c8e0",
+          "index": 251,
+          "item_hash": "sha256:63e8b3af3fbca5d2aa8944e33dc315837e05a8ae75e26579e8de7dc66e7ef0bf",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "06e96b79271775e1168f5e454ca41b05",
+          "index": 257,
+          "item_hash": "sha256:806ab3f83dace69b28e673832a98426bff4ec6d13952b3e0ecc080f66a719664",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "46c6c3544e71b34cb95622367c0cbcbe",
+          "index": 287,
+          "item_hash": "sha256:1694936c53ad0472e5dd320620c6254e12e96e6a7b11d5b3d0c59f4495c8dfc1",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "cdf925c2aec8fd272ead593930abf48b",
+          "index": 390,
+          "item_hash": "sha256:60cb47b2e628d572144b0fa417232469fe2ebf3b2614a1876116dec094debee9",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "d53548facd7c52b36b253300f2f734b0",
+          "index": 398,
+          "item_hash": "sha256:96457d2434a30c1863fa94b7d30dc61a127e7dc2787bec5a80d2d881ad38c1ba",
+          "stratum": "multi-span | table-text"
+        },
+        {
+          "example_id": "a26ef2bca3299752bfca9fd6acd5d6d0",
+          "index": 447,
+          "item_hash": "sha256:d61ab90e99046b3bdc807a867b0824615e5bd35c00f9598fec02edb78fb119d1",
           "stratum": "count | table-text"
+        },
+        {
+          "example_id": "ee6bc2dfcad6d8add31ab873202b5f79",
+          "index": 515,
+          "item_hash": "sha256:7de94b54d17005d9235289a282f4421de43e94652bf615d1a0710c787a39ad1d",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "d7b90eea35d3ae9b7778c903cde68248",
+          "index": 570,
+          "item_hash": "sha256:035df50d3a17dbb9173277473377f9b07a21e6459a39914285536626f121d86e",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "70b9234882ae490f72d5f35ba5a9ac90",
+          "index": 577,
+          "item_hash": "sha256:c424334570edbeaa41fa0193f8daa2af79421c9c8c45a1bc897261401c08c38c",
+          "stratum": "multi-span | table"
+        },
+        {
+          "example_id": "5b397ba7e12de010b3af0974ab9b204c",
+          "index": 591,
+          "item_hash": "sha256:6e7f6ed8f59809fb63a30b072e376da2c7f5d9a0030d4ec7f7b8b67e016633b0",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "9402111db82831faeac0dd346c7eb084",
+          "index": 678,
+          "item_hash": "sha256:2dca2a75874b4c5cfb313abe3d286341201e3b9a89df7e04ee3094a6ab7530bb",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "3b10b9afd08c3a0a1f5149b6a1aff6ed",
+          "index": 736,
+          "item_hash": "sha256:51a5224ced1be0f02c95649a3f3bc8a11a25919e5c0f733ef3bba772558fef1f",
+          "stratum": "arithmetic | table-text"
         },
         {
           "example_id": "1a57aea965816a763a028fa90cdc78b1",
@@ -641,214 +709,154 @@
           "stratum": "arithmetic | table-text"
         },
         {
-          "example_id": "87db001894710233bf85796e43f9e539",
-          "index": 882,
-          "item_hash": "sha256:1197e8f2fac93ecf2a7485e779a09ca45a3768919fa145d961a18fb90e050bc9",
+          "example_id": "64a9619a1f62d85762ffef31706ad848",
+          "index": 746,
+          "item_hash": "sha256:b0bef4ff83730a8b74c5ae21040a02cd1f4c744a543d605b6efbf174805e411f",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "40646ca65acf52c0b263f761b0575d2f",
+          "index": 772,
+          "item_hash": "sha256:9b74292df5a61d5fdc551baf67b482e4e500c48427ab171c79aba36900996654",
           "stratum": "span | table-text"
         },
         {
-          "example_id": "3404ada9eba910b36a2e3d0e0a8eee47",
-          "index": 883,
-          "item_hash": "sha256:d113f28d66f50116cb0d24e2f47ae31f3ec92ebe741bc3d2fddd0dc0b7027d22",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "a458922482f8cbbba867e76625c45516",
-          "index": 884,
-          "item_hash": "sha256:6efef0747bc722d36147d56d87045c9c7196285074a2c69ad57c552596ee00d1",
-          "stratum": "multi-span | table"
-        },
-        {
-          "example_id": "0d40209ad005b0f9b5cefbcca47b461c",
-          "index": 885,
-          "item_hash": "sha256:2ab2d64a1fcd1cd9ceb5c2cda528f1b037c23e2e6c7f390883ea07587245b401",
+          "example_id": "f42d70e28de0423f14536b098acb86a6",
+          "index": 821,
+          "item_hash": "sha256:37fdc0b698f1b3d73465e91e352d15e6ea3da0b181b073f4b5dc62fdd39b2d0c",
           "stratum": "arithmetic | table"
         },
         {
-          "example_id": "c0bf5ab89e4709b74be7ed2b55570bd0",
-          "index": 887,
-          "item_hash": "sha256:d57fa29be31ae1626efd5c4e7e243b6ad1c4ec95366e8d2c0ac2e9bf1bfaadf5",
-          "stratum": "span | table"
+          "example_id": "ce95ed517265c73e4d838821b23f71c7",
+          "index": 842,
+          "item_hash": "sha256:996b528cb1e4d0fb099f2b2726b28d3b3ce27a322a1ea152bfe1a181c961cba0",
+          "stratum": "multi-span | table-text"
         },
         {
-          "example_id": "e2891bf357897912d7f9db3c5e184765",
-          "index": 942,
-          "item_hash": "sha256:bec547711c2a03a6d8c9866fcd10757835f2dab9175e6ec4efcb3338183395fa",
-          "stratum": "multi-span | table"
-        },
-        {
-          "example_id": "b373a0e02b50c4e771abdb1185ee8f48",
-          "index": 943,
-          "item_hash": "sha256:d381724376469953ace4d02e397a94627f1646df76c15179f1002da613399a43",
-          "stratum": "multi-span | table"
-        },
-        {
-          "example_id": "80dd386cb3bda09f754acc8036045ffc",
-          "index": 944,
-          "item_hash": "sha256:ec7ea9a664534076aa387b018ed5bfd07cad482ec969c39f51f8f29299e3f300",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "019d878ea786457e04877d9da148731c",
-          "index": 945,
-          "item_hash": "sha256:bfddd0af75e50f4e8b6c6d502855f154b497350a357543ba0328ab80735b0b90",
+          "example_id": "278ecd7dcf0d6a062bb9818020b694d4",
+          "index": 867,
+          "item_hash": "sha256:2bb76b81714189797ba7e8877caf6fd51be3c55a0c1dc1e7424f632f43602b5b",
           "stratum": "arithmetic | table"
         },
         {
-          "example_id": "fe8034e7aaa06c1341a0328d6f542e87",
-          "index": 946,
-          "item_hash": "sha256:6659006db7444223472e1bc676e2d23c0fe902fbb3fedb1c9a43f9db4f137f03",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "8b8ad8ff9d3b95b74eb4e69282517bff",
-          "index": 947,
-          "item_hash": "sha256:a8752bc76f7e2c564fe440852f41f2618c7b4574418dedd3fac9a98d7d23aab2",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "07cf21196d3eef5679303fa3cad2263a",
-          "index": 1122,
-          "item_hash": "sha256:b008a3ab6049bc560561a22def179b4df37da01d1277521105e31c10b15a0329",
+          "example_id": "e5e47a2544311aea645e6bf651145372",
+          "index": 889,
+          "item_hash": "sha256:bb0b253f3d7b9467a42ddeca4057348830283973aef56ead17fba32b4982dceb",
           "stratum": "span | text"
         },
         {
-          "example_id": "4776300fa5f954ee29c94efaa9be1499",
-          "index": 1125,
-          "item_hash": "sha256:aa5510839e0cebb39ec74c6b99bfaeaca78adf8dca84d4b779467f1491230f2b",
-          "stratum": "multi-span | table"
-        },
-        {
-          "example_id": "5b20b041ae9070951fb5221141147f7c",
-          "index": 1126,
-          "item_hash": "sha256:d6ae29b6fe3aa5f69d7f51860b852a1927a9e8f2901467c3980e4064274ffec6",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "a8636d7aa149374d11e33ac0ffc7bd8d",
-          "index": 1127,
-          "item_hash": "sha256:2e32f2fdf71a7f4f1987493a65d6cf75b826a6972c020c7377147abd7c78a204",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "1cacb938d6efbfd0ecd52e8f55b61023",
-          "index": 1131,
-          "item_hash": "sha256:074711c4106d97766a4c92c5610128dbd6e8c4f46e5a468c314e2b673220bb3c",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "0f9e6e3721a7b951e209695fa579fdaa",
-          "index": 1154,
-          "item_hash": "sha256:0b2365dce1126ae729d048a38fb04c740e60373755fc3b91f61cbf6a8331ed4a",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "15ede3fecadee1ac93c2d58fd4c72d6e",
-          "index": 1156,
-          "item_hash": "sha256:aea9e8c4714d3caee93713d93288769433be0c8d6b5c54db28dcd369eec7f252",
+          "example_id": "710a356e3abccae068bbe658b8f8bda6",
+          "index": 924,
+          "item_hash": "sha256:d4d2b0bbde2a3252cee2d413c319718133e28d63852d83c7025fbb128dca893f",
           "stratum": "span | text"
         },
         {
-          "example_id": "314322cfc99273e41ba32c6761e5af85",
-          "index": 1157,
-          "item_hash": "sha256:7213353f0c42fbeaa5544f0353e8990b9293da7e3b4dd7a99339bc41c8d4ec9f",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "d379508697ff4a98d8fe38c454787f22",
-          "index": 1242,
-          "item_hash": "sha256:87a89f1403916f6e504de920f9813cc5c57b10b74d028a90f50c7c5b3b17e3ae",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "0ce961a88b9ab7cd64dd4794d84b7dd2",
-          "index": 1243,
-          "item_hash": "sha256:15dce6e9c195565ea2936cc672b23358961b320a5c0f838ae03ab16a5f0bfded",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "b03e0abe3aec5b66b980f8b1acc8411e",
-          "index": 1245,
-          "item_hash": "sha256:17d14362246225dfebbdd928f05c0952b076a73caaef14b359be847b57dd4b94",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "085206aa638bde533b2c719460dc1871",
-          "index": 1308,
-          "item_hash": "sha256:f092e4382128e620a9b88accf0e21aebc5eeb010c6d005321d8badd8597f36d7",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "3eacbc19da8ef28a470033bbe32ae1fe",
-          "index": 1309,
-          "item_hash": "sha256:a701a2841c9cda1cabffdbf0ab8dee2c60556fbc6b16912d6c0220dbcea01f5b",
-          "stratum": "span | text"
-        },
-        {
-          "example_id": "3943f2981ef55283be2f23799ab25dd4",
-          "index": 1310,
-          "item_hash": "sha256:c35c5c9e647fd825ad3be22c3dbbb1411cb2c2cc39b50899bc56a5fb7b84e645",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "221c26d60b2e0d813eff0b0782a10b85",
-          "index": 1311,
-          "item_hash": "sha256:404e185e419372c16a65a24f5998791244769e9e7156ee77e08d083a676c3324",
-          "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "902fdf8a939c22b46302b100dcbe488b",
-          "index": 1326,
-          "item_hash": "sha256:1692c09cb0cbb4cf55028824664b518a741b42363ebcb47109cd465b7733f0b9",
-          "stratum": "span | table-text"
-        },
-        {
-          "example_id": "c8cb9d80f112f86d59cfeb87991313aa",
-          "index": 1328,
-          "item_hash": "sha256:9b8a8c4730cb5fa88a13ef1bb85ba001fd5a1901fc6dca4a46b1a6d02d8d78f7",
-          "stratum": "span | table-text"
-        },
-        {
-          "example_id": "88f037b149e1db764c420b7e10217c7f",
-          "index": 1330,
-          "item_hash": "sha256:4f7826935d4c823d1b31cfb0297ec5bff70b5c66a1356bf768e21951c371a525",
+          "example_id": "1d2e7bc0ac0cc8745298288d880b3a39",
+          "index": 927,
+          "item_hash": "sha256:e9ed540e86fea431d9fa9fece0acbd965082f77ee80384ff2bca249ea6661293",
           "stratum": "arithmetic | table-text"
         },
         {
-          "example_id": "2029271534af3e3f8d6a8695b49f9ae2",
-          "index": 1331,
-          "item_hash": "sha256:31bf40e63b9949110c9db89532afba22354e9941cd013b4651290ffba1d51441",
+          "example_id": "460a904ef089396ac8a2508c17aaffbd",
+          "index": 930,
+          "item_hash": "sha256:5d683e82f3385be51b69cba3688fbc026b5ab70c9d438737d82b1bc6dcb78a50",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "bfe05ff9c08117f8db03945f68fbee7d",
+          "index": 1039,
+          "item_hash": "sha256:da3896c09900f9e198d8fed7b315f9588fd25f8c8416b9fea9fe41edf82ce4d5",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "f6deab9986978759a88ce0413682b09d",
+          "index": 1068,
+          "item_hash": "sha256:813b9b080c3c0c51ee77126f4921d351b811cb0ed0869a15d2616d50b8c0e07f",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "579b8c1cecf8dde11389f6fab1a1fe60",
+          "index": 1102,
+          "item_hash": "sha256:85ba4d495f343580a68fbc52c0caadc1110d33ed43863b7ed16725ec1eb63f01",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "29a61cc0c282e0fa5ee1c3d2ba8f3e55",
+          "index": 1110,
+          "item_hash": "sha256:d9435b08c0dafc198a9700e964dcf74bbea05c7bf4f37794e73947b267783983",
+          "stratum": "span | table-text"
+        },
+        {
+          "example_id": "1b779759c6d3f6c2e20cb84563f4d401",
+          "index": 1112,
+          "item_hash": "sha256:43722ac2a65fa343dfb56e4016c2b1af8a260caa16beb3420672aadf593caf7d",
+          "stratum": "multi-span | table-text"
+        },
+        {
+          "example_id": "e34683bb55df10c4ab5cef933574c2a1",
+          "index": 1120,
+          "item_hash": "sha256:f5ccf311f50c5e55b5c10e63bd83851e413d0083d4e9b4282d1e9785234a5c74",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "a23e7581f99201d7a2d67b2b2dad2ed8",
+          "index": 1193,
+          "item_hash": "sha256:c7fbf3fd4a0eff35f7a92b0e5b1decaadfb8bac8b9e58f623f2039e20874de32",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "915a8f8b4302b3a2f591ed91d3d0fd25",
+          "index": 1233,
+          "item_hash": "sha256:798efe2b2c4f31f07fef3604c034896b263c5669cf5960568b4c60a58118fcd5",
+          "stratum": "arithmetic | table"
+        },
+        {
+          "example_id": "424f0bff1c118dc965911d57d74760a9",
+          "index": 1246,
+          "item_hash": "sha256:de4fcdbf19a00a4fc134af3673a77dafc2fc46195e34f378e2168fd1fdb8ec99",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "bc1e96a7ab9dd2891996b60634b3fe8a",
+          "index": 1274,
+          "item_hash": "sha256:960f5847610a74ca589c32576fdf7b914a090772ed2142f5155cdf70b74ad894",
+          "stratum": "span | table"
+        },
+        {
+          "example_id": "6b3365beea5f16ec663bccf7c3c8014d",
+          "index": 1307,
+          "item_hash": "sha256:7fc5fbd4be4d46be056d4e59ef15c7a86324be35625b0b5301206a6d32fb36b7",
           "stratum": "arithmetic | table-text"
         },
         {
-          "example_id": "c44007d4be0cf620fa9921a4c46549d5",
-          "index": 1408,
-          "item_hash": "sha256:9290d380cbce539078b37dedf14fa704b8a3f327c2d9fb1dd991ad30948cd3ce",
+          "example_id": "cd52e0d12ff760e963245c58d639697b",
+          "index": 1362,
+          "item_hash": "sha256:af1c9fb681fd8b2d8cf37fb9af28cda802e522cdd6bb8439fabca77eaae6b988",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "ba7cc13f8cb28bc81da58a78409fa50c",
+          "index": 1387,
+          "item_hash": "sha256:4ae66615afeab988a7613b134b3f6422441fa610dafc8d07401af8ca7bdf9861",
+          "stratum": "span | text"
+        },
+        {
+          "example_id": "882b73ec80b2cce185ce49e11ea9f448",
+          "index": 1400,
+          "item_hash": "sha256:74a9fceec8e18721aef9fc433c983338b42db7d1b076360e0a3a47e00df15281",
+          "stratum": "multi-span | table"
+        },
+        {
+          "example_id": "da3c4990b3d65b587cea75ccb9ed3248",
+          "index": 1407,
+          "item_hash": "sha256:9f50e3cbca7852c55f241b9711c761c30c19d7033328af57215db80980b0b8a7",
           "stratum": "arithmetic | table"
         },
         {
-          "example_id": "f60a139759133bce1d6ff233f60a6adb",
-          "index": 1409,
-          "item_hash": "sha256:064681d0ea08a9894db4bee200d4f854c943da69bfafa355aa5f1eb76f3f3c93",
+          "example_id": "b85957907eb77e2c048193cbeb26b4c0",
+          "index": 1449,
+          "item_hash": "sha256:f8d829e38592f421b7567b2f2c150d14bd6feedf13403d41a0c4b1a765b6a940",
           "stratum": "arithmetic | table"
-        },
-        {
-          "example_id": "21335ef4003baab253f341ed4b8b7117",
-          "index": 1446,
-          "item_hash": "sha256:99d5f303126e3f83166252b08b2c2b022c041f94d02b7497d4dcfddaa1f12220",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "afa1cd96c04049c74713fbda84b8ec74",
-          "index": 1451,
-          "item_hash": "sha256:f36f806ea26a306d28ae54a10aac8337c75246c76bed5cb9a8af78c8135675fd",
-          "stratum": "span | table"
-        },
-        {
-          "example_id": "37b8c68b9b6fae9c7cc86e5f675a52db",
-          "index": 1465,
-          "item_hash": "sha256:18de8b7beda66d299cc90e4a97abcf2b3b6caddfc0ef3cca5889967ebfd99002",
-          "stratum": "span | table-text"
         },
         {
           "example_id": "6430eb9791c6df879894c7c9516f0a28",
@@ -857,88 +865,3651 @@
           "stratum": "span | table-text"
         },
         {
-          "example_id": "31fe9deeea60210ec75e156b4c4cbd7e",
-          "index": 1467,
-          "item_hash": "sha256:8fa8e92b58b733272ca93400993764fc17f00edf9ce1423cf4093072c7ef3238",
-          "stratum": "span | table"
+          "example_id": "598583339f024fea9e17a8a892d331b1",
+          "index": 1529,
+          "item_hash": "sha256:d29367b25e1b65945ef0f155873e12dc27d4d23424c7fedc7bc46da1874ea0ff",
+          "stratum": "arithmetic | table-text"
         },
         {
-          "example_id": "7f4fcb1db9ba3f0c2bc36152b51ff65e",
-          "index": 1468,
-          "item_hash": "sha256:80c405f96a3370d6a8215dcae0690d34174aa39759003d225cbc2337456083b3",
-          "stratum": "span | table"
+          "example_id": "ab38c6dbb329777a3035fb2c73641f2a",
+          "index": 1555,
+          "item_hash": "sha256:64bc0e9324f8533d72b64e85f2c784e06d6fe96480628b124b2f8b25c2949394",
+          "stratum": "multi-span | table"
         },
         {
-          "example_id": "6d67f855fc7a1b02747ac36ac39141e6",
-          "index": 1620,
-          "item_hash": "sha256:c1117a8292f30549ca6f8e6eb75c3b0ed3380576ba6d0723832b926da02a896d",
-          "stratum": "span | table-text"
+          "example_id": "f2d80309f2783767afbe1e82b9bdf7c0",
+          "index": 1583,
+          "item_hash": "sha256:874af84d3b6d1848f216d0318502c1b3d0149a9ba090c78c812bbcdc0ddfbdc1",
+          "stratum": "arithmetic | table"
         },
         {
-          "example_id": "ab09785972d1b33b783520eda6eda114",
-          "index": 1621,
-          "item_hash": "sha256:427edae8dfed7b03c5ad5620cdeaf97f39304c9e5f192989e95ba6baf523af85",
-          "stratum": "span | table-text"
-        },
-        {
-          "example_id": "04087582b1e3a31c0425a1f403bd01b8",
-          "index": 1625,
-          "item_hash": "sha256:726086a75a27e7a33378a9fe63d41010560ab3c1d69e51f0248e90a94b1ffeb1",
+          "example_id": "f4a90e2c9cb3d593b2ac794c25e359a7",
+          "index": 1594,
+          "item_hash": "sha256:ff52190e7e135febe4d7978b5b170ceb7b8311ef64b499a92e70688335b5f528",
           "stratum": "arithmetic | table"
         }
       ],
       "exclusion_counts": {
+        "failed_freeze_attempted": 2,
         "harmonized_v1": 50,
         "harmonized_v2": 50,
         "original_development": 50,
         "sealed_final_identifiers": 200,
         "second_family": 25,
-        "total": 375
+        "total": 377
       },
-      "exclusion_identifier_fingerprint": "sha256:95ffe4c88b04c366a230aede0d2fc79c46d6d83d5f7d5bc9d8d694b1bc61b987",
-      "selection_policy": "seeded proportional answer_type x answer_source sample from wholly fresh contexts"
+      "exclusion_identifier_fingerprint": "sha256:f97cecf001d6027356e6e4528e5a8feda86c1676e4899191829b1f38f3b27cb5",
+      "selection_policy": "seeded proportional answer_type x answer_source sample after identifier-only exclusions"
     }
   },
-  "manifest_fingerprint": "sha256:d536bf2e3e1b68d9668aa0dfd361b19825693d54c916b5ef95886cbe038ac7e0",
+  "execution_schedule": {
+    "items": [
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa408",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 0
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa819",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 1
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "6b3365beea5f16ec663bccf7c3c8014d",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 2
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "1a57aea965816a763a028fa90cdc78b1",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 3
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa176",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 4
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1326",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 5
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa863",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 6
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa529",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 7
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa321",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 8
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "6430eb9791c6df879894c7c9516f0a28",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 9
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1455",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 10
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1434",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 11
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa2076",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 12
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "f6deab9986978759a88ce0413682b09d",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 13
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "9402111db82831faeac0dd346c7eb084",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 14
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa508",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 15
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa907",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 16
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa795",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 17
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "cd52e0d12ff760e963245c58d639697b",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 18
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa389",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 19
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1013",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 20
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa338",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 21
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "3a2082df3368ab1247a35cee9ac5e62b",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 22
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa143",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 23
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1201",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 24
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1771",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 25
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "ab38c6dbb329777a3035fb2c73641f2a",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 26
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa579",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 27
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa564",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 28
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa271",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 29
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa310",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 30
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "d7b90eea35d3ae9b7778c903cde68248",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 31
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "3b10b9afd08c3a0a1f5149b6a1aff6ed",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 32
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1829",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 33
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa693",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 34
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa696",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 35
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa40",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 36
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa820",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 37
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa640",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 38
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1060",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 39
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "460a904ef089396ac8a2508c17aaffbd",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 40
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "951b4d5ea3826fa0a07b28bf2292fb6b",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 41
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa251",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 42
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1708",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 43
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "710a356e3abccae068bbe658b8f8bda6",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 44
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa491",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 45
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa765",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 46
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1395",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 47
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "ecacf25989214fb5a5ebea463feb07b3",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 48
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa590",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 49
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa354",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 50
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa864",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 51
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa929",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 52
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa374",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 53
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "e5e47a2544311aea645e6bf651145372",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 54
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa470",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 55
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "c0f9446c09f49760d05f32e91b45db93",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 56
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa305",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 57
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa644",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 58
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa94",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 59
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa675",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 60
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1268",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 61
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa84",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 62
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa467",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 63
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa225",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 64
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa348",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 65
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1494",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 66
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa689",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 67
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "1d2e7bc0ac0cc8745298288d880b3a39",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 68
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa695",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 69
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "64a9619a1f62d85762ffef31706ad848",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 70
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "579b8c1cecf8dde11389f6fab1a1fe60",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 71
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "a26ef2bca3299752bfca9fd6acd5d6d0",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 72
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "40646ca65acf52c0b263f761b0575d2f",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 73
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa788",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 74
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1935",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 75
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "ce95ed517265c73e4d838821b23f71c7",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 76
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1199",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 77
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "11989acf57fd4000baa8de490c0a797d",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 78
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "f4a90e2c9cb3d593b2ac794c25e359a7",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 79
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1937",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 80
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa2144",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 81
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "ee6bc2dfcad6d8add31ab873202b5f79",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 82
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "5b397ba7e12de010b3af0974ab9b204c",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 83
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa859",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 84
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "424f0bff1c118dc965911d57d74760a9",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 85
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa617",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 86
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "1b779759c6d3f6c2e20cb84563f4d401",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 87
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "29a61cc0c282e0fa5ee1c3d2ba8f3e55",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 88
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa280",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 89
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa147",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 90
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1380",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 91
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "f42d70e28de0423f14536b098acb86a6",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 92
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa871",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 93
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa89",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 94
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa584",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 95
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "0db83d388d267f669f40e9fe39d1c8e0",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 96
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa810",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 97
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1586",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 98
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1860",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 99
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa113",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 100
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa118",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 101
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa349",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 102
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa461",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 103
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa38",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 104
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa393",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 105
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "278ecd7dcf0d6a062bb9818020b694d4",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 106
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1422",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 107
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "d53548facd7c52b36b253300f2f734b0",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 108
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "915a8f8b4302b3a2f591ed91d3d0fd25",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 109
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa73",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 110
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1207",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 111
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa220",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 112
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "da3c4990b3d65b587cea75ccb9ed3248",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 113
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1413",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 114
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "ba7cc13f8cb28bc81da58a78409fa50c",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 115
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa478",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 116
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa457",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 117
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa592",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 118
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "628d42317e7830dfca5e89ab28d7f1ab",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 119
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "e34683bb55df10c4ab5cef933574c2a1",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 120
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa664",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 121
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa194",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 122
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "70b9234882ae490f72d5f35ba5a9ac90",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 123
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa423",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 124
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa418",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 125
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "882b73ec80b2cce185ce49e11ea9f448",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 126
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa304",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 127
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa867",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 128
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa321",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 129
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa562",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 130
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "bc1e96a7ab9dd2891996b60634b3fe8a",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 131
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "06e96b79271775e1168f5e454ca41b05",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 132
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa153",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 133
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa2164",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 134
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa569",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 135
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1855",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 136
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1301",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 137
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa97",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 138
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "598583339f024fea9e17a8a892d331b1",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 139
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa1048",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 140
+      },
+      {
+        "dataset_id": "convfinqa",
+        "example_id": "convfinqa186",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 141
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "bfe05ff9c08117f8db03945f68fbee7d",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "control",
+          "luna",
+          "terra"
+        ],
+        "position": 142
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "b85957907eb77e2c048193cbeb26b4c0",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 143
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "0cb60a42233d3b8d0973ebe047c12019",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 144
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "a23e7581f99201d7a2d67b2b2dad2ed8",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "luna",
+          "control"
+        ],
+        "position": 145
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "cdf925c2aec8fd272ead593930abf48b",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "terra",
+          "control"
+        ],
+        "position": 146
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "46c6c3544e71b34cb95622367c0cbcbe",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "react",
+            "static"
+          ],
+          "terra": [
+            "react",
+            "static"
+          ]
+        },
+        "model_order": [
+          "luna",
+          "control",
+          "terra"
+        ],
+        "position": 147
+      },
+      {
+        "dataset_id": "finqa",
+        "example_id": "finqa775",
+        "framework_order_by_tier": {
+          "control": [
+            "static",
+            "react"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "terra",
+          "control",
+          "luna"
+        ],
+        "position": 148
+      },
+      {
+        "dataset_id": "tatqa",
+        "example_id": "f2d80309f2783767afbe1e82b9bdf7c0",
+        "framework_order_by_tier": {
+          "control": [
+            "react",
+            "static"
+          ],
+          "luna": [
+            "static",
+            "react"
+          ],
+          "terra": [
+            "static",
+            "react"
+          ]
+        },
+        "model_order": [
+          "control",
+          "terra",
+          "luna"
+        ],
+        "position": 149
+      }
+    ],
+    "schedule_seed": 2026080203
+  },
+  "manifest_fingerprint": "sha256:9ce99b9a38d51d2b900ffd7df81f4dc08e548d7a8def0dede68037a1c4b90934",
   "manifest_schema_version": "realm26-capability-manifest-v1",
   "protocol_id": "realm26_capability_ladder",
-  "replacement_audit": {
-    "carried_forward_never_called_items_from_latest_freeze": 149,
-    "consumed_example_ids": [
-      "finqa41",
-      "finqa881",
-      "finqa714",
-      "finqa70",
-      "finqa81",
-      "finqa113"
-    ],
-    "failed_freeze_commits": [
-      "3b4698ebcc9af447c0590b397fcd743ffb8c6c06",
-      "c296aba15e429e4e24a1bb423a82c4713092a4d1",
-      "9c010e5a4758a7a699d52eba3aaa64cc044993c3",
-      "b3a0efeb86d602d33de7ed56e9a49f6338bb7e0e"
-    ],
-    "prior_manifest_fingerprints": [
-      "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
-      "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
-      "sha256:a793fc14aeccb92fad9a56726182aa507c12380d28e21d620e64068b181a30c2",
-      "sha256:50ac0e424a9d056e349731386af4a07fb2f0af50e87f3e33b5e9383168fdd96d"
-    ],
-    "replacement_example_ids": [
-      "finqa881",
-      "finqa714",
-      "finqa113",
-      "finqa659",
-      "finqa855",
-      "finqa796"
-    ],
-    "replacement_seeds": [
-      20260802,
-      20260803,
-      20260804,
-      20260805
-    ]
-  },
   "scope": "fresh_development_only_same_items_all_tiers",
-  "seed": 20260801
+  "seed": 20260802
 }

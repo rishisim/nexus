@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import hashlib
+import itertools
 import json
+import random
+from collections import Counter
 from pathlib import Path
-from typing import Any, Callable, Dict, Mapping, Sequence, Set
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Sequence, Set, Tuple
 
 from .protocol_v2 import ProtocolError, _example_record, _sample, fingerprint, stratified_sample, write_stable_json
 
@@ -15,7 +18,7 @@ MANIFEST_SCHEMA_VERSION = "realm26-capability-manifest-v1"
 PROTOCOL_ID = "realm26_capability_ladder"
 DATASETS = ("finqa", "tatqa", "convfinqa")
 FRAMEWORKS = ("static", "react")
-TIERS = ("luna", "terra")
+TIERS = ("control", "luna", "terra")
 DEFAULT_PROTOCOL_PATH = Path(__file__).with_name("protocols") / f"{PROTOCOL_ID}.json"
 
 
@@ -49,51 +52,76 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         raise ProtocolError("Capability protocol must be frozen")
     if tuple(protocol.get("datasets", ())) != DATASETS or tuple(protocol.get("frameworks", ())) != FRAMEWORKS:
         raise ProtocolError("Dataset/framework order changed")
-    if int(protocol.get("seed", -1)) != 20260801:
+    if int(protocol.get("seed", -1)) != 20260802:
         raise ProtocolError("Sampling seed changed")
     sample = protocol.get("sample") or {}
-    if sample.get("same_items_for_all_tiers") is not True or int(sample.get("per_dataset", -1)) != 50 or int(sample.get("total_items", -1)) != 150:
+    if (
+        sample.get("same_items_for_all_tiers") is not True
+        or int(sample.get("per_dataset", -1)) != 50
+        or int(sample.get("total_items", -1)) != 150
+        or int(sample.get("schedule_seed", -1)) < 0
+    ):
         raise ProtocolError("Frozen paired sample changed")
-    expected_models = {
-        "luna": {
-            "requested_model_id": "openai/gpt-5.6-luna",
-            "canonical_slug": "openai/gpt-5.6-luna-20260709",
-            "hard_cap_usd": 4.99586992075,
-            "maximum_reserved_study_cost_usd": 1.385472,
-            "maximum_reserved_call_cost_usd": 0.00115456,
-        },
-        "terra": {
-            "requested_model_id": "openai/gpt-5.6-terra",
-            "canonical_slug": "openai/gpt-5.6-terra-20260709",
-            "hard_cap_usd": 15.0,
-            "maximum_reserved_study_cost_usd": 13.85472,
-            "maximum_reserved_call_cost_usd": 0.0115456,
-        },
+    models = protocol.get("models")
+    expected_ids = {
+        "control": "openai/gpt-4o-mini",
+        "luna": "openai/gpt-5.6-luna",
+        "terra": "openai/gpt-5.6-terra",
     }
-    if protocol.get("models") != expected_models:
-        raise ProtocolError("Capability tier bindings or budgets changed")
-    if protocol.get("inference") != {
+    if not isinstance(models, Mapping) or tuple(models) != TIERS:
+        raise ProtocolError("Capability tiers must be ordered control, luna, terra")
+    for tier in TIERS:
+        model = models[tier]
+        if not isinstance(model, Mapping) or model.get("requested_model_id") != expected_ids[tier]:
+            raise ProtocolError(f"{tier}: requested model binding changed")
+        if not isinstance(model.get("canonical_slug"), str) or not model["canonical_slug"].startswith(expected_ids[tier]):
+            raise ProtocolError(f"{tier}: canonical catalog binding is missing")
+        for field in (
+            "maximum_reserved_call_cost_usd",
+            "maximum_reserved_probe_cost_usd",
+            "maximum_reserved_study_cost_usd",
+        ):
+            value = model.get(field)
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 < float(value) < 20:
+                raise ProtocolError(f"{tier}: invalid {field}")
+        if float(model["maximum_reserved_study_cost_usd"]) < 1200 * float(model["maximum_reserved_call_cost_usd"]):
+            raise ProtocolError(f"{tier}: study reservation does not cover every allowed call")
+
+    inference = protocol.get("inference") or {}
+    if {
+        "backend": inference.get("backend"),
+        "provider_routing": inference.get("provider_routing"),
+        "reasoning_effort_by_tier": inference.get("reasoning_effort_by_tier"),
+        "request_seed": inference.get("request_seed"),
+        "sampling_parameters_forbidden": inference.get("sampling_parameters_forbidden"),
+        "structured_action_decoding": inference.get("structured_action_decoding"),
+    } != {
         "backend": "openrouter",
-        "inter_call_delay_seconds": 0.1,
-        "reasoning_effort": "none",
-        "structured_action_decoding": "strict_json_schema_by_framework_and_react_step",
         "provider_routing": {
             "allow_fallbacks": False,
             "data_collection": "deny",
             "only": ["OpenAI"],
             "require_parameters": True,
         },
+        "reasoning_effort_by_tier": {"control": None, "luna": "none", "terra": "none"},
+        "request_seed": 20260802,
         "sampling_parameters_forbidden": ["temperature", "top_p"],
+        "structured_action_decoding": "strict_single_function_tool_by_framework_and_react_step",
     }:
         raise ProtocolError("Inference contract changed")
+    if not isinstance(inference.get("reasoning_semantics"), str) or not inference["reasoning_semantics"].strip():
+        raise ProtocolError("Authorized reasoning-parameter exception is undocumented")
+    if float(inference.get("inter_call_delay_seconds", -1)) != 0.1:
+        raise ProtocolError("Frozen inter-call delay changed")
     if protocol.get("retry_policy") != {"max_attempts_per_call": 1, "valid_outputs_are_immutable": True}:
         raise ProtocolError("One-attempt policy changed")
-    if protocol.get("workflows") != {
-        "answer_contract": "strict_json_finish_v1",
+    workflow = protocol.get("workflows") or {}
+    required_workflow = {
         "context_word_budget_per_call": 4096,
         "evidence_word_budget_per_item": 3000,
-        "malformed_fallback": "UNKNOWN_without_retry",
+        "malformed_output_policy": "prospective_stop_without_retry",
         "max_output_tokens_per_call": 384,
+        "context_utf8_byte_budget_per_call": 8192,
         "max_retrieval_operations_per_item": 3,
         "react_action_policy": "first_model_action_must_be_search_v2",
         "react_max_steps": 7,
@@ -101,10 +129,13 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "react_min_model_calls": 2,
         "scorer_input": "canonical_parsed_answer_only",
         "static_model_calls": 1,
-    }:
+    }
+    if any(workflow.get(key) != value for key, value in required_workflow.items()):
         raise ProtocolError("Shared workflow contract changed")
+    if workflow.get("answer_contract") != "compact_action_argument_answer_v3":
+        raise ProtocolError("Compact structured action contract is not frozen")
     analysis = protocol.get("analysis") or {}
-    if int(analysis.get("bootstrap_resamples", -1)) != 10_000 or int(analysis.get("bootstrap_seed", -1)) != 20260801:
+    if int(analysis.get("bootstrap_resamples", -1)) != 10_000 or int(analysis.get("bootstrap_seed", -1)) != 20260802:
         raise ProtocolError("Bootstrap plan changed")
     if analysis.get("dataset_quality_metrics") != {
         "convfinqa": "native_scores.exact_match",
@@ -112,28 +143,64 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "tatqa": "native_scores.f1",
     }:
         raise ProtocolError("Quality estimand changed")
+    if analysis.get("interaction_pairs") != [["control", "luna"], ["control", "terra"], ["luna", "terra"]]:
+        raise ProtocolError("Tier-interaction plan changed")
     if protocol.get("tier_execution") != {
-        "analysis_after_both_complete": True,
-        "both_required": True,
+        "analysis_after_all_complete": True,
+        "all_required": True,
+        "counterbalanced_schedule_from_manifest": True,
         "manual_skip_forbidden": True,
-        "order": ["luna", "terra"],
+        "tiers": list(TIERS),
     }:
         raise ProtocolError("Tier execution plan changed")
     budget = protocol.get("budget") or {}
-    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.00413007925:
-        raise ProtocolError("Prior failed-attempt allowance changed")
-    if budget.get("prior_failed_attempt_breakdown_usd") != {
-        "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
-        "c296aba_recorded_provider_spend": 0.0005714775,
-        "9c010e5_recorded_provider_spend": 0.00176861025,
-        "b3a0efe_recorded_provider_spend": 0.0006354315,
-    }:
-        raise ProtocolError("Prior failed-attempt budget breakdown changed")
-    if abs(sum(float(protocol["models"][tier]["hard_cap_usd"]) for tier in TIERS) + float(budget["prior_failed_attempt_allowance_usd"]) - 20.0) > 1e-12:
-        raise ProtocolError("Combined authorization exceeds or undershoots USD 20")
+    if float(budget.get("hard_cap_usd", -1)) != 20.0:
+        raise ProtocolError("Global authorization must remain USD 20")
+    prior = float(budget.get("prior_failed_attempt_allowance_usd", -1))
+    failed_study = float(budget.get("prior_failed_frozen_study_allowance_usd", -1))
+    prior_probe_attempts = float(budget.get("format_probe_prior_attempt_allowance_usd", -1))
+    probe_reservation = float(budget.get("format_probe_maximum_reservation_usd", -1))
+    probe_actual = float(budget.get("format_probe_actual_spend_usd", -1))
+    if (
+        abs(prior - 0.01279752925) > 1e-12
+        or abs(failed_study - 0.04229143875) > 1e-12
+        or prior_probe_attempts < 0
+        or probe_reservation < 0
+        or probe_actual < 0
+    ):
+        raise ProtocolError("Prior-attempt or format-probe reservation changed")
+    failed_breakdown = budget.get("prior_failed_frozen_study_breakdown_usd") or {}
+    if abs(sum(float(value) for value in failed_breakdown.values()) - failed_study) > 1e-12:
+        raise ProtocolError("Failed frozen-study budget allowance does not reconcile")
+    study = sum(float(models[tier]["maximum_reserved_study_cost_usd"]) for tier in TIERS)
+    if abs(probe_reservation - sum(float(models[tier]["maximum_reserved_probe_cost_usd"]) for tier in TIERS)) > 1e-12:
+        raise ProtocolError("Global probe reservation disagrees with per-tier reservations")
+    cumulative_before_study = prior + failed_study + prior_probe_attempts + probe_actual
+    worst_case = cumulative_before_study + study
+    if abs(study - float(budget.get("study_maximum_reservation_usd", -1))) > 1e-12:
+        raise ProtocolError("Global study reservation disagrees with per-tier reservations")
+    if abs(worst_case - float(budget.get("combined_maximum_reservation_usd", -1))) > 1e-12:
+        raise ProtocolError("Combined budget reservation does not reconcile")
+    if abs(cumulative_before_study - float(budget.get("cumulative_before_study_usd", -1))) > 1e-12:
+        raise ProtocolError("Pre-study cumulative spend does not reconcile")
+    if abs(20.0 - worst_case - float(budget.get("reservation_headroom_usd", -1))) > 1e-12:
+        raise ProtocolError("Budget headroom does not reconcile")
+    if worst_case > 20.0 + 1e-12:
+        raise ProtocolError("Worst-case complete study reservation exceeds USD 20")
+    if int(budget.get("max_study_calls_per_tier", -1)) != 1200 or int(budget.get("max_input_tokens_reserved_per_call", -1)) != 9000:
+        raise ProtocolError("Per-tier maximum call count changed")
+    probes = protocol.get("format_probes") or {}
+    if (
+        probes.get("status") != "completed_process_checks"
+        or int(probes.get("calls_per_tier", -1)) != 3
+        or int(probes.get("study_examples_consumed", -1)) != 0
+        or abs(float(probes.get("actual_spend_usd", -1)) - probe_actual) > 1e-12
+        or abs(float(probes.get("failed_prefreeze_attempt_allowance_usd", -1)) - prior_probe_attempts) > 1e-12
+    ):
+        raise ProtocolError("Synthetic format-probe attestation is incomplete")
     if protocol.get("publication") != {
         "base_branch": "realm26/archival-short-paper",
-        "branch": "realm26/luna-terra-capability",
+        "branch": "realm26/capability-robustness-study",
         "remote": "origin",
     }:
         raise ProtocolError("Publication binding changed")
@@ -145,6 +212,30 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         raise ProtocolError("Model snapshot binding changed")
     if protocol.get("test_attestation") != "attestations/realm26_capability_ladder_tests.json":
         raise ProtocolError("Test attestation binding changed")
+    if protocol.get("format_probe_attestation") != "attestations/realm26_capability_format_probes.json":
+        raise ProtocolError("Format-probe attestation binding changed")
+    if protocol.get("study_history_attestation") != "attestations/realm26_capability_study_history.json":
+        raise ProtocolError("Study-history attestation binding changed")
+
+    exclusions = protocol.get("exclusions") or {}
+    attempted_indices = exclusions.get("failed_freeze_attempted_indices_by_dataset")
+    attempted_ids = exclusions.get("failed_freeze_attempted_example_ids_by_dataset")
+    if not isinstance(attempted_indices, Mapping) or set(attempted_indices) != set(DATASETS):
+        raise ProtocolError("Failed-freeze attempted-index exclusions are incomplete")
+    if not isinstance(attempted_ids, Mapping) or set(attempted_ids) != set(DATASETS):
+        raise ProtocolError("Failed-freeze attempted-ID exclusions are incomplete")
+    for dataset_id in DATASETS:
+        indices = attempted_indices[dataset_id]
+        example_ids = attempted_ids[dataset_id]
+        if not isinstance(indices, list) or not isinstance(example_ids, list):
+            raise ProtocolError("Failed-freeze exclusions must be frozen lists")
+        if len(indices) != len(set(map(int, indices))) or len(example_ids) != len(set(map(str, example_ids))):
+            raise ProtocolError("Failed-freeze exclusions contain duplicates")
+        if len(indices) != len(example_ids):
+            raise ProtocolError("Failed-freeze index/ID exclusion counts disagree")
+    expected_attempt_counts = {"finqa": 17, "tatqa": 2, "convfinqa": 3}
+    if any(len(attempted_indices[name]) != count for name, count in expected_attempt_counts.items()):
+        raise ProtocolError("Failed-freeze identifier exclusions changed")
 
 
 def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
@@ -159,6 +250,8 @@ def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
         "data_adapter": finance / "realm26_harmonized_data.py",
         "executor": finance / "run_realm26_capability_ladder.py",
         "finance_statistics": finance / "finance_statistics.py",
+        "format_probe_attestation": resolve_path(protocol_path, str(protocol["format_probe_attestation"])),
+        "study_history_attestation": resolve_path(protocol_path, str(protocol["study_history_attestation"])),
         "manifest": resolve_path(protocol_path, str(protocol["manifest"])),
         "model_snapshot": resolve_path(protocol_path, str(protocol["model_snapshot"])),
         "protocol_guard": Path(__file__),
@@ -168,6 +261,10 @@ def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
         "shared_methods": finance / "realm26_harmonized_v2_methods.py",
         "shared_prompts": finance / "realm26_harmonized_v2_prompts.py",
         "tests": repo / "tests" / "finance" / "test_realm26_capability_ladder.py",
+        "tests_contract": repo / "tests" / "finance" / "test_realm26_capability_contract.py",
+        "tests_interaction": repo / "tests" / "finance" / "test_realm26_capability_interaction.py",
+        "tests_manifest_schedule": repo / "tests" / "finance" / "test_realm26_capability_manifest_schedule.py",
+        "tests_runner_schedule": repo / "tests" / "finance" / "test_realm26_capability_schedule.py",
         "telemetry": finance.parents[1] / "shared" / "llm_telemetry.py",
         "v2_manifest": resolve_path(protocol_path, str(protocol["exclusions"]["v2_manifest"])),
     }
@@ -194,11 +291,36 @@ def validate_frozen_artifacts(protocol: Mapping[str, Any]) -> None:
         if endpoint.get("provider_name") != "OpenAI" or endpoint.get("tag") != "openai":
             raise ProtocolError(f"{tier}: frozen endpoint is not standard OpenAI")
         supported = set(endpoint.get("supported_parameters") or [])
-        if not {"max_tokens", "reasoning_effort", "response_format", "structured_outputs"}.issubset(supported):
+        if not {"max_tokens", "seed", "structured_outputs", "tool_choice", "tools"}.issubset(supported):
             raise ProtocolError(f"{tier}: required parameters unavailable")
+        if tier == "control" and "reasoning_effort" in supported:
+            raise ProtocolError("Control reasoning-parameter exception no longer matches the catalog")
+        if tier != "control" and "reasoning_effort" not in supported:
+            raise ProtocolError(f"{tier}: reasoning disable parameter is unavailable")
+    if not str(snapshot.get("reasoning_parameter_exception") or "").strip():
+        raise ProtocolError("Catalog snapshot omits the authorized reasoning exception")
     attestation = load_json(paths["attestation"])
     if attestation.get("status") != "passed" or not attestation.get("commands"):
         raise ProtocolError("Pre-provider test attestation is incomplete")
+    probe_attestation = load_json(paths["format_probe_attestation"])
+    if (
+        probe_attestation.get("status") != "passed"
+        or int(probe_attestation.get("successful_probe_count", -1)) != 9
+        or int(probe_attestation.get("study_examples_consumed", -1)) != 0
+    ):
+        raise ProtocolError("Format-probe attestation is incomplete")
+    history = load_json(paths["study_history_attestation"])
+    attempts = history.get("attempts") if isinstance(history, Mapping) else None
+    if (
+        history.get("schema_version") != "realm26-capability-study-history-v1"
+        or not isinstance(attempts, list)
+        or not attempts
+        or len(attempts) != 2
+        or attempts[-1].get("freeze_commit") != "7639effef8d3eab9f06cca1c3b4e673c5bf14b4c"
+        or attempts[-1].get("outcomes_analyzed") is not False
+        or attempts[-1].get("final_partition_touched") is not False
+    ):
+        raise ProtocolError("Failed-study process history is incomplete")
 
 
 def _source_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
@@ -228,6 +350,16 @@ def _identifier_exclusions(protocol: Mapping[str, Any], dataset_id: str) -> Dict
     for spec in prior_manifests.values():
         indices.update(int(item["index"]) for item in spec["examples"])
         example_ids.update(str(item["example_id"]) for item in spec["examples"])
+    failed_indices = {
+        int(value)
+        for value in protocol["exclusions"]["failed_freeze_attempted_indices_by_dataset"][dataset_id]
+    }
+    failed_example_ids = {
+        str(value)
+        for value in protocol["exclusions"]["failed_freeze_attempted_example_ids_by_dataset"][dataset_id]
+    }
+    indices.update(failed_indices)
+    example_ids.update(failed_example_ids)
     dialogue_hashes: Set[str] = set()
     if dataset_id == "convfinqa":
         for partition in ("development", "final"):
@@ -240,6 +372,7 @@ def _identifier_exclusions(protocol: Mapping[str, Any], dataset_id: str) -> Dict
         "second_family": len(prior_manifests["second_family_manifest"]["examples"]),
         "harmonized_v1": len(prior_manifests["v1_manifest"]["examples"]),
         "harmonized_v2": len(prior_manifests["v2_manifest"]["examples"]),
+        "failed_freeze_attempted": len(failed_indices),
         "total": len(indices),
     }
     return {
@@ -264,6 +397,92 @@ def _selected_record(dataset_id: str, rows: Sequence[Mapping[str, Any]], idx: in
     return record
 
 
+def _shuffle(values: Iterable[Any], seed: int, label: str) -> List[Any]:
+    """Return a reproducible permutation without process-dependent hashing."""
+
+    items = list(values)
+    digest = hashlib.sha256(f"{seed}:{label}".encode("utf-8")).digest()
+    random.Random(int.from_bytes(digest[:8], "big")).shuffle(items)
+    return items
+
+
+def build_execution_schedule(datasets: Mapping[str, Any], schedule_seed: int) -> Dict[str, Any]:
+    """Counterbalance model and framework order before any paid inference."""
+
+    item_keys: List[Tuple[str, str]] = []
+    for dataset_id in DATASETS:
+        spec = datasets.get(dataset_id)
+        if not isinstance(spec, Mapping) or not isinstance(spec.get("examples"), list):
+            raise ProtocolError(f"{dataset_id}: schedule source examples are missing")
+        item_keys.extend((dataset_id, str(item["example_id"])) for item in spec["examples"])
+    if len(item_keys) != 150 or len(set(item_keys)) != 150:
+        raise ProtocolError("Execution schedule requires exactly 150 unique dataset/example IDs")
+
+    ordered_items = _shuffle(item_keys, schedule_seed, "item-order")
+    model_orders = _shuffle(list(itertools.permutations(TIERS)) * 25, schedule_seed, "model-order")
+    framework_first = {
+        tier: _shuffle(["static"] * 75 + ["react"] * 75, schedule_seed, f"framework-order:{tier}")
+        for tier in TIERS
+    }
+    items: List[Dict[str, Any]] = []
+    for position, ((dataset_id, example_id), model_order) in enumerate(zip(ordered_items, model_orders)):
+        items.append({
+            "dataset_id": dataset_id,
+            "example_id": example_id,
+            "framework_order_by_tier": {
+                tier: list(FRAMEWORKS) if framework_first[tier][position] == "static" else list(reversed(FRAMEWORKS))
+                for tier in TIERS
+            },
+            "model_order": list(model_order),
+            "position": position,
+        })
+    return {"items": items, "schedule_seed": int(schedule_seed)}
+
+
+def validate_execution_schedule(
+    schedule: Mapping[str, Any], datasets: Mapping[str, Any], schedule_seed: int
+) -> None:
+    """Reject schedule drift, imbalance, missing items, or post-freeze reordering."""
+
+    if not isinstance(schedule, Mapping) or schedule.get("schedule_seed") != int(schedule_seed):
+        raise ProtocolError("Execution schedule seed changed")
+    items = schedule.get("items")
+    if not isinstance(items, list) or len(items) != 150:
+        raise ProtocolError("Execution schedule must contain 150 items")
+    expected_keys = {
+        (dataset_id, str(item["example_id"]))
+        for dataset_id in DATASETS
+        for item in datasets[dataset_id]["examples"]
+    }
+    scheduled_keys = {(str(item.get("dataset_id")), str(item.get("example_id"))) for item in items}
+    if scheduled_keys != expected_keys or len(scheduled_keys) != 150:
+        raise ProtocolError("Execution schedule item IDs do not match the manifest")
+    if [item.get("position") for item in items] != list(range(150)):
+        raise ProtocolError("Execution schedule positions changed")
+
+    permutation_counts: Counter[Tuple[str, ...]] = Counter()
+    first_counts: Counter[Tuple[str, str]] = Counter()
+    for item in items:
+        model_order = tuple(item.get("model_order", ()))
+        if set(model_order) != set(TIERS) or len(model_order) != len(TIERS):
+            raise ProtocolError("Each scheduled item must contain one permutation of all tiers")
+        permutation_counts[model_order] += 1
+        framework_orders = item.get("framework_order_by_tier")
+        if not isinstance(framework_orders, Mapping) or set(framework_orders) != set(TIERS):
+            raise ProtocolError("Each scheduled item must order both frameworks for every tier")
+        for tier in TIERS:
+            order = tuple(framework_orders[tier])
+            if set(order) != set(FRAMEWORKS) or len(order) != len(FRAMEWORKS):
+                raise ProtocolError(f"{tier}: invalid framework order")
+            first_counts[(tier, order[0])] += 1
+    if set(permutation_counts) != set(itertools.permutations(TIERS)) or set(permutation_counts.values()) != {25}:
+        raise ProtocolError("Six model permutations must occur exactly 25 times each")
+    if any(first_counts[(tier, framework)] != 75 for tier in TIERS for framework in FRAMEWORKS):
+        raise ProtocolError("Static/ReAct first order must be balanced 75/75 within every tier")
+    if dict(schedule) != build_execution_schedule(datasets, schedule_seed):
+        raise ProtocolError("Execution schedule does not reproduce from the frozen seed")
+
+
 def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any]) -> Dict[str, Any]:
     """Freeze fresh development identifiers without dereferencing excluded rows."""
 
@@ -277,10 +496,8 @@ def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any
         reserved = set(excluded["indices"])
         candidates = sorted(set(range(len(rows))) - reserved)
         if dataset_id == "tatqa":
-            reserved_contexts = {rows.context_for_index(idx) for idx in reserved}
-            candidates = [idx for idx in candidates if rows.context_for_index(idx) not in reserved_contexts]
             selected = stratified_sample(candidates, rows, ("question_type", "answer_from"), per_dataset, seed, f"{PROTOCOL_ID}:{dataset_id}")
-            policy = "seeded proportional answer_type x answer_source sample from wholly fresh contexts"
+            policy = "seeded proportional answer_type x answer_source sample after identifier-only exclusions"
         elif dataset_id == "convfinqa":
             by_dialogue: Dict[str, int] = {}
             for idx in candidates:
@@ -314,119 +531,11 @@ def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any
         "seed": seed,
         "scope": "fresh_development_only_same_items_all_tiers",
     }
-    replacement = protocol["sample"]["replacement"]
-    if fingerprint(base_body) != replacement["failed_manifest_fingerprint"]:
-        raise ProtocolError("Could not reproduce the superseded pre-result manifest")
-    finqa_examples = base_body["datasets"]["finqa"]["examples"]
-    consumed = [item for item in finqa_examples if item["example_id"] == replacement["consumed_example_id"] and int(item["index"]) == int(replacement["consumed_index"])]
-    if len(consumed) != 1:
-        raise ProtocolError("Consumed smoke item is absent or ambiguous")
-    rows = env_factory("finqa").rows
-    excluded = _identifier_exclusions(protocol, "finqa")
-    base_indices = {int(item["index"]) for item in finqa_examples}
-    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - base_indices)
-    replacement_index = _sample(
-        replacement_candidates, 1, int(replacement["replacement_seed"]),
-        f"{PROTOCOL_ID}:finqa:replacement",
-    )[0]
-    replacement_record = _selected_record("finqa", rows, replacement_index)
-    base_body["datasets"]["finqa"]["examples"] = [
-        replacement_record if item["example_id"] == replacement["consumed_example_id"] else item
-        for item in finqa_examples
-    ]
-    base_body["datasets"]["finqa"]["selection_policy"] += "; one consumed smoke item replaced prospectively"
-    base_body["replacement_audit"] = {
-        "carried_forward_never_called_items": 149,
-        "consumed_example_id": replacement["consumed_example_id"],
-        "failed_freeze_commit": replacement["failed_freeze_commit"],
-        "failed_manifest_fingerprint": replacement["failed_manifest_fingerprint"],
-        "replacement_example_id": replacement_record["example_id"],
-        "replacement_seed": replacement["replacement_seed"],
-    }
-    body = base_body
-    second = protocol["sample"]["replacement_after_process_failure"]
-    if fingerprint(body) != second["failed_manifest_fingerprint"]:
-        raise ProtocolError("Could not reproduce the first replacement manifest")
-    finqa_examples = body["datasets"]["finqa"]["examples"]
-    consumed = [item for item in finqa_examples if item["example_id"] == second["consumed_example_id"] and int(item["index"]) == int(second["consumed_index"])]
-    if len(consumed) != 1:
-        raise ProtocolError("Second consumed smoke item is absent or ambiguous")
-    current_indices = {int(item["index"]) for item in finqa_examples}
-    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
-    replacement_index = _sample(
-        replacement_candidates, 1, int(second["replacement_seed"]),
-        f"{PROTOCOL_ID}:finqa:replacement-after-process-failure",
-    )[0]
-    replacement_record = _selected_record("finqa", rows, replacement_index)
-    body["datasets"]["finqa"]["examples"] = [
-        replacement_record if item["example_id"] == second["consumed_example_id"] else item
-        for item in finqa_examples
-    ]
-    body["datasets"]["finqa"]["selection_policy"] += "; second consumed smoke item replaced prospectively"
-    body["replacement_audit"] = {
-        "carried_forward_never_called_items_from_latest_freeze": 149,
-        "consumed_example_ids": [replacement["consumed_example_id"], second["consumed_example_id"]],
-        "failed_freeze_commits": [replacement["failed_freeze_commit"], second["failed_freeze_commit"]],
-        "prior_manifest_fingerprints": [replacement["failed_manifest_fingerprint"], second["failed_manifest_fingerprint"]],
-        "replacement_example_ids": ["finqa881", replacement_record["example_id"]],
-        "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"]],
-    }
-    third = protocol["sample"]["replacement_after_unconstrained_decoding_failure"]
-    if fingerprint(body) != third["failed_manifest_fingerprint"]:
-        raise ProtocolError("Could not reproduce the unconstrained-decoding manifest")
-    finqa_examples = body["datasets"]["finqa"]["examples"]
-    consumed_pairs = set(zip(third["consumed_example_ids"], map(int, third["consumed_indices"])))
-    found_pairs = {(item["example_id"], int(item["index"])) for item in finqa_examples if item["example_id"] in set(third["consumed_example_ids"])}
-    if found_pairs != consumed_pairs:
-        raise ProtocolError("Consumed unconstrained-decoding items are absent or ambiguous")
-    current_indices = {int(item["index"]) for item in finqa_examples}
-    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
-    replacement_indices = _sample(
-        replacement_candidates, len(consumed_pairs), int(third["replacement_seed"]),
-        f"{PROTOCOL_ID}:finqa:replacement-after-unconstrained-decoding",
+    base_body["execution_schedule"] = build_execution_schedule(
+        datasets, int(protocol["sample"]["schedule_seed"])
     )
-    replacement_records = [_selected_record("finqa", rows, index) for index in replacement_indices]
-    replacements = dict(zip(third["consumed_example_ids"], replacement_records))
-    body["datasets"]["finqa"]["examples"] = [replacements.get(item["example_id"], item) for item in finqa_examples]
-    body["datasets"]["finqa"]["selection_policy"] += "; three consumed unconstrained-decoding items replaced prospectively"
-    body["replacement_audit"] = {
-        "carried_forward_never_called_items_from_latest_freeze": 147,
-        "consumed_example_ids": [replacement["consumed_example_id"], second["consumed_example_id"], *third["consumed_example_ids"]],
-        "failed_freeze_commits": [replacement["failed_freeze_commit"], second["failed_freeze_commit"], third["failed_freeze_commit"]],
-        "prior_manifest_fingerprints": [replacement["failed_manifest_fingerprint"], second["failed_manifest_fingerprint"], third["failed_manifest_fingerprint"]],
-        "replacement_example_ids": ["finqa881", "finqa714", *[record["example_id"] for record in replacement_records]],
-        "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"], third["replacement_seed"]],
-    }
-    fourth = protocol["sample"]["replacement_after_multiobject_structured_output_failure"]
-    if fingerprint(body) != fourth["failed_manifest_fingerprint"]:
-        raise ProtocolError("Could not reproduce the structured-output manifest")
-    finqa_examples = body["datasets"]["finqa"]["examples"]
-    consumed = [item for item in finqa_examples if item["example_id"] == fourth["consumed_example_id"] and int(item["index"]) == int(fourth["consumed_index"])]
-    if len(consumed) != 1:
-        raise ProtocolError("Consumed structured-output item is absent or ambiguous")
-    current_indices = {int(item["index"]) for item in finqa_examples}
-    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
-    replacement_index = _sample(
-        replacement_candidates, 1, int(fourth["replacement_seed"]),
-        f"{PROTOCOL_ID}:finqa:replacement-after-multiobject-structured-output",
-    )[0]
-    replacement_record = _selected_record("finqa", rows, replacement_index)
-    body["datasets"]["finqa"]["examples"] = [
-        replacement_record if item["example_id"] == fourth["consumed_example_id"] else item
-        for item in finqa_examples
-    ]
-    body["datasets"]["finqa"]["selection_policy"] += "; one consumed multi-object structured-output item replaced prospectively"
-    prior_audit = body["replacement_audit"]
-    body["replacement_audit"] = {
-        "carried_forward_never_called_items_from_latest_freeze": 149,
-        "consumed_example_ids": [*prior_audit["consumed_example_ids"], fourth["consumed_example_id"]],
-        "failed_freeze_commits": [*prior_audit["failed_freeze_commits"], fourth["failed_freeze_commit"]],
-        "prior_manifest_fingerprints": [*prior_audit["prior_manifest_fingerprints"], fourth["failed_manifest_fingerprint"]],
-        "replacement_example_ids": [*prior_audit["replacement_example_ids"], replacement_record["example_id"]],
-        "replacement_seeds": [*prior_audit["replacement_seeds"], fourth["replacement_seed"]],
-    }
-    body["manifest_fingerprint"] = fingerprint(body)
-    return body
+    base_body["manifest_fingerprint"] = fingerprint(base_body)
+    return base_body
 
 
 def load_manifest(protocol: Mapping[str, Any]) -> Dict[str, Any]:
@@ -437,21 +546,21 @@ def load_manifest(protocol: Mapping[str, Any]) -> Dict[str, Any]:
     manifest["manifest_fingerprint"] = supplied
     if supplied != actual or manifest.get("protocol_id") != PROTOCOL_ID:
         raise ProtocolError("Capability manifest fingerprint or protocol mismatch")
+    validate_execution_schedule(
+        manifest.get("execution_schedule") or {},
+        manifest.get("datasets") or {},
+        int(protocol["sample"]["schedule_seed"]),
+    )
     return manifest
 
 
 def validate_manifest_against_sources(protocol: Mapping[str, Any], manifest: Mapping[str, Any], env_factory: Callable[[str], Any]) -> None:
-    consumed_ids = {
-        protocol["sample"]["replacement"]["consumed_example_id"],
-        protocol["sample"]["replacement_after_process_failure"]["consumed_example_id"],
-        *protocol["sample"]["replacement_after_unconstrained_decoding_failure"]["consumed_example_ids"],
-        protocol["sample"]["replacement_after_multiobject_structured_output_failure"]["consumed_example_id"],
-    }
-    if any(item["example_id"] in consumed_ids for spec in manifest["datasets"].values() for item in spec["examples"]):
-        raise ProtocolError("Consumed smoke item remains in replacement manifest")
     regenerated = build_manifest(protocol, env_factory)
     if regenerated != manifest:
-        raise ProtocolError("Replacement manifest does not reproduce from sources")
+        raise ProtocolError("Fresh manifest and schedule do not reproduce from sources")
+    validate_execution_schedule(
+        manifest["execution_schedule"], manifest["datasets"], int(protocol["sample"]["schedule_seed"])
+    )
     for dataset_id in DATASETS:
         rows = env_factory(dataset_id).rows
         spec = manifest["datasets"][dataset_id]
@@ -461,6 +570,8 @@ def validate_manifest_against_sources(protocol: Mapping[str, Any], manifest: Map
         selected = [int(item["index"]) for item in spec["examples"]]
         if set(selected) & excluded["indices"]:
             raise ProtocolError(f"{dataset_id}: selected index overlaps prior evidence")
+        if {str(item["example_id"]) for item in spec["examples"]} & excluded["example_ids"]:
+            raise ProtocolError(f"{dataset_id}: selected ID overlaps prior evidence")
         for item in spec["examples"]:
             if dict(item) != _selected_record(dataset_id, rows, int(item["index"])):
                 raise ProtocolError(f"{dataset_id}: selected development item drift")

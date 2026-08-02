@@ -20,22 +20,21 @@ paste-ready draft, not a substitute for author/admin confirmation. Values under
 
 ### Title
 
-When Agentic Reasoning Fails to Pay Off: A Negative Result on Selective Routing in Financial Question Answering
+Capability Is Not Complementarity: A Routing Feasibility Study in Financial Question Answering
 
 This is the plain-Unicode metadata form of the title in `main.tex`; do not
 paste the LaTeX line-break command into OpenReview.
 
 ### Abstract
 
-Selective routing can improve an accuracy–cost frontier only if its expensive branch supplies enough unique correct answers. We test this prerequisite in a prospectively frozen comparison of one-call Static and bounded retrieval-first ReAct on 150 fresh financial-QA development items. Both arms use the same model, final-answer parser and scorer, retrieval interface, and evidence, context, and output ceilings; every ReAct row was verified to begin with Search and observe evidence. Static scored 0.342 versus ReAct's 0.257 (paired macro difference −0.085, 95% CI [−0.147, −0.025]). The exact complementarity matrix contained 23 both-correct, 21 Static-only, five ReAct-only, and 101 both-wrong cases, so an oracle could improve over the better branch by only 3.3 points. ReAct used more calls and time but fewer input tokens and dollars. An earlier routing study, which motivated this correction, likewise failed but had unequal answer and context contracts. Our result concerns bounded retrieval-first ReAct under controlled benchmark evidence, not agents generally. Expert complementarity and evaluation-contract fairness should be established before router optimization.
+Selective routing can improve an accuracy–cost frontier only if its expensive branch supplies unique correct answers. We test this prerequisite in a prospectively frozen, three-tier comparison of one-call Static and bounded retrieval-first ReAct on 150 fresh financial-QA development items. Both arms share the model, strict action contract, scorer, retrieval interface, and resource ceilings. With GPT-4o-mini, Static scored 0.226 versus ReAct's 0.155 (ReAct-minus-Static −0.071, 95% CI [−0.120, −0.025]); with GPT-5.6 Luna, 0.188 versus 0.131 (−0.057, [−0.098, −0.020]). GPT-5.6 Terra reached parity: 0.210 versus 0.218 (0.008, [−0.015, 0.033]), with a positive Terra–control interaction of 0.079 [0.028, 0.133]. Yet ReAct-only exact successes numbered just two, one, and two of 150, leaving at most 1.3 points of oracle routing headroom. ReAct also used more calls, latency, and dollars. Supporting matched and pilot studies show the same complementarity bottleneck. Capability can erase an agent's average deficit without creating useful expert complementarity; that complementarity should be established before router optimization.
 
 This is a plain-text rendering of `sections/abstract.tex`; the content and
-numbers match the manuscript. It is 164 words under the repository's word
-counting check and stays below the ACL 200-word limit.
+numbers match the manuscript and stay below the ACL 200-word limit.
 
 ### TL;DR
 
-A prospective corrective development study found bounded ReAct less accurate than Static under matched answer contracts, leaving no evidence that a new router should be fit.
+A three-tier prospective study found that capability can erase ReAct's average deficit without creating the unique successes needed for useful routing.
 
 ### Keywords
 
@@ -49,39 +48,36 @@ Archival
 
 This paper makes three scoped contributions:
 
-1. It documents a failed quality–cost criterion for selective routing and identifies
-   measured expert complementarity as a prerequisite for a useful fallback.
-2. It reports a fresh, prospectively frozen corrective development comparison
-   that harmonizes the model, final-answer/parser/scorer path, retrieval API,
-   and resource ceilings while explicitly measuring the remaining retrieved-
-   dossier difference (Static averaged 2.87 retrievals versus ReAct's 1.04).
-3. It provides an auditable negative result and a provider-free anonymous
-   artifact that recomputes aggregate statistics and sanitized telemetry without
-   exposing answers, raw traces, credentials, datasets, or the sealed final
-   partition.
+1. It distinguishes model capability from expert complementarity and formalizes
+   paired oracle headroom as a feasibility gate before router optimization.
+2. It reports a fresh, prospectively frozen GPT-4o-mini/Luna/Terra comparison
+   under a shared strict action transport, scorer, retrieval API, and resource
+   ceilings, including preregistered cross-tier interactions.
+3. It preserves a matched corrective study and the original selector study as
+   supporting and pilot evidence, and provides a provider-free anonymous
+   artifact without answers, raw traces, credentials, datasets, or the sealed
+   final partition.
 
-The paper does not claim independent preregistered confirmation, pure reasoning
-over identical dossiers, a router trained/evaluated on V2, human adjudication,
-or universal agentic failure.
+The paper does not claim pure reasoning over identical dossiers, a router
+trained or evaluated on the main outcomes, human adjudication, a monotonic
+general model-capability scale, or universal agentic failure.
 
 ### Limitations statement
 
 The study measures orchestration over benchmark-provided evidence, not
 end-to-end retrieval, complete filings, OCR, or missing evidence. All reported
-samples are development evidence; the protected final partition was not executed
-or scored. V2 was frozen before inference but designed after the original study
-and a failed first corrective freeze, so it is prospective corrective evidence,
-not an independent preregistered confirmation. The arms share model,
-final-answer/parser/scorer path, retrieval API, and resource ceilings, but not
-identical retrieved dossiers; this is an end-to-end retrieval-policy comparison.
-Provider behavior, pricing, and latency may change, and stronger or differently
-designed agents may behave differently. A prospective GPT-5.6 Luna/Terra
-extension stopped on treatment-integrity failures before a complete Luna tier
-or any Terra call; no partial outcomes were analyzed. The deterministic trace
-audit is author review rather than independent human adjudication; its semantic
-candidates remain unresolved. FinDER is
-secondary because it lacks human-validated objective labels. No router is fit
-or evaluated on V2; its oracle union is diagnostic only.
+samples are development evidence; the protected final partition was not
+executed or scored. The arms share model, action/scorer path, retrieval API, and
+resource ceilings, but not identical retrieved dossiers. The three provider
+tiers are not a general monotonic capability scale. Provider behavior, pricing,
+and latency may change, and stronger or differently designed agents may behave
+differently. Two prospective action-transport freezes stopped before the
+successful run; no partial outcomes were analyzed and all touched items were
+excluded. The deterministic trace audit is author review rather than
+independent human adjudication; its semantic candidates remain unresolved.
+FinDER is secondary because it lacks human-validated objective labels. No
+router is fit or evaluated on the main outcomes; its oracle union is diagnostic
+only.
 
 ### Ethics statement
 
@@ -93,8 +89,9 @@ as evidence of financial reliability. We discuss the risk that an agentic QA
 system could be over-trusted and therefore keep the claims conditional on the
 tested models, policies, evidence, and scoring contracts. Final-partition
 identifiers were used only for overlap exclusion; no final example was rendered,
-executed, or scored. No experimental provider calls were made during release QA,
-and no human adjudication has been completed or represented as completed.
+executed, or scored. Artifact validation and post-study release QA make no
+provider calls, and no human adjudication has been completed or represented as
+completed.
 
 ### AI-assistance disclosure
 
@@ -112,10 +109,11 @@ scientific conclusions, ethics answers, and final OpenReview submission.
 An anonymous, provider-free artifact accompanies the source release where the
 submission workflow permits supplementary material. It contains public
 protocol inputs, aggregate analyses, model/price snapshots, prompt/scorer
-snapshots, development-only manifests, and a sanitized 1,350-row metric and
-telemetry ledger, including all 300 harmonized-v2 arm rows. Its offline
-validator recomputes headline macros, complementarity counts, treatment
-integrity, anonymity checks, and package hashes. It excludes benchmark data,
+snapshots, development-only manifests, the completed three-tier aggregate, and
+a sanitized 1,350-row metric and telemetry ledger for the earlier studies. Its
+offline validator recomputes earlier headline macros, verifies all three main
+complementarity matrices, treatment integrity, anonymity checks, and package
+hashes. It excludes benchmark data,
 answers, raw traces, credentials, provider responses, final identifiers and
 outcomes, and all build products; it cannot rerun a model or scorer without
 withheld answer/gold text. The repository license is MIT, upstream benchmark

@@ -1,42 +1,33 @@
-\section{Selective Financial QA}
+\section{Routing Feasibility}
 \label{sec:method}
 
 Let $q$ be a question and $\mathcal{E}$ its controlled evidence. We compare a
-static workflow $S$ with an iterative workflow $R$. Before either produces an
-answer, a selector $g_\tau$ chooses
-\begin{equation}
-  A(q,\mathcal{E}) =
-  \begin{cases}
-    R(q,\mathcal{E}) & g(z(q,\mathcal{E})) \geq \tau,\\
-    S(q,\mathcal{E}) & \text{otherwise.}
-  \end{cases}
-\end{equation}
-The features $z$ contain no answer, program, scale, derivation, or other
-target-derived field.
+static workflow $S$ with an iterative workflow $R$. A selector would choose
+$R$ when $g(z(q,\mathcal{E}))\geq\tau$ and $S$ otherwise, using no answer,
+program, scale, derivation, or other target-derived feature.
+
+\paragraph{Complementarity gate.}
+Before fitting $g$, we measure the paired binary outcomes. Let $n_{10}$ count
+Static-only correct items and $n_{01}$ ReAct-only correct items. The oracle
+union is the fraction answered by either branch, and its gain over the better
+single branch is $\min(n_{10},n_{01})/n$. This is an optimistic ceiling: a
+learned router can only recover part of it and incurs its own errors and cost.
+Small $n_{01}$ therefore blocks useful routing even when ReAct's mean score is
+competitive.
 
 \paragraph{Static and iterative branches.}
-$S$ deterministically extracts entity, period, metric, and content-word query
-views; ranks evidence chunks by lexical overlap; truncates their union to a
-fixed dossier budget; and makes one evidence-grounded answer call. $R$ uses a
-bounded ReAct search/lookup/finish interface over the same corpus, with at most
-seven model steps. Both paths record returned evidence, truncation, model usage,
-and malformed or nonterminating outputs. Deterministic parsing and ranking are
-workflow components, not autonomous agents.
+$S$ deterministically constructs entity, period, metric, and content-word
+queries, ranks evidence chunks by lexical overlap, truncates their union to a
+fixed dossier budget, and makes one evidence-grounded answer call. $R$ uses a
+bounded Search/Lookup/Finish interface over the same corpus. Its first model
+action must be Search; it may perform at most three evidence operations and
+seven model calls. Both paths record evidence exposure, parsing, calls, tokens,
+latency, and provider cost. These are end-to-end retrieval policies, not pure
+reasoners over identical dossiers.
 
-\paragraph{Selector.}
-The selector uses question/evidence length, numeric and temporal
-cues, table/conversation/narrative indicators, lexical coverage, retrieval score
-and margin, and chunk dispersion. An L2 logistic model with balanced weights and
-five-fold stratified cross-validation targets the asymmetric event
-$R$-correct/$S$-incorrect. The chosen threshold must be the cheapest whose
-development accuracy is within one point of the better branch. If any fold has
-fewer than five benefit cases or AUROC is below 0.60, the fallback rule escalates
-narrative/implication questions or cases below development thresholds for
-coverage or retrieval margin. The realized data triggered this fallback; FinDER
-was excluded because it lacks an objective or human-validated correctness label.
-
-\paragraph{Comparators.}
-Direct uses one search and one answer call; CoT/PoT uses the same dossier with an
-explicit calculation prompt; Static Nexus always invokes $S$; ReAct always
-invokes $R$; and Selective Nexus applies the selector. An offline oracle measures
-branch headroom but is not a deployable system.
+\paragraph{Supporting selector.}
+The pilot selector used target-independent question and retrieval features in
+an L2 logistic model, with a documented fallback when benefit examples were too
+sparse. We report its realized failure only as motivation. No selector is fit
+to the fresh capability-ladder outcomes; the oracle is a diagnostic upper
+bound.

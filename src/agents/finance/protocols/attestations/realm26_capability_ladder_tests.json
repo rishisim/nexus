@@ -1,16 +1,21 @@
 {
   "commands": [
-    "HF_DATASETS_OFFLINE=1 HF_HUB_OFFLINE=1 /Users/rishisim/Documents/research/nexus/nexus_env/bin/python -m py_compile src/agents/finance/realm26_capability_*.py src/agents/finance/run_realm26_capability_ladder.py src/agents/finance/analyze_realm26_capability_ladder.py",
-    "HF_DATASETS_OFFLINE=1 HF_HUB_OFFLINE=1 /Users/rishisim/Documents/research/nexus/nexus_env/bin/python -m pytest -q tests/finance/test_realm26_capability_ladder.py -k 'not all_acceptance_critical_artifacts_are_hash_bound'",
-    "HF_DATASETS_OFFLINE=1 HF_HUB_OFFLINE=1 /Users/rishisim/Documents/research/nexus/nexus_env/bin/python -m pytest -q tests/finance/test_realm26_harmonized_v2_replication.py"
+    "PYTHONPATH=. python3 -m py_compile src/agents/finance/realm26_capability_llm.py src/agents/finance/realm26_capability_methods.py src/agents/finance/realm26_capability_protocol.py src/agents/finance/run_realm26_capability_ladder.py src/agents/finance/analyze_realm26_capability_ladder.py",
+    "PYTHONPATH=. pytest -q tests/finance",
+    "PYTHONPATH=. python3 -m src.agents.finance.run_realm26_capability_ladder --format-probes --preflight-only",
+    "git check-ignore -q --no-index runs/realm26_capability_ladder/.ignore-probe",
+    "git diff --check"
   ],
-  "completed_at_utc": "2026-08-02T04:36:21Z",
-  "manifest_fingerprint": "sha256:d536bf2e3e1b68d9668aa0dfd361b19825693d54c916b5ef95886cbe038ac7e0",
+  "completed_at_utc": "2026-08-02T18:14:19Z",
+  "format_probe_attestation": "realm26_capability_format_probes.json",
+  "manifest_fingerprint": "sha256:9ce99b9a38d51d2b900ffd7df81f4dc08e548d7a8def0dede68037a1c4b90934",
   "results": {
-    "capability_tests": "7 passed, 1 hash-binding test deferred until final hashes",
-    "harmonized_v2_regression": "34 passed",
-    "preflight_ignore_probe": "passed with git check-ignore --no-index on an uncreated child path",
-    "py_compile": "passed"
+    "finance_tests": "234 passed including final artifact-hash validation",
+    "format_probes": "nine mandatory strict-function-tool tier/schema checks passed after two stopped public freezes; twenty-seven successful probes are cumulatively charged",
+    "manifest_source_validation": "passed against offline cached sources without loading protected-final content",
+    "preflight_ignore_probe": "passed",
+    "py_compile": "passed",
+    "stopped_freeze_record": "sanitized process-only history retained; no outcomes analyzed"
   },
   "status": "passed"
 }

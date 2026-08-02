@@ -2,48 +2,57 @@
 \label{sec:results}
 
 \begin{table}[t]
-  \caption{Main result: fresh harmonized v2 ($n=150$ paired items). Latency is
-  mean end-to-end seconds per item. Cost is US dollars per item.}
-  \label{tab:corrective-result}
+  \caption{Main result on the same 150 fresh items per tier. $\Delta$ is
+  ReAct-minus-Static macro quality with paired 95\% CI. B/S/R/N are
+  both-correct, Static-only, ReAct-only, and neither-correct exact counts; Head
+  is oracle gain over the better branch in points.}
+  \label{tab:capability-result}
   \centering
   \scriptsize
   \setlength{\tabcolsep}{3.0pt}
-  \begin{tabular}{@{}lrrlr r@{}}
+  \begin{tabular}{@{}lrrl@{}}
     \toprule
-    Exact outcome & Count & \multicolumn{1}{c}{} & Metric & Static & ReAct \\
+    Tier & Static & ReAct & $\Delta$ [95\% CI] \\
     \midrule
-    Both correct & 23 && Macro quality & \textbf{0.342} & 0.257 \\
-    Static only & 21 && Calls/item & 1.00 & 2.04 \\
-    ReAct only & 5 && Latency (s) & 2.12 & 3.13 \\
-    Both wrong & 101 && Cost/item & 0.000452 & \textbf{0.000304} \\
+    Control & \textbf{0.226} & 0.155 & $-0.071$ $[-0.120,-0.025]$ \\
+    Luna & \textbf{0.188} & 0.131 & $-0.057$ $[-0.098,-0.020]$ \\
+    Terra & 0.210 & \textbf{0.218} & $0.008$ $[-0.015,0.033]$ \\
+    \midrule
+    Tier & \multicolumn{2}{c}{B/S/R/N} & Head \\
+    Control & \multicolumn{2}{c}{12/13/2/123} & 1.3 \\
+    Luna & \multicolumn{2}{c}{7/9/1/133} & 0.7 \\
+    Terra & \multicolumn{2}{c}{21/1/2/126} & 0.7 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\paragraph{Corrective study.}
-Table~\ref{tab:corrective-result} is the narrative centerpiece. All 150 ReAct
-rows passed the retrieval-first manipulation check. The paired stratified
-ReAct-minus-Static macro estimate was $-0.0849$ (95\% CI
-$[-0.1467,-0.0252]$). Exact complementarity was 21 Static-only versus five
-ReAct-only cases (McNemar $p=0.00249$); the oracle union improves over
-always-Static exact accuracy by only 3.3 points. The difference was clearest on
-FinQA ($-0.160$), while dataset-level intervals included zero for TAT-QA and
-ConvFinQA. ReAct averaged 1.04 more model calls and 1.02 additional seconds per
-item. Static averaged 2.87 retrievals versus ReAct's 1.04, so the iterative arm
-used fewer input tokens and dollars despite its additional calls. These are
-development results, not a final-partition estimate.
+\paragraph{Capability changes the average ordering.}
+Table~\ref{tab:capability-result} is the narrative centerpiece. Static's macro
+advantage excludes zero for control and Luna. Terra instead reaches parity,
+with a small nonsignificant ReAct edge. The ReAct-minus-Static interaction is
+$0.079$ for Terra minus control (95\% CI $[0.028,0.133]$) and $0.065$ for Terra
+minus Luna ($[0.018,0.117]$); Luna minus control is $0.014$
+($[-0.043,0.071]$). Thus the earlier ReAct deficit is not invariant to model
+tier.
 
-\paragraph{Pilot routing evidence.}
-The earlier Gemini study used a separate sample and unequal method contracts.
-Its best primary macro was CoT/PoT at 0.4323; Static Nexus scored 0.4304, ReAct
-0.2993, and Selective Nexus 0.3675. ReAct was 0.131 below Static Nexus
-(ReAct-minus-Static CI $[-0.207,-0.056]$) and cost more. The fallback selector
-was 0.0648 below CoT/PoT while also costing more, so it missed the documented
-quality--cost criterion. We retain this as the motivating observation and
-supporting evidence, not a benchmark ranking or the main causal comparison.
+\paragraph{Complementarity remains negligible.}
+The capability boundary does not yield routing opportunity. ReAct is uniquely
+exact on only two control, one Luna, and two Terra items. Oracle gain over the
+better branch is therefore 1.3, 0.7, and 0.7 points. McNemar tests favor Static
+for control ($p=0.0074$) and Luna ($p=0.0215$), while Terra's three discordant
+items provide no directional evidence ($p=1.0$). No router is fit to these
+outcomes.
 
-\paragraph{Confirmatory evaluation.}
-The recorded conditional required Selective Nexus either to improve quality
-while reducing cost or to stay within one absolute point of the best macro with
-at least 30\% lower cost. It does neither, so we did not execute the protected
-final partition and report no confirmatory or semantic FinDER results.
+\paragraph{Efficiency.}
+Static uses one call per item; ReAct averages 2.31, 2.27, and 2.16 calls for
+control, Luna, and Terra. In the same order, ReAct takes 2.6, 2.4, and 2.1
+times as long and costs 1.29, 1.29, and 1.14 times as much. It is therefore
+neither cheaper nor faster in the main study.
+
+\paragraph{Supporting evidence.}
+On a separate harmonized-v2 sample, Static scored 0.342 versus ReAct's 0.257
+($\Delta=-0.085$, 95\% CI $[-0.147,-0.025]$), with 21 Static-only versus five
+ReAct-only exact successes and 3.3 points of oracle headroom. The earlier pilot
+selector likewise missed its documented quality--cost criterion. Contract
+asymmetries make the pilot noncentral, but neither supporting study contradicts
+the main complementarity diagnosis.

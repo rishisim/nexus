@@ -4,13 +4,15 @@ from __future__ import annotations
 
 import argparse
 import json
+from itertools import combinations
 from pathlib import Path
 from statistics import mean
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
+from . import finance_scoring
 from .finance_statistics import exact_mcnemar, paired_bootstrap_ci, stratified_paired_bootstrap_ci
 from .protocol_v2 import ProtocolError, fingerprint, write_stable_json
-from .realm26_capability_protocol import DATASETS, DEFAULT_PROTOCOL_PATH, FRAMEWORKS, load_manifest, load_protocol
+from .realm26_capability_protocol import DATASETS, DEFAULT_PROTOCOL_PATH, FRAMEWORKS, TIERS, load_manifest, load_protocol
 
 
 def _rows(root: Path, dataset: str, framework: str) -> List[Dict[str, Any]]:
@@ -37,6 +39,13 @@ def _nested(row: Mapping[str, Any], path: str) -> float:
 def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root: Path, tier: str) -> Dict[str, Dict[str, List[Dict[str, Any]]]]:
     output: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
     model = protocol["models"][tier]
+    inference = protocol["inference"]
+    reasoning_by_tier = inference.get("reasoning_effort_by_tier")
+    expected_reasoning = (
+        reasoning_by_tier[tier]
+        if isinstance(reasoning_by_tier, Mapping)
+        else inference.get("reasoning_effort")
+    )
     for dataset in DATASETS:
         expected = [str(item["example_id"]) for item in manifest["datasets"][dataset]["examples"]]
         output[dataset] = {}
@@ -51,9 +60,17 @@ def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
                     raise ProtocolError("Failed row or item drift")
                 if row.get("tier") != tier or row.get("requested_model") != model["requested_model_id"] or row.get("resolved_model") != model["requested_model_id"] or row.get("catalog_canonical_slug") != model["canonical_slug"]:
                     raise ProtocolError("Tier model binding mismatch")
-                if row.get("provider_name") != "OpenAI" or row.get("reasoning_effort") != "none" or row.get("sampling_parameters_sent") != [] or row.get("structured_outputs") is not True:
+                if (
+                    row.get("provider_name") != "OpenAI"
+                    or row.get("action_transport") != "strict_single_function_tool"
+                    or row.get("reasoning_effort") != expected_reasoning
+                    or row.get("reasoning_parameter_sent") is not (tier != "control")
+                    or row.get("sampling_parameters_sent") != []
+                    or row.get("structured_outputs") is not True
+                    or row.get("tool_choice_sent") is not True
+                ):
                     raise ProtocolError("Provider or request-parameter binding mismatch")
-                if row.get("answer_contract") != "strict_json_finish_v1" or row.get("method_version") != "realm26_harmonized_v2":
+                if row.get("answer_contract") != protocol["workflows"]["answer_contract"] or row.get("method_version") != "realm26_harmonized_v2":
                     raise ProtocolError("Shared harmonized-v2 method contract drift")
                 if framework == "static" and int(row.get("llm_call_count", 0)) != 1:
                     raise ProtocolError("Static treatment-integrity failure")
@@ -66,6 +83,14 @@ def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
                     and row.get("parse_status") == "ok"
                 ):
                     raise ProtocolError("ReAct treatment-integrity failure")
+                if "native_scores" not in row:
+                    row["native_scores"] = finance_scoring.score_dataset(
+                        dataset,
+                        str(row.get("answer") or "UNKNOWN"),
+                        row.get("ground_truth"),
+                        gold_scale=str(row.get("gold_scale") or ""),
+                        question_type=str(row.get("question_type") or ""),
+                    ).to_dict()
             output[dataset][framework] = ordered
     return output
 
@@ -137,12 +162,13 @@ def analyze_tier(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
         ).to_dict()
         for field in efficiency_fields
     }
-    ledger = json.loads((root / "spend_ledger.json").read_text(encoding="utf-8"))
+    ledger = json.loads((root.parent / "cumulative_spend_ledger.json").read_text(encoding="utf-8"))
     if ledger.get("pending_reservations"):
         raise ProtocolError("Analysis forbidden with unresolved spend reservation")
-    spend = sum(float(row["actual_cost_usd"]) for row in ledger["calls"])
-    if abs(spend - float(ledger["actual_spend_usd"])) > 1e-9 or spend > float(protocol["models"][tier]["hard_cap_usd"]):
-        raise ProtocolError("Spend ledger mismatch or cap breach")
+    spend = sum(float(row["actual_cost_usd"]) for row in ledger["calls"] if row.get("tier") == tier)
+    total = sum(float(row["actual_cost_usd"]) for row in ledger["calls"])
+    if abs(total - float(ledger["actual_study_spend_usd"])) > 1e-9:
+        raise ProtocolError("Cumulative spend ledger mismatch")
     commits = {str(row["pre_result_commit"]) for framework in FRAMEWORKS for row in all_rows[framework]}
     if len(commits) != 1:
         raise ProtocolError("Rows do not share one public pre-result freeze")
@@ -164,20 +190,76 @@ def analyze_tier(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
     }
 
 
-def compare_tiers(protocol: Mapping[str, Any], manifest: Mapping[str, Any], luna_root: Path, terra_root: Path) -> Dict[str, Any]:
+def compare_tiers(
+    protocol: Mapping[str, Any],
+    manifest: Mapping[str, Any],
+    roots: Mapping[str, Path],
+) -> Dict[str, Any]:
+    """Compare tier quality and the preregistered ReAct-minus-Static interactions."""
+
     metric_paths = protocol["analysis"]["dataset_quality_metrics"]
     n_resamples = int(protocol["analysis"]["bootstrap_resamples"])
     seed = int(protocol["analysis"]["bootstrap_seed"])
-    luna = _paired_rows(protocol, manifest, luna_root, "luna")
-    terra = _paired_rows(protocol, manifest, terra_root, "terra")
-    output: Dict[str, Any] = {}
-    for framework in FRAMEWORKS:
-        luna_by_dataset = {dataset: [_nested(row, metric_paths[dataset]) for row in luna[dataset][framework]] for dataset in DATASETS}
-        terra_by_dataset = {dataset: [_nested(row, metric_paths[dataset]) for row in terra[dataset][framework]] for dataset in DATASETS}
-        output[f"{framework}_terra_minus_luna"] = stratified_paired_bootstrap_ci(
-            luna_by_dataset, terra_by_dataset, n_resamples=n_resamples, seed=seed
+    paired = {
+        tier: _paired_rows(protocol, manifest, roots[tier], tier)
+        for tier in TIERS
+    }
+    quality = {
+        tier: {
+            framework: {
+                dataset: [
+                    _nested(row, metric_paths[dataset])
+                    for row in paired[tier][dataset][framework]
+                ]
+                for dataset in DATASETS
+            }
+            for framework in FRAMEWORKS
+        }
+        for tier in TIERS
+    }
+    deltas = {
+        tier: {
+            dataset: [
+                react - static
+                for static, react in zip(
+                    quality[tier]["static"][dataset],
+                    quality[tier]["react"][dataset],
+                )
+            ]
+            for dataset in DATASETS
+        }
+        for tier in TIERS
+    }
+
+    quality_differences: Dict[str, Any] = {}
+    interactions: Dict[str, Any] = {}
+    for reference, target in combinations(TIERS, 2):
+        comparison = f"{target}_minus_{reference}"
+        quality_differences[comparison] = {
+            framework: stratified_paired_bootstrap_ci(
+                quality[reference][framework],
+                quality[target][framework],
+                n_resamples=n_resamples,
+                seed=seed,
+            ).to_dict()
+            for framework in FRAMEWORKS
+        }
+        interactions[comparison] = stratified_paired_bootstrap_ci(
+            deltas[reference],
+            deltas[target],
+            n_resamples=n_resamples,
+            seed=seed,
         ).to_dict()
-    return output
+
+    return {
+        "quality_differences": quality_differences,
+        "react_minus_static_delta_interactions": interactions,
+        "interaction_estimand": (
+            "(ReAct - Static) target-tier macro quality minus "
+            "(ReAct - Static) reference-tier macro quality"
+        ),
+        "interaction_method": "dataset-stratified paired percentile bootstrap",
+    }
 
 
 def render_memo(result: Mapping[str, Any]) -> str:
@@ -187,7 +269,7 @@ def render_memo(result: Mapping[str, Any]) -> str:
         "All results are development-only and use the completed harmonized-v2 Static and retrieval-first ReAct contracts.",
         "",
     ]
-    for tier in ("luna", "terra"):
+    for tier in TIERS:
         if tier not in result["tiers"]:
             continue
         row = result["tiers"][tier]
@@ -207,23 +289,63 @@ def render_memo(result: Mapping[str, Any]) -> str:
     lines.extend([
         "## Frozen tier execution",
         "",
-        "Luna and Terra were both required prospectively, and no outcomes were analyzed until both completed.",
+        f"All {len(TIERS)} tiers ({', '.join(TIERS)}) were required prospectively, and no outcomes were analyzed until every tier completed.",
         "",
-        "No sealed-final example was loaded, rendered, executed, or scored.",
+        "No protected-final example was loaded, rendered, executed, or scored.",
         "",
     ])
+    interactions = result["tier_comparison"]["react_minus_static_delta_interactions"]
+    if interactions:
+        lines.extend(["## ReAct-minus-Static interactions", ""])
+        for name, interval in interactions.items():
+            lines.append(
+                f"{name}: {interval['estimate']:.4f}, 95% CI "
+                f"[{interval['lower']:.4f}, {interval['upper']:.4f}]."
+            )
+        lines.append("")
     return "\n".join(lines)
 
 
-def analyze(protocol_path: str | Path, luna_root: Path, terra_root: Path) -> Dict[str, Any]:
+def _validate_roots(roots: Mapping[str, Path]) -> Dict[str, Path]:
+    expected = set(TIERS)
+    actual = set(roots)
+    if actual != expected:
+        raise ProtocolError(
+            "Analysis requires exactly one completed root for every frozen tier: "
+            f"missing={sorted(expected - actual)}, unexpected={sorted(actual - expected)}"
+        )
+    return {tier: Path(roots[tier]).resolve() for tier in TIERS}
+
+
+def _validate_study_completion(protocol: Mapping[str, Any], roots: Mapping[str, Path]) -> None:
+    parents = {path.parent for path in roots.values()}
+    if len(parents) != 1:
+        raise ProtocolError("All tier roots must share one frozen run root")
+    completion_path = parents.pop() / "study_complete.json"
+    if not completion_path.exists():
+        raise ProtocolError("Analysis is forbidden until the three-tier completion record exists")
+    completion = json.loads(completion_path.read_text(encoding="utf-8"))
+    expected = 150 * len(FRAMEWORKS)
+    if (
+        completion.get("status") != "complete"
+        or completion.get("process_checks_passed") is not True
+        or completion.get("tier_episode_counts") != {tier: expected for tier in TIERS}
+    ):
+        raise ProtocolError("Three-tier process completion is incomplete")
+
+
+def analyze(protocol_path: str | Path, roots: Mapping[str, Path]) -> Dict[str, Any]:
     protocol = load_protocol(protocol_path)
     manifest = load_manifest(protocol)
-    luna = analyze_tier(protocol, manifest, luna_root, "luna")
-    terra = analyze_tier(protocol, manifest, terra_root, "terra")
-    tiers: Dict[str, Any] = {"luna": luna, "terra": terra}
-    comparison = compare_tiers(protocol, manifest, luna_root, terra_root)
+    normalized_roots = _validate_roots(roots)
+    _validate_study_completion(protocol, normalized_roots)
+    tiers = {
+        tier: analyze_tier(protocol, manifest, normalized_roots[tier], tier)
+        for tier in TIERS
+    }
+    comparison = compare_tiers(protocol, manifest, normalized_roots)
     result: Dict[str, Any] = {
-        "analysis_schema_version": "realm26-capability-analysis-v1",
+        "analysis_schema_version": "realm26-capability-analysis-v2",
         "claims_scope": protocol["claims_scope"],
         "manifest_fingerprint": manifest["manifest_fingerprint"],
         "protocol_id": protocol["protocol_id"],
@@ -238,8 +360,8 @@ def analyze(protocol_path: str | Path, luna_root: Path, terra_root: Path) -> Dic
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--protocol", default=str(DEFAULT_PROTOCOL_PATH))
-    parser.add_argument("--luna-root", required=True)
-    parser.add_argument("--terra-root", required=True)
+    for tier in TIERS:
+        parser.add_argument(f"--{tier}-root", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--memo", required=True)
     return parser
@@ -249,8 +371,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     args = build_parser().parse_args(argv)
     result = analyze(
         args.protocol,
-        Path(args.luna_root).resolve(),
-        Path(args.terra_root).resolve(),
+        {tier: Path(getattr(args, f"{tier}_root")) for tier in TIERS},
     )
     write_stable_json(Path(args.output), result)
     Path(args.memo).write_text(render_memo(result), encoding="utf-8")
