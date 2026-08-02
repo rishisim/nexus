@@ -62,8 +62,12 @@ $[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
 
 - Reported results are development-only: the original 250-example, five-system
   study; a separate 75-item replication; and a 150-item harmonized v2.
-- The 900-example final manifest is unexecuted and unscored. Identifier metadata
+- The protected final manifest is unexecuted and unscored. Identifier metadata
   was used only to enforce disjointness.
+- A prospectively frozen GPT-5.6 Luna/Terra extension stopped on
+  treatment-integrity failures before a complete Luna tier or any Terra call.
+  Partial outcomes were not analyzed; the artifact retains only a process and
+  budget report, not an accuracy estimate.
 - FinanceBench and FinDER do not enter the three-dataset primary macro.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
@@ -91,10 +95,10 @@ $[-0.1467,-0.0252]$), with 21 versus five unique exact successes.
 
 ### Highest-value remaining work
 
-Keep human adjudication explicitly unresolved unless independent reviewers
-become available. Integrate harmonized v2 into the anonymous artifact, run
-hostile methodological reviews, tighten the four-page draft, and complete the
-submission/admin checklist without retuning on current outcomes.
+The scientific manuscript and anonymous artifact are integrated. Keep author
+adjudication explicitly secondary and unresolved, avoid retuning on current
+outcomes, and complete only the submission/admin checklist and final OpenReview
+upload review.
 
 ### Internal schedule
 

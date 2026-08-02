@@ -27,10 +27,10 @@ paste the LaTeX line-break command into OpenReview.
 
 ### Abstract
 
-Iterative language-model agents spend additional inference in the hope of recovering errors made by simpler readers. We test a necessary precondition for that trade-off: whether the iterative expert is actually complementary. In an initial controlled-evidence development study, only 10 of 200 routing examples were ReAct-only successes, versus 42 Static-only successes; the documented fallback gate then escalated 70% of cases and reduced exact accuracy from 0.395 to 0.295. Because a trace audit exposed unequal answer and context contracts, we ran a prospectively frozen corrective study on 150 fresh items. Both arms used the same model, final-answer parser and scorer, retrieval API, and evidence, context, and output ceilings; every ReAct row was verified to produce the required first Search and observe evidence. Static scored 0.342 versus ReAct's 0.257 (paired macro difference −0.085, 95% CI [−0.147, −0.025]), with 21 versus five unique exact successes. ReAct used more calls and time but fewer input tokens and dollars. These are development-only results for bounded workflows, not a universal claim against agents. We followed the gate and left the 900-example final partition unexecuted. Routing studies should audit expert complementarity and evaluation contracts before optimizing when to escalate.
+Selective routing can improve an accuracy–cost frontier only if its expensive branch supplies enough unique correct answers. We test this prerequisite in a prospectively frozen comparison of one-call Static and bounded retrieval-first ReAct on 150 fresh financial-QA development items. Both arms use the same model, final-answer parser and scorer, retrieval interface, and evidence, context, and output ceilings; every ReAct row was verified to begin with Search and observe evidence. Static scored 0.342 versus ReAct's 0.257 (paired macro difference −0.085, 95% CI [−0.147, −0.025]). The exact complementarity matrix contained 23 both-correct, 21 Static-only, five ReAct-only, and 101 both-wrong cases, so an oracle could improve over the better branch by only 3.3 points. ReAct used more calls and time but fewer input tokens and dollars. An earlier routing study, which motivated this correction, likewise failed but had unequal answer and context contracts. Our result concerns bounded retrieval-first ReAct under controlled benchmark evidence, not agents generally. Expert complementarity and evaluation-contract fairness should be established before router optimization.
 
 This is a plain-text rendering of `sections/abstract.tex`; the content and
-numbers match the manuscript. It is 198 words under the repository's word
+numbers match the manuscript. It is 164 words under the repository's word
 counting check and stays below the ACL 200-word limit.
 
 ### TL;DR
@@ -49,7 +49,7 @@ Archival
 
 This paper makes three scoped contributions:
 
-1. It documents a failed quality–cost gate for selective routing and identifies
+1. It documents a failed quality–cost criterion for selective routing and identifies
    measured expert complementarity as a prerequisite for a useful fallback.
 2. It reports a fresh, prospectively frozen corrective development comparison
    that harmonizes the model, final-answer/parser/scorer path, retrieval API,
@@ -68,15 +68,18 @@ or universal agentic failure.
 
 The study measures orchestration over benchmark-provided evidence, not
 end-to-end retrieval, complete filings, OCR, or missing evidence. All reported
-samples are development evidence; the 900-item final partition was not executed
+samples are development evidence; the protected final partition was not executed
 or scored. V2 was frozen before inference but designed after the original study
 and a failed first corrective freeze, so it is prospective corrective evidence,
 not an independent preregistered confirmation. The arms share model,
 final-answer/parser/scorer path, retrieval API, and resource ceilings, but not
 identical retrieved dossiers; this is an end-to-end retrieval-policy comparison.
 Provider behavior, pricing, and latency may change, and stronger or differently
-designed agents may behave differently. The deterministic trace audit is not
-human adjudication; its semantic candidates remain unresolved. FinDER is
+designed agents may behave differently. A prospective GPT-5.6 Luna/Terra
+extension stopped on treatment-integrity failures before a complete Luna tier
+or any Terra call; no partial outcomes were analyzed. The deterministic trace
+audit is author review rather than independent human adjudication; its semantic
+candidates remain unresolved. FinDER is
 secondary because it lacks human-validated objective labels. No router is fit
 or evaluated on V2; its oracle union is diagnostic only.
 
@@ -95,16 +98,14 @@ and no human adjudication has been completed or represented as completed.
 
 ### AI-assistance disclosure
 
-AI assistance was used to inspect repository documentation, draft and edit the
-submission packet/checklist, perform source-level consistency checks, and
-orchestrate provider-free project compilation and validation. No experimental
-model/API calls, final-example access, new labels, or new experimental results
-were generated during this preparation. The authors retain responsibility for
-the manuscript, data provenance, scientific claims, ethics answers, and final
-OpenReview submission.
-
-This disclosure describes the assistance used for this preparation; authors
-must confirm that it is complete and compatible with any venue-specific policy.
+AI assistance was used to inspect repository documentation, design and execute
+prospectively frozen development experiments, draft and edit the manuscript and
+submission materials, and perform source-level consistency, compilation, and
+artifact-validation checks. The protected final partition was not accessed
+beyond identifier-only overlap exclusion, and AI assistance did not create
+human labels or independent adjudication. The author reviewed the resulting
+claims and retains responsibility for the manuscript, data provenance,
+scientific conclusions, ethics answers, and final OpenReview submission.
 
 ### Reproducibility / artifact statement
 

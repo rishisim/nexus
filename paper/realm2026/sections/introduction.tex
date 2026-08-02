@@ -17,19 +17,21 @@ access to different documents. A pre-generation selector chooses between a stati
 one-call workflow and bounded ReAct using only target-independent question and
 evidence features.
 
-Our original development study spans five financial-QA datasets, five systems,
-and provider-level telemetry. ReAct was the least accurate and most expensive
-primary system; the fallback rule routed too broadly, and Selective Nexus did
-not meet the documented quality--cost criterion. A trace audit then exposed an important qualification:
-method-specific answer and context contracts interact with the conservative
-scorer, so the original unique-success counts are not a semantic error
-adjudication. We therefore ran a separately, prospectively frozen corrective
-comparison on fresh development evidence. Under a shared final-answer contract,
-common resource ceilings, and a verified retrieval-first ReAct treatment, Static
-retained a macro advantage
-whose frozen 95\% interval excluded zero, although ReAct still supplied a small
-number of unique successes.
-The contribution is an auditable negative result rather than a successful
-router or a universal claim against agents: establish both measured
-complementarity and evaluation-contract fairness before training a difficulty
-router or spending a confirmatory test set.
+Our main evidence is a separately, prospectively frozen corrective comparison
+on fresh development items. Under a shared final-answer contract, common
+resource ceilings, and a verified retrieval-first ReAct treatment, Static
+retained a macro advantage whose frozen 95\% interval excluded zero, while
+ReAct supplied only five unique exact successes. An earlier five-dataset routing
+study motivates the correction: its fallback routed too broadly and failed its
+quality--cost criterion, but a trace audit exposed unequal answer and context
+contracts. We therefore treat those earlier results as pilot evidence rather
+than the basis for the central claim.
+
+Our contribution is a feasibility test that precedes ordinary routing
+optimization: expert complementarity must be established before router
+optimization. When the expensive branch contributes few unique correct
+answers, routing cannot materially improve the accuracy--cost frontier,
+regardless of selector quality. Evaluation contracts can distort that measured
+complementarity, so they must be harmonized before the test. This is an
+auditable negative result for bounded workflows, not a universal claim against
+agents.

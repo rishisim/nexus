@@ -14,6 +14,8 @@ Prior studies also find diminishing or negative returns from additional
 reasoning~\cite{chen2024donotthink,vamvourellis2025overthinking}. Selective
 prediction and model routing optimize risk--coverage or quality--cost
 trade-offs~\cite{geifman2019selectivenet,chen2024frugalgpt,ong2025routellm}.
-We connect these lines by testing an often implicit prerequisite: whether the
-candidate expensive expert has enough complementary accuracy to make routing
-useful at all.
+Routing work typically optimizes which model or workflow to call. We instead
+test whether the proposed expensive expert has enough unique value for any
+selector to be useful, and show how answer and context contracts affect that
+measurement. This expert-feasibility audit is logically prior to learning a
+router.

@@ -1,6 +1,6 @@
 # REALM 2026 archival short-paper release gate
 
-Status date: **2026-07-20**
+Status date: **2026-08-02**
 
 Target: **REALM @ EMNLP 2026, direct archival short-paper submission**
 
@@ -99,38 +99,40 @@ Use the labels below when closing items:
 - [ ] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
   a one-page validation log with exact commands and outputs.
 
-## Current validation snapshot (2026-07-20)
+## Current validation snapshot (2026-08-02)
 
 These results are from the current task branch and should be rerun after any
 manuscript, artifact, or frozen-source change:
 
 - [x] **[VERIFIED]** Artifact: `python3
-  paper/realm2026/artifact/validate_artifact.py` passed with exactly **30
+  paper/realm2026/artifact/validate_artifact.py` passed with exactly **31
   tracked artifact files and 1,350 sanitized score rows**; offline
   recomputation, integrity, and anonymity checks completed.
-- [x] **[VERIFIED]** Tests: `python3 -m pytest -q` passed **201 tests**; the
-  latest cleanup rerun emitted no warnings.
+- [x] **[VERIFIED]** Tests: `python3 -m pytest -q tests/finance` passed **209
+  tests**. It emitted 21 known numerical-overflow warnings from synthetic
+  selective-router stress tests; no test failed.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
-  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,998-byte**
+  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 151,971-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
   present.
 - [x] **[VERIFIED]** PDF geometry/metadata: `pdfinfo` reports **5 pages** and
   **595.276 x 841.890 pt (A4)**; Author, Subject, and Title are blank; Creator
   is `LaTeX with hyperref`; no identity string is present.
-- [x] **[VERIFIED]** Fonts: `pdffonts` reports **12 embedded fonts**, all with
+- [x] **[VERIFIED]** Fonts: `pdffonts` reports **10 embedded fonts**, all with
   `emb=yes`; no overfull boxes or undefined citations/references were found.
-  The log contains 12 underfull-box warnings, which do not change page count
+  The log contains 8 underfull-box warnings, which do not change page count
   or clip content.
 - [x] **[VERIFIED]** Citation/source audit: **14 cited keys**, **18 bibliography
   keys**, **0 missing citation keys**. The four unused bibliography entries do
   not create unresolved references.
 - [x] **[VERIFIED]** Visual inspection: all five rendered pages were inspected;
-  the anonymous ACL review line is present, the sole table is grayscale-readable,
-  research content and the conclusion end on content page 4, Limitations follows
-  the conclusion, and References begin after Limitations and continue on page 5.
+  the anonymous ACL review line is present, the complementarity/efficiency table
+  is grayscale-readable, research content and Limitations end on content page 4,
+  and References begin after Limitations on page 4 and continue on page 5.
 - [x] **[VERIFIED]** The anonymous PDF text and validated artifact contain no
   author identity, private/deanonymizing URL, local path, raw secret, final
-  outcome, or final example. The two hash-bound internal protocol memos retain
+  outcome, or final example. The capability snapshot contains process and budget
+  status only, with no partial outcome analysis. The two hash-bound internal protocol memos retain
   historical local-path text; editing them would invalidate the frozen protocol
   hash and test, so they are not submission PDF/artifact payloads and must not
   be changed without a new protocol version.

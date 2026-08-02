@@ -1,0 +1,219 @@
+{
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260801,
+    "complementarity_binary_metric": "native_scores.exact_match",
+    "dataset_quality_metrics": {
+      "convfinqa": "native_scores.exact_match",
+      "finqa": "native_scores.exact_match",
+      "tatqa": "native_scores.f1"
+    },
+    "efficiency_fields": [
+      "llm_call_count",
+      "retrieval_operation_count",
+      "input_tokens",
+      "cached_tokens",
+      "output_tokens",
+      "reasoning_tokens",
+      "total_tokens",
+      "effective_cost_usd",
+      "episode_wall_ms"
+    ],
+    "primary_estimand": "unweighted macro mean across FinQA, TAT-QA, and ConvFinQA",
+    "uncertainty": "dataset-stratified paired 10000-resample percentile bootstrap for ReAct minus Static"
+  },
+  "artifact_hashes": {
+    "analysis": "sha256:f1c84643c6cfab641e1d7daf52cfe9f16d8241ca4d62f856914d037592968d77",
+    "attestation": "sha256:381298264091450c49464a8689f394527606458bea23fba85b2e12a0ec957fa1",
+    "capability_llm": "sha256:b9b344fc46bc42530d5e73c3b6c3163f78ea947dbf97e94e6b8925a766d6dbea",
+    "capability_methods": "sha256:fddab988cf27e2f2366a0e7ea6ebefd002ecf81ea61a32a0d08bad8e64237353",
+    "data_adapter": "sha256:3c7423c9c1c49b57ccffc7f74d9018d671d22192dd02d1d225191a064820f7a5",
+    "executor": "sha256:c93c9c2a3849b87e97730515fdaf339686ef7434a736a5c3ec6cfe7da292b814",
+    "finance_statistics": "sha256:7e2022a2769ec4f68ef8e4a0e4b371e30a37d741f56c406817fbcb5999a824eb",
+    "manifest": "sha256:94e5ecfebf08c07c5504ee8fbd562a9d4fcc2d84c21dcf01d6bd040af99e83fa",
+    "model_snapshot": "sha256:7d112cb41c76715005ac20bd897456fc7241df5647065743a86f568a34522156",
+    "protocol_guard": "sha256:928fdb6c1d32efd103e2fbc725f3839c03a15f0e0c9e33740e62d71394b5f9a0",
+    "protocol_memo": "sha256:221bdc1a028279f80644b1d0399f9e157efe3ef308d47958fd37bec46a4a4772",
+    "protocol_utils": "sha256:306d5e2f28b2ba7535376c1a92396640ec0abe6a634fd1e6aa6ca76ede00dab9",
+    "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e",
+    "shared_methods": "sha256:c9a8a9d68e7340ecc7c28894376b8ec306b7dea72b8ab1d220bb86acef3b226f",
+    "shared_prompts": "sha256:664735819569b10749b0e72f1458a88c8739d10d6bedde6f0e106de48e23d78d",
+    "telemetry": "sha256:be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469",
+    "tests": "sha256:51242dfa8772a91bace1d731a08406903d4ce7120228f9cb4b310b7ffd40f195",
+    "v2_manifest": "sha256:12e2b56463fdc9b1f0fbb87a47b9101151e819ceecb8a619e374bfc86bfef389"
+  },
+  "budget": {
+    "combined_hard_maximum_usd": 20.0,
+    "prior_failed_attempt_allowance_usd": 0.00413007925,
+    "prior_failed_attempt_breakdown_usd": {
+      "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
+      "c296aba_recorded_provider_spend": 0.0005714775,
+      "9c010e5_recorded_provider_spend": 0.00176861025,
+      "b3a0efe_recorded_provider_spend": 0.0006354315
+    },
+    "max_input_tokens_reserved_per_call": 8192,
+    "max_study_calls_per_tier": 1200,
+    "planning_basis": "4096 prompt words x conservative 2 tokens/word, 384 output tokens, 150 one-call Static episodes, and 150 seven-call maximum ReAct episodes",
+    "reservation_margin": 1.1,
+    "smoke_counts_toward_luna_cap": true
+  },
+  "claims_scope": "development_only_bounded_retrieval_first_react_capability_ladder",
+  "created_at_utc": "2026-08-02T03:40:50Z",
+  "datasets": [
+    "finqa",
+    "tatqa",
+    "convfinqa"
+  ],
+  "exclusions": {
+    "allowed_final_use": "identifier_overlap_exclusion_only",
+    "original_protocol": "finance_icaif26_v2.json",
+    "second_family_manifest": "manifests/realm26_second_family_v1/manifest.json",
+    "v1_manifest": "manifests/realm26_harmonized_static_react_v1/manifest.json",
+    "v2_manifest": "manifests/realm26_harmonized_static_react_v2/manifest.json"
+  },
+  "frameworks": [
+    "static",
+    "react"
+  ],
+  "freeze_state": "frozen",
+  "inference": {
+    "backend": "openrouter",
+    "inter_call_delay_seconds": 0.1,
+    "provider_routing": {
+      "allow_fallbacks": false,
+      "data_collection": "deny",
+      "only": [
+        "OpenAI"
+      ],
+      "require_parameters": true
+    },
+    "reasoning_effort": "none",
+    "structured_action_decoding": "strict_json_schema_by_framework_and_react_step",
+    "sampling_parameters_forbidden": [
+      "temperature",
+      "top_p"
+    ]
+  },
+  "manifest": "manifests/realm26_capability_ladder/manifest.json",
+  "model_snapshot": "snapshots/realm26_capability_ladder_openrouter_catalog.json",
+  "models": {
+    "luna": {
+      "canonical_slug": "openai/gpt-5.6-luna-20260709",
+      "hard_cap_usd": 4.99586992075,
+      "maximum_reserved_call_cost_usd": 0.00115456,
+      "maximum_reserved_study_cost_usd": 1.385472,
+      "requested_model_id": "openai/gpt-5.6-luna"
+    },
+    "terra": {
+      "canonical_slug": "openai/gpt-5.6-terra-20260709",
+      "hard_cap_usd": 15.0,
+      "maximum_reserved_call_cost_usd": 0.0115456,
+      "maximum_reserved_study_cost_usd": 13.85472,
+      "requested_model_id": "openai/gpt-5.6-terra"
+    }
+  },
+  "protocol_id": "realm26_capability_ladder",
+  "publication": {
+    "base_branch": "realm26/archival-short-paper",
+    "branch": "realm26/luna-terra-capability",
+    "remote": "origin"
+  },
+  "purpose": "Test whether complementarity from bounded retrieval-first ReAct changes from an efficient model tier to a stronger balanced model tier under the completed harmonized-v2 method contract.",
+  "results": {
+    "root": "runs/realm26_capability_ladder",
+    "tracked": false
+  },
+  "retry_policy": {
+    "max_attempts_per_call": 1,
+    "valid_outputs_are_immutable": true
+  },
+  "sample": {
+    "per_dataset": 50,
+    "replacement": {
+      "consumed_example_id": "finqa41",
+      "consumed_index": 41,
+      "failed_freeze_commit": "3b4698ebcc9af447c0590b397fcd743ffb8c6c06",
+      "failed_manifest_fingerprint": "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
+      "policy": "preserve_149_never_called_items_and_seeded_replace_consumed_finqa_item",
+      "replacement_seed": 20260802
+    },
+    "replacement_after_process_failure": {
+      "consumed_example_id": "finqa881",
+      "consumed_index": 881,
+      "failed_freeze_commit": "c296aba15e429e4e24a1bb423a82c4713092a4d1",
+      "failed_manifest_fingerprint": "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
+      "policy": "preserve_149_never_called_items_and_seeded_replace_consumed_finqa_item",
+      "replacement_seed": 20260803
+    },
+    "replacement_after_unconstrained_decoding_failure": {
+      "consumed_example_ids": [
+        "finqa714",
+        "finqa70",
+        "finqa81"
+      ],
+      "consumed_indices": [
+        714,
+        70,
+        81
+      ],
+      "failed_freeze_commit": "9c010e5a4758a7a699d52eba3aaa64cc044993c3",
+      "failed_manifest_fingerprint": "sha256:a793fc14aeccb92fad9a56726182aa507c12380d28e21d620e64068b181a30c2",
+      "policy": "preserve_147_never_called_items_and_seeded_replace_three_consumed_finqa_items",
+      "replacement_seed": 20260804
+    },
+    "replacement_after_multiobject_structured_output_failure": {
+      "consumed_example_id": "finqa113",
+      "consumed_index": 113,
+      "failed_freeze_commit": "b3a0efeb86d602d33de7ed56e9a49f6338bb7e0e",
+      "failed_manifest_fingerprint": "sha256:50ac0e424a9d056e349731386af4a07fb2f0af50e87f3e33b5e9383168fdd96d",
+      "policy": "preserve_149_never_called_items_and_seeded_replace_consumed_finqa_item",
+      "replacement_seed": 20260805
+    },
+    "same_items_for_all_tiers": true,
+    "total_items": 150
+  },
+  "schema_version": "realm26-capability-ladder-v1",
+  "seed": 20260801,
+  "smoke": {
+    "dataset": "finqa",
+    "item_ordinal": 0,
+    "outcomes_must_not_be_summarized_before_both_tiers_complete": true,
+    "process_fields_only": true,
+    "runs_both_workflows": true
+  },
+  "stopping_rule": {
+    "provider_failures": 1,
+    "stop_immediately_on": [
+      "provider, telemetry, pricing, schema, or model-binding failure",
+      "hard-cap reservation failure, unresolved reservation, or breach",
+      "dataset drift or any excluded-identifier/context/dialogue overlap",
+      "ReAct treatment-integrity or strict-parser failure",
+      "dirty or nonpublic freeze, hash mismatch, or immutable-resume mismatch",
+      "any need to alter the frozen study after inference begins"
+    ]
+  },
+  "tier_execution": {
+    "analysis_after_both_complete": true,
+    "both_required": true,
+    "manual_skip_forbidden": true,
+    "order": [
+      "luna",
+      "terra"
+    ]
+  },
+  "test_attestation": "attestations/realm26_capability_ladder_tests.json",
+  "workflows": {
+    "answer_contract": "strict_json_finish_v1",
+    "context_word_budget_per_call": 4096,
+    "evidence_word_budget_per_item": 3000,
+    "malformed_fallback": "UNKNOWN_without_retry",
+    "max_output_tokens_per_call": 384,
+    "max_retrieval_operations_per_item": 3,
+    "react_action_policy": "first_model_action_must_be_search_v2",
+    "react_max_steps": 7,
+    "react_min_evidence_operations": 1,
+    "react_min_model_calls": 2,
+    "scorer_input": "canonical_parsed_answer_only",
+    "static_model_calls": 1
+  }
+}
