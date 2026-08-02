@@ -106,7 +106,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "reasoning_effort_by_tier": {"control": None, "luna": "none", "terra": "none"},
         "request_seed": 20260802,
         "sampling_parameters_forbidden": ["temperature", "top_p"],
-        "structured_action_decoding": "strict_compact_json_schema_by_framework_and_react_step",
+        "structured_action_decoding": "strict_single_function_tool_by_framework_and_react_step",
     }:
         raise ProtocolError("Inference contract changed")
     if not isinstance(inference.get("reasoning_semantics"), str) or not inference["reasoning_semantics"].strip():
@@ -132,7 +132,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     }
     if any(workflow.get(key) != value for key, value in required_workflow.items()):
         raise ProtocolError("Shared workflow contract changed")
-    if workflow.get("answer_contract") != "compact_action_argument_answer_v2":
+    if workflow.get("answer_contract") != "compact_action_argument_answer_v3":
         raise ProtocolError("Compact structured action contract is not frozen")
     analysis = protocol.get("analysis") or {}
     if int(analysis.get("bootstrap_resamples", -1)) != 10_000 or int(analysis.get("bootstrap_seed", -1)) != 20260802:
@@ -163,7 +163,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     probe_actual = float(budget.get("format_probe_actual_spend_usd", -1))
     if (
         abs(prior - 0.01279752925) > 1e-12
-        or abs(failed_study - 0.035298846) > 1e-12
+        or abs(failed_study - 0.04229143875) > 1e-12
         or prior_probe_attempts < 0
         or probe_reservation < 0
         or probe_actual < 0
@@ -233,7 +233,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
             raise ProtocolError("Failed-freeze exclusions contain duplicates")
         if len(indices) != len(example_ids):
             raise ProtocolError("Failed-freeze index/ID exclusion counts disagree")
-    expected_attempt_counts = {"finqa": 17, "tatqa": 1, "convfinqa": 3}
+    expected_attempt_counts = {"finqa": 17, "tatqa": 2, "convfinqa": 3}
     if any(len(attempted_indices[name]) != count for name, count in expected_attempt_counts.items()):
         raise ProtocolError("Failed-freeze identifier exclusions changed")
 
@@ -291,7 +291,7 @@ def validate_frozen_artifacts(protocol: Mapping[str, Any]) -> None:
         if endpoint.get("provider_name") != "OpenAI" or endpoint.get("tag") != "openai":
             raise ProtocolError(f"{tier}: frozen endpoint is not standard OpenAI")
         supported = set(endpoint.get("supported_parameters") or [])
-        if not {"max_tokens", "response_format", "seed", "structured_outputs"}.issubset(supported):
+        if not {"max_tokens", "seed", "structured_outputs", "tool_choice", "tools"}.issubset(supported):
             raise ProtocolError(f"{tier}: required parameters unavailable")
         if tier == "control" and "reasoning_effort" in supported:
             raise ProtocolError("Control reasoning-parameter exception no longer matches the catalog")
@@ -315,7 +315,8 @@ def validate_frozen_artifacts(protocol: Mapping[str, Any]) -> None:
         history.get("schema_version") != "realm26-capability-study-history-v1"
         or not isinstance(attempts, list)
         or not attempts
-        or attempts[-1].get("freeze_commit") != "ddb2436ba390bbe4891b8738cad7a2cf47ff370a"
+        or len(attempts) != 2
+        or attempts[-1].get("freeze_commit") != "7639effef8d3eab9f06cca1c3b4e673c5bf14b4c"
         or attempts[-1].get("outcomes_analyzed") is not False
         or attempts[-1].get("final_partition_touched") is not False
     ):

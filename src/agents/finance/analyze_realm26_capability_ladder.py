@@ -62,10 +62,12 @@ def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
                     raise ProtocolError("Tier model binding mismatch")
                 if (
                     row.get("provider_name") != "OpenAI"
+                    or row.get("action_transport") != "strict_single_function_tool"
                     or row.get("reasoning_effort") != expected_reasoning
                     or row.get("reasoning_parameter_sent") is not (tier != "control")
                     or row.get("sampling_parameters_sent") != []
                     or row.get("structured_outputs") is not True
+                    or row.get("tool_choice_sent") is not True
                 ):
                     raise ProtocolError("Provider or request-parameter binding mismatch")
                 if row.get("answer_contract") != protocol["workflows"]["answer_contract"] or row.get("method_version") != "realm26_harmonized_v2":

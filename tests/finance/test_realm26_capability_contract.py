@@ -57,18 +57,21 @@ def test_request_bodies_are_model_independent_except_authorized_reasoning_omissi
     )
     assert "reasoning_effort" not in control
     assert luna["reasoning_effort"] == "none"
-    schema = control["response_format"]["json_schema"]["schema"]
+    assert "response_format" not in control
+    assert control["tool_choice"]["function"]["name"] == "realm_action"
+    assert len(control["tools"]) == 1
+    schema = control["tools"][0]["function"]["parameters"]
     assert set(schema["properties"]) == {"action", "argument", "answer"}
     assert schema["additionalProperties"] is False
     assert "thought" not in json.dumps(control).lower()
     assert "1024" in schema["properties"]["argument"]["description"]
     assert "1024" in schema["properties"]["answer"]["description"]
-    assert control["response_format"]["json_schema"]["schema"]["properties"]["argument"]["enum"] == [""]
+    assert schema["properties"]["argument"]["enum"] == [""]
     search = build_capability_request_body(
         prompt="synthetic", requested_model=MODELS[0], max_tokens=384,
         action_schema="search", seed=20260802,
     )
-    assert search["response_format"]["json_schema"]["schema"]["properties"]["answer"]["enum"] == [""]
+    assert search["tools"][0]["function"]["parameters"]["properties"]["answer"]["enum"] == [""]
 
 
 @pytest.mark.parametrize("schema,valid", [
@@ -108,19 +111,85 @@ def test_prompt_byte_ceiling_fails_closed_or_returns_at_most_8192_bytes():
     assert len(prompt.encode("utf-8")) <= PROMPT_UTF8_BYTE_LIMIT
 
 
-@pytest.mark.parametrize("finish_reason", [None, "length", "content_filter", "tool_calls"])
-def test_provider_rejects_nonstop_finish_reasons(monkeypatch, finish_reason):
-    payload = {
+def _tool_call(arguments, *, name="realm_action"):
+    return {
+        "id": "call_synthetic",
+        "type": "function",
+        "function": {"name": name, "arguments": arguments},
+    }
+
+
+def _provider_payload(arguments, *, finish_reason="tool_calls", content=None, tool_calls=None):
+    return {
         "model": MODELS[0], "provider": "OpenAI",
         "choices": [{
             "finish_reason": finish_reason,
-            "message": {"content": '{"action":"Finish","argument":"","answer":"7"}'},
+            "message": {
+                "content": content,
+                "tool_calls": [_tool_call(arguments)] if tool_calls is None else tool_calls,
+            },
         }],
         "usage": {"prompt_tokens": 10, "completion_tokens": 8, "total_tokens": 18, "cost": 0.00001},
     }
+
+
+@pytest.mark.parametrize("finish_reason", [None, "stop", "length", "content_filter"])
+def test_provider_rejects_non_tool_finish_reasons(monkeypatch, finish_reason):
+    arguments = '{"action":"Finish","argument":"","answer":"7"}'
+    payload = _provider_payload(arguments, finish_reason=finish_reason)
     monkeypatch.setenv("OPENROUTER_API_KEY", "test")
     monkeypatch.setattr("src.agents.finance.realm26_capability_llm.requests.post", lambda *_, **__: FakeResponse(payload))
     with pytest.raises(CapabilityProviderError, match="finish reason"):
+        call_capability_model(
+            prompt="synthetic", requested_model=MODELS[0], canonical_slug=MODELS[0],
+            max_tokens=384, action_schema="finish", seed=20260802,
+        )
+
+
+def test_provider_accepts_exactly_one_strict_action_tool(monkeypatch):
+    arguments = '{"action":"Finish","argument":"","answer":"7"}'
+    payload = _provider_payload(arguments)
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test")
+    monkeypatch.setattr("src.agents.finance.realm26_capability_llm.requests.post", lambda *_, **__: FakeResponse(payload))
+    response = call_capability_model(
+        prompt="synthetic", requested_model=MODELS[0], canonical_slug=MODELS[0],
+        max_tokens=384, action_schema="finish", seed=20260802,
+    )
+    assert response.result.text == arguments
+    assert response.finish_reason == "tool_calls"
+    assert response.request_parameters["action_transport"] == "strict_single_function_tool"
+
+
+@pytest.mark.parametrize("payload,error", [
+    (
+        _provider_payload(
+            '{"action":"Finish","argument":"","answer":"7"}',
+            tool_calls=[
+                _tool_call('{"action":"Finish","argument":"","answer":"7"}'),
+                _tool_call('{"action":"Finish","argument":"","answer":"8"}'),
+            ],
+        ),
+        "multiple action tools",
+    ),
+    (
+        _provider_payload(
+            '{"action":"Finish","argument":"","answer":"7"}',
+            content="extra text",
+        ),
+        "text beside",
+    ),
+    (
+        _provider_payload('{"action":"Finish","argument":"","answer":"7"}\n{}'),
+        "not_exactly_one_json_value",
+    ),
+])
+def test_provider_rejects_extra_tool_or_content_or_argument_object(monkeypatch, payload, error):
+    payload = {
+        **payload,
+    }
+    monkeypatch.setenv("OPENROUTER_API_KEY", "test")
+    monkeypatch.setattr("src.agents.finance.realm26_capability_llm.requests.post", lambda *_, **__: FakeResponse(payload))
+    with pytest.raises(CapabilityProviderError, match=error):
         call_capability_model(
             prompt="synthetic", requested_model=MODELS[0], canonical_slug=MODELS[0],
             max_tokens=384, action_schema="finish", seed=20260802,

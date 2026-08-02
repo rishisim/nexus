@@ -448,16 +448,16 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
     )
     prompts = {
         "finish": (
-            "Synthetic non-benchmark format check only. Return exactly one Finish action "
+            "Synthetic non-benchmark format check only. Call the required action tool exactly once with a Finish action "
             "with an empty argument and the short answer 7."
         ),
         "search": (
-            "Synthetic non-benchmark first-retrieval format check. Return exactly one "
+            "Synthetic non-benchmark first-retrieval format check. Call the required action tool exactly once with a "
             "Search action whose argument is a concise query for 2024 operating-margin "
             "details and whose answer is empty."
         ),
         "react": (
-            "Synthetic non-benchmark later-retrieval format check. Return exactly one "
+            "Synthetic non-benchmark later-retrieval format check. Call the required action tool exactly once with a "
             "Lookup action whose argument is operating margin and whose answer is empty."
         ),
     }
@@ -486,7 +486,7 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
                 expected_sent = tier != "control"
                 if (
                     response.provider_name != "OpenAI"
-                    or response.finish_reason != "stop"
+                    or response.finish_reason != "tool_calls"
                     or response.result.status != "ok"
                     or response.result.requested_model != spec["requested_model_id"]
                     or response.result.resolved_model != spec["requested_model_id"]
@@ -495,6 +495,8 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
                     or response.request_parameters.get("seed") != int(protocol["inference"]["request_seed"])
                     or response.request_parameters.get("sampling_parameters_sent") != []
                     or response.request_parameters.get("structured_outputs") is not True
+                    or response.request_parameters.get("action_transport") != "strict_single_function_tool"
+                    or response.request_parameters.get("tool_choice_sent") is not True
                 ):
                     raise StopExperiment("Synthetic probe provider/request binding failed")
                 provider_cost = response.result.provider_cost_usd
@@ -683,12 +685,14 @@ class CapabilityRunner:
             expected_schema = "finish" if framework == "static" else ("search" if call_index == 1 else "react")
             if (
                 model_call.get("provider_name") != "OpenAI"
-                or model_call.get("finish_reason") != "stop"
+                or model_call.get("finish_reason") != "tool_calls"
+                or model_call.get("action_transport") != "strict_single_function_tool"
                 or model_call.get("reasoning_effort") != expected_reasoning
                 or model_call.get("reasoning_parameter_sent") is not expected_reasoning_sent
                 or model_call.get("seed") != expected_seed
                 or model_call.get("sampling_parameters_sent") != []
                 or model_call.get("structured_outputs") is not True
+                or model_call.get("tool_choice_sent") is not True
                 or model_call.get("action_schema") != expected_schema
             ):
                 raise StopExperiment("Provider or request-parameter binding mismatch")
@@ -700,6 +704,7 @@ class CapabilityRunner:
                 raise StopExperiment("Prompt hash, word ceiling, or UTF-8 byte ceiling mismatch")
             call.update({
                 "action_schema": model_call["action_schema"],
+                "action_transport": model_call["action_transport"],
                 "call_key": model_call["call_key"],
                 "catalog_canonical_slug": canonical,
                 "prompt_sha256": prompt["sha256"],
@@ -711,6 +716,7 @@ class CapabilityRunner:
                 "seed": expected_seed,
                 "sampling_parameters_sent": [],
                 "structured_outputs": True,
+                "tool_choice_sent": True,
             })
         if telemetry["total_tokens"] <= 0 or telemetry["latency_ms"] <= 0:
             raise StopExperiment("Usage or latency telemetry is incomplete")
@@ -734,6 +740,7 @@ class CapabilityRunner:
         return {
             "answer": str(result.get("answer") or "UNKNOWN"),
             "answer_contract": self.protocol["workflows"]["answer_contract"],
+            "action_transport": "strict_single_function_tool",
             "backend": "openrouter",
             "cached_tokens": telemetry["cached_tokens"],
             "call_records": calls,
@@ -786,6 +793,7 @@ class CapabilityRunner:
             "scorer_input_sha256": "sha256:" + hashlib.sha256(str(result.get("answer") or "UNKNOWN").encode("utf-8")).hexdigest(),
             "status": "success",
             "structured_outputs": True,
+            "tool_choice_sent": True,
             "tier": tier,
             "total_tokens": telemetry["total_tokens"],
             "trace_hash": "sha256:" + hashlib.sha256(trace.encode("utf-8")).hexdigest(),

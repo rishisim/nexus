@@ -52,7 +52,7 @@ def test_manifest_is_fresh_shared_and_counterbalanced():
     assert {
         dataset: manifest["datasets"][dataset]["exclusion_counts"]["failed_freeze_attempted"]
         for dataset in DATASETS
-    } == {"finqa": 17, "tatqa": 1, "convfinqa": 3}
+    } == {"finqa": 17, "tatqa": 2, "convfinqa": 3}
     for dataset in DATASETS:
         attempted = set(protocol["exclusions"]["failed_freeze_attempted_example_ids_by_dataset"][dataset])
         selected = {item["example_id"] for item in manifest["datasets"][dataset]["examples"]}

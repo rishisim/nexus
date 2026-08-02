@@ -24,6 +24,7 @@ from .protocol_v2 import ProtocolError
 CHAT_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODELS_URL = "https://openrouter.ai/api/v1/models"
 DEFAULT_SEED = 20260802
+ACTION_TOOL_NAME = "realm_action"
 ARGUMENT_MAX_LENGTH = 1024
 ANSWER_MAX_LENGTH = 1024
 
@@ -71,7 +72,7 @@ def _choice(payload: Mapping[str, Any]) -> Mapping[str, Any]:
     return choices[0]
 
 
-def _text(choice: Mapping[str, Any]) -> str:
+def _tool_arguments(choice: Mapping[str, Any]) -> str:
     message = choice.get("message")
     if not isinstance(message, Mapping):
         raise CapabilityProviderError("Provider returned no assistant message")
@@ -79,9 +80,21 @@ def _text(choice: Mapping[str, Any]) -> str:
     if refusal not in (None, "", []):
         raise CapabilityProviderError("Provider returned a refusal")
     content = message.get("content")
-    if not isinstance(content, str) or not content.strip():
-        raise CapabilityProviderError("Provider returned no text")
-    return content.strip()
+    if content not in (None, ""):
+        raise CapabilityProviderError("Provider returned text beside the required action tool")
+    tool_calls = message.get("tool_calls")
+    if not isinstance(tool_calls, list) or len(tool_calls) != 1 or not isinstance(tool_calls[0], Mapping):
+        raise CapabilityProviderError("Provider returned missing or multiple action tools")
+    tool_call = tool_calls[0]
+    function = tool_call.get("function")
+    if tool_call.get("type") != "function" or not isinstance(function, Mapping):
+        raise CapabilityProviderError("Provider returned a non-function action tool")
+    if function.get("name") != ACTION_TOOL_NAME:
+        raise CapabilityProviderError("Provider returned the wrong action tool")
+    arguments = function.get("arguments")
+    if not isinstance(arguments, str) or not arguments.strip():
+        raise CapabilityProviderError("Provider returned no action-tool arguments")
+    return arguments.strip()
 
 
 def build_capability_request_body(
@@ -133,12 +146,13 @@ def build_capability_request_body(
             "require_parameters": True,
             "data_collection": "deny",
         },
-        "response_format": {
-            "type": "json_schema",
-            "json_schema": {
-                "name": f"realm_{action_schema}_action",
+        "tools": [{
+            "type": "function",
+            "function": {
+                "name": ACTION_TOOL_NAME,
+                "description": "Submit exactly one compact action for the controlled financial-QA workflow.",
                 "strict": True,
-                "schema": {
+                "parameters": {
                     "type": "object",
                     "properties": {
                         "action": {
@@ -152,6 +166,10 @@ def build_capability_request_body(
                     "additionalProperties": False,
                 },
             },
+        }],
+        "tool_choice": {
+            "type": "function",
+            "function": {"name": ACTION_TOOL_NAME},
         },
     }
     if requested_model in _REASONING_NONE_MODELS:
@@ -283,11 +301,11 @@ def call_capability_model(
     latency_ms = (time.perf_counter() - started) * 1000
     choice = _choice(payload)
     finish_reason = choice.get("finish_reason")
-    if finish_reason != "stop":
+    if finish_reason != "tool_calls":
         raise CapabilityProviderError(
             f"Unexpected or missing finish reason: {finish_reason!r}"
         )
-    text = _text(choice)
+    text = _tool_arguments(choice)
     resolved = str(payload.get("model") or "")
     provider = str(payload.get("provider") or "")
     usage = parse_openrouter_usage(payload)
@@ -339,12 +357,14 @@ def call_capability_model(
         provider_name=provider,
         finish_reason=finish_reason,
         request_parameters={
+            "action_transport": "strict_single_function_tool",
             "action_schema": action_schema,
             "max_tokens": int(max_tokens),
             "reasoning_effort": body.get("reasoning_effort"),
             "reasoning_parameter_sent": "reasoning_effort" in body,
             "seed": seed,
             "structured_outputs": True,
+            "tool_choice_sent": True,
             "sampling_parameters_sent": [],
         },
     )

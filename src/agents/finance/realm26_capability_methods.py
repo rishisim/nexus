@@ -14,19 +14,19 @@ ANSWER_MAX_LENGTH = 1024
 PROMPT_UTF8_BYTE_LIMIT = 8192
 
 CAPABILITY_ANSWER_CONTRACT = (
-    'Return exactly one JSON object with exactly the keys "action", "argument", '
+    'Call the required action tool exactly once with exactly the keys "action", "argument", '
     'and "answer". For Finish, use '
     '{"action":"Finish","argument":"","answer":"short answer"}. '
     'For Search or Lookup, put the query in "argument" and set "answer" to "". '
-    'Do not return reasoning, extra fields, markdown, trailing text, or a second object. '
+    'Do not return reasoning, assistant text, extra fields, markdown, trailing text, or a second tool call. '
     f'Argument and answer strings must each be at most {ARGUMENT_MAX_LENGTH} characters. '
     'If the evidence is insufficient at Finish, set answer to "UNKNOWN".'
 )
 
 CAPABILITY_STATIC_PROMPT = """You are the one-call Static financial-QA system.
 Use only the evidence shown below. Preserve the requested period, sign, unit,
-scale, and currency. Perform any calculation internally and return only the
-compact action object.
+scale, and currency. Perform any calculation internally and use only the
+required action tool.
 
 Question: {question}
 
@@ -45,7 +45,7 @@ Use only the controlled evidence packet through exactly one action per model tur
 Treatment-integrity rule: your first model action MUST be Search. Before one
 evidence action has completed, Lookup and Finish are invalid. After evidence is
 observed, adaptively choose Search, Lookup, or Finish. Do not answer from prior
-knowledge and do not return reasoning or a second action object.
+knowledge and do not return reasoning, assistant text, or a second tool call.
 
 Preserve the requested period, sign, unit, scale, and currency. You are at model
 step {step} of at most {max_steps}. You have completed {evidence_action_count}

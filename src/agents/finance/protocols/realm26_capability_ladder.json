@@ -29,45 +29,47 @@
     "uncertainty": "dataset-stratified paired 10000-resample percentile bootstrap for ReAct minus Static and tier interactions"
   },
   "artifact_hashes": {
-    "analysis": "sha256:36a283500c136fad08306776ba46390e1dd5936adc8f22968e715849e78bf2fb",
-    "attestation": "sha256:094056c752d031eac08902bd4e0e8bd59c533f8e8aebeaf5511cce3ed95c4956",
-    "capability_llm": "sha256:f58db0a8d5edf02b18f36c5e7966a557c629af158bf0b761e440f3b683263030",
-    "capability_methods": "sha256:844c357f5bebe2850b6f010f3290b0136e781462224022619c4c6582ab240adc",
+    "analysis": "sha256:4a00ca904e8bb1ecfe9720495a588c99da279ed7dcab4fff7a34aaf3f1e25f58",
+    "attestation": "sha256:7aaf0caf86f7fd34767f39b55765a3b0758e0c5eec162a5d60391fd29dd9dada",
+    "capability_llm": "sha256:39b4e320dd28c8673e3c5e861ae72cd403851baa9383dfbdf5c77427dad6594f",
+    "capability_methods": "sha256:5aec6a1e50244cddea998eedb1046d37568bd9bc7d002c3735b5824cf294105d",
     "data_adapter": "sha256:3c7423c9c1c49b57ccffc7f74d9018d671d22192dd02d1d225191a064820f7a5",
-    "executor": "sha256:fa4e947f032ff3d819faf0aa355ba788e1eb028c7a92849e64d88d632e190d5d",
+    "executor": "sha256:18dab0a393fd388dbabef2c52ad76b8658bd2624c31b9f5d603befb7ac3ec3a7",
     "finance_statistics": "sha256:7e2022a2769ec4f68ef8e4a0e4b371e30a37d741f56c406817fbcb5999a824eb",
-    "format_probe_attestation": "sha256:f07c3a53b16ec0894c16b39829d075fe72d3be0fa9124b9c22ec7610d38d493d",
-    "manifest": "sha256:dc872e54f55d05c1fa451682a7651bfc8c748907d9511313ad93ee85a8c57cda",
+    "format_probe_attestation": "sha256:53c9a3401265702219212ab62cf0143cc379f208d9ed40115df9eec77d4da9a7",
+    "manifest": "sha256:bca8ba5f6707141830441f1ca82b8635f199a273c097996a3df7a2c560215205",
     "model_snapshot": "sha256:e551494b81410454b7782e54eed0b681a26809e98fbfc09ad3d1bbddf0d84053",
-    "protocol_guard": "sha256:28ec1ae7e31e55cb83a71e5735cbb37a9ad135be79974f799a57acc0e5be670a",
-    "protocol_memo": "sha256:44bea2a7445785c993e4fa48dd7d913a6340d224f1f0875cccd3712fb63d6c55",
+    "protocol_guard": "sha256:4dfeb107a3fe38cc976433f833043de52e30431b15dd277a44f1f2c1f8299864",
+    "protocol_memo": "sha256:4f2f9a029b9a4d9a6ed5d8d6de75df4bfe8758339e96b6934f807d4ba7cc0d94",
     "protocol_utils": "sha256:306d5e2f28b2ba7535376c1a92396640ec0abe6a634fd1e6aa6ca76ede00dab9",
     "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e",
     "shared_methods": "sha256:c9a8a9d68e7340ecc7c28894376b8ec306b7dea72b8ab1d220bb86acef3b226f",
     "shared_prompts": "sha256:664735819569b10749b0e72f1458a88c8739d10d6bedde6f0e106de48e23d78d",
-    "study_history_attestation": "sha256:3fef3eb87506aebeed7b91f937457c2938307fb4da7f0c5e0c4146d7a1ca76f7",
+    "study_history_attestation": "sha256:b8dfd391f23bd5ca6a61ec548204d442d1f7220b8f027ea7fd261bdedb592fef",
     "telemetry": "sha256:be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469",
-    "tests": "sha256:b43401be4578b807984b71c28484d9841df0acd381f557614575ef14b06c904d",
-    "tests_contract": "sha256:f70fa9ba97e311536549900cd987d046569320994fa7323ef5b21a2cdb481290",
+    "tests": "sha256:437ff27f2b51287cc9d5d6a4e2e2e89326dcc0ac1f5949e10ab03ce75d76c039",
+    "tests_contract": "sha256:a944e85f615173751474d45692bae7cbbaba0fab26af7dac028b7e004d8266d3",
     "tests_interaction": "sha256:86627c286dc28ca00dcf0e53f9b82bce02b60c68ec228f2d646a352057247d8e",
     "tests_manifest_schedule": "sha256:c73b0cad5be26a45d5eacd3d0296ea48eb02d17652dd9af30909f3514e177825",
     "tests_runner_schedule": "sha256:978424825bfd32a3955ae18cc95e78ac03b1565f80bfccd34073f126882b2102",
     "v2_manifest": "sha256:12e2b56463fdc9b1f0fbb87a47b9101151e819ceecb8a619e374bfc86bfef389"
   },
   "budget": {
-    "combined_maximum_reservation_usd": 18.55056611375,
-    "cumulative_before_study_usd": 0.05103011375,
-    "format_probe_actual_spend_usd": 0.0017200755,
+    "combined_maximum_reservation_usd": 18.558553211,
+    "cumulative_before_study_usd": 0.059017211,
+    "format_probe_actual_spend_usd": 0.00271458,
     "format_probe_prior_attempt_allowance_usd": 0.001213663,
     "format_probe_maximum_reservation_usd": 0.04624884,
     "hard_cap_usd": 20.0,
     "max_input_tokens_reserved_per_call": 9000,
     "max_study_calls_per_tier": 1200,
     "planning_basis": "8192-byte prompt ceiling plus a conservative allowance for the compact schema/request contract, totaling 9000 reserved input tokens; 384 output tokens; 150 one-call Static episodes; 150 seven-call ReAct episodes; three synthetic schema probes per tier; and a 10% margin",
-    "prior_failed_frozen_study_allowance_usd": 0.035298846,
+    "prior_failed_frozen_study_allowance_usd": 0.04229143875,
     "prior_failed_frozen_study_breakdown_usd": {
       "ddb2436_completed_provider_spend": 0.022864446,
-      "ddb2436_unresolved_provider_call_maximum_reservation": 0.0124344
+      "ddb2436_unresolved_provider_call_maximum_reservation": 0.0124344,
+      "7639eff_completed_provider_spend": 0.00574915275,
+      "7639eff_unresolved_provider_call_maximum_reservation": 0.00124344
     },
     "prior_failed_attempt_allowance_usd": 0.01279752925,
     "prior_failed_attempt_breakdown_usd": {
@@ -77,7 +79,7 @@
       "b3a0efe_recorded_provider_spend": 0.0006354315,
       "c296aba_recorded_provider_spend": 0.0005714775
     },
-    "reservation_headroom_usd": 1.44943388625,
+    "reservation_headroom_usd": 1.441446789,
     "reservation_margin": 1.1,
     "study_maximum_reservation_usd": 18.499536
   },
@@ -116,13 +118,14 @@
         "finqa205"
       ],
       "tatqa": [
-        "a3ca1acfa5687eec00ab3bbc3660b0fc"
+        "a3ca1acfa5687eec00ab3bbc3660b0fc",
+        "f60a139759133bce1d6ff233f60a6adb"
       ]
     },
     "failed_freeze_attempted_indices_by_dataset": {
       "convfinqa": [583, 578, 692],
       "finqa": [41, 881, 714, 70, 81, 113, 796, 659, 855, 103, 114, 124, 158, 168, 173, 179, 205],
-      "tatqa": [973]
+      "tatqa": [973, 1409]
     },
     "original_protocol": "finance_icaif26_v2.json",
     "second_family_manifest": "manifests/realm26_second_family_v1/manifest.json",
@@ -130,12 +133,12 @@
     "v2_manifest": "manifests/realm26_harmonized_static_react_v2/manifest.json"
   },
   "format_probes": {
-    "actual_spend_usd": 0.0017200755,
+    "actual_spend_usd": 0.00271458,
     "calls_per_tier": 3,
     "content": "synthetic_non_benchmark",
-    "current_freeze_actual_spend_usd": 0.0008925345,
+    "current_freeze_actual_spend_usd": 0.0009945045,
     "failed_prefreeze_attempt_allowance_usd": 0.001213663,
-    "prefreeze_attempts": 3,
+    "prefreeze_attempts": 4,
     "schemas": ["finish", "search", "react"],
     "status": "completed_process_checks",
     "study_examples_consumed": 0
@@ -163,7 +166,7 @@
     "reasoning_semantics": "GPT-4o-mini has no reasoning channel or advertised reasoning parameter; the field is omitted for control, while Luna and Terra explicitly send reasoning_effort=none, as authorized by the author before probes",
     "request_seed": 20260802,
     "sampling_parameters_forbidden": ["temperature", "top_p"],
-    "structured_action_decoding": "strict_compact_json_schema_by_framework_and_react_step"
+    "structured_action_decoding": "strict_single_function_tool_by_framework_and_react_step"
   },
   "manifest": "manifests/realm26_capability_ladder/manifest.json",
   "model_snapshot": "snapshots/realm26_capability_ladder_openrouter_catalog.json",
@@ -209,7 +212,7 @@
     "per_dataset": 50,
     "replacement": false,
     "same_items_for_all_tiers": true,
-    "schedule_seed": 2026080202,
+    "schedule_seed": 2026080203,
     "total_items": 150
   },
   "schema_version": "realm26-capability-ladder-v1",
@@ -235,7 +238,7 @@
   "test_attestation": "attestations/realm26_capability_ladder_tests.json",
   "study_history_attestation": "attestations/realm26_capability_study_history.json",
   "workflows": {
-    "answer_contract": "compact_action_argument_answer_v2",
+    "answer_contract": "compact_action_argument_answer_v3",
     "context_utf8_byte_budget_per_call": 8192,
     "context_word_budget_per_call": 4096,
     "evidence_word_budget_per_item": 3000,
