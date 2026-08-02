@@ -18,6 +18,7 @@ from . import finance_scoring
 from .finance_utils import set_active_dataset
 from .protocol_v2 import ProtocolError, fingerprint, write_stable_json
 from .realm26_capability_llm import call_capability_model, validate_live_catalog
+from .realm26_capability_methods import METHODS
 from .realm26_capability_protocol import (
     DATASETS,
     DEFAULT_PROTOCOL_PATH,
@@ -28,7 +29,7 @@ from .realm26_capability_protocol import (
     validate_manifest_against_sources,
 )
 from .realm26_harmonized_data import HarmonizedEnvFactory
-from .realm26_harmonized_v2_methods import METHODS, REACT_ACTION_POLICY
+from .realm26_harmonized_v2_methods import REACT_ACTION_POLICY
 from .run_finance_experiments import aggregate_telemetry
 
 

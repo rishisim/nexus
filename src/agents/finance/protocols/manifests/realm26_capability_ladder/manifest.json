@@ -321,9 +321,9 @@
       "dataset_size": 883,
       "examples": [
         {
-          "example_id": "finqa881",
-          "index": 881,
-          "item_hash": "sha256:08d409bf7e5e6bc5a30d5c11b334b13462da234aff7ddbed42fa42fde7b5baa9"
+          "example_id": "finqa714",
+          "index": 714,
+          "item_hash": "sha256:d5bb2813b14eaf1218ba261238872745c5c6a7581286277003da531c9413d606"
         },
         {
           "example_id": "finqa70",
@@ -580,7 +580,7 @@
         "total": 375
       },
       "exclusion_identifier_fingerprint": "sha256:b39056fc8c2c59244f96862b2ed64206deff7a84fe4212d6ab320762ed8e1893",
-      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions; one consumed smoke item replaced prospectively"
+      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions; one consumed smoke item replaced prospectively; second consumed smoke item replaced prospectively"
     },
     "tatqa": {
       "candidate_count": 108,
@@ -899,16 +899,31 @@
       "selection_policy": "seeded proportional answer_type x answer_source sample from wholly fresh contexts"
     }
   },
-  "manifest_fingerprint": "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
+  "manifest_fingerprint": "sha256:a793fc14aeccb92fad9a56726182aa507c12380d28e21d620e64068b181a30c2",
   "manifest_schema_version": "realm26-capability-manifest-v1",
   "protocol_id": "realm26_capability_ladder",
   "replacement_audit": {
-    "carried_forward_never_called_items": 149,
-    "consumed_example_id": "finqa41",
-    "failed_freeze_commit": "3b4698ebcc9af447c0590b397fcd743ffb8c6c06",
-    "failed_manifest_fingerprint": "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
-    "replacement_example_id": "finqa881",
-    "replacement_seed": 20260802
+    "carried_forward_never_called_items_from_latest_freeze": 149,
+    "consumed_example_ids": [
+      "finqa41",
+      "finqa881"
+    ],
+    "failed_freeze_commits": [
+      "3b4698ebcc9af447c0590b397fcd743ffb8c6c06",
+      "c296aba15e429e4e24a1bb423a82c4713092a4d1"
+    ],
+    "prior_manifest_fingerprints": [
+      "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
+      "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34"
+    ],
+    "replacement_example_ids": [
+      "finqa881",
+      "finqa714"
+    ],
+    "replacement_seeds": [
+      20260802,
+      20260803
+    ]
   },
   "scope": "fresh_development_only_same_items_all_tiers",
   "seed": 20260801

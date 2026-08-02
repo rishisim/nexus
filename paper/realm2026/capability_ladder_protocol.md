@@ -29,6 +29,15 @@ The shared source of truth remains:
 The capability-only request adapter exists to bind the two new OpenRouter
 models without modifying any hash-bound harmonized-v2 file.
 
+The first replacement smoke exposed a separate response-format ambiguity:
+Luna returned two valid action objects in one turn (Search followed by Finish),
+which the strict one-object parser correctly rejected as malformed. The next
+prospective freeze adds only an explicit one-action-per-turn instruction. The
+answer contract, first-action Search requirement, retrieval limits, evidence,
+scoring, and all completed harmonized-v2 files remain unchanged. This
+capability-specific adapter is hash-bound and applied identically to Luna and
+Terra.
+
 ## Models and request contract
 
 - Efficient tier: requested `openai/gpt-5.6-luna`, frozen canonical slug
@@ -104,9 +113,11 @@ training and evaluating a selector on the same items.
 
 ## Budget and retained record
 
-The replacement-run caps are USD 4.99884544 for Luna and USD 15 for Terra; the
-USD 0.00115456 maximum reservation from the failed freeze makes the combined
-authorization exactly USD 20. A conservative planning
+The final replacement-run caps are USD 4.9982739625 for Luna and USD 15 for
+Terra. The prior-attempt allowance is USD 0.0017260375: the USD 0.00115456
+maximum reservation from the alias-binding failure plus USD 0.0005714775 of
+recorded provider spend from the multi-action process failure. Together the
+combined authorization is exactly USD 20. A conservative planning
 reservation assumes two tokens per prompt word, the 384-token output ceiling,
 one Static call and up to seven ReAct calls on every item, plus a 10% margin.
 This reserves at most USD 1.385472 for Luna and USD 13.854720 for Terra.

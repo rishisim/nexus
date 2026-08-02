@@ -5,6 +5,7 @@ import pytest
 
 from src.agents.finance.protocol_v2 import fingerprint
 from src.agents.finance.realm26_capability_llm import call_capability_model, validate_live_catalog
+from src.agents.finance.realm26_capability_methods import CAPABILITY_REACT_PROMPT
 from src.agents.finance.realm26_capability_protocol import (
     DATASETS,
     DEFAULT_PROTOCOL_PATH,
@@ -86,7 +87,7 @@ def test_protocol_freezes_models_budgets_both_tiers_and_shared_contract():
         "analysis_after_both_complete": True, "both_required": True,
         "manual_skip_forbidden": True, "order": ["luna", "terra"],
     }
-    assert sum(protocol["models"][tier]["hard_cap_usd"] for tier in ("luna", "terra")) + protocol["budget"]["failed_freeze_maximum_reservation_usd"] == pytest.approx(20)
+    assert sum(protocol["models"][tier]["hard_cap_usd"] for tier in ("luna", "terra")) + protocol["budget"]["prior_failed_attempt_allowance_usd"] == pytest.approx(20)
     assert protocol["inference"]["reasoning_effort"] == "none"
     assert protocol["inference"]["sampling_parameters_forbidden"] == ["temperature", "top_p"]
 
@@ -107,9 +108,14 @@ def test_real_manifest_excludes_every_prior_partition_and_uses_one_sample_for_bo
             "total": 375,
         }
     assert protocol["sample"]["same_items_for_all_tiers"] is True
-    assert manifest["replacement_audit"]["carried_forward_never_called_items"] == 149
-    assert manifest["replacement_audit"]["consumed_example_id"] == "finqa41"
-    assert all(item["example_id"] != "finqa41" for spec in manifest["datasets"].values() for item in spec["examples"])
+    assert manifest["replacement_audit"]["carried_forward_never_called_items_from_latest_freeze"] == 149
+    assert manifest["replacement_audit"]["consumed_example_ids"] == ["finqa41", "finqa881"]
+    assert all(item["example_id"] not in {"finqa41", "finqa881"} for spec in manifest["datasets"].values() for item in spec["examples"])
+
+
+def test_capability_react_prompt_requires_exactly_one_action_per_turn():
+    assert "exactly one JSON action object" in CAPABILITY_REACT_PROMPT
+    assert "first model action MUST be Search" in CAPABILITY_REACT_PROMPT
 
 
 class GuardedRows:

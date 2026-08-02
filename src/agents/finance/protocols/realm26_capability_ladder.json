@@ -24,26 +24,31 @@
   },
   "artifact_hashes": {
     "analysis": "sha256:df7053e13b5d1aec1e2c62a960e291f1d82be6d29876999647304a1f964fe7f1",
-    "attestation": "sha256:ead9cb969df535ca2618468061b58324dc147d319cb33ccbf7750f344285257b",
+    "attestation": "sha256:b9c451bd4fcfc2c3bfeda1dab0c4576f20c1f5202fc7233b91da1b8fa0be5415",
     "capability_llm": "sha256:f98dff870d34838f938b6c6b40e5cc0d6ba41f557899c2b46fa0b1c57dfe4f85",
+    "capability_methods": "sha256:274f00a49903bc5e53a98bbff919f91a69eac0934ab623d73d09f0d7df138394",
     "data_adapter": "sha256:3c7423c9c1c49b57ccffc7f74d9018d671d22192dd02d1d225191a064820f7a5",
-    "executor": "sha256:6199f996be530898f021542d6d9a83d9e9b1366087aeb393b86182eae7033578",
+    "executor": "sha256:4817ef6df5a56796193a9f438235078fff0ffa50e9e9f7d72686c9618ba39be9",
     "finance_statistics": "sha256:7e2022a2769ec4f68ef8e4a0e4b371e30a37d741f56c406817fbcb5999a824eb",
-    "manifest": "sha256:7b9f2c3837294d9a8831630100c655ba0ef6af09c3e567b833eacee160273b75",
+    "manifest": "sha256:60fd6004292237c3a44c2bf0194d9e899084aa88c6b8c348ddad7199d74a28bb",
     "model_snapshot": "sha256:7d112cb41c76715005ac20bd897456fc7241df5647065743a86f568a34522156",
-    "protocol_guard": "sha256:3065491dd727014bb82687aa867e33dccbad9b5b0546310b073166fa2afacb4f",
-    "protocol_memo": "sha256:daf976e66ac82504f43cb283e299577482f246986cb2766ddbd98bba09762740",
+    "protocol_guard": "sha256:10601bd0baf0e5fac4bff1b74c66303eeb12283bbfe132fd817a6039caf6479f",
+    "protocol_memo": "sha256:1df2af3f103dca7cfad164ff2288ecc758547699401acd7b3b96fbd7f45c577b",
     "protocol_utils": "sha256:306d5e2f28b2ba7535376c1a92396640ec0abe6a634fd1e6aa6ca76ede00dab9",
     "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e",
     "shared_methods": "sha256:c9a8a9d68e7340ecc7c28894376b8ec306b7dea72b8ab1d220bb86acef3b226f",
     "shared_prompts": "sha256:664735819569b10749b0e72f1458a88c8739d10d6bedde6f0e106de48e23d78d",
     "telemetry": "sha256:be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469",
-    "tests": "sha256:6ebe635a0170eb7ed6f370840ae9b54dd6d7721fedde733379a2f2d2df4b2360",
+    "tests": "sha256:c73bf3054aa6b7250f46349f0836a447bc53da8c8d7272f46d192e3f62214491",
     "v2_manifest": "sha256:12e2b56463fdc9b1f0fbb87a47b9101151e819ceecb8a619e374bfc86bfef389"
   },
   "budget": {
     "combined_hard_maximum_usd": 20.0,
-    "failed_freeze_maximum_reservation_usd": 0.00115456,
+    "prior_failed_attempt_allowance_usd": 0.0017260375,
+    "prior_failed_attempt_breakdown_usd": {
+      "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
+      "c296aba_recorded_provider_spend": 0.0005714775
+    },
     "max_input_tokens_reserved_per_call": 8192,
     "max_study_calls_per_tier": 1200,
     "planning_basis": "4096 prompt words x conservative 2 tokens/word, 384 output tokens, 150 one-call Static episodes, and 150 seven-call maximum ReAct episodes",
@@ -91,7 +96,7 @@
   "models": {
     "luna": {
       "canonical_slug": "openai/gpt-5.6-luna-20260709",
-      "hard_cap_usd": 4.99884544,
+      "hard_cap_usd": 4.9982739625,
       "maximum_reserved_call_cost_usd": 0.00115456,
       "maximum_reserved_study_cost_usd": 1.385472,
       "requested_model_id": "openai/gpt-5.6-luna"
@@ -128,6 +133,14 @@
       "failed_manifest_fingerprint": "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
       "policy": "preserve_149_never_called_items_and_seeded_replace_consumed_finqa_item",
       "replacement_seed": 20260802
+    },
+    "replacement_after_process_failure": {
+      "consumed_example_id": "finqa881",
+      "consumed_index": 881,
+      "failed_freeze_commit": "c296aba15e429e4e24a1bb423a82c4713092a4d1",
+      "failed_manifest_fingerprint": "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
+      "policy": "preserve_149_never_called_items_and_seeded_replace_consumed_finqa_item",
+      "replacement_seed": 20260803
     },
     "same_items_for_all_tiers": true,
     "total_items": 150

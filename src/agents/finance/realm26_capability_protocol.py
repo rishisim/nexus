@@ -58,7 +58,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "luna": {
             "requested_model_id": "openai/gpt-5.6-luna",
             "canonical_slug": "openai/gpt-5.6-luna-20260709",
-            "hard_cap_usd": 4.99884544,
+            "hard_cap_usd": 4.9982739625,
             "maximum_reserved_study_cost_usd": 1.385472,
             "maximum_reserved_call_cost_usd": 0.00115456,
         },
@@ -119,9 +119,14 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     }:
         raise ProtocolError("Tier execution plan changed")
     budget = protocol.get("budget") or {}
-    if float(budget.get("failed_freeze_maximum_reservation_usd", -1)) != 0.00115456:
-        raise ProtocolError("Failed-freeze reservation changed")
-    if abs(sum(float(protocol["models"][tier]["hard_cap_usd"]) for tier in TIERS) + float(budget["failed_freeze_maximum_reservation_usd"]) - 20.0) > 1e-12:
+    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.0017260375:
+        raise ProtocolError("Prior failed-attempt allowance changed")
+    if budget.get("prior_failed_attempt_breakdown_usd") != {
+        "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
+        "c296aba_recorded_provider_spend": 0.0005714775,
+    }:
+        raise ProtocolError("Prior failed-attempt budget breakdown changed")
+    if abs(sum(float(protocol["models"][tier]["hard_cap_usd"]) for tier in TIERS) + float(budget["prior_failed_attempt_allowance_usd"]) - 20.0) > 1e-12:
         raise ProtocolError("Combined authorization exceeds or undershoots USD 20")
     if protocol.get("publication") != {
         "base_branch": "realm26/archival-short-paper",
@@ -147,6 +152,7 @@ def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
         "analysis": finance / "analyze_realm26_capability_ladder.py",
         "attestation": resolve_path(protocol_path, str(protocol["test_attestation"])),
         "capability_llm": finance / "realm26_capability_llm.py",
+        "capability_methods": finance / "realm26_capability_methods.py",
         "data_adapter": finance / "realm26_harmonized_data.py",
         "executor": finance / "run_realm26_capability_ladder.py",
         "finance_statistics": finance / "finance_statistics.py",
@@ -335,6 +341,33 @@ def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any
         "replacement_seed": replacement["replacement_seed"],
     }
     body = base_body
+    second = protocol["sample"]["replacement_after_process_failure"]
+    if fingerprint(body) != second["failed_manifest_fingerprint"]:
+        raise ProtocolError("Could not reproduce the first replacement manifest")
+    finqa_examples = body["datasets"]["finqa"]["examples"]
+    consumed = [item for item in finqa_examples if item["example_id"] == second["consumed_example_id"] and int(item["index"]) == int(second["consumed_index"])]
+    if len(consumed) != 1:
+        raise ProtocolError("Second consumed smoke item is absent or ambiguous")
+    current_indices = {int(item["index"]) for item in finqa_examples}
+    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
+    replacement_index = _sample(
+        replacement_candidates, 1, int(second["replacement_seed"]),
+        f"{PROTOCOL_ID}:finqa:replacement-after-process-failure",
+    )[0]
+    replacement_record = _selected_record("finqa", rows, replacement_index)
+    body["datasets"]["finqa"]["examples"] = [
+        replacement_record if item["example_id"] == second["consumed_example_id"] else item
+        for item in finqa_examples
+    ]
+    body["datasets"]["finqa"]["selection_policy"] += "; second consumed smoke item replaced prospectively"
+    body["replacement_audit"] = {
+        "carried_forward_never_called_items_from_latest_freeze": 149,
+        "consumed_example_ids": [replacement["consumed_example_id"], second["consumed_example_id"]],
+        "failed_freeze_commits": [replacement["failed_freeze_commit"], second["failed_freeze_commit"]],
+        "prior_manifest_fingerprints": [replacement["failed_manifest_fingerprint"], second["failed_manifest_fingerprint"]],
+        "replacement_example_ids": ["finqa881", replacement_record["example_id"]],
+        "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"]],
+    }
     body["manifest_fingerprint"] = fingerprint(body)
     return body
 
@@ -351,8 +384,11 @@ def load_manifest(protocol: Mapping[str, Any]) -> Dict[str, Any]:
 
 
 def validate_manifest_against_sources(protocol: Mapping[str, Any], manifest: Mapping[str, Any], env_factory: Callable[[str], Any]) -> None:
-    replacement = protocol["sample"]["replacement"]
-    if any(item["example_id"] == replacement["consumed_example_id"] for spec in manifest["datasets"].values() for item in spec["examples"]):
+    consumed_ids = {
+        protocol["sample"]["replacement"]["consumed_example_id"],
+        protocol["sample"]["replacement_after_process_failure"]["consumed_example_id"],
+    }
+    if any(item["example_id"] in consumed_ids for spec in manifest["datasets"].values() for item in spec["examples"]):
         raise ProtocolError("Consumed smoke item remains in replacement manifest")
     regenerated = build_manifest(protocol, env_factory)
     if regenerated != manifest:
