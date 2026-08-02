@@ -58,7 +58,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "luna": {
             "requested_model_id": "openai/gpt-5.6-luna",
             "canonical_slug": "openai/gpt-5.6-luna-20260709",
-            "hard_cap_usd": 4.99650535225,
+            "hard_cap_usd": 4.99586992075,
             "maximum_reserved_study_cost_usd": 1.385472,
             "maximum_reserved_call_cost_usd": 0.00115456,
         },
@@ -120,12 +120,13 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     }:
         raise ProtocolError("Tier execution plan changed")
     budget = protocol.get("budget") or {}
-    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.00349464775:
+    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.00413007925:
         raise ProtocolError("Prior failed-attempt allowance changed")
     if budget.get("prior_failed_attempt_breakdown_usd") != {
         "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
         "c296aba_recorded_provider_spend": 0.0005714775,
         "9c010e5_recorded_provider_spend": 0.00176861025,
+        "b3a0efe_recorded_provider_spend": 0.0006354315,
     }:
         raise ProtocolError("Prior failed-attempt budget breakdown changed")
     if abs(sum(float(protocol["models"][tier]["hard_cap_usd"]) for tier in TIERS) + float(budget["prior_failed_attempt_allowance_usd"]) - 20.0) > 1e-12:
@@ -396,6 +397,34 @@ def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any
         "replacement_example_ids": ["finqa881", "finqa714", *[record["example_id"] for record in replacement_records]],
         "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"], third["replacement_seed"]],
     }
+    fourth = protocol["sample"]["replacement_after_multiobject_structured_output_failure"]
+    if fingerprint(body) != fourth["failed_manifest_fingerprint"]:
+        raise ProtocolError("Could not reproduce the structured-output manifest")
+    finqa_examples = body["datasets"]["finqa"]["examples"]
+    consumed = [item for item in finqa_examples if item["example_id"] == fourth["consumed_example_id"] and int(item["index"]) == int(fourth["consumed_index"])]
+    if len(consumed) != 1:
+        raise ProtocolError("Consumed structured-output item is absent or ambiguous")
+    current_indices = {int(item["index"]) for item in finqa_examples}
+    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
+    replacement_index = _sample(
+        replacement_candidates, 1, int(fourth["replacement_seed"]),
+        f"{PROTOCOL_ID}:finqa:replacement-after-multiobject-structured-output",
+    )[0]
+    replacement_record = _selected_record("finqa", rows, replacement_index)
+    body["datasets"]["finqa"]["examples"] = [
+        replacement_record if item["example_id"] == fourth["consumed_example_id"] else item
+        for item in finqa_examples
+    ]
+    body["datasets"]["finqa"]["selection_policy"] += "; one consumed multi-object structured-output item replaced prospectively"
+    prior_audit = body["replacement_audit"]
+    body["replacement_audit"] = {
+        "carried_forward_never_called_items_from_latest_freeze": 149,
+        "consumed_example_ids": [*prior_audit["consumed_example_ids"], fourth["consumed_example_id"]],
+        "failed_freeze_commits": [*prior_audit["failed_freeze_commits"], fourth["failed_freeze_commit"]],
+        "prior_manifest_fingerprints": [*prior_audit["prior_manifest_fingerprints"], fourth["failed_manifest_fingerprint"]],
+        "replacement_example_ids": [*prior_audit["replacement_example_ids"], replacement_record["example_id"]],
+        "replacement_seeds": [*prior_audit["replacement_seeds"], fourth["replacement_seed"]],
+    }
     body["manifest_fingerprint"] = fingerprint(body)
     return body
 
@@ -416,6 +445,7 @@ def validate_manifest_against_sources(protocol: Mapping[str, Any], manifest: Map
         protocol["sample"]["replacement"]["consumed_example_id"],
         protocol["sample"]["replacement_after_process_failure"]["consumed_example_id"],
         *protocol["sample"]["replacement_after_unconstrained_decoding_failure"]["consumed_example_ids"],
+        protocol["sample"]["replacement_after_multiobject_structured_output_failure"]["consumed_example_id"],
     }
     if any(item["example_id"] in consumed_ids for spec in manifest["datasets"].values() for item in spec["examples"]):
         raise ProtocolError("Consumed smoke item remains in replacement manifest")

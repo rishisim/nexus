@@ -47,6 +47,13 @@ the query, subsequent actions, and answer; only the already specified action
 grammar is enforced. Three called FinQA items were replaced prospectively, and
 the remaining 147 items were carried forward without outcome inspection.
 
+OpenRouter then returned two schema-valid `Search` objects in a single response,
+despite accepting strict structured-output parameters. The final parser applies
+the standard streaming convention of executing the first complete JSON object
+and ignoring trailing response text. This preserves one action per environment
+turn without changing the model-selected first query. The called item was
+replaced; 149 never-called items from that freeze were carried forward.
+
 ## Models and request contract
 
 - Efficient tier: requested `openai/gpt-5.6-luna`, frozen canonical slug
@@ -122,11 +129,12 @@ training and evaluating a selector on the same items.
 
 ## Budget and retained record
 
-The final replacement-run caps are USD 4.99650535225 for Luna and USD 15 for
-Terra. The prior-attempt allowance is USD 0.00349464775: the USD 0.00115456
+The final replacement-run caps are USD 4.99586992075 for Luna and USD 15 for
+Terra. The prior-attempt allowance is USD 0.00413007925: the USD 0.00115456
 maximum reservation from the alias-binding failure plus USD 0.0005714775 of
 recorded provider spend from the first multi-action process failure and USD
-0.00176861025 from the later unconstrained-decoding run. Together the
+0.00176861025 from the later unconstrained-decoding run and USD 0.0006354315
+from the multi-object structured-output smoke. Together the
 combined authorization is exactly USD 20. A conservative planning
 reservation assumes two tokens per prompt word, the 384-token output ceiling,
 one Static call and up to seven ReAct calls on every item, plus a 10% margin.

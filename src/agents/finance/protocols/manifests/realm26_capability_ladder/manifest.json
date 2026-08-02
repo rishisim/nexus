@@ -321,9 +321,9 @@
       "dataset_size": 883,
       "examples": [
         {
-          "example_id": "finqa113",
-          "index": 113,
-          "item_hash": "sha256:87a1a53e58d1e29be28c2ee18c073444992f74424374b4bcc7d7751603a76070"
+          "example_id": "finqa796",
+          "index": 796,
+          "item_hash": "sha256:4827926abdae12d3c29aae199a0d2e22186d540324fd8bd404bb6c53ea3ef147"
         },
         {
           "example_id": "finqa659",
@@ -580,7 +580,7 @@
         "total": 375
       },
       "exclusion_identifier_fingerprint": "sha256:b39056fc8c2c59244f96862b2ed64206deff7a84fe4212d6ab320762ed8e1893",
-      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions; one consumed smoke item replaced prospectively; second consumed smoke item replaced prospectively; three consumed unconstrained-decoding items replaced prospectively"
+      "selection_policy": "seeded sample after all prior and sealed-final identifier exclusions; one consumed smoke item replaced prospectively; second consumed smoke item replaced prospectively; three consumed unconstrained-decoding items replaced prospectively; one consumed multi-object structured-output item replaced prospectively"
     },
     "tatqa": {
       "candidate_count": 108,
@@ -899,39 +899,44 @@
       "selection_policy": "seeded proportional answer_type x answer_source sample from wholly fresh contexts"
     }
   },
-  "manifest_fingerprint": "sha256:50ac0e424a9d056e349731386af4a07fb2f0af50e87f3e33b5e9383168fdd96d",
+  "manifest_fingerprint": "sha256:d536bf2e3e1b68d9668aa0dfd361b19825693d54c916b5ef95886cbe038ac7e0",
   "manifest_schema_version": "realm26-capability-manifest-v1",
   "protocol_id": "realm26_capability_ladder",
   "replacement_audit": {
-    "carried_forward_never_called_items_from_latest_freeze": 147,
+    "carried_forward_never_called_items_from_latest_freeze": 149,
     "consumed_example_ids": [
       "finqa41",
       "finqa881",
       "finqa714",
       "finqa70",
-      "finqa81"
+      "finqa81",
+      "finqa113"
     ],
     "failed_freeze_commits": [
       "3b4698ebcc9af447c0590b397fcd743ffb8c6c06",
       "c296aba15e429e4e24a1bb423a82c4713092a4d1",
-      "9c010e5a4758a7a699d52eba3aaa64cc044993c3"
+      "9c010e5a4758a7a699d52eba3aaa64cc044993c3",
+      "b3a0efeb86d602d33de7ed56e9a49f6338bb7e0e"
     ],
     "prior_manifest_fingerprints": [
       "sha256:2cbddf7d7f6893a75a9afcee77ff9591a45a8de096458f43537b03df6398cf54",
       "sha256:7f0927697c8f38f4531de56c651819ff3ee2fb4939df6627da127678fd0fbc34",
-      "sha256:a793fc14aeccb92fad9a56726182aa507c12380d28e21d620e64068b181a30c2"
+      "sha256:a793fc14aeccb92fad9a56726182aa507c12380d28e21d620e64068b181a30c2",
+      "sha256:50ac0e424a9d056e349731386af4a07fb2f0af50e87f3e33b5e9383168fdd96d"
     ],
     "replacement_example_ids": [
       "finqa881",
       "finqa714",
       "finqa113",
       "finqa659",
-      "finqa855"
+      "finqa855",
+      "finqa796"
     ],
     "replacement_seeds": [
       20260802,
       20260803,
-      20260804
+      20260804,
+      20260805
     ]
   },
   "scope": "fresh_development_only_same_items_all_tiers",

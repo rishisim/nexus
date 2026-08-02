@@ -5,7 +5,7 @@ import pytest
 
 from src.agents.finance.protocol_v2 import fingerprint
 from src.agents.finance.realm26_capability_llm import call_capability_model, validate_live_catalog
-from src.agents.finance.realm26_capability_methods import CAPABILITY_REACT_PROMPT
+from src.agents.finance.realm26_capability_methods import CAPABILITY_REACT_PROMPT, first_json_action
 from src.agents.finance.realm26_capability_protocol import (
     DATASETS,
     DEFAULT_PROTOCOL_PATH,
@@ -111,8 +111,8 @@ def test_real_manifest_excludes_every_prior_partition_and_uses_one_sample_for_bo
             "total": 375,
         }
     assert protocol["sample"]["same_items_for_all_tiers"] is True
-    assert manifest["replacement_audit"]["carried_forward_never_called_items_from_latest_freeze"] == 147
-    consumed = {"finqa41", "finqa881", "finqa714", "finqa70", "finqa81"}
+    assert manifest["replacement_audit"]["carried_forward_never_called_items_from_latest_freeze"] == 149
+    consumed = {"finqa41", "finqa881", "finqa714", "finqa70", "finqa81", "finqa113"}
     assert set(manifest["replacement_audit"]["consumed_example_ids"]) == consumed
     assert all(item["example_id"] not in consumed for spec in manifest["datasets"].values() for item in spec["examples"])
 
@@ -120,6 +120,8 @@ def test_real_manifest_excludes_every_prior_partition_and_uses_one_sample_for_bo
 def test_capability_react_prompt_requires_exactly_one_action_per_turn():
     assert "exactly one JSON action object" in CAPABILITY_REACT_PROMPT
     assert "first model action MUST be Search" in CAPABILITY_REACT_PROMPT
+    duplicated = '{"thought":"x","action":"Search","argument":"q","answer":""}\n\n' * 2
+    assert first_json_action(duplicated)["action"] == "Search"
 
 
 class GuardedRows:
