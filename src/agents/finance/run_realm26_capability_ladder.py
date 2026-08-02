@@ -526,11 +526,13 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     publication = public_head_preflight(protocol)
     snapshot_path = resolve_path(Path(protocol["_path"]), str(protocol["model_snapshot"]))
     catalog = validate_live_catalog(snapshot_path)
+    run_root_probe = str(protocol["results"]["root"]).rstrip("/") + "/.ignore-probe"
+    _git(Path(publication["repo"]), "check-ignore", "-q", "--no-index", run_root_probe)
     preflight = {
         "catalog": catalog,
         "credential_available": bool(os.getenv("OPENROUTER_API_KEY")),
         "publication": publication,
-        "run_root_ignored": _git(Path(publication["repo"]), "check-ignore", protocol["results"]["root"]),
+        "run_root_ignored": True,
     }
     if args.preflight_only:
         print(json.dumps(preflight, sort_keys=True))
