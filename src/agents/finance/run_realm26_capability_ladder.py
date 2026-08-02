@@ -91,7 +91,9 @@ def load_probe_protocol(path: str | Path) -> Dict[str, Any]:
         raise StopExperiment("Format-probe reservation does not reconcile across tiers")
     if (
         float(budget.get("prior_failed_attempt_allowance_usd", -1))
+        + float(budget.get("prior_failed_frozen_study_allowance_usd", 0.0))
         + prior_probe_attempts
+        + float(budget.get("format_probe_actual_spend_usd", 0.0))
         + probe_reservation
         + float(budget.get("study_maximum_reservation_usd", -1))
         > float(budget.get("hard_cap_usd", -1)) + 1e-12
@@ -136,6 +138,7 @@ def cumulative_budget_contract(protocol: Mapping[str, Any]) -> Dict[str, float]:
         ("prior_failed_attempt_spend_usd", "prior_failed_attempt_charge_usd", "prior_failed_attempt_allowance_usd"),
         default=0.0,
     )
+    prior += float(budget.get("prior_failed_frozen_study_allowance_usd", 0.0))
     probes = (
         float(budget.get("format_probe_prior_attempt_allowance_usd", 0.0))
         + float(budget.get("format_probe_actual_spend_usd", 0.0))
@@ -430,7 +433,9 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
         "format_probe_spend_usd": 0.0,
         "prior_failed_attempt_spend_usd": (
             float(budget["prior_failed_attempt_allowance_usd"])
+            + float(budget.get("prior_failed_frozen_study_allowance_usd", 0.0))
             + float(budget.get("format_probe_prior_attempt_allowance_usd", 0.0))
+            + float(budget.get("format_probe_actual_spend_usd", 0.0))
         ),
     }
     protocol_body = {key: value for key, value in protocol.items() if key != "_path"}
@@ -442,9 +447,19 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
         models=protocol["models"],
     )
     prompts = {
-        "finish": "Synthetic format check only. Return exactly one Finish action with an empty argument and answer 7.",
-        "search": "Synthetic format check only. Return exactly one Search action with argument synthetic-query and an empty answer.",
-        "react": "Synthetic format check only. Return exactly one Lookup action with argument synthetic-term and an empty answer.",
+        "finish": (
+            "Synthetic non-benchmark format check only. Return exactly one Finish action "
+            "with an empty argument and the short answer 7."
+        ),
+        "search": (
+            "Synthetic non-benchmark first-retrieval format check. Return exactly one "
+            "Search action whose argument is a concise query for 2024 operating-margin "
+            "details and whose answer is empty."
+        ),
+        "react": (
+            "Synthetic non-benchmark later-retrieval format check. Return exactly one "
+            "Lookup action whose argument is operating margin and whose answer is empty."
+        ),
     }
     completed_keys = {str(row["call_key"]) for row in ledger.data["calls"]}
     for tier in TIERS:
@@ -455,6 +470,7 @@ def run_format_probes(protocol: Mapping[str, Any], repo: Path) -> None:
                 continue
             prompt = prompts[action_schema]
             prompt_hash = "sha256:" + hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+            sleep(float(protocol["inference"]["inter_call_delay_seconds"]))
             ledger.reserve(tier, call_key, prompt_hash)
             try:
                 response = call_capability_model(

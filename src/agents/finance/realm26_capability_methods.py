@@ -9,8 +9,8 @@ from . import realm26_harmonized_v2_methods as v2
 from . import realm26_harmonized_methods as shared
 
 
-ARGUMENT_MAX_LENGTH = 256
-ANSWER_MAX_LENGTH = 256
+ARGUMENT_MAX_LENGTH = 1024
+ANSWER_MAX_LENGTH = 1024
 PROMPT_UTF8_BYTE_LIMIT = 8192
 
 CAPABILITY_ANSWER_CONTRACT = (
@@ -64,11 +64,12 @@ Recent interaction log:
 """
 
 
-def _fallback() -> Dict[str, str]:
+def _fallback(reason: str) -> Dict[str, str]:
     return {
         "action": "Finish",
         "argument": "",
         "answer": shared.UNKNOWN,
+        "parse_error": reason,
         "parse_status": "malformed_fallback",
     }
 
@@ -92,23 +93,23 @@ def parse_capability_action(
     try:
         value = json.loads(str(output).strip())
     except (TypeError, ValueError, json.JSONDecodeError):
-        return _fallback()
+        return _fallback("not_exactly_one_json_value")
     if not isinstance(value, Mapping) or set(value) != {"action", "argument", "answer"}:
-        return _fallback()
+        return _fallback("object_keys_or_type")
     action, argument, answer = value["action"], value["argument"], value["answer"]
     if not all(isinstance(item, str) for item in (action, argument, answer)):
-        return _fallback()
+        return _fallback("non_string_field")
     if action not in allowed[action_schema]:
-        return _fallback()
+        return _fallback("action_not_allowed_for_step")
     argument = " ".join(argument.split())
     answer = " ".join(answer.split())
     if len(argument) > argument_max_length or len(answer) > answer_max_length:
-        return _fallback()
+        return _fallback("string_length_bound")
     if action == "Finish":
         if argument or not answer:
-            return _fallback()
+            return _fallback("finish_field_semantics")
     elif not argument or answer:
-        return _fallback()
+        return _fallback("retrieval_field_semantics")
     return {
         "action": action,
         "argument": argument,

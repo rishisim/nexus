@@ -1,0 +1,35 @@
+{
+  "attempts": [
+    {
+      "completed_provider_call_count": 34,
+      "completed_provider_spend_usd": 0.022864446,
+      "excluded_touched_examples": {
+        "convfinqa": [
+          {"example_id": "convfinqa583", "index": 583},
+          {"example_id": "convfinqa578", "index": 578},
+          {"example_id": "convfinqa692", "index": 692}
+        ],
+        "finqa": [],
+        "tatqa": [
+          {"example_id": "a3ca1acfa5687eec00ab3bbc3660b0fc", "index": 973}
+        ]
+      },
+      "failure": {
+        "action_schema": "search",
+        "dataset": "tatqa",
+        "error": "Provider returned malformed structured output",
+        "error_type": "CapabilityProviderError",
+        "framework": "react",
+        "tier": "terra"
+      },
+      "final_partition_touched": false,
+      "freeze_commit": "ddb2436ba390bbe4891b8738cad7a2cf47ff370a",
+      "outcomes_analyzed": false,
+      "scheduled_episode_count": 900,
+      "status": "prospectively_stopped",
+      "successful_episode_count": 23,
+      "unresolved_call_maximum_reservation_usd": 0.0124344
+    }
+  ],
+  "schema_version": "realm26-capability-study-history-v1"
+}

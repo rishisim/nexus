@@ -132,7 +132,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     }
     if any(workflow.get(key) != value for key, value in required_workflow.items()):
         raise ProtocolError("Shared workflow contract changed")
-    if workflow.get("answer_contract") != "compact_action_argument_answer_v1":
+    if workflow.get("answer_contract") != "compact_action_argument_answer_v2":
         raise ProtocolError("Compact structured action contract is not frozen")
     analysis = protocol.get("analysis") or {}
     if int(analysis.get("bootstrap_resamples", -1)) != 10_000 or int(analysis.get("bootstrap_seed", -1)) != 20260802:
@@ -157,15 +157,25 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     if float(budget.get("hard_cap_usd", -1)) != 20.0:
         raise ProtocolError("Global authorization must remain USD 20")
     prior = float(budget.get("prior_failed_attempt_allowance_usd", -1))
+    failed_study = float(budget.get("prior_failed_frozen_study_allowance_usd", -1))
     prior_probe_attempts = float(budget.get("format_probe_prior_attempt_allowance_usd", -1))
     probe_reservation = float(budget.get("format_probe_maximum_reservation_usd", -1))
     probe_actual = float(budget.get("format_probe_actual_spend_usd", -1))
-    if abs(prior - 0.01279752925) > 1e-12 or prior_probe_attempts < 0 or probe_reservation < 0 or probe_actual < 0:
+    if (
+        abs(prior - 0.01279752925) > 1e-12
+        or abs(failed_study - 0.035298846) > 1e-12
+        or prior_probe_attempts < 0
+        or probe_reservation < 0
+        or probe_actual < 0
+    ):
         raise ProtocolError("Prior-attempt or format-probe reservation changed")
+    failed_breakdown = budget.get("prior_failed_frozen_study_breakdown_usd") or {}
+    if abs(sum(float(value) for value in failed_breakdown.values()) - failed_study) > 1e-12:
+        raise ProtocolError("Failed frozen-study budget allowance does not reconcile")
     study = sum(float(models[tier]["maximum_reserved_study_cost_usd"]) for tier in TIERS)
     if abs(probe_reservation - sum(float(models[tier]["maximum_reserved_probe_cost_usd"]) for tier in TIERS)) > 1e-12:
         raise ProtocolError("Global probe reservation disagrees with per-tier reservations")
-    cumulative_before_study = prior + prior_probe_attempts + probe_actual
+    cumulative_before_study = prior + failed_study + prior_probe_attempts + probe_actual
     worst_case = cumulative_before_study + study
     if abs(study - float(budget.get("study_maximum_reservation_usd", -1))) > 1e-12:
         raise ProtocolError("Global study reservation disagrees with per-tier reservations")
@@ -204,6 +214,8 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         raise ProtocolError("Test attestation binding changed")
     if protocol.get("format_probe_attestation") != "attestations/realm26_capability_format_probes.json":
         raise ProtocolError("Format-probe attestation binding changed")
+    if protocol.get("study_history_attestation") != "attestations/realm26_capability_study_history.json":
+        raise ProtocolError("Study-history attestation binding changed")
 
     exclusions = protocol.get("exclusions") or {}
     attempted_indices = exclusions.get("failed_freeze_attempted_indices_by_dataset")
@@ -221,8 +233,9 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
             raise ProtocolError("Failed-freeze exclusions contain duplicates")
         if len(indices) != len(example_ids):
             raise ProtocolError("Failed-freeze index/ID exclusion counts disagree")
-    if len(attempted_indices["finqa"]) != 17 or any(attempted_indices[name] for name in ("tatqa", "convfinqa")):
-        raise ProtocolError("Expected exactly 17 failed-freeze FinQA examples")
+    expected_attempt_counts = {"finqa": 17, "tatqa": 1, "convfinqa": 3}
+    if any(len(attempted_indices[name]) != count for name, count in expected_attempt_counts.items()):
+        raise ProtocolError("Failed-freeze identifier exclusions changed")
 
 
 def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
@@ -238,6 +251,7 @@ def _artifact_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:
         "executor": finance / "run_realm26_capability_ladder.py",
         "finance_statistics": finance / "finance_statistics.py",
         "format_probe_attestation": resolve_path(protocol_path, str(protocol["format_probe_attestation"])),
+        "study_history_attestation": resolve_path(protocol_path, str(protocol["study_history_attestation"])),
         "manifest": resolve_path(protocol_path, str(protocol["manifest"])),
         "model_snapshot": resolve_path(protocol_path, str(protocol["model_snapshot"])),
         "protocol_guard": Path(__file__),
@@ -295,6 +309,17 @@ def validate_frozen_artifacts(protocol: Mapping[str, Any]) -> None:
         or int(probe_attestation.get("study_examples_consumed", -1)) != 0
     ):
         raise ProtocolError("Format-probe attestation is incomplete")
+    history = load_json(paths["study_history_attestation"])
+    attempts = history.get("attempts") if isinstance(history, Mapping) else None
+    if (
+        history.get("schema_version") != "realm26-capability-study-history-v1"
+        or not isinstance(attempts, list)
+        or not attempts
+        or attempts[-1].get("freeze_commit") != "ddb2436ba390bbe4891b8738cad7a2cf47ff370a"
+        or attempts[-1].get("outcomes_analyzed") is not False
+        or attempts[-1].get("final_partition_touched") is not False
+    ):
+        raise ProtocolError("Failed-study process history is incomplete")
 
 
 def _source_paths(protocol: Mapping[str, Any]) -> Dict[str, Path]:

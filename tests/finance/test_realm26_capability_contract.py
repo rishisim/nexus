@@ -61,8 +61,14 @@ def test_request_bodies_are_model_independent_except_authorized_reasoning_omissi
     assert set(schema["properties"]) == {"action", "argument", "answer"}
     assert schema["additionalProperties"] is False
     assert "thought" not in json.dumps(control).lower()
-    assert "256" in schema["properties"]["argument"]["description"]
-    assert "256" in schema["properties"]["answer"]["description"]
+    assert "1024" in schema["properties"]["argument"]["description"]
+    assert "1024" in schema["properties"]["answer"]["description"]
+    assert control["response_format"]["json_schema"]["schema"]["properties"]["argument"]["enum"] == [""]
+    search = build_capability_request_body(
+        prompt="synthetic", requested_model=MODELS[0], max_tokens=384,
+        action_schema="search", seed=20260802,
+    )
+    assert search["response_format"]["json_schema"]["schema"]["properties"]["answer"]["enum"] == [""]
 
 
 @pytest.mark.parametrize("schema,valid", [
@@ -81,10 +87,11 @@ def test_compact_parser_rejects_extra_fields_wrong_field_use_and_length():
         '{"thought":"x","action":"Finish","argument":"","answer":"7"}',
         '{"action":"Finish","argument":"query","answer":"7"}',
         '{"action":"Search","argument":"query","answer":"7"}',
-        json.dumps({"action": "Search", "argument": "x" * 257, "answer": ""}),
-        json.dumps({"action": "Finish", "argument": "", "answer": "x" * 257}),
+        json.dumps({"action": "Search", "argument": "x" * 1025, "answer": ""}),
+        json.dumps({"action": "Finish", "argument": "", "answer": "x" * 1025}),
     ]
     assert all(parse_capability_action(row)["parse_status"] == "malformed_fallback" for row in malformed)
+    assert parse_capability_action(malformed[2])["parse_error"] == "retrieval_field_semantics"
     assert "thought" not in CAPABILITY_ANSWER_CONTRACT.lower()
     assert "thought" not in CAPABILITY_STATIC_PROMPT.lower()
     assert "thought" not in CAPABILITY_REACT_PROMPT.lower()

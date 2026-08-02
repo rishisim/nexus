@@ -30,39 +30,45 @@
   },
   "artifact_hashes": {
     "analysis": "sha256:36a283500c136fad08306776ba46390e1dd5936adc8f22968e715849e78bf2fb",
-    "attestation": "sha256:4d765b524258595fb865beb754940f9d82b61c72db13f38097a58ad46f8b4128",
-    "capability_llm": "sha256:a8f6da4d348c609cb39dc8ddf6b6b1fa3e016e44fa88bcf867f134560f70ad20",
-    "capability_methods": "sha256:c6dfdbbaa1922eb8affaaa0ccfd2d80a37de07c098b7beef6910ea9f31593a97",
+    "attestation": "sha256:094056c752d031eac08902bd4e0e8bd59c533f8e8aebeaf5511cce3ed95c4956",
+    "capability_llm": "sha256:f58db0a8d5edf02b18f36c5e7966a557c629af158bf0b761e440f3b683263030",
+    "capability_methods": "sha256:844c357f5bebe2850b6f010f3290b0136e781462224022619c4c6582ab240adc",
     "data_adapter": "sha256:3c7423c9c1c49b57ccffc7f74d9018d671d22192dd02d1d225191a064820f7a5",
-    "executor": "sha256:5a54996ccb5089c3909bc31967cabec7a321f369e1dae8dbca833359efe578af",
+    "executor": "sha256:fa4e947f032ff3d819faf0aa355ba788e1eb028c7a92849e64d88d632e190d5d",
     "finance_statistics": "sha256:7e2022a2769ec4f68ef8e4a0e4b371e30a37d741f56c406817fbcb5999a824eb",
-    "format_probe_attestation": "sha256:49367eebea27d1a3e32c59ef259abd981c5d615d1e9db268de298eee78654d6d",
-    "manifest": "sha256:416f2e72f9ec642284287941e0ebf3ea03866f63499e25d59c1e9fd9638195eb",
+    "format_probe_attestation": "sha256:f07c3a53b16ec0894c16b39829d075fe72d3be0fa9124b9c22ec7610d38d493d",
+    "manifest": "sha256:dc872e54f55d05c1fa451682a7651bfc8c748907d9511313ad93ee85a8c57cda",
     "model_snapshot": "sha256:e551494b81410454b7782e54eed0b681a26809e98fbfc09ad3d1bbddf0d84053",
-    "protocol_guard": "sha256:dd1443da55efbab2ffb7cd8e050b46e54458394747bc6ce7b85363fe691359f3",
-    "protocol_memo": "sha256:055afd96b559ee8535e082d417ea398a57ed9c333285dcb68c180c6c2fdacd00",
+    "protocol_guard": "sha256:28ec1ae7e31e55cb83a71e5735cbb37a9ad135be79974f799a57acc0e5be670a",
+    "protocol_memo": "sha256:44bea2a7445785c993e4fa48dd7d913a6340d224f1f0875cccd3712fb63d6c55",
     "protocol_utils": "sha256:306d5e2f28b2ba7535376c1a92396640ec0abe6a634fd1e6aa6ca76ede00dab9",
     "scorers": "sha256:c6910fcb92ec05b196529fd7f34762165b042dbde01060e4030d815178f3034e",
     "shared_methods": "sha256:c9a8a9d68e7340ecc7c28894376b8ec306b7dea72b8ab1d220bb86acef3b226f",
     "shared_prompts": "sha256:664735819569b10749b0e72f1458a88c8739d10d6bedde6f0e106de48e23d78d",
+    "study_history_attestation": "sha256:3fef3eb87506aebeed7b91f937457c2938307fb4da7f0c5e0c4146d7a1ca76f7",
     "telemetry": "sha256:be832c110aa661e6e5bfc1d6d6016a1aaf4bc972cdeb1750faa3c434cf402469",
-    "tests": "sha256:abc4659eb3eaa1af3fa7267e46fcfeffc32d56265dc5cddadae6f7e44b76c805",
-    "tests_contract": "sha256:b4c6f3c1ced188a73319b769189c3350bd485f21e21ba8d710418950ca12a9e4",
+    "tests": "sha256:b43401be4578b807984b71c28484d9841df0acd381f557614575ef14b06c904d",
+    "tests_contract": "sha256:f70fa9ba97e311536549900cd987d046569320994fa7323ef5b21a2cdb481290",
     "tests_interaction": "sha256:86627c286dc28ca00dcf0e53f9b82bce02b60c68ec228f2d646a352057247d8e",
-    "tests_manifest_schedule": "sha256:a283e22052ff2999d652675f6367356e44da6e1b3fa3c628feeff5f941985898",
-    "tests_runner_schedule": "sha256:578eb311ab027590e494153beb64a2e1dbc37091ceca2e7cb1310e8dd264ec3b",
+    "tests_manifest_schedule": "sha256:c73b0cad5be26a45d5eacd3d0296ea48eb02d17652dd9af30909f3514e177825",
+    "tests_runner_schedule": "sha256:978424825bfd32a3955ae18cc95e78ac03b1565f80bfccd34073f126882b2102",
     "v2_manifest": "sha256:12e2b56463fdc9b1f0fbb87a47b9101151e819ceecb8a619e374bfc86bfef389"
   },
   "budget": {
-    "combined_maximum_reservation_usd": 18.51437473325,
-    "cumulative_before_study_usd": 0.01483873325,
-    "format_probe_actual_spend_usd": 0.000827541,
+    "combined_maximum_reservation_usd": 18.55056611375,
+    "cumulative_before_study_usd": 0.05103011375,
+    "format_probe_actual_spend_usd": 0.0017200755,
     "format_probe_prior_attempt_allowance_usd": 0.001213663,
     "format_probe_maximum_reservation_usd": 0.04624884,
     "hard_cap_usd": 20.0,
     "max_input_tokens_reserved_per_call": 9000,
     "max_study_calls_per_tier": 1200,
     "planning_basis": "8192-byte prompt ceiling plus a conservative allowance for the compact schema/request contract, totaling 9000 reserved input tokens; 384 output tokens; 150 one-call Static episodes; 150 seven-call ReAct episodes; three synthetic schema probes per tier; and a 10% margin",
+    "prior_failed_frozen_study_allowance_usd": 0.035298846,
+    "prior_failed_frozen_study_breakdown_usd": {
+      "ddb2436_completed_provider_spend": 0.022864446,
+      "ddb2436_unresolved_provider_call_maximum_reservation": 0.0124344
+    },
     "prior_failed_attempt_allowance_usd": 0.01279752925,
     "prior_failed_attempt_breakdown_usd": {
       "2e886b1_recorded_provider_spend": 0.00866745,
@@ -71,7 +77,7 @@
       "b3a0efe_recorded_provider_spend": 0.0006354315,
       "c296aba_recorded_provider_spend": 0.0005714775
     },
-    "reservation_headroom_usd": 1.48562526675,
+    "reservation_headroom_usd": 1.44943388625,
     "reservation_margin": 1.1,
     "study_maximum_reservation_usd": 18.499536
   },
@@ -85,7 +91,11 @@
   "exclusions": {
     "allowed_final_use": "identifier_overlap_exclusion_only",
     "failed_freeze_attempted_example_ids_by_dataset": {
-      "convfinqa": [],
+      "convfinqa": [
+        "convfinqa583",
+        "convfinqa578",
+        "convfinqa692"
+      ],
       "finqa": [
         "finqa41",
         "finqa881",
@@ -105,12 +115,14 @@
         "finqa179",
         "finqa205"
       ],
-      "tatqa": []
+      "tatqa": [
+        "a3ca1acfa5687eec00ab3bbc3660b0fc"
+      ]
     },
     "failed_freeze_attempted_indices_by_dataset": {
-      "convfinqa": [],
+      "convfinqa": [583, 578, 692],
       "finqa": [41, 881, 714, 70, 81, 113, 796, 659, 855, 103, 114, 124, 158, 168, 173, 179, 205],
-      "tatqa": []
+      "tatqa": [973]
     },
     "original_protocol": "finance_icaif26_v2.json",
     "second_family_manifest": "manifests/realm26_second_family_v1/manifest.json",
@@ -118,11 +130,12 @@
     "v2_manifest": "manifests/realm26_harmonized_static_react_v2/manifest.json"
   },
   "format_probes": {
-    "actual_spend_usd": 0.000827541,
+    "actual_spend_usd": 0.0017200755,
     "calls_per_tier": 3,
     "content": "synthetic_non_benchmark",
+    "current_freeze_actual_spend_usd": 0.0008925345,
     "failed_prefreeze_attempt_allowance_usd": 0.001213663,
-    "prefreeze_attempts": 2,
+    "prefreeze_attempts": 3,
     "schemas": ["finish", "search", "react"],
     "status": "completed_process_checks",
     "study_examples_consumed": 0
@@ -196,7 +209,7 @@
     "per_dataset": 50,
     "replacement": false,
     "same_items_for_all_tiers": true,
-    "schedule_seed": 2026080201,
+    "schedule_seed": 2026080202,
     "total_items": 150
   },
   "schema_version": "realm26-capability-ladder-v1",
@@ -220,8 +233,9 @@
     "tiers": ["control", "luna", "terra"]
   },
   "test_attestation": "attestations/realm26_capability_ladder_tests.json",
+  "study_history_attestation": "attestations/realm26_capability_study_history.json",
   "workflows": {
-    "answer_contract": "compact_action_argument_answer_v1",
+    "answer_contract": "compact_action_argument_answer_v2",
     "context_utf8_byte_budget_per_call": 8192,
     "context_word_budget_per_call": 4096,
     "evidence_word_budget_per_item": 3000,

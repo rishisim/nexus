@@ -6,15 +6,16 @@
     "git check-ignore -q --no-index runs/realm26_capability_ladder/.ignore-probe",
     "git diff --check"
   ],
-  "completed_at_utc": "2026-08-02T17:35:07Z",
+  "completed_at_utc": "2026-08-02T18:05:18Z",
   "format_probe_attestation": "realm26_capability_format_probes.json",
-  "manifest_fingerprint": "sha256:d3a53ba9f7e26208f473ebb4e02bc7c59646e3e7a470a1e328d3e86f229c5c21",
+  "manifest_fingerprint": "sha256:4475099c8df103c9bf82f5ab1c354d35723246ba421f9609d649380741b32598",
   "results": {
     "finance_tests": "230 passed including final artifact-hash validation",
-    "format_probes": "nine mandatory synthetic tier/schema process checks passed after one documented pre-freeze schema iteration",
+    "format_probes": "nine mandatory replacement synthetic tier/schema checks passed after the stopped public freeze; eighteen successful probes are cumulatively charged",
     "manifest_source_validation": "passed against offline cached sources without loading protected-final content",
     "preflight_ignore_probe": "passed",
-    "py_compile": "passed"
+    "py_compile": "passed",
+    "stopped_freeze_record": "sanitized process-only history retained; no outcomes analyzed"
   },
   "status": "passed"
 }

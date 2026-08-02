@@ -49,10 +49,14 @@ def test_manifest_is_fresh_shared_and_counterbalanced():
     manifest = load_manifest(protocol)
     assert sum(len(manifest["datasets"][name]["examples"]) for name in DATASETS) == 150
     assert all(len(manifest["datasets"][name]["examples"]) == 50 for name in DATASETS)
-    assert manifest["datasets"]["finqa"]["exclusion_counts"]["failed_freeze_attempted"] == 17
-    attempted = set(protocol["exclusions"]["failed_freeze_attempted_example_ids_by_dataset"]["finqa"])
-    selected = {item["example_id"] for item in manifest["datasets"]["finqa"]["examples"]}
-    assert not selected & attempted
+    assert {
+        dataset: manifest["datasets"][dataset]["exclusion_counts"]["failed_freeze_attempted"]
+        for dataset in DATASETS
+    } == {"finqa": 17, "tatqa": 1, "convfinqa": 3}
+    for dataset in DATASETS:
+        attempted = set(protocol["exclusions"]["failed_freeze_attempted_example_ids_by_dataset"][dataset])
+        selected = {item["example_id"] for item in manifest["datasets"][dataset]["examples"]}
+        assert not selected & attempted
     validate_execution_schedule(
         manifest["execution_schedule"], manifest["datasets"], protocol["sample"]["schedule_seed"]
     )

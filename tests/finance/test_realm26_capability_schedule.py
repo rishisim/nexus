@@ -86,6 +86,7 @@ def test_budget_reserves_prior_attempts_probes_and_complete_study():
         "budget": {
             "hard_cap_usd": 20.0,
             "prior_failed_attempt_allowance_usd": 0.0128,
+            "prior_failed_frozen_study_allowance_usd": 0.03,
             "format_probe_prior_attempt_allowance_usd": 0.004,
             "format_probe_actual_spend_usd": 0.006,
             "study_maximum_reservation_usd": 19.9,
@@ -97,7 +98,7 @@ def test_budget_reserves_prior_attempts_probes_and_complete_study():
     }
     contract = cumulative_budget_contract(protocol)
     assert contract["reserved_study_cost_usd"] == 19.9
-    assert contract["prior_failed_attempt_spend_usd"] == 0.0128
+    assert contract["prior_failed_attempt_spend_usd"] == 0.0428
     assert contract["format_probe_spend_usd"] == 0.01
 
 

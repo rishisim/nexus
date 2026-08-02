@@ -81,7 +81,7 @@ class GuardedRows:
 def test_fresh_manifest_never_dereferences_excluded_rows(monkeypatch):
     excluded_indices = set(range(20))
     exclusions = {
-        "counts": {"failed_freeze_attempted": 17, "total": len(excluded_indices)},
+        "counts": {"failed_freeze_attempted": 21, "total": len(excluded_indices)},
         "dialogue_hashes": {fingerprint(f"dialogue-{index}") for index in excluded_indices},
         "example_ids": {f"reserved-{index}" for index in excluded_indices},
         "fingerprint": "sha256:test-exclusions",

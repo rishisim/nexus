@@ -24,8 +24,8 @@ from .protocol_v2 import ProtocolError
 CHAT_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODELS_URL = "https://openrouter.ai/api/v1/models"
 DEFAULT_SEED = 20260802
-ARGUMENT_MAX_LENGTH = 256
-ANSWER_MAX_LENGTH = 256
+ARGUMENT_MAX_LENGTH = 1024
+ANSWER_MAX_LENGTH = 1024
 
 _ACTIONS = {
     "finish": ["Finish"],
@@ -106,6 +106,22 @@ def build_capability_request_body(
     if requested_model not in _REASONING_OMISSION_MODELS | _REASONING_NONE_MODELS:
         raise CapabilityProviderError(f"Reasoning policy is undefined for model: {requested_model}")
 
+    argument_schema: Dict[str, Any] = {
+        "type": "string",
+        "description": f"At most {ARGUMENT_MAX_LENGTH} characters; empty for Finish.",
+    }
+    answer_schema: Dict[str, Any] = {
+        "type": "string",
+        "description": f"At most {ANSWER_MAX_LENGTH} characters; empty for retrieval actions.",
+    }
+    # These single-value enums are supported by the shared provider route and
+    # enforce the inactive field for the two step-specific schemas.  The local
+    # parser remains fail-closed for the multi-action ReAct schema.
+    if action_schema == "finish":
+        argument_schema["enum"] = [""]
+    elif action_schema == "search":
+        answer_schema["enum"] = [""]
+
     body: Dict[str, Any] = {
         "model": requested_model,
         "messages": [{"role": "user", "content": str(prompt)}],
@@ -129,14 +145,8 @@ def build_capability_request_body(
                             "type": "string",
                             "enum": _ACTIONS[action_schema],
                         },
-                        "argument": {
-                            "type": "string",
-                            "description": f"At most {ARGUMENT_MAX_LENGTH} characters; empty for Finish.",
-                        },
-                        "answer": {
-                            "type": "string",
-                            "description": f"At most {ANSWER_MAX_LENGTH} characters; empty for retrieval actions.",
-                        },
+                        "argument": argument_schema,
+                        "answer": answer_schema,
                     },
                     "required": ["action", "argument", "answer"],
                     "additionalProperties": False,
@@ -306,7 +316,10 @@ def call_capability_model(
         answer_max_length=ANSWER_MAX_LENGTH,
     )
     if parsed["parse_status"] != "ok":
-        raise CapabilityProviderError("Provider returned malformed structured output")
+        raise CapabilityProviderError(
+            "Provider returned malformed structured output: "
+            f"{parsed.get('parse_error', 'unknown compact-contract violation')}"
+        )
     return CapabilityResponse(
         result=LLMResult(
             text=text,

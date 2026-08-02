@@ -43,13 +43,14 @@ strict JSON schema with `additionalProperties:false`:
 
 Retrieval actions require a nonempty argument and an empty answer. Finish
 requires an empty argument and a nonempty answer. Argument and answer are each
-bounded to 256 characters by the shared prompt and fail-closed parser. The
+bounded to 1,024 characters by the shared prompt and fail-closed parser. The
 provider's common strict-schema subset does not implement string-length
 keywords consistently across all three tiers, so the identical local parser
-enforces those bounds. A complete object is required; trailing text, a second
-object, extra fields, malformed JSON, refusal, non-`stop` completion reason, or
-missing telemetry stops the prospective study. No prefix is salvaged and there
-is no retry.
+enforces those bounds. The step-specific Static and first-Search schemas also
+constrain the inactive field to the empty string. A complete object is
+required; trailing text, a second object, extra fields, malformed JSON,
+refusal, non-`stop` completion reason, or missing telemetry stops the
+prospective study. No prefix is salvaged and there is no retry.
 
 The `thought` field used in earlier attempts is absent from the prompt, schema,
 parser, and stored action contract.
@@ -66,21 +67,34 @@ within this allowed pre-freeze phase: string bounds remain identical and
 fail-closed in the local parser, while the provider schema uses the common
 supported subset.
 
-The subsequent nine probes all returned one valid compact object with provider
-`OpenAI`, finish reason `stop`, correct model identity, zero reasoning tokens,
-complete token/cost telemetry, and the intended reasoning-parameter policy.
-Their actual spend was USD 0.000827541. No benchmark identifier, context,
-dialogue, answer, or score was used by these probes.
+The subsequent nine probes for the first public freeze all passed. That freeze
+then stopped prospectively after 23 successful episodes when Terra's first
+ReAct Search produced a schema-shaped object that violated the stricter local
+field semantics. The response content was not retained, no outcome was scored
+or analyzed, and the four touched examples were added to the exclusion set.
+Completed calls cost USD 0.022864446; the unresolved failed call is charged at
+its full USD 0.0124344 reservation.
+
+Before constructing the replacement manifest, a fresh set of nine more
+realistic synthetic prompts tested the revised shared contract. All nine
+returned one valid compact object with provider `OpenAI`, finish reason `stop`,
+correct model identity, zero reasoning tokens, complete token/cost telemetry,
+and the intended reasoning-parameter policy. The replacement probes cost USD
+0.0008925345, bringing successful-probe spend across both freezes to USD
+0.0017200755. No benchmark identifier, context, dialogue, answer, or score was
+used by any probe.
 
 ## Fresh development manifest
 
 The frozen sample contains 50 FinQA, 50 TAT-QA, and 50 ConvFinQA examples. It
 uses seed `20260802` after excluding identifier metadata from the original
 development partition, protected final partition, second-family study,
-harmonized v1, and harmonized v2. It also excludes all 17 FinQA identifiers
-touched by the five failed capability freezes. Protected-final data is used
+harmonized v1, and harmonized v2. It also excludes 17 FinQA identifiers touched
+by the five earlier failed freezes and the three ConvFinQA plus one TAT-QA
+identifier touched by the stopped public freeze. Protected-final data is used
 only for identifier overlap exclusion; its contexts, dialogues, answers, and
-targets are never loaded or scored.
+targets are never loaded or scored. The replacement manifest fingerprint is
+`sha256:4475099c8df103c9bf82f5ab1c354d35723246ba421f9609d649380741b32598`.
 
 The same 150 examples and order are used for every tier. ConvFinQA selection
 retains one turn per wholly fresh dialogue. The manifest stores only identifiers,
@@ -88,7 +102,7 @@ hashes, selection metadata, and the frozen schedule.
 
 ## Counterbalanced execution
 
-Schedule seed `2026080201` fixes the full order before inference. The 150 items
+Schedule seed `2026080202` fixes the full order before inference. The 150 items
 are deterministically shuffled. Each of the six model-order permutations occurs
 exactly 25 times. Within each tier, Static runs first on 75 items and ReAct runs
 first on 75 items. All 900 episodes are mandatory; model- or result-dependent
@@ -134,17 +148,19 @@ on these outcomes.
 
 ## Budget and retained record
 
-The conservative charge before this study is USD 0.01483873325: USD
-0.01279752925 for the five earlier freezes, USD 0.001213663 for the failed
-pre-freeze probe attempt, and USD 0.000827541 for the successful probes. The
-complete study reserves at most USD 18.499536, including a 10% margin and a
-9,000-input-token reservation that covers the prompt plus compact schema,
-leaving USD 1.48562526675 below the USD 20 cap.
+The conservative charge before the replacement study is USD 0.05103011375:
+USD 0.01279752925 for five earlier failed attempts, USD 0.035298846 for the
+stopped public freeze, USD 0.001213663 for the failed pre-freeze probe attempt,
+and USD 0.0017200755 for successful probes. The complete study reserves at most
+USD 18.499536, including a 10% margin and a 9,000-input-token reservation that
+covers the prompt plus compact schema. The cumulative maximum is USD
+18.55056611375, leaving USD 1.44943388625 below the USD 20 cap.
 
 Raw prompts, per-example predictions, traces, ledgers, and logs remain under
 ignored `runs/realm26_capability_ladder/`. The tracked record is limited to the
-protocol, manifest and schedule, catalog snapshot, tests and attestation,
-aggregate result tables, compact decision report, and sanitized paper artifact.
+protocol, manifest and schedule, catalog snapshot, tests and attestations,
+sanitized stopped-freeze history, aggregate result tables, compact decision
+report, and sanitized paper artifact.
 
 ## Claims scope
 
