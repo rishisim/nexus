@@ -38,6 +38,15 @@ scoring, and all completed harmonized-v2 files remain unchanged. This
 capability-specific adapter is hash-bound and applied identically to Luna and
 Terra.
 
+The clarification passed its counted smoke but later produced another
+multi-object first turn. The final freeze therefore uses the standard OpenAI
+endpoint's advertised strict structured-output facility: Static is constrained
+to one `Finish` object, the first ReAct turn to one `Search` object, and later
+ReAct turns to one of `Search`, `Lookup`, or `Finish`. The model still chooses
+the query, subsequent actions, and answer; only the already specified action
+grammar is enforced. Three called FinQA items were replaced prospectively, and
+the remaining 147 items were carried forward without outcome inspection.
+
 ## Models and request contract
 
 - Efficient tier: requested `openai/gpt-5.6-luna`, frozen canonical slug
@@ -113,10 +122,11 @@ training and evaluating a selector on the same items.
 
 ## Budget and retained record
 
-The final replacement-run caps are USD 4.9982739625 for Luna and USD 15 for
-Terra. The prior-attempt allowance is USD 0.0017260375: the USD 0.00115456
+The final replacement-run caps are USD 4.99650535225 for Luna and USD 15 for
+Terra. The prior-attempt allowance is USD 0.00349464775: the USD 0.00115456
 maximum reservation from the alias-binding failure plus USD 0.0005714775 of
-recorded provider spend from the multi-action process failure. Together the
+recorded provider spend from the first multi-action process failure and USD
+0.00176861025 from the later unconstrained-decoding run. Together the
 combined authorization is exactly USD 20. A conservative planning
 reservation assumes two tokens per prompt word, the 384-token output ceiling,
 one Static call and up to seven ReAct calls on every item, plus a 10% margin.

@@ -134,6 +134,7 @@ def call_capability_model(
     requested_model: str,
     canonical_slug: str,
     max_tokens: int,
+    action_schema: str,
     stop: Optional[List[str]] = None,
     timeout: float = 180.0,
 ) -> CapabilityResponse:
@@ -142,6 +143,13 @@ def call_capability_model(
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         raise CapabilityProviderError("OPENROUTER_API_KEY is unavailable")
+    allowed_actions = {
+        "finish": ["Finish"],
+        "search": ["Search"],
+        "react": ["Search", "Lookup", "Finish"],
+    }
+    if action_schema not in allowed_actions:
+        raise CapabilityProviderError(f"Unknown structured action schema: {action_schema}")
     body: Dict[str, Any] = {
         "model": requested_model,
         "messages": [{"role": "user", "content": str(prompt)}],
@@ -152,6 +160,24 @@ def call_capability_model(
             "allow_fallbacks": False,
             "require_parameters": True,
             "data_collection": "deny",
+        },
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+                "name": f"realm_{action_schema}_action",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "thought": {"type": "string"},
+                        "action": {"type": "string", "enum": allowed_actions[action_schema]},
+                        "argument": {"type": "string"},
+                        "answer": {"type": "string"},
+                    },
+                    "required": ["thought", "action", "argument", "answer"],
+                    "additionalProperties": False,
+                },
+            },
         },
     }
     if stop:
@@ -204,8 +230,10 @@ def call_capability_model(
         ),
         provider_name=provider,
         request_parameters={
+            "action_schema": action_schema,
             "max_tokens": int(max_tokens),
             "reasoning_effort": "none",
+            "structured_outputs": True,
             "sampling_parameters_sent": [],
         },
     )

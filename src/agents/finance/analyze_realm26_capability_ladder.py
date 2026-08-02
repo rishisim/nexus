@@ -51,7 +51,7 @@ def _paired_rows(protocol: Mapping[str, Any], manifest: Mapping[str, Any], root:
                     raise ProtocolError("Failed row or item drift")
                 if row.get("tier") != tier or row.get("requested_model") != model["requested_model_id"] or row.get("resolved_model") != model["requested_model_id"] or row.get("catalog_canonical_slug") != model["canonical_slug"]:
                     raise ProtocolError("Tier model binding mismatch")
-                if row.get("provider_name") != "OpenAI" or row.get("reasoning_effort") != "none" or row.get("sampling_parameters_sent") != []:
+                if row.get("provider_name") != "OpenAI" or row.get("reasoning_effort") != "none" or row.get("sampling_parameters_sent") != [] or row.get("structured_outputs") is not True:
                     raise ProtocolError("Provider or request-parameter binding mismatch")
                 if row.get("answer_contract") != "strict_json_finish_v1" or row.get("method_version") != "realm26_harmonized_v2":
                     raise ProtocolError("Shared harmonized-v2 method contract drift")

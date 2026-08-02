@@ -126,6 +126,7 @@ class SpendLedger:
         self.data["pending_reservations"] = []
         self.data["actual_spend_usd"] = self.actual_spend + charge
         self.data["calls"].append({
+            "action_schema": response.request_parameters["action_schema"],
             "actual_cost_usd": charge,
             "call_key": call_key,
             "cached_tokens": result.cached_tokens,
@@ -143,18 +144,20 @@ class SpendLedger:
             "resolved_model": result.resolved_model,
             "sampling_parameters_sent": response.request_parameters["sampling_parameters_sent"],
             "status": result.status,
+            "structured_outputs": response.request_parameters["structured_outputs"],
             "total_tokens": result.total_tokens,
         })
         self._write()
 
 
 class BudgetedCapabilityModel:
-    def __init__(self, protocol: Mapping[str, Any], snapshot: Mapping[str, Any], ledger: SpendLedger, tier: str, pair_key: str):
+    def __init__(self, protocol: Mapping[str, Any], snapshot: Mapping[str, Any], ledger: SpendLedger, tier: str, pair_key: str, framework: str):
         self.protocol = protocol
         self.snapshot = snapshot
         self.ledger = ledger
         self.tier = tier
         self.pair_key = pair_key
+        self.framework = framework
         self.call_index = 0
         self.call_records: List[Dict[str, Any]] = []
         self.spec = protocol["models"][tier]
@@ -178,6 +181,7 @@ class BudgetedCapabilityModel:
             requested_model=expected,
             canonical_slug=str(self.spec["canonical_slug"]),
             max_tokens=int(max_tokens),
+            action_schema="finish" if self.framework == "static" else ("search" if self.call_index == 1 else "react"),
             stop=[] if stop is None else list(stop),
         )
         result = response.result
@@ -303,7 +307,7 @@ class CapabilityRunner:
         set_active_dataset(dataset)
         env = LeakageGuardEnv(self.env_factory(dataset))
         spec = self.protocol["models"][self.tier]
-        model = BudgetedCapabilityModel(self.protocol, self.snapshot, self.ledger, self.tier, f"{dataset}/{item['example_id']}/{framework}")
+        model = BudgetedCapabilityModel(self.protocol, self.snapshot, self.ledger, self.tier, f"{dataset}/{item['example_id']}/{framework}", framework)
         workflow = self.protocol["workflows"]
         try:
             _, result = METHODS[framework](
@@ -338,10 +342,11 @@ class CapabilityRunner:
         prompts = list(result.get("prompt_records") or [])
         if not calls or len(calls) != len(prompts) or len(calls) != len(model.call_records):
             raise StopExperiment("Per-call telemetry or prompt coverage is incomplete")
-        for call, prompt, model_call in zip(calls, prompts, model.call_records):
+        for call_index, (call, prompt, model_call) in enumerate(zip(calls, prompts, model.call_records), 1):
             if call.get("requested_model") != requested or call.get("resolved_model") != requested or call.get("status") != "ok":
                 raise StopExperiment("Model/status binding mismatch")
-            if model_call.get("provider_name") != "OpenAI" or model_call.get("reasoning_effort") != "none" or model_call.get("sampling_parameters_sent") != []:
+            expected_schema = "finish" if framework == "static" else ("search" if call_index == 1 else "react")
+            if model_call.get("provider_name") != "OpenAI" or model_call.get("reasoning_effort") != "none" or model_call.get("sampling_parameters_sent") != [] or model_call.get("structured_outputs") is not True or model_call.get("action_schema") != expected_schema:
                 raise StopExperiment("Provider or request-parameter binding mismatch")
             if prompt["sha256"] != model_call.get("prompt_sha256") or int(prompt["word_count"]) > int(self.protocol["workflows"]["context_word_budget_per_call"]):
                 raise StopExperiment("Prompt hash or context ceiling mismatch")
@@ -353,6 +358,8 @@ class CapabilityRunner:
                 "provider_name": "OpenAI",
                 "catalog_canonical_slug": canonical,
                 "reasoning_effort": "none",
+                "action_schema": model_call["action_schema"],
+                "structured_outputs": True,
                 "sampling_parameters_sent": [],
             })
         if telemetry["total_tokens"] <= 0 or telemetry["latency_ms"] <= 0:
@@ -428,6 +435,7 @@ class CapabilityRunner:
             "retrieval_operation_count": int(result["retrieval_operation_count"]),
             "retry_count": telemetry["retry_count"],
             "sampling_parameters_sent": [],
+            "structured_outputs": True,
             "scorer_input_sha256": "sha256:" + hashlib.sha256(canonical_answer.encode("utf-8")).hexdigest(),
             "status": "success",
             "tier": self.tier,
@@ -444,6 +452,7 @@ class CapabilityRunner:
         checks = {
             "binding": all(row.get("requested_model") == "openai/gpt-5.6-luna" and row.get("resolved_model") == "openai/gpt-5.6-luna" and row.get("catalog_canonical_slug") == "openai/gpt-5.6-luna-20260709" and row.get("provider_name") == "OpenAI" for row in (static, react)),
             "reasoning_effort_none": all(row.get("reasoning_effort") == "none" and row.get("sampling_parameters_sent") == [] for row in (static, react)),
+            "structured_outputs": all(row.get("structured_outputs") is True for row in (static, react)),
             "react_evidence_observed": int(react.get("evidence_word_count", 0)) > 0,
             "react_first_action_search": react.get("first_model_action") == "Search",
             "react_minimum_calls": int(react.get("llm_call_count", 0)) >= 2,

@@ -58,7 +58,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "luna": {
             "requested_model_id": "openai/gpt-5.6-luna",
             "canonical_slug": "openai/gpt-5.6-luna-20260709",
-            "hard_cap_usd": 4.9982739625,
+            "hard_cap_usd": 4.99650535225,
             "maximum_reserved_study_cost_usd": 1.385472,
             "maximum_reserved_call_cost_usd": 0.00115456,
         },
@@ -76,6 +76,7 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
         "backend": "openrouter",
         "inter_call_delay_seconds": 0.1,
         "reasoning_effort": "none",
+        "structured_action_decoding": "strict_json_schema_by_framework_and_react_step",
         "provider_routing": {
             "allow_fallbacks": False,
             "data_collection": "deny",
@@ -119,11 +120,12 @@ def validate_protocol(protocol: Mapping[str, Any]) -> None:
     }:
         raise ProtocolError("Tier execution plan changed")
     budget = protocol.get("budget") or {}
-    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.0017260375:
+    if float(budget.get("prior_failed_attempt_allowance_usd", -1)) != 0.00349464775:
         raise ProtocolError("Prior failed-attempt allowance changed")
     if budget.get("prior_failed_attempt_breakdown_usd") != {
         "3b4698e_unknown_charge_maximum_reservation": 0.00115456,
         "c296aba_recorded_provider_spend": 0.0005714775,
+        "9c010e5_recorded_provider_spend": 0.00176861025,
     }:
         raise ProtocolError("Prior failed-attempt budget breakdown changed")
     if abs(sum(float(protocol["models"][tier]["hard_cap_usd"]) for tier in TIERS) + float(budget["prior_failed_attempt_allowance_usd"]) - 20.0) > 1e-12:
@@ -191,7 +193,7 @@ def validate_frozen_artifacts(protocol: Mapping[str, Any]) -> None:
         if endpoint.get("provider_name") != "OpenAI" or endpoint.get("tag") != "openai":
             raise ProtocolError(f"{tier}: frozen endpoint is not standard OpenAI")
         supported = set(endpoint.get("supported_parameters") or [])
-        if not {"max_tokens", "reasoning_effort"}.issubset(supported):
+        if not {"max_tokens", "reasoning_effort", "response_format", "structured_outputs"}.issubset(supported):
             raise ProtocolError(f"{tier}: required parameters unavailable")
     attestation = load_json(paths["attestation"])
     if attestation.get("status") != "passed" or not attestation.get("commands"):
@@ -368,6 +370,32 @@ def build_manifest(protocol: Mapping[str, Any], env_factory: Callable[[str], Any
         "replacement_example_ids": ["finqa881", replacement_record["example_id"]],
         "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"]],
     }
+    third = protocol["sample"]["replacement_after_unconstrained_decoding_failure"]
+    if fingerprint(body) != third["failed_manifest_fingerprint"]:
+        raise ProtocolError("Could not reproduce the unconstrained-decoding manifest")
+    finqa_examples = body["datasets"]["finqa"]["examples"]
+    consumed_pairs = set(zip(third["consumed_example_ids"], map(int, third["consumed_indices"])))
+    found_pairs = {(item["example_id"], int(item["index"])) for item in finqa_examples if item["example_id"] in set(third["consumed_example_ids"])}
+    if found_pairs != consumed_pairs:
+        raise ProtocolError("Consumed unconstrained-decoding items are absent or ambiguous")
+    current_indices = {int(item["index"]) for item in finqa_examples}
+    replacement_candidates = sorted(set(range(len(rows))) - set(excluded["indices"]) - current_indices)
+    replacement_indices = _sample(
+        replacement_candidates, len(consumed_pairs), int(third["replacement_seed"]),
+        f"{PROTOCOL_ID}:finqa:replacement-after-unconstrained-decoding",
+    )
+    replacement_records = [_selected_record("finqa", rows, index) for index in replacement_indices]
+    replacements = dict(zip(third["consumed_example_ids"], replacement_records))
+    body["datasets"]["finqa"]["examples"] = [replacements.get(item["example_id"], item) for item in finqa_examples]
+    body["datasets"]["finqa"]["selection_policy"] += "; three consumed unconstrained-decoding items replaced prospectively"
+    body["replacement_audit"] = {
+        "carried_forward_never_called_items_from_latest_freeze": 147,
+        "consumed_example_ids": [replacement["consumed_example_id"], second["consumed_example_id"], *third["consumed_example_ids"]],
+        "failed_freeze_commits": [replacement["failed_freeze_commit"], second["failed_freeze_commit"], third["failed_freeze_commit"]],
+        "prior_manifest_fingerprints": [replacement["failed_manifest_fingerprint"], second["failed_manifest_fingerprint"], third["failed_manifest_fingerprint"]],
+        "replacement_example_ids": ["finqa881", "finqa714", *[record["example_id"] for record in replacement_records]],
+        "replacement_seeds": [replacement["replacement_seed"], second["replacement_seed"], third["replacement_seed"]],
+    }
     body["manifest_fingerprint"] = fingerprint(body)
     return body
 
@@ -387,6 +415,7 @@ def validate_manifest_against_sources(protocol: Mapping[str, Any], manifest: Map
     consumed_ids = {
         protocol["sample"]["replacement"]["consumed_example_id"],
         protocol["sample"]["replacement_after_process_failure"]["consumed_example_id"],
+        *protocol["sample"]["replacement_after_unconstrained_decoding_failure"]["consumed_example_ids"],
     }
     if any(item["example_id"] in consumed_ids for spec in manifest["datasets"].values() for item in spec["examples"]):
         raise ProtocolError("Consumed smoke item remains in replacement manifest")
