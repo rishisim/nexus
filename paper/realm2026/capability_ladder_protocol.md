@@ -1,154 +1,154 @@
-# REALM 2026 capability-ladder protocol
+# REALM 2026 three-tier robustness protocol
 
 ## Scientific question
 
-Does bounded retrieval-first ReAct supply more complementary accuracy than the
-one-call Static workflow as model capability increases from an efficient tier
-to a stronger balanced tier?
+Does bounded retrieval-first ReAct remain less accurate and weakly
+complementary than one-call Static when both workflows use stronger models and
+a compact response contract that removes the earlier implementation failure?
 
-This is a development-only capability study. It neither executes the sealed
-900-example partition nor reopens any completed REALM experiment.
+This is a development-only robustness study. It does not execute the protected
+final partition or modify the completed pilot and harmonized studies.
 
-## Scientific distinction and shared source of truth
+## Models and fairness contract
 
-The completed harmonized-v2 study tested a structural correction with
-GPT-4o-mini. This study changes the model capability tier while holding that
-corrected method contract fixed. It therefore has a separate stable protocol
-and runner named `realm26_capability_ladder`; it is not a replacement or a
-third version of harmonized v2.
+The mandatory tiers are:
 
-The shared source of truth remains:
+- control: requested and canonical `openai/gpt-4o-mini`;
+- Luna: requested `openai/gpt-5.6-luna`, canonical
+  `openai/gpt-5.6-luna-20260709`;
+- Terra: requested `openai/gpt-5.6-terra`, canonical
+  `openai/gpt-5.6-terra-20260709`.
 
-- `realm26_harmonized_v2_prompts.py` for the strict Static and retrieval-first
-  ReAct prompts;
-- `realm26_harmonized_v2_methods.py` for Static, bounded ReAct, parsing,
-  evidence/context ceilings, and malformed-output behavior;
-- the existing finance scorer, retrieval environment, telemetry schema, and
-  paired statistical utilities.
+The live standard-OpenAI endpoint catalogs were queried before any study item
+was selected. Their common supported request parameters include `max_tokens`,
+`response_format`, `seed`, and `structured_outputs`. All tiers use the same
+OpenAI-only route, no fallbacks, required-parameter matching, denied data
+collection, seed `20260802`, 384-token output ceiling, and no temperature or
+`top_p` field.
 
-The capability-only request adapter exists to bind the two new OpenRouter
-models without modifying any hash-bound harmonized-v2 file.
+One exception was authorized prospectively by the author. GPT-4o-mini has no
+reasoning channel or advertised reasoning parameter, so that inapplicable field
+is omitted for the control. Luna and Terra explicitly send
+`reasoning_effort=none`. The request body is otherwise identical after model ID
+normalization.
 
-The first replacement smoke exposed a separate response-format ambiguity:
-Luna returned two valid action objects in one turn (Search followed by Finish),
-which the strict one-object parser correctly rejected as malformed. The next
-prospective freeze adds only an explicit one-action-per-turn instruction. The
-answer contract, first-action Search requirement, retrieval limits, evidence,
-scoring, and all completed harmonized-v2 files remain unchanged. This
-capability-specific adapter is hash-bound and applied identically to Luna and
-Terra.
+## Compact action contract
 
-The clarification passed its counted smoke but later produced another
-multi-object first turn. The final freeze therefore uses the standard OpenAI
-endpoint's advertised strict structured-output facility: Static is constrained
-to one `Finish` object, the first ReAct turn to one `Search` object, and later
-ReAct turns to one of `Search`, `Lookup`, or `Finish`. The model still chooses
-the query, subsequent actions, and answer; only the already specified action
-grammar is enforced. Three called FinQA items were replaced prospectively, and
-the remaining 147 items were carried forward without outcome inspection.
+Every model uses exactly the fields `action`, `argument`, and `answer` under a
+strict JSON schema with `additionalProperties:false`:
 
-OpenRouter then returned two schema-valid `Search` objects in a single response,
-despite accepting strict structured-output parameters. The final parser applies
-the standard streaming convention of executing the first complete JSON object
-and ignoring trailing response text. This preserves one action per environment
-turn without changing the model-selected first query. The called item was
-replaced; 149 never-called items from that freeze were carried forward.
+- Static: `Finish` only;
+- first ReAct turn: `Search` only;
+- later ReAct turns: `Search`, `Lookup`, or `Finish`.
 
-## Models and request contract
+Retrieval actions require a nonempty argument and an empty answer. Finish
+requires an empty argument and a nonempty answer. Argument and answer are each
+bounded to 256 characters by the shared prompt and fail-closed parser. The
+provider's common strict-schema subset does not implement string-length
+keywords consistently across all three tiers, so the identical local parser
+enforces those bounds. A complete object is required; trailing text, a second
+object, extra fields, malformed JSON, refusal, non-`stop` completion reason, or
+missing telemetry stops the prospective study. No prefix is salvaged and there
+is no retry.
 
-- Efficient tier: requested `openai/gpt-5.6-luna`, frozen canonical slug
-  `openai/gpt-5.6-luna-20260709`.
-- Stronger balanced tier: requested `openai/gpt-5.6-terra`, frozen canonical
-  slug `openai/gpt-5.6-terra-20260709`.
-- Static and ReAct use the same model within each tier.
-- Both use `reasoning_effort=none`.
-- Temperature and `top_p` are not sent.
-- Routing is OpenAI-only with fallback disabled, required-parameter matching,
-  and data collection denied.
-- Any identity, endpoint, parameter, provider, price, or schema drift stops the
-  study before a paid call.
+The `thought` field used in earlier attempts is absent from the prompt, schema,
+parser, and stored action contract.
 
-## Frozen sample and exclusions
+## Pre-freeze synthetic probes
 
-One 150-item sample is shared by both tiers: 50 FinQA, 50 TAT-QA, and 50
-ConvFinQA items. Selection uses seed `20260801` after excluding identifiers,
-contexts, and dialogues from the original development study, the sealed final
-partition, the second-family study, harmonized v1, and harmonized v2. TAT-QA
-contexts and ConvFinQA dialogues are excluded as complete groups.
+Before selecting study examples, the exact provider path was probed with
+synthetic non-benchmark prompts for all three action schemas and all three
+tiers. An initial pre-freeze probe attempt identified an unsupported
+string-length schema keyword after three successful control probes. That
+attempt is conservatively charged at USD 0.001213663, including the successful
+calls and the unresolved Luna maximum reservation. The schema was changed only
+within this allowed pre-freeze phase: string bounds remain identical and
+fail-closed in the local parser, while the provider schema uses the common
+supported subset.
 
-The first counted Luna smoke attempt at public commit `3b4698e` stopped after
-one provider call because OpenRouter returned the requested alias in its
-response-model field while the initial freeze expected the dated catalog slug.
-No answer, score, correctness, or aggregate outcome was inspected or retained.
-The replacement freeze preserves the 149 never-called items and replaces only
-the consumed FinQA identifier (`finqa41`) using seed `20260802`. Rebuilding the
-sample must first reproduce the superseded manifest fingerprint and then apply
-that outcome-independent replacement. Excluding the entire superseded manifest
-would make a new balanced sample impossible because no wholly fresh TAT-QA
-context remains. The failed call's maximum reservation still counts toward the
-authorized budget.
+The subsequent nine probes all returned one valid compact object with provider
+`OpenAI`, finish reason `stop`, correct model identity, zero reasoning tokens,
+complete token/cost telemetry, and the intended reasoning-parameter policy.
+Their actual spend was USD 0.000827541. No benchmark identifier, context,
+dialogue, answer, or score was used by these probes.
 
-The final manifests may be read only for identifier overlap exclusion. Their
-examples are never loaded, rendered, copied, executed, or scored.
+## Fresh development manifest
+
+The frozen sample contains 50 FinQA, 50 TAT-QA, and 50 ConvFinQA examples. It
+uses seed `20260802` after excluding identifier metadata from the original
+development partition, protected final partition, second-family study,
+harmonized v1, and harmonized v2. It also excludes all 17 FinQA identifiers
+touched by the five failed capability freezes. Protected-final data is used
+only for identifier overlap exclusion; its contexts, dialogues, answers, and
+targets are never loaded or scored.
+
+The same 150 examples and order are used for every tier. ConvFinQA selection
+retains one turn per wholly fresh dialogue. The manifest stores only identifiers,
+hashes, selection metadata, and the frozen schedule.
+
+## Counterbalanced execution
+
+Schedule seed `2026080201` fixes the full order before inference. The 150 items
+are deterministically shuffled. Each of the six model-order permutations occurs
+exactly 25 times. Within each tier, Static runs first on 75 items and ReAct runs
+first on 75 items. All 900 episodes are mandatory; model- or result-dependent
+skipping is forbidden.
+
+The runner prints process identifiers only and does not calculate correctness,
+aggregate outcomes, or model comparisons while inference is in progress. One
+provider or integrity failure stops the freeze. Any repair would require a new
+prospective manifest and schedule.
 
 ## Shared workflow contract
 
-Both arms use the same strict JSON final-answer parser, canonical parsed-answer
-scorer input, malformed-to-`UNKNOWN` behavior, one-attempt policy, retrieval
-API, 3,000-word evidence ceiling, three-retrieval ceiling, 4,096-word per-call
-context ceiling, and 384-token output ceiling.
+All tiers use the same examples, prompts, compact answer contract, scorer,
+malformed-output rule, retrieval environment, three-retrieval limit, seven-call
+ReAct limit, 3,000-word evidence limit, 4,096-word context limit, and 384-token
+output limit. A shared 8,192-byte prompt ceiling also applies; because a BPE
+token represents at least one input byte, this provides a model-independent
+upper bound of 8,192 input tokens for budget reservation. The byte limit is
+applied identically after the word limit.
 
-Static makes exactly one model call. ReAct must begin with Search, observe
-nonempty evidence, perform at least one retrieval and two model calls, and stay
-within seven model steps. Valid outputs are immutable.
+Static deterministically retrieves under the same evidence budget and makes
+one model call. ReAct must begin with Search, observe nonempty evidence, perform
+at least one retrieval and two model calls, and remain within seven calls.
 
-## Prospective tier execution
+## Preregistered analysis
 
-Luna and Terra are both required. They run in that order on the identical
-manifest, prompts, methods, limits, scoring, and analysis contract. No outcome
-or aggregate is inspected until both tiers are complete; skipping Terra based
-on Luna's result is forbidden.
+No outcomes are analyzed until a process-only completion record establishes
+that all three tiers finished all scheduled episodes. For each tier, report:
 
-## Analysis plan
+- FinQA exact match, TAT-QA F1, and ConvFinQA exact match;
+- the unweighted three-dataset macro score for Static and ReAct;
+- a dataset-stratified paired 10,000-resample percentile bootstrap for
+  ReAct minus Static;
+- the exact 2-by-2 complementarity matrix, McNemar result, ReAct-only and
+  Static-only frequencies, oracle-union accuracy, and oracle headroom;
+- calls, retrievals, latency, input/cached/output/reasoning/total tokens, and
+  provider cost.
 
-The primary quality statistic is the unweighted macro-average of FinQA exact
-match, TAT-QA F1, and ConvFinQA exact match. Uncertainty is a paired,
-dataset-stratified, 10,000-resample percentile bootstrap for ReAct minus
-Static.
-
-For each tier, report dataset and macro quality, the 2-by-2 exact-correctness
-matrix, exact McNemar test, ReAct-only and Static-only frequencies, oracle-union
-accuracy and headroom over the better branch, calls, retrievals, input/cached/
-output/reasoning/total tokens, effective cost, and episode latency. Paired
-Terra-minus-Luna changes are reported separately for each
-workflow. They are secondary and do not replace the primary endpoint.
-
-No router is fit on these outcomes. Router feasibility is interpreted from the
-prospectively specified complementarity matrix and oracle headroom; this avoids
-training and evaluating a selector on the same items.
+The preregistered interaction is a dataset-stratified paired bootstrap of the
+difference between tier-specific ReAct-minus-Static deltas. It is reported for
+Luna minus control, Terra minus control, and Terra minus Luna. No router is fit
+on these outcomes.
 
 ## Budget and retained record
 
-The final replacement-run caps are USD 4.99586992075 for Luna and USD 15 for
-Terra. The prior-attempt allowance is USD 0.00413007925: the USD 0.00115456
-maximum reservation from the alias-binding failure plus USD 0.0005714775 of
-recorded provider spend from the first multi-action process failure and USD
-0.00176861025 from the later unconstrained-decoding run and USD 0.0006354315
-from the multi-object structured-output smoke. Together the
-combined authorization is exactly USD 20. A conservative planning
-reservation assumes two tokens per prompt word, the 384-token output ceiling,
-one Static call and up to seven ReAct calls on every item, plus a 10% margin.
-This reserves at most USD 1.385472 for Luna and USD 13.854720 for Terra.
+The conservative charge before this study is USD 0.01483873325: USD
+0.01279752925 for the five earlier freezes, USD 0.001213663 for the failed
+pre-freeze probe attempt, and USD 0.000827541 for the successful probes. The
+complete study reserves at most USD 18.499536, including a 10% margin and a
+9,000-input-token reservation that covers the prompt plus compact schema,
+leaving USD 1.48562526675 below the USD 20 cap.
 
-Raw prompts, traces, per-example predictions, ledgers, logs, and intermediate
-outputs remain under ignored `runs/realm26_capability_ladder/`. The retained
-record is limited to this memo, the identifier/hash manifest, catalog snapshot,
-test attestation, aggregate analysis, complementarity matrix, decision report,
-artifact update, and checksums.
+Raw prompts, per-example predictions, traces, ledgers, and logs remain under
+ignored `runs/realm26_capability_ladder/`. The tracked record is limited to the
+protocol, manifest and schedule, catalog snapshot, tests and attestation,
+aggregate result tables, compact decision report, and sanitized paper artifact.
 
 ## Claims scope
 
-The conclusions apply to bounded retrieval-first ReAct over controlled
-financial-QA evidence under these prompts, retrieval policies, scorers, and
-model tiers. They are development evidence, not a sealed-test estimate, a
-universal claim about agents, or independent human validation.
+The result concerns bounded retrieval-first ReAct over controlled financial-QA
+evidence under these prompts, retrieval policies, scorers, and model tiers. It
+is development evidence, not a protected-final estimate or a universal claim
+that iterative agents are inferior.
