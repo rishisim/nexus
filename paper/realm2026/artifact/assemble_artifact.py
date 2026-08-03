@@ -183,8 +183,14 @@ def main() -> None:
         shutil.copyfile(source, target)
 
     additional_snapshots = {
+        "analyze_realm26_capability_audit.py": ROOT
+        / "src/agents/finance/analyze_realm26_capability_audit.py",
+        "capability_audit_pairs.json": ROOT
+        / "paper/realm2026/artifacts/capability_audit_pairs.json",
         "capability_ladder_attempt.json": ROOT
         / "paper/realm2026/artifacts/capability_ladder_attempt.json",
+        "capability_stability_audit.json": ROOT
+        / "paper/realm2026/artifacts/capability_stability_audit.json",
         "paired_statistics.json": ROOT / "paper/realm2026/artifacts/paired_statistics.json",
         "realm26_harmonized_v2_prompts.py": ROOT
         / "src/agents/finance/realm26_harmonized_v2_prompts.py",
@@ -332,12 +338,12 @@ def main() -> None:
             entries.append({"path": path.relative_to(ARTIFACT).as_posix(), "sha256": sha256(path)})
     manifest = {
         "schema": "realm-anonymous-artifact-v2",
-        "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, and protocol inputs",
+        "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, its seed-stability check, and protocol inputs",
         "partition": "development_only",
         "sealed_final_partition": "excluded",
         "provider_calls": False,
         "entries": entries,
-        "source_freeze": "anonymous-review-source-freeze-v3",
+        "source_freeze": "anonymous-review-source-freeze-v4",
     }
     (ARTIFACT / "manifest.json").write_text(stable(manifest), encoding="utf-8")
 

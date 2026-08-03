@@ -27,7 +27,7 @@ paste the LaTeX line-break command into OpenReview.
 
 ### Abstract
 
-Selective routing can improve an accuracy–cost frontier only if its expensive branch supplies unique correct answers. We test this prerequisite in a prospectively frozen, three-tier comparison of one-call Static and bounded retrieval-first ReAct on 150 fresh financial-QA development items. Both arms share the model, strict action contract, scorer, retrieval interface, and resource ceilings. With GPT-4o-mini, Static scored 0.226 versus ReAct's 0.155 (ReAct-minus-Static −0.071, 95% CI [−0.120, −0.025]); with GPT-5.6 Luna, 0.188 versus 0.131 (−0.057, [−0.098, −0.020]). GPT-5.6 Terra reached parity: 0.210 versus 0.218 (0.008, [−0.015, 0.033]), with a positive Terra–control interaction of 0.079 [0.028, 0.133]. Yet ReAct-only exact successes numbered just two, one, and two of 150, leaving at most 1.3 points of oracle routing headroom. ReAct also used more calls, latency, and dollars. Supporting matched and pilot studies show the same complementarity bottleneck. Capability can erase an agent's average deficit without creating useful expert complementarity; that complementarity should be established before router optimization.
+Selective routing can improve an accuracy–cost frontier only if its expensive branch supplies unique correct answers. We test this prerequisite in a prospectively frozen, three-tier comparison of one-call Static and bounded retrieval-first ReAct on 150 fresh financial-QA development items. Both arms share the model, strict action contract, scorer, retrieval interface, and resource ceilings. With GPT-4o-mini, Static scored 0.226 versus ReAct's 0.155 (ReAct-minus-Static −0.071, 95% CI [−0.120, −0.025]); with GPT-5.6 Luna, 0.188 versus 0.131 (−0.057, [−0.098, −0.020]). GPT-5.6 Terra reached parity: 0.210 versus 0.218 (0.008, [−0.015, 0.033]), with a positive Terra–control interaction of 0.079 [0.028, 0.133]. Native-metric oracle-headroom point estimates were only 1.0–1.7 points (95% upper limits at most 3.8); exact-match estimates were at most 1.3 points (upper limits below 4.8). These are oracle ceilings a learned router can only partly recover, while ReAct cost 1.14–1.29× as much and took 2.1–2.6× as long. A post-hoc same-manifest, different-seed check retained low headroom. Capability can erase an agent's average deficit without creating useful expert complementarity; that complementarity should be established before router optimization.
 
 This is a plain-text rendering of `sections/abstract.tex`; the content and
 numbers match the manuscript and stay below the ACL 200-word limit.
@@ -49,7 +49,7 @@ Archival
 This paper makes three scoped contributions:
 
 1. It distinguishes model capability from expert complementarity and formalizes
-   paired oracle headroom as a feasibility gate before router optimization.
+   paired oracle headroom as a feasibility audit before router optimization.
 2. It reports a fresh, prospectively frozen GPT-4o-mini/Luna/Terra comparison
    under a shared strict action transport, scorer, retrieval API, and resource
    ceilings, including preregistered cross-tier interactions.
@@ -71,10 +71,16 @@ executed or scored. The arms share model, action/scorer path, retrieval API, and
 resource ceilings, but not identical retrieved dossiers. The three provider
 tiers are not a general monotonic capability scale. Provider behavior, pricing,
 and latency may change, and stronger or differently designed agents may behave
-differently. Two prospective action-transport freezes stopped before the
-successful run; no partial outcomes were analyzed and all touched items were
-excluded. The deterministic trace audit is author review rather than
-independent human adjudication; its semantic candidates remain unresolved.
+differently. Reasoning was disabled, and nonzero reasoning remains an untested
+boundary. FinQA and ConvFinQA accuracy is near floor; TAT-QA is higher, but not
+a deployment-realistic operating point, so complementarity at higher accuracy
+is unresolved. Temperature and top-p used provider defaults and deterministic
+generation is not guaranteed; a same-manifest different-seed check provides
+one stability observation, not full variance characterization. Two prospective
+action-transport freezes stopped before the successful run; no partial outcomes
+were analyzed and all touched items were excluded. The deterministic trace
+audit is author review rather than independent human adjudication; its semantic
+candidates remain unresolved.
 FinDER is secondary because it lacks human-validated objective labels. No
 router is fit or evaluated on the main outcomes; its oracle union is diagnostic
 only.
@@ -110,10 +116,13 @@ An anonymous, provider-free artifact accompanies the source release where the
 submission workflow permits supplementary material. It contains public
 protocol inputs, aggregate analyses, model/price snapshots, prompt/scorer
 snapshots, development-only manifests, the completed three-tier aggregate, and
-a sanitized 1,350-row metric and telemetry ledger for the earlier studies. Its
-offline validator recomputes earlier headline macros, verifies all three main
-complementarity matrices, treatment integrity, anonymity checks, and package
-hashes. It excludes benchmark data,
+a sanitized 1,350-row metric and telemetry ledger for the earlier studies. It
+also includes 900 identifier-free paired metric records from the capability
+study and seed check, plus the exact headroom/interval analysis code. Its
+offline validator recomputes both capability runs' exact matrices,
+Clopper–Pearson intervals, continuous native-quality headroom and paired
+bootstrap intervals, alongside earlier headline macros, treatment integrity,
+anonymity checks, and package hashes. It excludes benchmark data,
 answers, raw traces, credentials, provider responses, final identifiers and
 outcomes, and all build products; it cannot rerun a model or scorer without
 withheld answer/gold text. The repository license is MIT, upstream benchmark

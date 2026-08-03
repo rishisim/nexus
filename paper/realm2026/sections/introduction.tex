@@ -22,8 +22,10 @@ retrieval interface, scorer, and resource ceilings using GPT-4o-mini, GPT-5.6
 Luna, and GPT-5.6 Terra. Static significantly outperforms ReAct for the first
 two tiers, whereas Terra reaches parity; the positive cross-tier interaction
 establishes a capability boundary. Nevertheless, ReAct supplies only two, one,
-and two unique exact successes, so oracle routing headroom remains at most 1.3
-points in every tier.
+and two unique exact successes. Oracle-headroom point estimates remain at most
+1.7 points under the native quality metric and at most 1.3 under exact match;
+a post-hoc different-seed check on the same manifest preserves this low-
+headroom pattern.
 
 An earlier five-dataset selector study and a separate harmonized comparison
 motivate and support this analysis. The original selector failed its

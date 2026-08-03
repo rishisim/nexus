@@ -4,20 +4,23 @@ This is a provider-free bundle for auditing the paper's recorded development
 statistics and inspecting the exact protocol inputs. It contains the original
 development aggregates, paired-statistics output, a trace-audit summary with
 raw answers removed, replication and harmonized-v2 aggregates/protocols, the
-completed three-tier capability-ladder aggregate and its process-only stopped-
-freeze history, development manifest rows, a sanitized per-example
-score/telemetry ledger for the earlier studies, prompt/scorer snapshots, the
-router snapshot, dated prices, and resolved model snapshots.
+completed three-tier capability-ladder aggregate, its post-hoc different-seed
+stability audit, development manifest rows, a sanitized per-example
+score/telemetry ledger for the earlier studies, 900 identifier-free paired
+metric records for the capability runs, the exact headroom/interval analysis
+code, prompt/scorer snapshots, the router snapshot, dated prices, and resolved
+model snapshots.
 
 The sealed final partition is excluded. No final outcomes, final examples,
 provider responses, raw traces, credentials, datasets, archives, or build
 products are included. The package recomputes the headline macro and
 complementarity counts from 1,350 whitelisted per-example metric/telemetry rows,
 including all 300 harmonized-v2 arm rows, and verifies treatment-integrity
-fields and internal hashes. It also checks the capability study's three
-aggregate complementarity matrices and budget record. It cannot rerun the
-scorer without withheld answer/gold text, does not validate a Git commit, and
-does not rerun a model.
+fields and internal hashes. It independently recomputes both capability runs'
+exact matrices, exact Clopper--Pearson intervals, native-quality oracle
+headroom, dataset-stratified paired bootstrap intervals, macro quality, and
+per-dataset operating points. It cannot rerun the scorer without withheld
+answer/gold text, does not validate a Git commit, and does not rerun a model.
 
 ## One-command validation
 
@@ -47,9 +50,9 @@ Regeneration is a maintainer action, not a review-time provider call.
 * `snapshots/` contains exact byte copies of the protocol, prompt templates,
   scorer, price-table source, router, development aggregates, paired analysis,
   sanitized fairness summary, per-example score ledger, replication and
-  harmonized-v2 protocols/analyses, the completed capability-ladder aggregate
-  with sanitized stopped-freeze history, the v2 prompt, and model catalog
-  snapshots.
+  harmonized-v2 protocols/analyses, the completed capability-ladder aggregate,
+  the different-seed stability audit and identifier-free metric pairs, the
+  headroom-analysis source, the v2 prompt, and model catalog snapshots.
   Their package integrity is
   recorded in `manifest.json` and `checksums.sha256`. The fairness summary
   excludes trace items, answers, and ground truth.
