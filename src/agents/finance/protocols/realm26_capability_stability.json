@@ -1,0 +1,60 @@
+{
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260804,
+    "continuous_headroom": "dataset-macro mean of the per-item maximum native quality minus the better single arm",
+    "continuous_interval": "dataset-stratified paired percentile bootstrap",
+    "exact_headroom": "oracle exact union minus the empirically better single arm",
+    "exact_interval": "two-sided 95% Clopper-Pearson interval for the corresponding rare one-sided cell, with the observed better-arm direction held fixed",
+    "inspect_outcomes_only_after_both_runs_complete": true,
+    "primary_stability_report": "side-by-side original and replication estimates; do not pool as independent samples",
+    "report_per_dataset_quality": true,
+    "report_seed_replication_matrices": true
+  },
+  "artifact_hashes": {
+    "base_protocol": "sha256:edd944369ff557f8b9b545fe6b3ba63f28828ee85c1c43bbfb0824dd4b05411d",
+    "manifest": "sha256:bca8ba5f6707141830441f1ca82b8635f199a273c097996a3df7a2c560215205",
+    "model_snapshot": "sha256:8f4bbf1f2ea030613bbce9125e683060575faf62e0245c54b34b551652eb0321"
+  },
+  "base_protocol": "realm26_capability_ladder.json",
+  "budget": {
+    "combined_maximum_reservation_usd": 19.5067158110000005,
+    "hard_cap_usd": 20.0,
+    "prior_cumulative_spend_usd": 1.0071798110000005,
+    "reservation_headroom_usd": 0.4932841889999995,
+    "study_maximum_reservation_usd": 18.499536
+  },
+  "claims_scope": "post-hoc generation-stability check on the same frozen development items; not a fresh-sample confirmation",
+  "freeze_state": "frozen",
+  "manifest": "manifests/realm26_capability_ladder/manifest.json",
+  "model_snapshot": "snapshots/realm26_capability_stability_openrouter_catalog.json",
+  "original_run": {
+    "analysis_fingerprint": "sha256:4b6ccd22e86e001298491f91eba3e8a4d8305e5f71c5a40fefd2efb6885fec80",
+    "pre_result_commit": "d328ac71d306f9fd828953aff084dea925711d7e",
+    "request_seed": 20260802
+  },
+  "publication": {
+    "base_branch": "realm26/archival-short-paper",
+    "branch": "realm26/stability-audit",
+    "remote": "origin"
+  },
+  "request_seed": 20260803,
+  "results": {
+    "root": "runs/realm26_capability_stability",
+    "tracked": false
+  },
+  "same_manifest": true,
+  "same_request_contract_except_seed": true,
+  "schema_version": "realm26-capability-stability-v1",
+  "study_type": "same_manifest_different_seed_post_hoc_stability",
+  "tier_execution": {
+    "all_arms_required": true,
+    "all_tiers_required": true,
+    "analysis_after_complete": true,
+    "tiers": [
+      "control",
+      "luna",
+      "terra"
+    ]
+  }
+}

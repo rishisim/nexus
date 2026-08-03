@@ -51,9 +51,12 @@ The paper argues one precise point: model capability and expert complementarity
 are different prerequisites. In the prospectively frozen three-tier main study,
 Static significantly beat ReAct for control and Luna, while Terra reached
 parity and produced a positive cross-tier interaction. Yet ReAct supplied only
-two, one, and two unique exact successes among 150 items, leaving at most 1.3
-points of oracle routing headroom. The harmonized-v2 comparison and original
-selector study remain supporting and pilot evidence.
+two, one, and two unique exact successes among 150 items. Native-quality
+oracle-headroom point estimates are 1.0--1.7 points (95% upper limits at most
+3.8), while exact-match estimates are at most 1.3 points (upper limits below
+4.8). A post-hoc same-manifest, different-seed check retains low headroom. The
+harmonized-v2 comparison and original selector study remain supporting and
+pilot evidence.
 
 ## Current evidence boundary
 
@@ -66,6 +69,11 @@ selector study remain supporting and pilot evidence.
   earlier public freezes stopped on action-transport failures. No partial
   outcomes from the stopped freezes were analyzed, and their touched items were
   excluded from each replacement manifest.
+- A post-hoc stability check reused exactly those development items and changed
+  only the request seed. It completed all 900 episodes and is reported
+  side-by-side rather than pooled or described as a fresh-sample replication.
+- Temperature and top-p were omitted in both runs, so provider defaults applied
+  and deterministic generation is not claimed.
 - FinanceBench and FinDER do not enter the three-dataset primary macro.
 - FinDER has no human-validated objective score and remains secondary.
 - The experiment isolates orchestration over controlled evidence; it makes no
@@ -92,6 +100,9 @@ selector study remain supporting and pilot evidence.
    treatment delivery.
 8. Prospectively froze and completed the mandatory GPT-4o-mini/Luna/Terra
    capability ladder under a shared strict function-tool contract.
+9. Completed a same-manifest different-seed stability check, added exact and
+   native-quality headroom intervals, and made them offline-recomputable in the
+   anonymous artifact.
 
 ### Highest-value remaining work
 
@@ -134,6 +145,5 @@ anonymity, readable grayscale figures, and absence of links to deanonymizing
 resources.
 
 Integrated status: the PDF is five physical A4 pages, with the research content
-and conclusion ending on content page 4. Limitations begin on page 4 after the
-conclusion, and references continue through page 5. Recheck these boundaries
-after every substantive edit.
+and Limitations ending on content page 4. References begin on page 5. Recheck
+these boundaries after every substantive edit.

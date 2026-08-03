@@ -97,7 +97,7 @@ Use the labels below when closing items:
 - [x] **[VERIFIED]** Check `pdfinfo` for A4 and page count, `pdffonts` for
   embedded fonts, extracted text for identity/local-path strings, and logs for
   overfull boxes or unresolved references.
-- [ ] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
+- [x] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
   a one-page validation log with exact commands and outputs.
 
 ## Current validation snapshot (2026-08-02)
@@ -106,17 +106,20 @@ These results are from the current task branch and should be rerun after any
 manuscript, artifact, or frozen-source change:
 
 - [x] **[VERIFIED]** Artifact: `python3
-  paper/realm2026/artifact/validate_artifact.py` passed with exactly **31
-  tracked artifact files and 1,350 sanitized score rows**; offline
-  recomputation, integrity, and anonymity checks completed.
+  paper/realm2026/artifact/validate_artifact.py` passed with exactly **34
+  tracked artifact files, 1,350 sanitized score rows, and 900 capability audit
+  pairs**. It recomputed both capability runs' exact matrices,
+  Clopper--Pearson intervals, continuous headroom, paired bootstrap intervals,
+  macro quality, per-dataset operating points, integrity, and anonymity checks.
 - [x] **[VERIFIED]** Tests: `PYTHONPATH=. python3 -m pytest -q tests/finance`
-  passed **234 tests** with no warnings or failures.
+  passed **242 tests** with no warnings or failures.
 - [x] **[VERIFIED]** Analysis replay: the completed three-tier ledger reproduced
-  the committed aggregate and decision memo byte for byte, with analysis
-  fingerprint
-  `sha256:4b6ccd22e86e001298491f91eba3e8a4d8305e5f71c5a40fefd2efb6885fec80`.
+  its committed aggregate and decision memo byte for byte. The capability
+  headroom/stability audit also reproduced its JSON, memo, and all 900 sanitized
+  pairs byte for byte, with fingerprint
+  `sha256:f4d40f3b39acf465a1271ccda962fc34edd8d8a3221acee3bb664b5eb842ce72`.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
-  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 167,726-byte**
+  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,528-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
   present.
 - [x] **[VERIFIED]** PDF geometry/metadata: `pdfinfo` reports **5 pages** and
@@ -124,7 +127,7 @@ manuscript, artifact, or frozen-source change:
   is `LaTeX with hyperref`; no identity string is present.
 - [x] **[VERIFIED]** Fonts: `pdffonts` reports **12 embedded fonts**, all with
   `emb=yes`; no overfull boxes or undefined citations/references were found.
-  The log contains 8 underfull-box warnings, which do not change page count
+  The log contains 7 underfull-box warnings, which do not change page count
   or clip content.
 - [x] **[VERIFIED]** Citation/source audit: **14 cited keys**, **18 bibliography
   keys**, **0 missing citation keys**. The four unused bibliography entries do
@@ -132,13 +135,17 @@ manuscript, artifact, or frozen-source change:
 - [x] **[VERIFIED]** Visual inspection: all five rendered pages were inspected;
   the anonymous ACL review line is present, the complementarity/efficiency table
   is grayscale-readable, research content and Limitations end on content page 4,
-  and References begin after Limitations on page 4 and continue on page 5.
+  and References begin on page 5. A separate grayscale rendering of the main
+  result page was inspected.
 - [x] **[VERIFIED]** The anonymous PDF text and validated artifact contain no
   author identity, private/deanonymizing URL, local path, raw secret, final
   outcome, or final example. The capability snapshot contains only curated
   aggregate outcomes and process/budget provenance, with no prompts, answers,
   traces, or partial-freeze outcomes. Hash-bound protocol files passed their
   integrity tests and were not edited after inference.
+- [x] **[VERIFIED]** Ghostscript rendered all PDF pages without an integrity
+  error. The final PDF SHA-256 is
+  `73f8a090b8786293c122492894360a12839fd38707652d5ab2e6d4ef3319de39`.
 
 ### 2026-08-03 — internal content freeze
 

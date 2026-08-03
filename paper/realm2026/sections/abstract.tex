@@ -7,10 +7,11 @@ resource ceilings. With GPT-4o-mini, Static scored 0.226 versus ReAct's 0.155
 (ReAct-minus-Static $-0.071$, 95\% CI $[-0.120,-0.025]$); with GPT-5.6 Luna,
 0.188 versus 0.131 ($-0.057$, $[-0.098,-0.020]$). GPT-5.6 Terra reached parity:
 0.210 versus 0.218 ($0.008$, $[-0.015,0.033]$), with a positive Terra--control
-interaction of $0.079$ $[0.028,0.133]$. Yet ReAct-only exact successes numbered
-just two, one, and two of 150, leaving at most 1.3 points of oracle routing
-headroom. ReAct also used more calls, latency, and dollars. Supporting matched
-and pilot studies show the same complementarity bottleneck. Capability can
-erase an agent's average deficit without creating useful expert
-complementarity; that complementarity should be established before router
-optimization.
+interaction of $0.079$ $[0.028,0.133]$. Native-metric oracle-headroom point
+estimates were only 1.0--1.7 points (95\% upper limits at most 3.8); exact-match
+estimates were at most 1.3 points (upper limits below 4.8). These are oracle
+ceilings a learned router can only partly recover, while ReAct cost
+1.14--1.29$\times$ as much and took 2.1--2.6$\times$ as long. A post-hoc
+same-manifest, different-seed check retained low headroom. Capability can erase
+an agent's average deficit without creating useful expert complementarity;
+that complementarity should be established before router optimization.

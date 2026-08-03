@@ -3,25 +3,25 @@
 \paragraph{Evidence and inference scope.}
 We evaluate orchestration over benchmark-provided evidence, not end-to-end RAG,
 complete filings, OCR, or missing evidence. All samples are development
-evidence. Final identifiers were used only for overlap exclusion; no final
-context, dialogue, answer, or target was loaded, executed, or scored. The
-successful freeze followed two prospectively stopped action-transport freezes,
-whose partial outcomes were never analyzed; their touched items were excluded.
+evidence; final identifiers served only for overlap exclusion, and final
+content was never loaded or scored. No router is evaluated on the main
+outcomes; the oracle is diagnostic.
 
 \paragraph{Model, policy, and scoring dependence.}
 The three provider product tiers do not constitute a general capability scale,
 and Luna is not monotonically better on these tasks. We test one prompt family,
-one bounded retrieval-first policy, one lexical evidence environment, and
-native metrics. The arms share contracts and ceilings, not identical dossiers,
-so effects include retrieval-policy differences. Provider behavior, prices,
-and latency can change. The original trace audit is sole-author review rather
-than independent adjudication; its unresolved semantic cases remain secondary
-to the fresh matched studies.
+one bounded retrieval-first policy with reasoning disabled, one lexical
+evidence environment, and native metrics. Nonzero reasoning is the key untested
+boundary and requires a prospectively frozen follow-up, not a post-hoc arm. The
+arms share contracts and ceilings, not identical dossiers, so effects include
+retrieval-policy differences rather than pure iteration. Provider behavior,
+prices, and latency can change. Although the request seed was fixed,
+temperature and top-$p$ used provider defaults and determinism was not
+guaranteed; one different-seed replication does not characterize full
+generation variance.
 
-\paragraph{Claim boundary.}
-Public English benchmarks omit private, multilingual, and deployment data.
-Deterministic parsing and retrieval are workflow components, not autonomous
-agents. We show a capability-dependent result for bounded retrieval-first ReAct
-under controlled financial-QA evidence, not that iterative agents are
-generally inferior. The oracle is diagnostic, and no router is trained or
-evaluated on the main outcomes.
+\paragraph{Operating point.}
+FinQA and ConvFinQA accuracy is near floor. TAT-QA is higher (main-run F1
+0.314--0.493), yet continuous headroom is at most 2.9 points (2.5 in the seed
+check). Complementarity may therefore emerge at deployment-realistic accuracy
+levels that this study does not reach.

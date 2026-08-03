@@ -46,6 +46,7 @@ tmp/
 temp_feverous/
 trajs/
 runs/realm26_capability_ladder/
+runs/realm26_capability_stability/
 
 # Large local datasets are provisioned separately. Already tracked fixtures
 # remain tracked even though new files under data/ are ignored.

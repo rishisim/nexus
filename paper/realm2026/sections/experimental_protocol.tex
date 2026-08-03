@@ -15,24 +15,21 @@ The mandatory tiers are GPT-4o-mini (control), GPT-5.6 Luna, and GPT-5.6 Terra,
 all through the same OpenRouter backend restricted to the OpenAI provider, with
 fallbacks and provider data collection disabled. GPT-4o-mini omits an
 unsupported reasoning field; Luna and Terra use
-\texttt{reasoning\_effort=none}. Every turn must make exactly one
-strict function-tool call with only \texttt{action}, \texttt{argument}, and
-\texttt{answer}; extra tools, assistant text, malformed or trailing objects,
-non-\texttt{tool\_calls} completion, or missing telemetry stops the study.
-Static permits Finish, the first ReAct turn permits Search, and later turns
-permit Search/Lookup/Finish. There is one attempt per call, a 384-token output
-ceiling, a 4,096-word and 8,192-byte prompt ceiling, and a 3,000-word evidence
-ceiling. All ReAct rows must observe evidence, use at least two calls, and parse
-validly.
+\texttt{reasoning\_effort=none}. Each turn makes exactly one strict tool call
+containing \texttt{action}, \texttt{argument}, and \texttt{answer}; malformed
+output or telemetry stops the study. Static permits Finish; ReAct must begin
+with Search, observe evidence, and use at least two calls. Calls have one
+attempt, a 384-token output ceiling, 4,096-word/8,192-byte prompt ceilings, and
+a 3,000-word evidence ceiling.
 
 The full 900-episode order was counterbalanced before inference: every model
 ordering occurs 25 times, and each tier runs Static first on 75 items and ReAct
-first on 75. Two earlier public freezes stopped on content-channel contract
-failures; no partial outcomes were analyzed, and touched items were excluded
-before each replacement manifest. Nine non-benchmark format probes per final
-transport passed before the successful freeze. The complete run used 1,462
-provider calls and US\$0.948; cumulative spend including all stopped attempts
-and probes was US\$1.007 under a US\$20 cap.
+first on 75. Two earlier freezes stopped under prespecified transport rules;
+no partial outcomes were analyzed, and their items were excluded before the
+successful freeze. The anonymous provider-free artifact records full
+provenance, configurations, audit code, and sanitized metric pairs. The run
+used 1,462 calls and US\$0.948; cumulative pre-replication spend was US\$1.007
+under a US\$20 cap.
 
 \paragraph{Preregistered analysis.}
 Quality is the unweighted macro-average of FinQA exact match, official TAT-QA
@@ -43,9 +40,15 @@ oracle headroom, and efficiency. Cross-tier interactions bootstrap the
 difference between tier-specific ReAct-minus-Static deltas. Outcomes were not
 scored until all three tiers completed.
 
+All calls used a fixed request seed, but temperature and top-$p$ were omitted
+and provider defaults applied; the provider does not guarantee deterministic
+generation. After seeing the main result, we therefore froze one post-hoc
+same-manifest replication that changed only the request seed. It completed all
+900 episodes for US\$0.951 (US\$1.959 cumulative). We report it as a generation-
+stability check conditional on the same sample, not an independent confirmation.
+
 \paragraph{Supporting studies.}
 The original five-dataset Gemini study compared five workflows and a selector
-but had unequal answer/context contracts. A later GPT-4o-mini harmonized v2
-used 150 separate fresh items, a shared final-answer contract and ceilings, and
-a verified retrieval-first ReAct treatment. These older experiments are pilot
-and supporting evidence, respectively.
+but had unequal contracts. A later GPT-4o-mini harmonized v2 used 150 separate
+fresh items with shared contracts and verified retrieval-first treatment. They
+are pilot and supporting evidence, respectively.

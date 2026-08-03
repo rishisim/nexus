@@ -11,11 +11,12 @@ successes almost entirely overlap its Static successes. The system-level tie
 therefore does not imply a useful mixture.
 
 The distinction is mechanical. A selector can recover at most the oracle union,
-whose gain over the better branch equals the rarer one-sided cell. Here that
-cell contains one or two items per tier. A broad router would send many cases to
-a branch with little unique value; a narrow router would have too few benefit
-examples to learn reliably. Calls, latency, and cost all increase for ReAct, so
-there is no compensating efficiency frontier.
+whose gain over the better branch equals the rarer one-sided cell. The point
+estimates are small, but the uncertainty bounds prevent treating them as hard
+ceilings. The conclusion instead survives the optimistic bound: even 4.7
+exact-match points is oracle performance that a learned selector only partly
+recovers, purchased here at 1.14--1.29$\times$ cost and 2.1--2.6$\times$
+latency. This does not produce a favorable measured accuracy--cost frontier.
 
 \paragraph{Why contract fairness matters.}
 The pilot used unequal final-answer and context contracts, and a post hoc author
@@ -25,7 +26,8 @@ studies instead share answer semantics, ceilings, scorer input, one-attempt
 rules, and provider binding. They share a retrieval API and budget, not an
 identical retrieved dossier: Static averages about 2.85 retrieval operations,
 whereas ReAct adaptively uses 1.16--1.31. The estimates therefore compare
-deployed retrieval policies, including query and evidence-selection effects.
+deployed retrieval policies, including query and evidence-selection effects;
+they do not isolate iteration from retrieval behavior.
 
 The practical sequence is: harmonize evaluation contracts, measure paired
 complementarity, and only then optimize a selector. Retuning on the present

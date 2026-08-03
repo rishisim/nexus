@@ -6,11 +6,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "1222926ab17ae504616117358387dba953c5c678667996f1cddfc34b9ab1157e"
+      "sha256": "d49b6af42f6179073a8d13c135c426c722985a92a485427efe332c2f9332243f"
     },
     {
       "path": "assemble_artifact.py",
-      "sha256": "1658c720f132e4454566ec7f778918d834e2102cd09cac840c3dfa8599eda48f"
+      "sha256": "daef50fd26968fae9fb3c8a6efc3f083f1da4c8ba33337f6b87173095da3cd66"
     },
     {
       "path": "development_manifests/convfinqa.json",
@@ -33,8 +33,20 @@
       "sha256": "53c5f46a7dc7c38557d8a20c46b7ece17b6c53710bbaae0c02239b01fc67cee6"
     },
     {
+      "path": "snapshots/analyze_realm26_capability_audit.py",
+      "sha256": "ef3723533466bf8d2a80e953b8c8518d65cde2e419d12fded2207951f98b9c01"
+    },
+    {
+      "path": "snapshots/capability_audit_pairs.json",
+      "sha256": "59341079edaaaa8c28423935ad73a85ea387a01a2b47bcef2a05356c2adb9967"
+    },
+    {
       "path": "snapshots/capability_ladder_attempt.json",
       "sha256": "089140e6d6d7f52d3aa4ac09dc7e3709f29a6de87593113e91716c0b1fccd86d"
+    },
+    {
+      "path": "snapshots/capability_stability_audit.json",
+      "sha256": "930f4da267866f0fc9b821f90eb192de039a458f47ed32726f1ce0839aa74cf0"
     },
     {
       "path": "snapshots/development_summary.json",
@@ -114,13 +126,13 @@
     },
     {
       "path": "validate_artifact.py",
-      "sha256": "f1d5e0dd14ce9be73a54ace0c16c8abd8d606b9080c0b201a3f49d71307b8bb2"
+      "sha256": "cb9dde38f13d3a0264f968c2fac65b34907e41921be08f631d14957eb428bc69"
     }
   ],
   "partition": "development_only",
   "provider_calls": false,
-  "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, and protocol inputs",
+  "purpose": "provider-free audit of recorded development statistics, harmonized v2, the completed three-tier capability study, its seed-stability check, and protocol inputs",
   "schema": "realm-anonymous-artifact-v2",
   "sealed_final_partition": "excluded",
-  "source_freeze": "anonymous-review-source-freeze-v3"
+  "source_freeze": "anonymous-review-source-freeze-v4"
 }

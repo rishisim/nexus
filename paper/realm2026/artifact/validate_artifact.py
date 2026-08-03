@@ -5,10 +5,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+import random
 import re
 import subprocess
 import sys
 from pathlib import Path
+from statistics import mean
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -58,6 +61,116 @@ def tracked_paths() -> set[Path]:
     return {ROOT / line.strip() for line in output.splitlines() if line.strip()}
 
 
+def percentile(sorted_values: list[float], probability: float) -> float:
+    """Linearly interpolated percentile used by the frozen paired bootstrap."""
+    position = probability * (len(sorted_values) - 1)
+    lower = int(math.floor(position))
+    upper = int(math.ceil(position))
+    if lower == upper:
+        return sorted_values[lower]
+    fraction = position - lower
+    return sorted_values[lower] + fraction * (
+        sorted_values[upper] - sorted_values[lower]
+    )
+
+
+def binomial_cdf(k: int, n: int, probability: float) -> float:
+    if k < 0:
+        return 0.0
+    if k >= n:
+        return 1.0
+    if probability <= 0:
+        return 1.0
+    if probability >= 1:
+        return 0.0
+    return sum(
+        math.comb(n, index)
+        * probability**index
+        * (1 - probability) ** (n - index)
+        for index in range(k + 1)
+    )
+
+
+def clopper_pearson(successes: int, trials: int) -> tuple[float, float]:
+    """Two-sided 95% exact binomial interval used in the paper audit."""
+    alpha_tail = 0.025
+    lower = 0.0
+    if successes:
+        lo, hi = 0.0, 1.0
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            if 1 - binomial_cdf(successes - 1, trials, mid) < alpha_tail:
+                lo = mid
+            else:
+                hi = mid
+        lower = (lo + hi) / 2
+    upper = 1.0
+    if successes < trials:
+        lo, hi = 0.0, 1.0
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            if binomial_cdf(successes, trials, mid) > alpha_tail:
+                lo = mid
+            else:
+                hi = mid
+        upper = (lo + hi) / 2
+    return lower, upper
+
+
+def quality_values(group: dict[str, object], side: str) -> list[float]:
+    exact = [float(value) for value in str(group[f"{side}_exact"])]
+    if group.get("quality_equals_exact") is True:
+        return exact
+    return [float(value) for value in group[f"{side}_quality"]]
+
+
+def continuous_headroom(
+    groups: dict[str, dict[str, object]], *, seed: int, resamples: int
+) -> tuple[float, float, float, float, float]:
+    """Recompute macro quality and paired native-metric oracle headroom."""
+    prepared = {
+        dataset: (
+            quality_values(group, "static"),
+            quality_values(group, "react"),
+        )
+        for dataset, group in groups.items()
+    }
+    static_macro = mean(mean(values[0]) for values in prepared.values())
+    react_macro = mean(mean(values[1]) for values in prepared.values())
+    oracle_macro = mean(
+        mean(max(left, right) for left, right in zip(*values))
+        for values in prepared.values()
+    )
+    estimate = oracle_macro - max(static_macro, react_macro)
+    rng = random.Random(seed)
+    samples = []
+    for _ in range(resamples):
+        static_means, react_means, oracle_means = [], [], []
+        for dataset in sorted(prepared):
+            static, react = prepared[dataset]
+            indices = [rng.randrange(len(static)) for _ in static]
+            static_means.append(mean(static[index] for index in indices))
+            react_means.append(mean(react[index] for index in indices))
+            oracle_means.append(
+                mean(max(static[index], react[index]) for index in indices)
+            )
+        samples.append(
+            mean(oracle_means) - max(mean(static_means), mean(react_means))
+        )
+    samples.sort()
+    return (
+        static_macro,
+        react_macro,
+        estimate,
+        percentile(samples, 0.025),
+        percentile(samples, 0.975),
+    )
+
+
+def assert_close(observed: float, expected: float, tolerance: float = 1e-12) -> None:
+    assert abs(observed - expected) <= tolerance, (observed, expected)
+
+
 def main() -> int:
     tracked = tracked_paths()
     package_files = {
@@ -96,7 +209,7 @@ def main() -> int:
     assert manifest["partition"] == "development_only"
     assert manifest["sealed_final_partition"] == "excluded"
     assert manifest["provider_calls"] is False
-    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v3"
+    assert manifest["source_freeze"] == "anonymous-review-source-freeze-v4"
     assert "source_commit" not in manifest
     listed = {entry["path"]: entry["sha256"] for entry in manifest["entries"]}
     assert "checksums.sha256" not in listed
@@ -324,12 +437,110 @@ def main() -> int:
             matrix["react_only"], matrix["both_wrong"],
         ) == counts
 
+    audit_pairs = json.loads(
+        (ARTIFACT / "snapshots/capability_audit_pairs.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    audit = json.loads(
+        (ARTIFACT / "snapshots/capability_stability_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert audit_pairs["schema_version"] == "realm26-capability-audit-pairs-v1"
+    assert audit_pairs["row_count"] == 900
+    assert audit["schema_version"] == "realm26-capability-stability-audit-v1"
+    assert audit["claims_scope"].startswith("post-hoc generation-stability")
+    assert audit["analysis"]["runs_pooled"] is False
+    assert audit["sampling_contract"]["determinism_guaranteed"] is False
+    assert audit["sampling_contract"]["only_difference"] == "request_seed"
+    assert audit["budget"]["cumulative_spend_usd"] < audit["budget"]["authorized_maximum_usd"] == 20.0
+
+    datasets = ("finqa", "tatqa", "convfinqa")
+    tiers = ("control", "luna", "terra")
+    for run in ("original", "replication"):
+        assert set(audit_pairs["runs"][run]) == set(tiers)
+        for tier in tiers:
+            groups = audit_pairs["runs"][run][tier]
+            assert set(groups) == set(datasets)
+            static_exact, react_exact = [], []
+            for dataset in datasets:
+                group = groups[dataset]
+                for side in ("static", "react"):
+                    bitstring = group[f"{side}_exact"]
+                    assert len(bitstring) == 50 and set(bitstring) <= {"0", "1"}
+                    values = quality_values(group, side)
+                    assert len(values) == 50
+                    assert all(0 <= value <= 1 for value in values)
+                static_exact.extend(int(value) for value in group["static_exact"])
+                react_exact.extend(int(value) for value in group["react_exact"])
+
+                static_quality = quality_values(group, "static")
+                react_quality = quality_values(group, "react")
+                expected_dataset = audit["runs"][run][tier]["per_dataset"][dataset]
+                assert_close(mean(static_quality), expected_dataset["static_quality"])
+                assert_close(mean(react_quality), expected_dataset["react_quality"])
+                dataset_oracle = mean(
+                    max(left, right)
+                    for left, right in zip(static_quality, react_quality)
+                ) - max(mean(static_quality), mean(react_quality))
+                assert_close(
+                    dataset_oracle, expected_dataset["continuous_headroom"]
+                )
+
+            matrix = {
+                "both_correct": 0,
+                "static_only": 0,
+                "react_only": 0,
+                "both_wrong": 0,
+            }
+            for static, react in zip(static_exact, react_exact):
+                if static and react:
+                    matrix["both_correct"] += 1
+                elif static:
+                    matrix["static_only"] += 1
+                elif react:
+                    matrix["react_only"] += 1
+                else:
+                    matrix["both_wrong"] += 1
+            expected_run = audit["runs"][run][tier]
+            assert matrix == expected_run["exact_matrix"]
+            rare = min(matrix["static_only"], matrix["react_only"])
+            expected_exact = expected_run["exact_headroom"]
+            assert rare == expected_exact["successes"]
+            assert_close(rare / 150, expected_exact["estimate"])
+            lower, upper = clopper_pearson(rare, 150)
+            assert_close(lower, expected_exact["lower"])
+            assert_close(upper, expected_exact["upper"])
+
+            static_macro, react_macro, estimate, lower, upper = continuous_headroom(
+                groups,
+                seed=audit["analysis"]["bootstrap_seed"],
+                resamples=audit["analysis"]["bootstrap_resamples"],
+            )
+            assert_close(static_macro, expected_run["macro_quality"]["static"])
+            assert_close(react_macro, expected_run["macro_quality"]["react"])
+            expected_continuous = expected_run["continuous_headroom"]
+            assert_close(estimate, expected_continuous["estimate"])
+            assert_close(lower, expected_continuous["lower"])
+            assert_close(upper, expected_continuous["upper"])
+
+    audit_code = (
+        ARTIFACT / "snapshots/analyze_realm26_capability_audit.py"
+    ).read_text(encoding="utf-8")
+    for required_function in (
+        "def clopper_pearson_interval(",
+        "def continuous_oracle_headroom(",
+    ):
+        assert required_function in audit_code
+
     readme = (ARTIFACT / "README.md").read_text(encoding="utf-8").lower()
     for required in ("sealed final partition is excluded", "provider-free", "no final outcomes"):
         assert required in readme, f"missing safety statement: {required}"
     print(
-        f"PASS: {len(package_files)} tracked artifact files and {len(rows)} "
-        "sanitized score rows; offline recomputation, integrity, and anonymity checks complete"
+        f"PASS: {len(package_files)} tracked artifact files, {len(rows)} "
+        "sanitized score rows, and 900 capability audit pairs; offline "
+        "recomputation, integrity, and anonymity checks complete"
     )
     return 0
 
