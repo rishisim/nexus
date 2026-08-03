@@ -3,9 +3,9 @@
 
 \paragraph{Evidence and fresh split.}
 The main study uses 50 examples each from FinQA, TAT-QA, and ConvFinQA. Systems
-see only benchmark-provided table, text, or dialogue evidence; gold answers and
-target-derived fields are unavailable before Finish. The manifest excludes all
-identifiers used by earlier studies or stopped freezes and all protected-final
+see only table, text, or dialogue evidence supplied by the benchmarks; gold
+answers and fields derived from targets are unavailable before Finish. The manifest excludes all
+identifiers used by earlier studies or stopped freezes and all protected final
 identifiers; ConvFinQA is also disjoint by dialogue. Final content was never
 loaded, executed, or scored. The same 150 items and frozen order are used for
 all tiers and both arms.
@@ -19,36 +19,33 @@ unsupported reasoning field; Luna and Terra use
 containing \texttt{action}, \texttt{argument}, and \texttt{answer}; malformed
 output or telemetry stops the study. Static permits Finish; ReAct must begin
 with Search, observe evidence, and use at least two calls. Calls have one
-attempt, a 384-token output ceiling, 4,096-word/8,192-byte prompt ceilings, and
-a 3,000-word evidence ceiling.
+attempt, an output ceiling of 384 tokens, prompt ceilings of 4,096 words and
+8,192 bytes, and an evidence ceiling of 3,000 words.
 
-The full 900-episode order was counterbalanced before inference: every model
-ordering occurs 25 times, and each tier runs Static first on 75 items and ReAct
-first on 75. Two earlier freezes stopped under prespecified transport rules;
-no partial outcomes were analyzed, and their items were excluded before the
-successful freeze. The anonymous provider-free artifact records full
-provenance, configurations, audit code, and sanitized metric pairs. The run
-used 1,462 calls and US\$0.948; cumulative pre-replication spend was US\$1.007
-under a US\$20 cap.
+The frozen schedule balances all six model orders across 25 items each and gives
+each tier 75 items with Static first and 75 with ReAct first. Two earlier freezes stopped under fixed
+transport rules; no partial outcomes were analyzed, and touched items were
+excluded. Full provenance, configurations, audit code, and sanitized metric
+pairs are in the anonymous offline artifact. The main run used 1,462 calls and
+US\$0.948; cumulative spend before replication was US\$1.007 under a US\$20 cap.
 
 \paragraph{Preregistered analysis.}
-Quality is the unweighted macro-average of FinQA exact match, official TAT-QA
-F1 with prediction-side scale inference, and ConvFinQA exact match. For each
-tier we report a dataset-stratified paired 10,000-resample percentile bootstrap
-for ReAct minus Static, the exact complementarity matrix and McNemar test,
-oracle headroom, and efficiency. Cross-tier interactions bootstrap the
-difference between tier-specific ReAct-minus-Static deltas. Outcomes were not
-scored until all three tiers completed.
+Quality is the unweighted macro average of FinQA exact match, official TAT-QA
+F1 with scale inferred from the prediction, and ConvFinQA exact match. For each
+tier we report a paired percentile bootstrap with 10,000 samples stratified by
+dataset, the exact complementarity matrix and McNemar test, oracle headroom,
+and efficiency. Interactions bootstrap differences between tier effects for
+ReAct minus Static. Scoring began only after all three tiers completed.
 
-All calls used a fixed request seed, but temperature and top-$p$ were omitted
-and provider defaults applied; the provider does not guarantee deterministic
-generation. After seeing the main result, we therefore froze one post-hoc
-same-manifest replication that changed only the request seed. It completed all
-900 episodes for US\$0.951 (US\$1.959 cumulative). We report it as a generation-
-stability check conditional on the same sample, not an independent confirmation.
+Calls used a fixed request seed, but temperature and top $p$ were omitted and
+provider defaults applied, so generation was not guaranteed to be deterministic.
+After seeing the main result, we froze one post hoc replication on the same
+manifest that changed only the seed. It completed all 900 episodes for
+US\$0.951 (US\$1.959 cumulative). We report it as a stability check conditional
+on the same sample, not an independent confirmation.
 
 \paragraph{Supporting studies.}
-The original five-dataset Gemini study compared five workflows and a selector
-but had unequal contracts. A later GPT-4o-mini harmonized v2 used 150 separate
-fresh items with shared contracts and verified retrieval-first treatment. They
-are pilot and supporting evidence, respectively.
+The original Gemini study across five datasets compared five workflows and a
+selector under unequal contracts. A later harmonized study with GPT-4o-mini on
+150 separate fresh items shared contracts and verified that ReAct retrieved
+before answering. They are pilot and supporting evidence, respectively.

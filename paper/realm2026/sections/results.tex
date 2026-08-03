@@ -3,11 +3,11 @@
 
 \begin{table}[t]
   \caption{Main result on the same 150 fresh items per tier. $\Delta$ is
-  ReAct-minus-Static macro quality with paired 95\% CI. B/S/R/N are exact
-  both/Static-only/ReAct-only/neither counts. EM-H is exact-match oracle
-  headroom with its 95\% upper limit; Q-H is native-quality headroom with a
+  ReAct minus Static macro quality with paired 95\% CI. B/S/R/N are exact match
+  counts for both, Static only, ReAct only, and neither. EMH is exact match oracle
+  headroom with its 95\% upper limit; QH is native quality headroom with a
   paired 95\% CI. Headroom is in percentage points.}
-  \label{tab:capability-result}
+  \label{tab:capabilityresult}
   \centering
   \scriptsize
   \setlength{\tabcolsep}{3.0pt}
@@ -19,7 +19,7 @@
     Luna & \textbf{0.188} & 0.131 & $-0.057$ $[-0.098,-0.020]$ \\
     Terra & 0.210 & \textbf{0.218} & $0.008$ $[-0.015,0.033]$ \\
     \midrule
-    Tier & B/S/R/N & EM-H [95\% UL] & Q-H [95\% CI] \\
+    Tier & B/S/R/N & EMH [95\% UL] & QH [95\% CI] \\
     Control & 12/13/2/123 & 1.3 [4.7] & 1.7 [0.2,3.8] \\
     Luna & 7/9/1/133 & 0.7 [3.7] & 1.0 [0.3,1.9] \\
     Terra & 21/1/2/126 & 0.7 [3.7] & 1.0 [0.0,2.1] \\
@@ -28,24 +28,26 @@
 \end{table}
 
 \paragraph{Capability changes the average ordering.}
-Table~\ref{tab:capability-result} is the narrative centerpiece. Static's macro
+Table~\ref{tab:capabilityresult} is the narrative centerpiece. Static's macro
 advantage excludes zero for control and Luna. Terra instead reaches parity,
-with a small nonsignificant ReAct edge. The ReAct-minus-Static interaction is
+with a small nonsignificant ReAct edge. The ReAct minus Static interaction is
 $0.079$ for Terra minus control (95\% CI $[0.028,0.133]$) and $0.065$ for Terra
 minus Luna ($[0.018,0.117]$); Luna minus control is $0.014$
 ($[-0.043,0.071]$). Thus the earlier ReAct deficit is not invariant to model
 tier.
 
 \paragraph{Complementarity remains small.}
-Under the actual F1-inclusive quality metric, oracle-headroom point estimates
+Under the actual quality metric, including F1, oracle headroom point estimates
 are 1.7, 1.0, and 1.0 points, with paired 95\% upper limits of 3.8, 1.9, and
-2.1. These intervals are tighter than exact-match intervals because they use
-bounded per-item continuous gains rather than binomial uncertainty around only
-one or two rare events. Exact-headroom point estimates are 1.3, 0.7, and 0.7
-points; conditional on the empirically better-arm direction, exact-binomial
+2.1. These intervals are tighter than exact match intervals because they use
+bounded continuous gains for each item rather than binomial uncertainty around
+only one or two rare events. Exact headroom point estimates are 1.3, 0.7, and
+0.7 points; conditional on the direction of the empirically better arm, exact binomial
 95\% upper limits are 4.7, 3.7, and 3.7. Even 4.7 points is an oracle ceiling:
 a learned router can recover only part of it and adds selection errors and
-cost. No router is fit to these outcomes.
+cost. McNemar tests favor Static for control ($p=0.0074$) and Luna
+($p=0.0215$); Terra shows no directional difference ($p=1.0$). No router is fit
+to these outcomes.
 
 \paragraph{Efficiency.}
 Static uses one call per item; ReAct averages 2.31, 2.27, and 2.16 calls for
@@ -53,20 +55,20 @@ control, Luna, and Terra. In the same order, ReAct takes 2.6, 2.4, and 2.1
 times as long and costs 1.29, 1.29, and 1.14 times as much. It is therefore
 neither cheaper nor faster in the main study.
 
-\paragraph{Post-hoc seed stability.}
+\paragraph{Post hoc seed stability.}
 Changing only the request seed on the same manifest reproduced Static
 advantages for control and Luna; Terra's small difference changed sign but
 remained near parity (Static/ReAct: 0.201/0.196). Exact B/S/R/N became
-13/12/1/124, 5/13/1/131, and 20/1/0/129; the rare exact oracle-benefit cells
-were one, one, and zero. Native-quality headroom was 1.4, 0.8, and 0.7 points
+13/12/1/124, 5/13/1/131, and 20/1/0/129; the rare exact oracle benefit cells
+were one, one, and zero. Native quality headroom was 1.4, 0.8, and 0.7 points
 (95\% upper limits 3.1, 1.8, and 1.4). Individual generations and Terra's point
-ordering vary, but the low-complementarity diagnosis does not in this single
-same-sample check.
+ordering vary, but the low complementarity diagnosis does not in this single
+check on the same sample.
 
 \paragraph{Supporting evidence.}
-On a separate harmonized-v2 sample, Static scored 0.342 versus ReAct's 0.257
-($\Delta=-0.085$, 95\% CI $[-0.147,-0.025]$), with 21 Static-only versus five
-ReAct-only exact successes and 3.3 points of oracle headroom. The earlier pilot
-selector likewise missed its documented quality--cost criterion. Contract
+On a separate harmonized v2 sample, Static scored 0.342 versus ReAct's 0.257
+($\Delta=-0.085$, 95\% CI $[-0.147,-0.025]$), with 21 successes unique to Static
+versus five unique to ReAct and 3.3 points of oracle headroom. The earlier pilot
+selector likewise missed its documented quality and cost criterion. Contract
 asymmetries make the pilot noncentral, but neither supporting study contradicts
 the main complementarity diagnosis.

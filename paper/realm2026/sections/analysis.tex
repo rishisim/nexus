@@ -6,28 +6,30 @@ Terra answers more effectively under the iterative policy than the other two
 tiers: its ReAct score exceeds control ReAct by 0.063
 ($[0.002,0.124]$), while its Static score does not differ reliably from control.
 This produces the positive interaction and answers the principal robustness
-objection: ReAct's earlier loss was partly model-dependent. But Terra's ReAct
-successes almost entirely overlap its Static successes. The system-level tie
+objection: ReAct's earlier loss depended partly on model choice. But Terra's
+ReAct successes almost entirely overlap its Static successes. The system tie
 therefore does not imply a useful mixture.
 
 The distinction is mechanical. A selector can recover at most the oracle union,
-whose gain over the better branch equals the rarer one-sided cell. The point
+whose gain over the better branch equals the rarer discordant cell. The point
 estimates are small, but the uncertainty bounds prevent treating them as hard
 ceilings. The conclusion instead survives the optimistic bound: even 4.7
-exact-match points is oracle performance that a learned selector only partly
-recovers, purchased here at 1.14--1.29$\times$ cost and 2.1--2.6$\times$
-latency. This does not produce a favorable measured accuracy--cost frontier.
+exact match points is oracle performance that a learned selector only partly
+recovers, purchased here at 1.14 to 1.29$\times$ the cost and 2.1 to
+2.6$\times$ the latency. This does not produce a favorable measured relation
+between quality and cost.
 
 \paragraph{Why contract fairness matters.}
-The pilot used unequal final-answer and context contracts, and a post hoc author
-audit found scorer-sensitive one-sided outputs. We neither rescore those cases
+The pilot used unequal final answer and context contracts, and a post hoc author
+audit found discordant outputs sensitive to the scorer. We neither rescore those
+cases
 nor call the audit independent adjudication. The harmonized and capability
-studies instead share answer semantics, ceilings, scorer input, one-attempt
+studies instead share answer semantics, ceilings, scorer input, single attempt
 rules, and provider binding. They share a retrieval API and budget, not an
 identical retrieved dossier: Static averages about 2.85 retrieval operations,
-whereas ReAct adaptively uses 1.16--1.31. The estimates therefore compare
-deployed retrieval policies, including query and evidence-selection effects;
-they do not isolate iteration from retrieval behavior.
+whereas ReAct adaptively uses 1.16 to 1.31. The estimates therefore compare
+deployed retrieval policies, including effects from query construction and
+evidence selection; they do not isolate iteration from retrieval behavior.
 
 The practical sequence is: harmonize evaluation contracts, measure paired
 complementarity, and only then optimize a selector. Retuning on the present
