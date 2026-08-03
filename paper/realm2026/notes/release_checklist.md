@@ -119,15 +119,16 @@ manuscript, artifact, or frozen-source change:
   pairs byte for byte, with fingerprint
   `sha256:f4d40f3b39acf465a1271ccda962fc34edd8d8a3221acee3bb664b5eb842ce72`.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
-  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,772-byte**
+  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,537-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
-  present. TeXCount reports **178 abstract words**, below the 200-word limit.
+  present. TeXCount reports **165 abstract words**, below the 200-word limit;
+  the abstract contains no numerical results.
 - [x] **[VERIFIED]** PDF geometry/metadata: `pdfinfo` reports **5 pages** and
   **595.276 x 841.890 pt (A4)**; Author, Subject, and Title are blank; Creator
   is `LaTeX with hyperref`; no identity string is present.
 - [x] **[VERIFIED]** Fonts: `pdffonts` reports **12 embedded fonts**, all with
   `emb=yes`; no overfull boxes or undefined citations/references were found.
-  The log contains 5 underfull-box warnings, which do not change page count
+  The log contains 6 underfull-box warnings, which do not change page count
   or clip content.
 - [x] **[VERIFIED]** Citation/source audit: **14 cited keys**, **18 bibliography
   keys**, **0 missing citation keys**. The four unused bibliography entries do
@@ -147,7 +148,7 @@ manuscript, artifact, or frozen-source change:
   canonical names and mathematical signs.
 - [x] **[VERIFIED]** Ghostscript rendered all PDF pages without an integrity
   error. The final PDF SHA-256 is
-  `3568bddba3a120a94f57f5926374cf54e4fff35a7e9c9b22360e7c870bf9f24a`.
+  `2443d236aa2cd096ee6e8b292a117930531d592b431e213a703ad53a2ea7cac1`.
 
 ### 2026-08-03 — internal content freeze
 

@@ -1,17 +1,15 @@
-Selective routing helps only if its expensive branch supplies unique correct
-answers. We test this prerequisite in a
-prospectively frozen comparison across three model tiers on 150 fresh financial
-QA development items. Static uses one model call; bounded ReAct retrieves before
-answering. Both use the same model, action contract, scorer, retrieval interface, and
-resource ceilings. With GPT-4o-mini, Static scored 0.226 versus ReAct's 0.155
-(ReAct minus Static $-0.071$, 95\% CI $[-0.120,-0.025]$); with GPT-5.6 Luna,
-0.188 versus 0.131 ($-0.057$, $[-0.098,-0.020]$). GPT-5.6 Terra reached parity:
-0.210 versus 0.218 ($0.008$, $[-0.015,0.033]$), with a positive Terra versus
-control interaction of $0.079$ $[0.028,0.133]$. Under the native quality metric,
-oracle headroom ranged from 1.0 to 1.7 points (95\% upper limits at most 3.8);
-exact match estimates were at most 1.3 points (upper limits below 4.8). These
-oracle ceilings are only partly recoverable by a learned router and come at
-higher cost and latency. A post hoc seed check on the same sample retained low
-headroom. Capability can erase an agent's average deficit without
-creating useful expert complementarity;
-that complementarity should be established before router optimization.
+Selective routing is useful only when an expensive branch solves cases that a
+cheaper branch misses. We call this prerequisite expert complementarity and ask
+whether a capable iterative agent actually provides it. In a prospectively
+frozen financial question answering study, we compare Static with bounded ReAct
+across multiple capability tiers. Within each tier, the arms share the model,
+answer contract, retrieval interface, scoring, and resource limits. A stronger model removes
+ReAct's average deficit and brings it to parity with Static, showing that
+relative performance depends on model choice. Yet Static and ReAct still
+succeed on nearly the same items. ReAct adds little unique value while requiring
+more calls, latency, and cost, and a stability check preserves this pattern.
+Capability and complementarity are therefore distinct: improving an expensive
+branch can make it competitive without making it useful for routing. Evaluation
+contracts should be harmonized and paired complementarity audited before
+training a selector. This result concerns bounded ReAct over controlled
+benchmark evidence, not iterative agents in general.
