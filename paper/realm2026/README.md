@@ -39,7 +39,7 @@ Checked 2026-07-20 against primary sources:
   precede references without a page break.
 
 The paste-ready values and the fields that require author decisions are in
-[`submission_packet.md`](submission_packet.md). The executable release gate is
+[`submission_packet.md`](submission_packet.md). The executable release checklist is
 in [`notes/release_checklist.md`](notes/release_checklist.md).
 
 ## Working title and thesis

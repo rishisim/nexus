@@ -1,7 +1,7 @@
 \section{Introduction}
 
 Financial QA requires evidence selection, arithmetic, and careful handling of
-entities, periods, signs, and units. Iterative language-model agents appear
+entities, periods, signs, and units. Iterative language model agents appear
 well suited to these demands: they can search, inspect evidence, and revise an
 answer. Each extra step, however, consumes latency and tokens and creates
 another opportunity for retrieval, arithmetic, or formatting error. The
@@ -9,34 +9,36 @@ deployment question is therefore not simply whether an agent is capable, but
 whether it contributes answers that a cheaper workflow misses.
 
 We study this necessary precondition for selective agency: \emph{expert
-complementarity}. A router can improve an accuracy--cost frontier only when its
+complementarity}. A router can improve quality relative to cost only when its
 expensive branch supplies enough unique correct answers. This requirement is
 logically prior to learning a difficulty model or tuning a threshold. It also
 differs from asking which branch has higher average accuracy: two systems can
 tie while making nearly identical errors, leaving little routing headroom.
 
-Our main evidence is a prospectively frozen capability ladder on 150 fresh
-development items from FinQA, TAT-QA, and ConvFinQA. We compare one-call Static
-and bounded retrieval-first ReAct under a shared strict action contract,
-retrieval interface, scorer, and resource ceilings using GPT-4o-mini, GPT-5.6
+Our main evidence is a prospectively frozen capability study on 150 fresh
+development items from FinQA, TAT-QA, and ConvFinQA. We compare Static, which
+uses one model call, with bounded ReAct that retrieves before answering. Both
+use a shared strict action contract, retrieval interface, scorer, and resource
+ceilings with GPT-4o-mini, GPT-5.6
 Luna, and GPT-5.6 Terra. Static significantly outperforms ReAct for the first
-two tiers, whereas Terra reaches parity; the positive cross-tier interaction
+two tiers, whereas Terra reaches parity; the positive interaction across tiers
 establishes a capability boundary. Nevertheless, ReAct supplies only two, one,
-and two unique exact successes. Oracle-headroom point estimates remain at most
+and two unique exact successes. Oracle headroom point estimates remain at most
 1.7 points under the native quality metric and at most 1.3 under exact match;
-a post-hoc different-seed check on the same manifest preserves this low-
-headroom pattern.
+a post hoc check with a different seed on the same manifest preserves this
+pattern of low headroom.
 
-An earlier five-dataset selector study and a separate harmonized comparison
-motivate and support this analysis. The original selector failed its
-quality--cost rule but used unequal answer and context contracts. The matched
+An earlier selector study across five datasets and a separate harmonized
+comparison motivate and support this analysis. The original selector failed its
+quality and cost rule but used unequal answer and context contracts. The matched
 study corrected those asymmetries and again found little ReAct
 complementarity. We preserve both as supporting evidence rather than treating
 the flawed pilot as the centerpiece.
 
 Our contribution is thus a feasibility audit for routing: model capability can
-change the Static--ReAct ordering, but it does not automatically create unique
-expert value. Evaluation contracts must first be harmonized, then
+change the ordering of Static and ReAct, but it does not automatically create
+unique expert value. Evaluation contracts must first be harmonized, then
 complementarity measured, before selector optimization. This is a scoped result
-for bounded retrieval-first ReAct over controlled benchmark evidence, not a
+for bounded ReAct that retrieves before answering over controlled benchmark
+evidence, not a
 universal claim against agents.

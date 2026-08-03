@@ -1,6 +1,6 @@
-# REALM 2026 archival short-paper release gate
+# REALM 2026 archival short paper release checklist
 
-Status date: **2026-08-02**
+Status date: **2026-08-03**
 
 Target: **REALM @ EMNLP 2026, direct archival short-paper submission**
 
@@ -100,7 +100,7 @@ Use the labels below when closing items:
 - [x] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
   a one-page validation log with exact commands and outputs.
 
-## Current validation snapshot (2026-08-02)
+## Current validation snapshot (2026-08-03)
 
 These results are from the current task branch and should be rerun after any
 manuscript, artifact, or frozen-source change:
@@ -119,15 +119,15 @@ manuscript, artifact, or frozen-source change:
   pairs byte for byte, with fingerprint
   `sha256:f4d40f3b39acf465a1271ccda962fc34edd8d8a3221acee3bb664b5eb842ce72`.
 - [x] **[VERIFIED]** LaTeX: the prescribed skill selected TeX Live
-  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,528-byte**
+  `/Library/TeX/texbin/latexmk`, exited 0, and produced a **5-page, 169,772-byte**
   PDF. The skill correctly bypassed Tectonic because bibliography tooling is
-  present.
+  present. TeXCount reports **178 abstract words**, below the 200-word limit.
 - [x] **[VERIFIED]** PDF geometry/metadata: `pdfinfo` reports **5 pages** and
   **595.276 x 841.890 pt (A4)**; Author, Subject, and Title are blank; Creator
   is `LaTeX with hyperref`; no identity string is present.
 - [x] **[VERIFIED]** Fonts: `pdffonts` reports **12 embedded fonts**, all with
   `emb=yes`; no overfull boxes or undefined citations/references were found.
-  The log contains 7 underfull-box warnings, which do not change page count
+  The log contains 5 underfull-box warnings, which do not change page count
   or clip content.
 - [x] **[VERIFIED]** Citation/source audit: **14 cited keys**, **18 bibliography
   keys**, **0 missing citation keys**. The four unused bibliography entries do
@@ -142,10 +142,12 @@ manuscript, artifact, or frozen-source change:
   outcome, or final example. The capability snapshot contains only curated
   aggregate outcomes and process/budget provenance, with no prompts, answers,
   traces, or partial-freeze outcomes. Hash-bound protocol files passed their
-  integrity tests and were not edited after inference.
+  integrity tests and were not edited after inference. The requested vocabulary
+  audit also passed; manuscript prose has no stylistic compound hyphens outside
+  canonical names and mathematical signs.
 - [x] **[VERIFIED]** Ghostscript rendered all PDF pages without an integrity
   error. The final PDF SHA-256 is
-  `73f8a090b8786293c122492894360a12839fd38707652d5ab2e6d4ef3319de39`.
+  `3568bddba3a120a94f57f5926374cf54e4fff35a7e9c9b22360e7c870bf9f24a`.
 
 ### 2026-08-03 — internal content freeze
 
