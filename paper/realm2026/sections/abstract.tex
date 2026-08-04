@@ -6,8 +6,10 @@ across multiple capability tiers. Within each tier, the arms share the model,
 answer contract, retrieval interface, scoring, and resource limits. A stronger model removes
 ReAct's average deficit and brings it to parity with Static, showing that
 relative performance depends on model choice. Yet Static and ReAct still
-succeed on nearly the same items. ReAct adds little unique value while requiring
-more calls, latency, and cost, and a stability check preserves this pattern.
+succeed on nearly the same items. Across 150 shared items per tier, ReAct adds
+only one or two unique exact successes; oracle quality headroom point estimates
+are at most 1.7 points, while ReAct takes 2.1 to 2.6 times as long. A stability
+check preserves this pattern.
 Capability and complementarity are therefore distinct: improving an expensive
 branch can make it competitive without making it useful for routing. Evaluation
 contracts should be harmonized and paired complementarity audited before

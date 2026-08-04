@@ -27,11 +27,11 @@ paste the LaTeX line-break command into OpenReview.
 
 ### Abstract
 
-Selective routing is useful only when an expensive branch solves cases that a cheaper branch misses. We call this prerequisite expert complementarity and ask whether a capable iterative agent actually provides it. In a prospectively frozen financial question answering study, we compare Static with bounded ReAct across multiple capability tiers. Within each tier, the arms share the model, answer contract, retrieval interface, scoring, and resource limits. A stronger model removes ReAct's average deficit and brings it to parity with Static, showing that relative performance depends on model choice. Yet Static and ReAct still succeed on nearly the same items. ReAct adds little unique value while requiring more calls, latency, and cost, and a stability check preserves this pattern. Capability and complementarity are therefore distinct: improving an expensive branch can make it competitive without making it useful for routing. Evaluation contracts should be harmonized and paired complementarity audited before training a selector. This result concerns bounded ReAct over controlled benchmark evidence, not iterative agents in general.
+Selective routing is useful only when an expensive branch solves cases that a cheaper branch misses. We call this prerequisite expert complementarity and ask whether a capable iterative agent actually provides it. In a prospectively frozen financial question answering study, we compare Static with bounded ReAct across multiple capability tiers. Within each tier, the arms share the model, answer contract, retrieval interface, scoring, and resource limits. A stronger model removes ReAct's average deficit and brings it to parity with Static, showing that relative performance depends on model choice. Yet Static and ReAct still succeed on nearly the same items. Across 150 shared items per tier, ReAct adds only one or two unique exact successes; oracle quality headroom point estimates are at most 1.7 points, while ReAct takes 2.1 to 2.6 times as long. A stability check preserves this pattern. Capability and complementarity are therefore distinct: improving an expensive branch can make it competitive without making it useful for routing. Evaluation contracts should be harmonized and paired complementarity audited before training a selector. This result concerns bounded ReAct over controlled benchmark evidence, not iterative agents in general.
 
 This is a plain-text rendering of `sections/abstract.tex`; the content matches
-the manuscript, contains no numerical results, and stays below the ACL
-200-word limit.
+the manuscript, uses a compact set of main study figures, and stays below the
+ACL 200-word limit.
 
 ### TL;DR
 
