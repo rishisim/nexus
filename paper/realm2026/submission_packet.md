@@ -51,9 +51,10 @@ This paper makes three scoped contributions:
 
 1. It distinguishes model capability from expert complementarity and formalizes
    paired oracle headroom as a feasibility audit before router optimization.
-2. It reports a fresh, prospectively frozen GPT-4o-mini/Luna/Terra comparison
+2. It reports a prospectively frozen GPT-4o-mini/Luna/Terra comparison on items
+   unused by the earlier studies and stopped freezes,
    under a shared strict action transport, scorer, retrieval API, and resource
-   ceilings, including preregistered cross-tier interactions.
+   ceilings, including cross-tier interactions fixed before scoring.
 3. It preserves a matched corrective study and the original selector study as
    supporting and pilot evidence, and provides a provider-free anonymous
    artifact without answers, raw traces, credentials, datasets, or the sealed

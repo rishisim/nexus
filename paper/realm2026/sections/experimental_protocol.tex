@@ -1,7 +1,7 @@
 \section{Experimental Protocol}
 \label{sec:protocol}
 
-\paragraph{Evidence and fresh split.}
+\paragraph{Evidence and unused split.}
 The main study uses 50 examples each from FinQA, TAT-QA, and ConvFinQA. Systems
 see only table, text, or dialogue evidence supplied by the benchmarks; gold
 answers and fields derived from targets are unavailable before Finish. The manifest excludes all
@@ -26,10 +26,10 @@ The frozen schedule balances all six model orders across 25 items each and gives
 each tier 75 items with Static first and 75 with ReAct first. Two earlier freezes stopped under fixed
 transport rules; no partial outcomes were analyzed, and touched items were
 excluded. Full provenance, configurations, audit code, and sanitized metric
-pairs are in the anonymous offline artifact. The main run used 1,462 calls and
+pairs are in the public, provider-free artifact. The main run used 1,462 calls and
 US\$0.948; cumulative spend before replication was US\$1.007 under a US\$20 cap.
 
-\paragraph{Preregistered analysis.}
+\paragraph{Analysis plan fixed before scoring.}
 Quality is the unweighted macro average of FinQA exact match, official TAT-QA
 F1 with scale inferred from the prediction, and ConvFinQA exact match. For each
 tier we report a paired percentile bootstrap with 10,000 samples stratified by
@@ -47,7 +47,7 @@ on the same sample, not an independent confirmation.
 \paragraph{Supporting studies.}
 The original Gemini study across five datasets compared five workflows and a
 selector under unequal contracts. A later harmonized study with GPT-4o-mini on
-150 separate fresh items shared contracts and verified that ReAct retrieved
+150 separate items unused by the pilot shared contracts and verified that ReAct retrieved
 before answering. These unpublished, non-concurrent experiments share the
 research question and implementation lineage but not evaluated identifiers
 with the main study. They are pilot and supporting evidence, respectively.

@@ -15,8 +15,8 @@ logically prior to learning a difficulty model or tuning a threshold. It also
 differs from asking which branch has higher average accuracy: two systems can
 tie while making nearly identical errors, leaving little routing headroom.
 
-Our main evidence is a prospectively frozen capability study on 150 fresh
-development items from FinQA, TAT-QA, and ConvFinQA. We compare Static, which
+Our main evidence is a prospectively frozen capability study on 150 development
+items unused by earlier studies or freezes, from FinQA, TAT-QA, and ConvFinQA. We compare Static, which
 uses one model call, with bounded ReAct that retrieves before answering. Both
 use a shared strict action contract, retrieval interface, scorer, and resource
 ceilings with GPT-4o-mini, GPT-5.6
