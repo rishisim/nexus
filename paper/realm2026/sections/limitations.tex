@@ -26,3 +26,10 @@ FinQA and ConvFinQA accuracy is near floor. TAT-QA is higher (main run F1
 from 0.314 to 0.493), yet continuous headroom is at most 2.9 points (2.5 in the seed
 check). Complementarity may therefore emerge at realistic deployment accuracy
 levels that this study does not reach.
+
+\paragraph{Public-benchmark exposure.}
+All three benchmarks are public and may have appeared in model pretraining or
+other post-training data. Model providers do not expose sufficient provenance
+to test memorization. Supplying controlled evidence does not remove this risk,
+so absolute scores and tier differences should not be read as performance on
+previously unseen financial documents.

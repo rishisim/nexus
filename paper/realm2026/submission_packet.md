@@ -1,6 +1,6 @@
-# REALM 2026 archival short-paper submission packet
+# REALM 2026 archival short-paper camera-ready packet
 
-Prepared 2026-07-20 for the direct OpenReview submission. This document is a
+Updated 2026-09-09 for OpenReview submission 111's camera-ready revision. This document is a
 paste-ready draft, not a substitute for author/admin confirmation. Values under
 “User-only administrative fields” must be completed by the submitting authors.
 
@@ -9,8 +9,8 @@ paste-ready draft, not a substitute for author/admin confirmation. Values under
 - Venue: REALM @ EMNLP 2026
 - Track: archival short paper, direct submission
 - OpenReview venue: `EMNLP 2026 Workshop REALM`
-- Direct deadline: 2026-08-05, 23:59 Anywhere on Earth (UTC-12)
-- OpenReview UTC equivalent: 2026-08-06, 11:59 UTC
+- Camera-ready deadline: 2026-09-14, 23:59 Anywhere on Earth (UTC-12)
+- OpenReview UTC equivalent: 2026-09-15, 11:59 UTC
 - Required paper type: `Archival`
 - Source: [REALM CFP](https://realm-workshop.github.io/call_for_papers/)
 - Live form/schema: [OpenReview venue](https://openreview.net/group?id=EMNLP%2F2026%2FWorkshop%2FREALM),
@@ -113,8 +113,10 @@ scientific conclusions, ethics answers, and final OpenReview submission.
 
 ### Reproducibility / artifact statement
 
-An anonymous, provider-free artifact accompanies the source release where the
-submission workflow permits supplementary material. It contains public
+A provider-free artifact is publicly available at
+`https://github.com/rishisim/nexus/tree/realm-emnlp-2026-camera-ready`
+under `paper/realm2026/artifact`.
+It contains public
 protocol inputs, aggregate analyses, model/price snapshots, prompt/scorer
 snapshots, development-only manifests, the completed three-tier aggregate, and
 a sanitized 1,350-row metric and telemetry ledger for the earlier studies. It
@@ -130,18 +132,27 @@ withheld answer/gold text. The repository license is MIT, upstream benchmark
 and provider terms remain applicable, and
 `paper/realm2026/artifact/LICENSES.md` records the distribution boundary.
 
-The live direct OpenReview schema currently exposes a required PDF field but no
-dedicated artifact field. Do not add a public or author-identifying URL to the
-anonymous paper; confirm with the venue whether an anonymous supplementary or
-artifact upload is accepted.
+The camera-ready paper links to this tagged repository snapshot because the
+direct OpenReview form did not expose a dedicated artifact field.
 
-## User-only administrative fields
+## Author metadata
+
+- **Author:** Rishi N. Simhadri (sole author, matching the current OpenReview record)
+- **Affiliation used in the manuscript:** The University of Texas at Dallas,
+  Richardson, TX, USA
+- **OpenReview check:** the active preferred profile lists Computer Science at
+  the University of Texas at Dallas, a confirmed preferred institutional email,
+  and an ORCID. The camera-ready form currently shows the sole author and
+  `Archival`, with the cross-submission field blank.
+- **Still author-only:** confirm that this affiliation wording, the blank
+  cross-submission field, and the corresponding-author designation are intended.
+
+## Remaining user-only administrative fields
 
 Do not infer or fill these from the repository:
 
-- **Authors and affiliations:** final author list/order, full names, exact
-  affiliations/addresses, emails, OpenReview profile IDs, and corresponding
-  author.
+- **Author confirmation:** exact email, OpenReview profile ID, ORCID,
+  corresponding-author designation, and the manuscript affiliation wording.
 - **Conflicts:** institutional, advisor/advisee, collaboration, employment,
   and any venue-specific conflict declarations for every author.
 - **Reviewer nomination:** at least one eligible author profile to serve as a
@@ -157,7 +168,7 @@ Do not infer or fill these from the repository:
   if OpenReview presents fields beyond the current live schema; the keyword
   draft above is a recommendation, not an inferred author decision.
 - **Preprint and supplementary uploads:** choose any preprint status and confirm
-  whether an anonymous software/data/artifact upload is available or desired.
+  whether a separate software/data/artifact upload is available or desired.
 - **Licenses:** confirm acceptance of the OpenReview note license shown by the
   live schema (CC BY 4.0), the repository MIT license, and all upstream dataset
   and provider terms.
@@ -172,5 +183,5 @@ Do not infer or fill these from the repository:
 1. The author-only fields above must be completed and checked by the authors.
 2. The PDF/artifact/test validation block in the release checklist must pass;
    no release check may call a provider or access the final partition.
-3. The final OpenReview form must preserve the manuscript's anonymous title,
-   abstract, archival status, and scientific boundaries.
+3. The final OpenReview form must preserve the manuscript's title, abstract,
+   sole-author identity, archival status, and scientific boundaries.

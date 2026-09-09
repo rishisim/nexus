@@ -27,6 +27,12 @@
   \end{tabular}
 \end{table}
 
+The aggregate matrices hide no dataset with substantial exact complementarity.
+In ConvFinQA/FinQA/TAT-QA order, per-dataset B/S/R/N are
+3/5/1/41, 0/2/1/47, and 9/6/0/35 for control;
+3/2/0/45, 1/1/0/48, and 3/6/1/40 for Luna; and
+5/1/0/44, 2/0/1/47, and 14/0/1/35 for Terra.
+
 \paragraph{Capability changes the average ordering.}
 Table~\ref{tab:capabilityresult} is the narrative centerpiece. Static's macro
 advantage excludes zero for control and Luna. Terra instead reaches parity,
@@ -37,6 +43,10 @@ minus Luna ($[0.018,0.117]$); Luna minus control is $0.014$
 tier.
 
 \paragraph{Complementarity remains small.}
+Neither branch is exactly correct on 123/150 control items, 133/150 Luna
+items, and 126/150 Terra items (82.0--88.7\%). Thus low complementarity here
+coexists with a near-floor operating point: the systems usually fail together,
+rather than partitioning a large set of solvable cases.
 Under the actual quality metric, including F1, oracle headroom point estimates
 are 1.7, 1.0, and 1.0 points, with paired 95\% upper limits of 3.8, 1.9, and
 2.1. These intervals are tighter than exact match intervals because they use
@@ -45,7 +55,9 @@ only one or two rare events. Exact headroom point estimates are 1.3, 0.7, and
 0.7 points; conditional on the direction of the empirically better arm, exact binomial
 95\% upper limits are 4.7, 3.7, and 3.7. Even 4.7 points is an oracle ceiling:
 a learned router can recover only part of it and adds selection errors and
-cost. McNemar tests favor Static for control ($p=0.0074$) and Luna
+cost. Concretely, control has B/S/R/N $=12/13/2/123$: Static gets
+$25/150$, the union gets $27/150$, and even perfect routing adds only
+$2/150=1.3$ points. McNemar tests favor Static for control ($p=0.0074$) and Luna
 ($p=0.0215$); Terra shows no directional difference ($p=1.0$). No router is fit
 to these outcomes.
 
@@ -71,4 +83,6 @@ On a separate harmonized v2 sample, Static scored 0.342 versus ReAct's 0.257
 versus five unique to ReAct and 3.3 points of oracle headroom. The earlier pilot
 selector likewise missed its documented quality and cost criterion. Contract
 asymmetries make the pilot noncentral, but neither supporting study contradicts
-the main complementarity diagnosis.
+the main complementarity diagnosis. The provider-free artifact, including the
+sanitized paired records behind every matrix, is publicly available at the
+tagged repository snapshot.\footnote{\href{https://github.com/rishisim/nexus/tree/realm-emnlp-2026-camera-ready}{Camera-ready repository snapshot}; see \texttt{paper/realm2026/artifact}.}

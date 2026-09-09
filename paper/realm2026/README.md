@@ -1,23 +1,25 @@
 # REALM 2026 archival short paper
 
-## Locked venue target
+## Camera-ready venue target
 
 - Venue: [REALM 2026 at EMNLP](https://realm-workshop.github.io/)
 - Track: archival short paper (ACL Anthology proceedings)
-- Direct deadline: **August 5, 2026, 23:59 AoE (UTC-12)**
-- Review length: four pages of content, plus unlimited references and appendix
-- Camera-ready allowance: five pages of content
-- Format: official ACL 2026 style, anonymous and double blind
+- Camera-ready deadline: **September 14, 2026, 23:59 AoE (UTC-12)**
+- Camera-ready allowance: five pages of content, plus references and appendix
+- Format: official ACL 2026 style, final/deanonymized
 - Workshop: October 29, 2026, hybrid
 
-The July 19 date discussed earlier is not the REALM deadline. The official REALM
-site currently lists August 5 for direct submissions. The live OpenReview venue
-configuration expresses the same deadline as August 6, 2026 at 11:59 UTC,
-which is August 5 at 23:59 Anywhere on Earth (UTC-12).
+The paper was accepted as OpenReview submission 111. The camera-ready revision
+is submitted through OpenReview's Edit workflow. The venue lists Monday,
+September 14 at 23:59 Anywhere on Earth, equivalent to September 15 at 11:59
+UTC.
 
 ## Official requirement verification
 
-Checked 2026-07-20 against primary sources:
+Review-stage requirements were checked 2026-07-20 against primary sources. For
+camera-ready, the venue grants short papers one additional content page; the
+acceptance instructions require the unchanged ACL 2026 template, final mode,
+complete authors and affiliations, and confirmed archival metadata.
 
 - [REALM 2026 call for papers](https://realm-workshop.github.io/call_for_papers/):
   archival short papers are original unpublished focused contributions, may
@@ -140,10 +142,10 @@ the two-column ruler regression in `lineno` v5.7 shipped by current TeX Live
 2026. It is a no-op with `lineno` v5.8 and later and leaves the official ACL
 style file unchanged.
 
-Before submission, verify four content pages, A4 paper size, embedded fonts,
-anonymity, readable grayscale figures, and absence of links to deanonymizing
-resources.
+Before submission, verify at most five content pages, A4 paper size, embedded
+fonts, complete author metadata, readable grayscale figures, and stable public
+artifact links.
 
-Integrated status: the PDF is five physical A4 pages, with the research content
-and Limitations ending on content page 4. References begin on page 5. Recheck
-these boundaries after every substantive edit.
+Camera-ready status must be refreshed after every substantive edit; the review
+snapshot in the release checklist is no longer authoritative for page
+boundaries or anonymity.

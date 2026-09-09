@@ -1,4 +1,4 @@
-\section{What the Boundary Means}
+\section{What the Tier Interaction Means}
 \label{sec:analysis}
 
 \paragraph{Capability is not complementarity.}
@@ -32,6 +32,10 @@ deployed retrieval policies, including effects from query construction and
 evidence selection; they do not isolate iteration from retrieval behavior.
 
 The practical sequence is: harmonize evaluation contracts, measure paired
-complementarity, and only then optimize a selector. Retuning on the present
-outcomes and reporting the same sample as evaluation would invalidate that
-sequence.
+complementarity, and only then optimize a selector. At the three tiers, only
+two, one, and two outcomes are ReAct-only positives, too few to support learning
+a reliable selector here. Cost is conditional: an oracle would pay ReAct's
+extra inference only on routed items, not on all items, but a learned router
+must identify those rare benefits without absorbing the weaker branch's many
+unique errors. Retuning on the present outcomes and reporting the same sample
+as evaluation would invalidate that sequence.

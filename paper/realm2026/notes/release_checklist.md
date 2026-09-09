@@ -1,10 +1,10 @@
 # REALM 2026 archival short paper release checklist
 
-Status date: **2026-08-03**
+Status date: **2026-09-09**
 
 Target: **REALM @ EMNLP 2026, direct archival short-paper submission**
 
-Hard deadline: **2026-08-05, 23:59 Anywhere on Earth (UTC-12)**
+Hard deadline: **2026-09-14, 23:59 Anywhere on Earth (UTC-12)**
 
 Use the labels below when closing items:
 
@@ -16,6 +16,20 @@ Use the labels below when closing items:
   by the submitting author(s).
 
 ## Source-verified venue requirements
+
+### Camera-ready
+
+- [x] **[VERIFIED]** The venue gives accepted short papers up to five content
+  pages and lists the camera-ready deadline as September 14, 2026 at 23:59 AoE.
+- [x] **[VERIFIED]** The acceptance instructions require the official ACL 2026
+  template without formatting changes, `\usepackage[final]{acl}`, complete
+  author names and affiliations, confirmed author/archival metadata, and upload
+  through OpenReview Edit then Camera-Ready Revision.
+- [ ] **[USER ONLY]** Confirm the manuscript affiliation, OpenReview profile,
+  email, ORCID, corresponding-author designation, and archival metadata before
+  the final Submit action.
+
+### Historical review-stage requirements
 
 - [x] **[VERIFIED]** The target is REALM @ EMNLP 2026, direct submission, archival
   short paper. The [REALM CFP](https://realm-workshop.github.io/call_for_papers/)
@@ -100,10 +114,11 @@ Use the labels below when closing items:
 - [x] **[RECOMMENDED]** Run a second PDF view/print check in grayscale and keep
   a one-page validation log with exact commands and outputs.
 
-## Current validation snapshot (2026-08-03)
+## Prior review validation snapshot (2026-08-03; superseded)
 
-These results are from the current task branch and should be rerun after any
-manuscript, artifact, or frozen-source change:
+These results describe the accepted anonymous manuscript and must not be used
+as the camera-ready release result. The full block is being rerun after
+deanonymization and review-driven edits.
 
 - [x] **[VERIFIED]** Artifact: `python3
   paper/realm2026/artifact/validate_artifact.py` passed with exactly **34
@@ -168,11 +183,33 @@ manuscript, artifact, or frozen-source change:
 - [ ] **[USER ONLY]** Save the OpenReview forum URL, submission number, receipt
   email, and the exact final PDF checksum in the private author record.
 
-### 2026-08-05 — hard deadline
+### 2026-08-05 — historical review deadline
 
 - [ ] **[VERIFIED]** If not already submitted, upload the PDF and complete the
   required fields before **23:59 AoE (UTC-12)**. OpenReview's UTC equivalent is
   **2026-08-06 11:59 UTC**.
+
+## Camera-ready release gate
+
+- [x] Reran the provider-free artifact validator: 34 tracked files, 1,350
+  sanitized score rows, and 900 capability audit pairs passed all checks.
+- [x] Reran the maintained finance suite: 242 tests passed.
+- [x] Compiled the final-mode PDF and inspected every rendered page.
+- [x] Verified five content pages before references, A4 geometry,
+  embedded fonts, complete PDF metadata, citation/reference resolution, and no
+  overfull boxes or clipped content.
+- [x] Verified title and abstract parity with OpenReview submission 111, its
+  sole-author record, active author profile, archival selection, blank
+  cross-submission field, and the live camera-ready task deadline.
+- [ ] Verify the public artifact tag resolves to the validated provider-free
+  bundle.
+- [ ] Inspect staged paths and sizes, commit and push only verified source, and
+  record the final PDF checksum.
+- [ ] Stop before OpenReview's final Submit action and obtain author confirmation.
+
+Current local PDF: six physical pages, with content and Limitations ending on
+page 5 and references occupying pages 5--6. All 11 fonts are embedded. SHA-256:
+`dcfb69880232bbfc7375d238296bec401146c1a9996dfd317bb77074f7e68dd4`.
 
 ## Local validation commands
 
