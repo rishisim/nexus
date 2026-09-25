@@ -43,6 +43,7 @@ paper/**/build/
 
 # Local scratch outputs
 tmp/
+output/pdf/
 temp_feverous/
 trajs/
 runs/realm26_capability_ladder/
