@@ -1,6 +1,6 @@
-# REALM 2026 archival short-paper submission packet
+# REALM 2026 archival short-paper camera-ready packet
 
-Prepared 2026-07-20 for the direct OpenReview submission. This document is a
+Updated 2026-09-09 for OpenReview submission 111's camera-ready revision. This document is a
 paste-ready draft, not a substitute for author/admin confirmation. Values under
 “User-only administrative fields” must be completed by the submitting authors.
 
@@ -9,8 +9,8 @@ paste-ready draft, not a substitute for author/admin confirmation. Values under
 - Venue: REALM @ EMNLP 2026
 - Track: archival short paper, direct submission
 - OpenReview venue: `EMNLP 2026 Workshop REALM`
-- Direct deadline: 2026-08-05, 23:59 Anywhere on Earth (UTC-12)
-- OpenReview UTC equivalent: 2026-08-06, 11:59 UTC
+- Camera-ready deadline: 2026-09-14, 23:59 Anywhere on Earth (UTC-12)
+- OpenReview UTC equivalent: 2026-09-15, 11:59 UTC
 - Required paper type: `Archival`
 - Source: [REALM CFP](https://realm-workshop.github.io/call_for_papers/)
 - Live form/schema: [OpenReview venue](https://openreview.net/group?id=EMNLP%2F2026%2FWorkshop%2FREALM),
@@ -20,22 +20,22 @@ paste-ready draft, not a substitute for author/admin confirmation. Values under
 
 ### Title
 
-When Agentic Reasoning Fails to Pay Off: A Negative Result on Selective Routing in Financial Question Answering
+Capability Is Not Complementarity: A Routing Feasibility Study in Financial Question Answering
 
 This is the plain-Unicode metadata form of the title in `main.tex`; do not
 paste the LaTeX line-break command into OpenReview.
 
 ### Abstract
 
-Iterative language-model agents spend additional inference in the hope of recovering errors made by simpler readers. We test a necessary precondition for that trade-off: whether the iterative expert is actually complementary. In an initial controlled-evidence development study, only 10 of 200 routing examples were ReAct-only successes, versus 42 Static-only successes; the documented fallback gate then escalated 70% of cases and reduced exact accuracy from 0.395 to 0.295. Because a trace audit exposed unequal answer and context contracts, we ran a prospectively frozen corrective study on 150 fresh items. Both arms used the same model, final-answer parser and scorer, retrieval API, and evidence, context, and output ceilings; every ReAct row was verified to produce the required first Search and observe evidence. Static scored 0.342 versus ReAct's 0.257 (paired macro difference −0.085, 95% CI [−0.147, −0.025]), with 21 versus five unique exact successes. ReAct used more calls and time but fewer input tokens and dollars. These are development-only results for bounded workflows, not a universal claim against agents. We followed the gate and left the 900-example final partition unexecuted. Routing studies should audit expert complementarity and evaluation contracts before optimizing when to escalate.
+Selective routing is useful only when an expensive branch solves cases that a cheaper branch misses. We call this prerequisite expert complementarity and ask whether a capable iterative agent actually provides it. In a prospectively frozen financial question answering study, we compare Static with bounded ReAct across multiple capability tiers. Within each tier, the arms share the model, answer contract, retrieval interface, scoring, and resource limits. A stronger model removes ReAct's average deficit and brings it to parity with Static, showing that relative performance depends on model choice. Yet Static and ReAct still succeed on nearly the same items. Across 150 shared items per tier, ReAct adds only one or two unique exact successes; oracle quality headroom point estimates are at most 1.7 points, while ReAct takes 2.1 to 2.6 times as long. A stability check preserves this pattern. Capability and complementarity are therefore distinct: improving an expensive branch can make it competitive without making it useful for routing. Evaluation contracts should be harmonized and paired complementarity audited before training a selector. This result concerns bounded ReAct over controlled benchmark evidence, not iterative agents in general.
 
-This is a plain-text rendering of `sections/abstract.tex`; the content and
-numbers match the manuscript. It is 198 words under the repository's word
-counting check and stays below the ACL 200-word limit.
+This is a plain-text rendering of `sections/abstract.tex`; the content matches
+the manuscript, uses a compact set of main study figures, and stays below the
+ACL 200-word limit.
 
 ### TL;DR
 
-A prospective corrective development study found bounded ReAct less accurate than Static under matched answer contracts, leaving no evidence that a new router should be fit.
+A three-tier prospective study found that capability can erase ReAct's average deficit without creating the unique successes needed for useful routing.
 
 ### Keywords
 
@@ -49,36 +49,43 @@ Archival
 
 This paper makes three scoped contributions:
 
-1. It documents a failed quality–cost gate for selective routing and identifies
-   measured expert complementarity as a prerequisite for a useful fallback.
-2. It reports a fresh, prospectively frozen corrective development comparison
-   that harmonizes the model, final-answer/parser/scorer path, retrieval API,
-   and resource ceilings while explicitly measuring the remaining retrieved-
-   dossier difference (Static averaged 2.87 retrievals versus ReAct's 1.04).
-3. It provides an auditable negative result and a provider-free anonymous
-   artifact that recomputes aggregate statistics and sanitized telemetry without
-   exposing answers, raw traces, credentials, datasets, or the sealed final
-   partition.
+1. It distinguishes model capability from expert complementarity and formalizes
+   paired oracle headroom as a feasibility audit before router optimization.
+2. It reports a prospectively frozen GPT-4o-mini/Luna/Terra comparison on items
+   unused by the earlier studies and stopped freezes,
+   under a shared strict action transport, scorer, retrieval API, and resource
+   ceilings, including cross-tier interactions fixed before scoring.
+3. It preserves a matched corrective study and the original selector study as
+   supporting and pilot evidence, and provides a provider-free anonymous
+   artifact without answers, raw traces, credentials, datasets, or the sealed
+   final partition.
 
-The paper does not claim independent preregistered confirmation, pure reasoning
-over identical dossiers, a router trained/evaluated on V2, human adjudication,
-or universal agentic failure.
+The paper does not claim pure reasoning over identical dossiers, a router
+trained or evaluated on the main outcomes, human adjudication, a monotonic
+general model-capability scale, or universal agentic failure.
 
 ### Limitations statement
 
 The study measures orchestration over benchmark-provided evidence, not
 end-to-end retrieval, complete filings, OCR, or missing evidence. All reported
-samples are development evidence; the 900-item final partition was not executed
-or scored. V2 was frozen before inference but designed after the original study
-and a failed first corrective freeze, so it is prospective corrective evidence,
-not an independent preregistered confirmation. The arms share model,
-final-answer/parser/scorer path, retrieval API, and resource ceilings, but not
-identical retrieved dossiers; this is an end-to-end retrieval-policy comparison.
-Provider behavior, pricing, and latency may change, and stronger or differently
-designed agents may behave differently. The deterministic trace audit is not
-human adjudication; its semantic candidates remain unresolved. FinDER is
-secondary because it lacks human-validated objective labels. No router is fit
-or evaluated on V2; its oracle union is diagnostic only.
+samples are development evidence; the protected final partition was not
+executed or scored. The arms share model, action/scorer path, retrieval API, and
+resource ceilings, but not identical retrieved dossiers. The three provider
+tiers are not a general monotonic capability scale. Provider behavior, pricing,
+and latency may change, and stronger or differently designed agents may behave
+differently. Reasoning was disabled, and nonzero reasoning remains an untested
+boundary. FinQA and ConvFinQA accuracy is near floor; TAT-QA is higher, but not
+a deployment-realistic operating point, so complementarity at higher accuracy
+is unresolved. Temperature and top-p used provider defaults and deterministic
+generation is not guaranteed; a same-manifest different-seed check provides
+one stability observation, not full variance characterization. Two prospective
+action-transport freezes stopped before the successful run; no partial outcomes
+were analyzed and all touched items were excluded. The deterministic trace
+audit is author review rather than independent human adjudication; its semantic
+candidates remain unresolved.
+FinDER is secondary because it lacks human-validated objective labels. No
+router is fit or evaluated on the main outcomes; its oracle union is diagnostic
+only.
 
 ### Ethics statement
 
@@ -90,46 +97,63 @@ as evidence of financial reliability. We discuss the risk that an agentic QA
 system could be over-trusted and therefore keep the claims conditional on the
 tested models, policies, evidence, and scoring contracts. Final-partition
 identifiers were used only for overlap exclusion; no final example was rendered,
-executed, or scored. No experimental provider calls were made during release QA,
-and no human adjudication has been completed or represented as completed.
+executed, or scored. Artifact validation and post-study release QA make no
+provider calls, and no human adjudication has been completed or represented as
+completed.
 
 ### AI-assistance disclosure
 
-AI assistance was used to inspect repository documentation, draft and edit the
-submission packet/checklist, perform source-level consistency checks, and
-orchestrate provider-free project compilation and validation. No experimental
-model/API calls, final-example access, new labels, or new experimental results
-were generated during this preparation. The authors retain responsibility for
-the manuscript, data provenance, scientific claims, ethics answers, and final
-OpenReview submission.
+AI assistance was used to inspect repository documentation, design and execute
+prospectively frozen development experiments, draft and edit the manuscript and
+submission materials, and perform source-level consistency, compilation, and
+artifact-validation checks. The protected final partition was not accessed
+beyond identifier-only overlap exclusion, and AI assistance did not create
+human labels or independent adjudication. The author reviewed the resulting
+claims and retains responsibility for the manuscript, data provenance,
+scientific conclusions, ethics answers, and final OpenReview submission.
 
 ### Reproducibility / artifact statement
 
-An anonymous, provider-free artifact accompanies the source release where the
-submission workflow permits supplementary material. It contains public
+A provider-free artifact is publicly available at
+`https://github.com/rishisim/nexus/tree/realm-emnlp-2026-camera-ready`
+under `paper/realm2026/artifact`.
+It contains public
 protocol inputs, aggregate analyses, model/price snapshots, prompt/scorer
-snapshots, development-only manifests, and a sanitized 1,350-row metric and
-telemetry ledger, including all 300 harmonized-v2 arm rows. Its offline
-validator recomputes headline macros, complementarity counts, treatment
-integrity, anonymity checks, and package hashes. It excludes benchmark data,
+snapshots, development-only manifests, the completed three-tier aggregate, and
+a sanitized 1,350-row metric and telemetry ledger for the earlier studies. It
+also includes 900 identifier-free paired metric records from the capability
+study and seed check, plus the exact headroom/interval analysis code. Its
+offline validator recomputes both capability runs' exact matrices,
+Clopper–Pearson intervals, continuous native-quality headroom and paired
+bootstrap intervals, alongside earlier headline macros, treatment integrity,
+anonymity checks, and package hashes. It excludes benchmark data,
 answers, raw traces, credentials, provider responses, final identifiers and
 outcomes, and all build products; it cannot rerun a model or scorer without
 withheld answer/gold text. The repository license is MIT, upstream benchmark
 and provider terms remain applicable, and
 `paper/realm2026/artifact/LICENSES.md` records the distribution boundary.
 
-The live direct OpenReview schema currently exposes a required PDF field but no
-dedicated artifact field. Do not add a public or author-identifying URL to the
-anonymous paper; confirm with the venue whether an anonymous supplementary or
-artifact upload is accepted.
+The camera-ready paper links to this tagged repository snapshot because the
+direct OpenReview form did not expose a dedicated artifact field.
 
-## User-only administrative fields
+## Author metadata
+
+- **Author:** Rishi N. Simhadri (sole author, matching the current OpenReview record)
+- **Affiliation used in the manuscript:** The University of Texas at Dallas,
+  Richardson, TX, USA
+- **OpenReview check:** the active preferred profile lists Computer Science at
+  the University of Texas at Dallas, a confirmed preferred institutional email,
+  and an ORCID. The camera-ready form currently shows the sole author and
+  `Archival`, with the cross-submission field blank.
+- **Still author-only:** confirm that this affiliation wording, the blank
+  cross-submission field, and the corresponding-author designation are intended.
+
+## Remaining user-only administrative fields
 
 Do not infer or fill these from the repository:
 
-- **Authors and affiliations:** final author list/order, full names, exact
-  affiliations/addresses, emails, OpenReview profile IDs, and corresponding
-  author.
+- **Author confirmation:** exact email, OpenReview profile ID, ORCID,
+  corresponding-author designation, and the manuscript affiliation wording.
 - **Conflicts:** institutional, advisor/advisee, collaboration, employment,
   and any venue-specific conflict declarations for every author.
 - **Reviewer nomination:** at least one eligible author profile to serve as a
@@ -145,7 +169,7 @@ Do not infer or fill these from the repository:
   if OpenReview presents fields beyond the current live schema; the keyword
   draft above is a recommendation, not an inferred author decision.
 - **Preprint and supplementary uploads:** choose any preprint status and confirm
-  whether an anonymous software/data/artifact upload is available or desired.
+  whether a separate software/data/artifact upload is available or desired.
 - **Licenses:** confirm acceptance of the OpenReview note license shown by the
   live schema (CC BY 4.0), the repository MIT license, and all upstream dataset
   and provider terms.
@@ -160,5 +184,5 @@ Do not infer or fill these from the repository:
 1. The author-only fields above must be completed and checked by the authors.
 2. The PDF/artifact/test validation block in the release checklist must pass;
    no release check may call a provider or access the final partition.
-3. The final OpenReview form must preserve the manuscript's anonymous title,
-   abstract, archival status, and scientific boundaries.
+3. The final OpenReview form must preserve the manuscript's title, abstract,
+   sole-author identity, archival status, and scientific boundaries.

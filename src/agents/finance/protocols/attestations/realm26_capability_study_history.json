@@ -1,0 +1,61 @@
+{
+  "attempts": [
+    {
+      "completed_provider_call_count": 34,
+      "completed_provider_spend_usd": 0.022864446,
+      "excluded_touched_examples": {
+        "convfinqa": [
+          {"example_id": "convfinqa583", "index": 583},
+          {"example_id": "convfinqa578", "index": 578},
+          {"example_id": "convfinqa692", "index": 692}
+        ],
+        "finqa": [],
+        "tatqa": [
+          {"example_id": "a3ca1acfa5687eec00ab3bbc3660b0fc", "index": 973}
+        ]
+      },
+      "failure": {
+        "action_schema": "search",
+        "dataset": "tatqa",
+        "error": "Provider returned malformed structured output",
+        "error_type": "CapabilityProviderError",
+        "framework": "react",
+        "tier": "terra"
+      },
+      "final_partition_touched": false,
+      "freeze_commit": "ddb2436ba390bbe4891b8738cad7a2cf47ff370a",
+      "outcomes_analyzed": false,
+      "scheduled_episode_count": 900,
+      "status": "prospectively_stopped",
+      "successful_episode_count": 23,
+      "unresolved_call_maximum_reservation_usd": 0.0124344
+    },
+    {
+      "completed_provider_call_count": 7,
+      "completed_provider_spend_usd": 0.00574915275,
+      "excluded_touched_examples": {
+        "convfinqa": [],
+        "finqa": [],
+        "tatqa": [
+          {"example_id": "f60a139759133bce1d6ff233f60a6adb", "index": 1409}
+        ]
+      },
+      "failure": {
+        "action_schema": "search",
+        "dataset": "tatqa",
+        "error": "Provider returned malformed structured output: not_exactly_one_json_value",
+        "error_type": "CapabilityProviderError",
+        "framework": "react",
+        "tier": "luna"
+      },
+      "final_partition_touched": false,
+      "freeze_commit": "7639effef8d3eab9f06cca1c3b4e673c5bf14b4c",
+      "outcomes_analyzed": false,
+      "scheduled_episode_count": 900,
+      "status": "prospectively_stopped",
+      "successful_episode_count": 5,
+      "unresolved_call_maximum_reservation_usd": 0.00124344
+    }
+  ],
+  "schema_version": "realm26-capability-study-history-v1"
+}

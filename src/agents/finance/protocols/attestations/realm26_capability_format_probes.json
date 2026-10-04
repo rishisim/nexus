@@ -1,0 +1,28 @@
+{
+  "actual_successful_probe_spend_usd": 0.00271458,
+  "attempt_count": 4,
+  "catalog_queried_at_utc": "2026-08-02T16:40:10Z",
+  "completed_at_utc": "2026-08-02T18:12:17Z",
+  "cumulative_successful_probe_count": 27,
+  "current_freeze_actual_spend_usd": 0.0009945045,
+  "failed_attempt_conservative_allowance_usd": 0.001213663,
+  "failed_attempt_reason": "unsupported_string_length_keyword_in_common_provider_schema",
+  "process_checks": [
+    "one complete action-tool arguments object",
+    "exactly_one_tool_call_and_no_assistant_text",
+    "no trailing or second arguments object",
+    "finish_reason_tool_calls",
+    "provider_openai",
+    "requested_model_identity",
+    "complete_token_and_cost_telemetry",
+    "zero_reasoning_tokens",
+    "authorized_reasoning_parameter_policy"
+  ],
+  "current_freeze_contract_change": "one required strict function-tool call carrying the shared action, argument, and answer object",
+  "schema_version": "realm26-capability-format-probes-v1",
+  "schemas": ["finish", "search", "react"],
+  "status": "passed",
+  "study_examples_consumed": 0,
+  "successful_probe_count": 9,
+  "tiers": ["control", "luna", "terra"]
+}

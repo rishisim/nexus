@@ -1,29 +1,35 @@
 \section*{Limitations}
 
 \paragraph{Evidence and inference scope.}
-We measure orchestration over benchmark-provided evidence, not end-to-end RAG,
-complete filings, OCR, or missing evidence. All reported samples are
-development evidence. Final identifiers were used only for overlap exclusion;
-no final example was executed or scored, so there is no confirmatory accuracy
-claim. V2 was frozen before its inference calls but designed after inspecting the
-original study and failed first corrective freeze; it is prospective corrective
-evidence, not an independent preregistered confirmation.
+We evaluate orchestration over evidence supplied by the benchmarks, not full RAG,
+complete filings, OCR, or missing evidence. All samples are development
+evidence; final identifiers served only for overlap exclusion, and final
+content was never loaded or scored. No router is evaluated on the main
+outcomes; the oracle is diagnostic.
 
 \paragraph{Model, policy, and scoring dependence.}
-Provider behavior, latency, and prices change. V2 uses one inexpensive 2024
-OpenAI model and one retrieval-first bounded ReAct policy; stronger or
-differently designed agents may behave differently. Dataset-native metrics may
-miss semantically valid explanations or accept normalization artifacts. The
-trace audit is not human validation, and its semantic candidates remain
-unresolved; v2 instead uses fresh objective-dataset items under a shared strict
-final-answer contract. Its arms share retrieval interfaces and ceilings, not
-identical retrieved dossiers, so the estimate includes retrieval-policy effects.
+The three provider product tiers do not constitute a general capability scale,
+and Luna is not monotonically better on these tasks. We test one prompt family,
+one bounded ReAct policy that retrieves before answering and has reasoning
+disabled, one lexical
+evidence environment, and native metrics. Nonzero reasoning is the key untested
+boundary and requires a prospectively frozen later study, not a post hoc arm. The
+arms share contracts and ceilings, not identical dossiers, so effects include
+differences in retrieval policy rather than pure iteration. Provider behavior,
+prices, and latency can change. Although the request seed was fixed,
+temperature and top $p$ used provider defaults and determinism was not
+guaranteed; one replication with a different seed does not characterize full
+generation variance.
 
-\paragraph{Benchmark and system scope.}
-FinDER remains secondary because it lacks human-validated objective labels.
-The public English benchmarks do not represent private data, multilingual
-reporting, or investment-decision safety. Query parsing, ranking, dossier
-construction, and output parsing are deterministic workflow components, not
-autonomous agents; our claim concerns selection between one-call Static and
-bounded iterative reasoning. V2 measures expert complementarity only: no new
-router is trained or evaluated on those outcomes.
+\paragraph{Operating point.}
+FinQA and ConvFinQA accuracy is near floor. TAT-QA is higher (main run F1
+from 0.314 to 0.493), yet continuous headroom is at most 2.9 points (2.5 in the seed
+check). Complementarity may therefore emerge at realistic deployment accuracy
+levels that this study does not reach.
+
+\paragraph{Public-benchmark exposure.}
+All three benchmarks are public and may have appeared in model pretraining or
+other post-training data. Model providers do not expose sufficient provenance
+to test memorization. Supplying controlled evidence does not remove this risk,
+so absolute scores and tier differences should not be read as performance on
+previously unseen financial documents.

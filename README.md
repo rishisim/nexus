@@ -12,15 +12,17 @@ token, latency, and dollar cost in controlled-evidence financial QA. It compares
 Direct, CoT/PoT, Static Nexus, bounded ReAct, and a pre-generation selector on
 FinanceBench, FinDER, FinQA, TAT-QA, and ConvFinQA.
 
-The repaired 250-example development gate produced a negative result: CoT/PoT
-formed the strongest observed quality-cost point, while ReAct and Selective
-Nexus were dominated. The prespecified gate therefore stopped the study before
-the disjoint 900-example final manifest was opened. These are development-only
-findings, not confirmatory benchmark claims.
+The latest manuscript, **Capability Is Not Complementarity: A Routing Feasibility
+Study in Financial Question Answering**, centers on the completed three-tier
+capability study and its different-seed stability check. The original
+250-example selector study and subsequent replications remain supporting
+evidence. All reported results are development-only; the protected final
+manifest remains unexecuted and unscored.
 
-The active publication target is a four-page archival short paper at
-[REALM 2026](https://realm-workshop.github.io/call_for_papers/). Paper status and
-the submission plan live in [`paper/realm2026/`](paper/realm2026/).
+`main` is the canonical branch for the integrated code and camera-ready source.
+Paper status and scientific boundaries live in
+[`paper/realm2026/README.md`](paper/realm2026/README.md).
+Branch recovery instructions live in [`PROJECT_STATE.md`](PROJECT_STATE.md).
 
 ## Repository map
 
